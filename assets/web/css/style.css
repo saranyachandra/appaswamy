@@ -1,0 +1,200 @@
+/*-------------------------------------------------------------
+Template Name: Appaswamy Realestate
+Template Type: Realestate
+Author Name: Yungmedia
+Author URL: https://yungmedia.com
+Version: 1.0
+--------------------------------------------*/
+
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap');
+@font-face {
+    font-family: 'Objectivity ExtraBold';
+    font-style: normal;
+    font-weight: normal;
+src: url(../fonts/Objectivity-ExtraBold.woff) format('woff');
+}
+@font-face {
+    font-family: 'Objectivity Bold';
+    font-style: normal;
+    font-weight: normal;
+src: url(../fonts/Objectivity-Bold.woff) format('woff');
+}
+    
+body{background: #FFF;font-family: 'Manrope', sans-serif;}
+.top{position: absolute;
+    top: 0px;
+    z-index: 1000;
+    width: 100%;
+    background: #FFF;}
+.logo{}
+.backgroundVideo {
+      position: fixed;
+      right: 0;
+      bottom: 0;
+      min-width: 100%;
+      min-height: 100%;
+   }
+.mobile{ padding-left:55px; padding-bottom:10px;padding-bottom: 6px;background:url("../images/phone-icon.jpg") no-repeat; line-height:20px }.mobile a{ color: #333940; font-size:16px; text-decoration:none; font-weight:700;}.mobile span{ font-size:14px;font-weight:500;color:#777879}
+.menu{}
+.menu ul{margin: 0px;}
+.menu li{list-style: none;float: left;font-weight: 900;font-size: 16px;padding: 25px 25px 25px 0px;}
+.aboutus{background:#fdf6e5;}
+.aboutus h2{color:#333940;font-size:34px;font-family: 'Objectivity ExtraBold';font-weight: 800; text-transform:uppercase;}
+.aboutus h3{color:#333940;font-size:24px;font-family: 'Objectivity Bold';font-weight: 800; text-transform:uppercase;padding-bottom: 15px;}
+.aboutus h3 span{color:#707479;font-size:13px;font-family: 'Manrope';font-weight: 500; text-transform:uppercase;}
+.aboutus p{color: #707479;font-size: 16px;font-family: 'Manrope'; font-weight: 500;line-height: 26px;}
+.readmore{width: 200px;border: solid 2px #d20023; text-align: center;color: #d20023;font-family: 'Manrope';font-weight: 800;border-radius: 10px;padding: 15px 20px 15px 20px;margin-top: 27px;font-size: 17px;}
+.aboutus a{ text-decoration:none;}
+.ptb56{padding-top:56px; padding-bottom:56px;}
+.pb40{padding-bottom:40px;}
+.projectslist{background:#FFF;}
+.projectslist h2{color:#333940;font-size:34px;font-family: 'Objectivity ExtraBold';font-weight: 800; text-transform:uppercase;}
+.projectslist h3{color:#333940;font-size:24px;font-family: 'Objectivity Bold';font-weight: 800; text-transform:uppercase;padding-bottom: 15px;}
+.projectslist h3 span{color:#707479;font-size:13px;font-family: 'Manrope';font-weight: 500; text-transform:uppercase;}
+.projects-item{ border:solid 1px #e8e8e8;}
+.viewallprojects{width: 200px;margin: 0px auto;border: solid 2px #d20023; text-align: center;color: #d20023;font-family: 'Manrope';font-weight: 800;border-radius: 10px;padding: 15px 20px 15px 20px;margin-top: 50px;font-size: 17px;}
+.project-title{background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 5%, rgba(0, 0, 0, 0.6) 79%, rgba(0, 0, 0, 0.86) 114%); position: relative;top: 78%;
+   padding: 0px 0px 12px 15px;}
+.project-title h3{ margin-bottom:0px; padding-bottom:0px; text-transform:capitalize;}
+.project-title p{ margin-bottom:0px; padding-bottom:0px; }
+.img-hol{height:286px; background:url(../images/Azure-The-Oceanique-thumb.jpg) center center no-repeat; background-size:cover;width:100%;}
+.img-hol2{height:286px; background:url(../images/trellis-thumb.jpg) center center no-repeat; background-size:cover;width:100%;}
+.img-hol3{height:286px; background:url(../images/habitat-thumb.jpg) center center no-repeat; background-size:cover;width:100%;}
+.location{}
+.viewallprojects a{ text-decoration:none;color: #d20023;}
+.projectshortdetails{ padding:24px 20px 9px 20px;}
+.projectshortdetails ul{ list-style:none; padding:0px;font-family: Manrope;}
+.projectshortdetails li{ padding-left:40px ;width:50%; margin-bottom:17px; float:left; color:#404040; font-weight:bold; font-size:14px; }
+.projectshortdetails li span{color:#7e7e7e; font-size:11px;}
+.app{background:url(../images/apartments-type.jpg) no-repeat center left;}
+.Possession{background:url(../images/Possession.jpg) no-repeat center left;}
+.price{background:url(../images/ruppes.jpg) no-repeat center left;}
+
+.status{background:url(../images/project-status.jpg) no-repeat center left;}
+.hospitality{ background:#f5f6f7;}
+.hospitality h2{color:#333940;font-size:34px;font-family: 'Objectivity ExtraBold';font-weight: 800; text-transform:uppercase;}
+.hospitality h3{color:#333940;font-size:28px;font-family: 'Objectivity Bold';font-weight: 800; text-transform:uppercase;padding-bottom: 0px; padding-top:10px;}
+.hospitality h3 span{color:#707479;font-size:13px;font-family: 'Manrope';font-weight: 500; text-transform:uppercase;}
+.hospitality p{color: #707479;font-size: 15px;font-family: 'Manrope';
+font-weight: 500;line-height: 24px;}
+.hospitality a{ text-decoration:none;}
+.Press{background:#FFF;}
+.Press h2{color:#333940;font-size:34px;font-family: 'Objectivity ExtraBold';font-weight: 800; text-transform:uppercase;}
+
+.blogtag1 {
+    position: relative;
+    z-index: 1000;
+    background: #d20023;
+    color: #FFF;
+    text-transform: uppercase;
+    padding: 3px 8px 4px 8px;
+    top: -31px;
+    width: 80px;
+}
+.blogtitle{padding: 3px 10px 3px 10px;
+    font-weight: 700;
+    height: 87px;margin-top: -20px;}
+.blogtitle h3{color:#333940;font-size:24px;font-family: 'Objectivity Bold';font-weight: 800; text-transform:uppercase;padding-bottom: 15px;}
+.bloglinks{padding: 10px 10px 10px 10px}
+.blog-date{ color:#707479; font-size:14px;}
+.blog-links{ float:right;}
+.blog-links a{ color:#d20023; text-decoration:none; font-weight:800; }
+.blogtag2{}
+.contactus{background:#f5f6f7; position:relative}
+.contact-address{
+    width: 320px;
+   
+    background: #FFF;
+    padding: 30px; margin:0px auto;box-shadow: 0 10px 15px 0 rgba(0, 0, 0, 0.3);
+  background-color: #fff;}
+  .contact-address p{ font-weight:500; margin-bottom:5px;}
+  .contact-address h4{ color:#333940; font-weight:800;}
+   .contact-address a{ text-decoration:none;}
+.mapbg{ background:url(../images/map.jpg) no-repeat top left; background-size:cover; padding:20%; }
+.homepage-contact-form{ padding:60px 30px 30px 30px;}
+.homepage-contact-form p{ font-size:18px; color:#707479;}
+.homepage-contact-form select {
+       padding-left: 10px; padding-right:10px;
+    word-wrap: normal;
+    width: 100%;
+    height: 55px;
+}
+.form-control{ margin-bottom:30px; height:55px ;border: solid 1px #707479;}
+.redbotton{ background:#d20023; width:100%; font-weight:bold; border: solid 1px #d20023 }
+footer{ background:#2a3036;padding: 36px 0px 0px 0px;}
+footer h3{color:#FFF; font-size:17px}
+footer p{color: #7e8082;
+    font-size: 13px;
+    line-height: 24px;
+    margin-bottom: 10px;}
+footer a{ text-decoration:none; color:#7e8082; font-size:14px; padding-right:10px;}
+footer a:hover{ color:#7e8082; font-size:14px; padding-right:10px;}
+.footer-bottom{ color:#7e8082;margin-top:30px; border-top:solid 1px #4a4a4a; padding:10px 0px 10px 0px;}
+.zoom-effect-1 img,
+.zoom-effect-2 img,
+.opacity-effect img,
+.blur-effect img,
+.grayscale-effect img{
+   transition: all .4s linear;
+    -webkit-transition: all .4s linear;
+    -moz-transition: all .4s linear;
+    -o-transition: all .4s linear;
+}
+.effect-image-1{
+	position: relative;
+	display: block;
+}
+/*!-- ovarlay zoom in effect --*/
+	.zoom-effect-1{
+		overflow: hidden;
+	}
+	.zoom-effect-1 img{
+		transform: scale(1);
+		-webkit-transform: scale(1);
+	}
+	.zoom-effect-1:hover img{
+		transform: scale(1.1);
+		-webkit-transform: scale(1.1);
+	}
+
+
+
+@media (max-width: 767px){
+	.effect-image-1{
+		margin:30px 0px;
+	}
+}
+.caption-top {
+    position: absolute;
+    bottom: 0px;
+    width: 420px;
+    background: rgb(0 0 0 / 83%);
+    color: #FFF;
+}
+.caption-top h2{ font-size:28px; padding-top:30px;}
+.carousel-item {
+  height: 100vh;
+  min-height: 350px;
+  background: no-repeat center center scroll;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+.videobg{height:630px;}
+.video{ width:100%;}
+.video-container {
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  background: #fdf6e5;
+}
+
+video {
+  object-fit: cover; // Set the magic
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+}

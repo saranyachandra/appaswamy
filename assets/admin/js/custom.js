@@ -47,7 +47,7 @@
                         {
                            if(response.status == 'success')
                            {                                
-                                window.location.href = 'admin/dashboard';                           
+                                window.location.href = baseURL+'Admin/dashboard';                           
                             }  
                                
                             else 
@@ -391,7 +391,8 @@ $(document).ready(function(){
                         {
                            if(response.status == 'success')
                            {                             
-                                $('#success_msg').show();                                                          
+                                $('#property_form').trigger("reset");
+                                $('#success_msg').show();
                             }   
                             else 
                             {                            

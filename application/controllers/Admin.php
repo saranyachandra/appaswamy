@@ -331,7 +331,7 @@ class Admin extends CI_Controller {
 		$this->load->view('admin/create_property',$result);
 	}
 
-	public function insert_property1()
+	public function insert_property()
 	{		
 		$response = array();
            if($this->Propertymodel->property())
@@ -346,7 +346,7 @@ class Admin extends CI_Controller {
         echo json_encode($response);
 	}
 
-	public function insert_property()
+	public function insert_property1()
 	{
 		 			$pgm_schedule1 = array();
                     $count = count($_FILES['banner_img1']['name']); 
@@ -415,52 +415,5 @@ class Admin extends CI_Controller {
                     $this->db->insert('property_floorplan',$data); 
 
 	}
-	//not use in project but reference
-	public function insert_multiple_img_dynamic()
-	{	
-		$pgm_schedule = array();
-
-                    $no_of_days = $this->input->post('no_of_days');
-
-                    for($Tower=1; $Tower<=$no_of_days; $Tower++)
-                    {                   
-                        $no_of_events = count ($this->input->post('tower'.$Tower.'_name'));
-                        
-                        for($i=0; $i<$no_of_events; $i++)
-                        {
-                           
-                            $_FILES['file']['name']     = $_FILES['tower'.$Tower.'_img']['name'][$i]; 
-                            $_FILES['file']['type']     = $_FILES['tower'.$Tower.'_img']['type'][$i]; 
-                            $_FILES['file']['tmp_name'] = $_FILES['tower'.$Tower.'_img']['tmp_name'][$i]; 
-                            $_FILES['file']['error']    = $_FILES['tower'.$Tower.'_img']['error'][$i]; 
-                            $_FILES['file']['size']     = $_FILES['tower'.$Tower.'_img']['size'][$i];                             
-
-                            $config1['upload_path'] = './assets/admin/uploads/floor_plan';   
-                            $config1['allowed_types'] = 'jpg|jpeg|bmp|png';  
-                            $config1['max_size'] = '30720';   
-                            $config1['encrypt_name'] = TRUE;   
-
-                            $this->load->library('upload', $config1); 
-                            $this->upload->initialize($config1);
-                            $this->upload->do_upload('file');                               
-                            $fileData = $this->upload->data();
-                            $uploadData[$i]['file_name'] = $fileData['file_name']; 
-
-                            	array_push($pgm_schedule, array(
-								'img'       =>  $fileData['file_name'], 
-							));
-
-                           	$json_data = json_encode($pgm_schedule); 
-
-                            $data = array(  'property_id'     =>  10,
-                                            'floor_name'      =>  $this->input->post('tower'.$Tower.'_name')[$i],
-                                            'floor_title'     =>  $this->input->post('tower'.$Tower.'_title')[$i],
-                                            'floor_img'       =>  $json_data, 
-                                         );
-                            
-                        } 
-                        $this->db->insert('property_floorplan',$data);  
-                    }
-
-    }
+	
 }

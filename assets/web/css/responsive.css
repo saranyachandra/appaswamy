@@ -1,4 +1,15 @@
 @media only screen and (max-width: 800px)  {
+.header-container {
+    position: absolute;
+    width: 100%;
+    z-index: 11;
+	height:60px;
+    background: #FFF;
+}.logo {
+    position: relative;
+    z-index: 1000;
+    padding: 5px 0px 5px 0px;
+}
 .aboutus h3 {
     color: #333940;
     font-size: 24px;
@@ -114,5 +125,80 @@
     overflow: hidden;
 	background:#fdf6e5;
     
+}
+.enquirenow-bt{ background:#d20023; color:#FFF; border-radius:3px; margin-top:20px;  color:#333940; padding:8px 0px 8px 0px; margin-bottom:20px;}
+.overdetails {
+    padding-left: 50px;
+    margin-bottom: 37px;
+    color: #404040;
+    font-family: 'Objectivity Bold';
+    font-weight: 900;
+    font-size: 20px;
+    padding-bottom: 10px;
+    border-bottom: solid 1px #CCC;
+}
+.Possession {
+    background: url(../images/Possession.jpg) no-repeat top left;
+}
+.app {
+    background: url(../images/apartments-type.jpg) no-repeat top left;
+}
+.price {
+    background: url(../images/ruppes.jpg) no-repeat top left;
+}
+.status {
+    background: url(../images/project-status.jpg) no-repeat top left;
+}
+.pro-location {
+    background: url(../images/location-black1.webp) no-repeat top left;
+}
+.fearures li{ color:#707479; float:left; width:50%; background:#FFF; border:10px solid #f5f6f7; padding:33px 10px 32px 10px; text-align:center; height:208px;}
+.pro-big-title h2 {
+    color: transparent;
+    -webkit-text-stroke: 0.5px #635959;
+    text-stroke: 1px #cbcbcb;
+    text-shadow: none;
+    opacity: 0.9;
+    font-size: 58px;
+    font-family: 'Objectivity ExtraBold';
+    text-transform: uppercase;
+    letter-spacing: 7px;
+    line-height: 8px;
+    padding-top: 0px;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+}
+.project-overview h4 {
+    font-family: 'Manrope';
+    margin-bottom: 8px;
+    font-weight: 900;
+    font-size: 16px;
+    color: #333940;
+}
+.project-menu-active {
+	font-size: 14px !important;
+    color: #000 !important;
+    border-bottom: solid 3px #d20023;
+    font-weight: 900 !important;
+}
+.project-menus a {
+    font-size: 14px;
+    list-style: none;
+    text-decoration: none;
+    color: #797979;
+    float: left;
+    font-family: 'Manrope';
+    font-weight: 500;
+    padding-bottom: 10px;
+}
+.project-menus li {
+    list-style: none;
+    text-decoration: none;
+    color: #797979;
+    float: left;
+    font-family: 'Manrope';
+    font-weight: 500;
+    padding: 20px 20px 0px 0px;
+    margin-right: 5px;
 }
 }

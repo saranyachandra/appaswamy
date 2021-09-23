@@ -6,26 +6,6 @@ Author URL: https://yungmedia.com
 Version: 1.0
 --------------------------------------------*/
 
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap');
-@font-face {
-    font-family: 'Objectivity ExtraBold';
-    font-style: normal;
-    font-weight: normal;
-src: url(../fonts/Objectivity-ExtraBold.woff) format('woff');
-}
-@font-face {
-    font-family: 'Objectivity Bold';
-    font-style: normal;
-    font-weight: normal;
-src: url(../fonts/Objectivity-Bold.woff) format('woff');
-}
-@font-face {
-    font-family: 'BigCaslon-Rom';
-    font-style: normal;
-    font-weight: normal;
-src: url(../fonts/BigCaslon-Rom.woff) format('woff');
-}
-    
 body{background: #FFF;font-family: 'Manrope', sans-serif;}
 .top{position: absolute;
     top: 0px;
@@ -43,6 +23,7 @@ body{background: #FFF;font-family: 'Manrope', sans-serif;}
 .mobile{ padding-left:55px; padding-bottom:10px;padding-bottom: 6px;background:url("../images/phone-icon.jpg") no-repeat; line-height:20px }.mobile a{ color: #333940; font-size:16px; text-decoration:none; font-weight:700;}.mobile span{ font-size:14px;font-weight:500;color:#777879}
 .menu{}
 .menu ul{margin: 0px;font-family: 'BigCaslon-Rom';}
+.menu li{list-style: none;float: left;font-weight: 900;font-size: 15px;padding: 25px 25px 25px 0px;}
 .menu li a{list-style: none;float: left;font-weight: 900;font-size: 15px;padding: 25px 35px 25px 0px;}
 .aboutus{background:#fdf6e5;}
 .aboutus h2{color:#333940;font-size:34px;font-family: 'Objectivity ExtraBold';font-weight: 800; text-transform:uppercase;}
@@ -52,8 +33,6 @@ body{background: #FFF;font-family: 'Manrope', sans-serif;}
 .readmore{width: 200px;border: solid 2px #d20023; text-align: center;color: #d20023;font-family: 'Manrope';font-weight: 800;border-radius: 10px;padding: 15px 20px 15px 20px;margin-top: 27px;font-size: 17px;}
 .aboutus a{ text-decoration:none;}
 .ptb56{padding-top:56px; padding-bottom:56px;}
-.p30{ padding:30px;}
-.pb36{ padding-bottom:30px;}
 .pb40{padding-bottom:40px;}
 .pb20{padding-bottom:20px;}
 .projectslist{background:#333940;}
@@ -138,7 +117,7 @@ footer p{color: #7e8082;
     margin-bottom: 10px;}
 footer a{ text-decoration:none; color:#7e8082; font-size:14px; padding-right:10px;}
 footer a:hover{ color:#7e8082; font-size:14px; padding-right:10px;}
-.footer-top{ color:#7e8082;margin-bottom:30px; border-bottom:solid 1px #4a4a4a; padding:10px 0px 30px 0px;}
+.footer-top{ color:#7e8082;margin-bottom:30px; border-bottom:solid 1px #4a4a4a; padding:10px 0px 20px 0px;}
 .footer-bottom{ color:#7e8082;margin-top:30px; border-top:solid 1px #4a4a4a; padding:10px 0px 10px 0px;}
 .zoom-effect-1 img,
 .zoom-effect-2 img,
@@ -182,15 +161,7 @@ footer a:hover{ color:#7e8082; font-size:14px; padding-right:10px;}
     color: #FFF;
 }
 .caption-top h2{ font-size:28px; padding-top:30px;}
-.carousel-item {
-  height: 100vh;
-  min-height: 350px;
-  background: no-repeat center center scroll;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}
+
 .videobg{height:630px;}
 .video{ width:100%;}
 .video-container {
@@ -245,7 +216,7 @@ video {
     padding-top: 25px; }
 .blog-list h4{font-family: 'Manrope', sans-serif; color:#333940; }
 .blog-date{color:#707479;font-size:14px;}
-.blog-list a{ text-decoration:none;color:#707479;}
+.blog-list a{ text-decoration:none;}
 .blog-disc{color:#707479;font-size:16px;}
 .subscribe{box-shadow: 0 10px 15px 0 rgba(0, 0, 0, 0.16);
   background-color: #fff; padding:31px 20px 33px 20px;}
@@ -297,19 +268,6 @@ text-decoration: none;
 .footer-address  span{ color:#7e8082;font-size: 14px;
     font-weight: 500;}
 	.mb20{margin-bottom:20px;}
-
-.footer-bottom a {
-    text-decoration: none;
-    color: #7e8082;
-    font-size: 14px;
-    padding-right: 0px;
-    
-}
-
-.blog-list p{
-  color: #707479;
-}
-
 @media only screen and (max-width: 800px)  {
 	.innerpage-title h2
 {
@@ -338,4 +296,3 @@ text-decoration: none;
     margin-bottom: 20px;
 }
 	}
-

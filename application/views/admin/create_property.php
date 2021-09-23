@@ -71,6 +71,16 @@
                                                         <h4 class="card-title">Property Details</h4>
                                                     </div>
                                                     <div class="card-body">
+                                                        <div class="alert alert-success" id="success_msg" role="alert" style="display:none;" >Successfully updated
+                                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="alert alert-danger" id="error_msg" role="alert" style="display:none;" >Something went wrong please try again
+                                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
                                                         <form id="property_form" action="" method="POST" enctype="multipart/form-data">     
                                                             <div class="row">                                                       
                                                                 <div class="col-xl-2">
@@ -199,7 +209,13 @@
                                                                                                         <option value="Completed">Completed</option>
                                                                                                     </select>
                                                                                                 </div>
-                                                                                            </div>   
+                                                                                            </div>
+                                                                                            <div class="col-lg-12 mb-2">
+                                                                                                <div class="form-group">
+                                                                                                    <label class="text-label">Google Map</label>
+                                                                                                    <textarea class="form-control" name="google_map"></textarea>
+                                                                                                </div>
+                                                                                            </div>     
                                                                                         </section>
                                                                                     </div>
                                                                                 </div>
@@ -807,32 +823,7 @@ $(document).ready(function(){
 });  
  
 
-$(document).ready(function() {
-    $('#btn-add-tab').on('change',function()
-     {
-        var i = 0;
-         var selectedValue = $(this).val();  
-          $('#tab-list').html('');        //clear tab data before select option
-          $('#tab-content').html('');     
-          $('#no_of_days').val(selectedValue);
 
-          var tabID = 1;
-
-    for(i=0;i<selectedValue;i++)
-    {    
-         
-        $('#tab-list').append($('<li class="nav-item"><a class="nav-link " href="#tab' + tabID + '" role="tab" data-toggle="tab"> Tower ' + tabID + ' <br> <span id="' + tabID + '"> </span></a></li>'));  //class name - in active hide  
-
-        $('#tab-content').append($('<div class=" tab-pane fade tab_' + tabID + '" id="tab' + tabID + '">   <div id="day_' +tabID+' "> <div class="form-group col-sm-12" id="day1_dynamicadd_1"> <div class="col-lg-12 mb-2"> <div class="form-group"> <label class="text-label">Name </label> <input type="text" name="tower'+tabID+'_name[]" class="form-control" ></div> </div> <div class="col-lg-12 mb-2"> <div class="form-group"> <label class="text-label">Title </label> <input type="text" name="tower'+tabID+'_title[]" class="form-control" ></div> </div> <div class="col-lg-12 mb-2"> <div class="form-group"> <label class="text-label">Floor Images Upload </label> <input type="file" name="tower'+tabID+'_img[]" class="form-control"  accept=".jpg, .jpeg, .png" multiple> </div> </div>   </div> </div>'));
-         
-        tabID++;
-    }
-
-       i++;     
-
-     });
-   
-});
 
 //ckeditor dynamic
 

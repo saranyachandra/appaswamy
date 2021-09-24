@@ -171,12 +171,12 @@ color: #495057;
    padding: 0px 0px 12px 15px;}
 .project-title h3{ margin-bottom:0px; padding-bottom:0px; text-transform:capitalize;}
 .project-title p{ margin-bottom:0px; padding-bottom:0px; }
-.img-hol{height:286px; background:url(../images/Azure-The-Oceanique-thumb.jpg) center center no-repeat; background-size:cover;width:100%;}
+.img-hol{height:286px;}
 .img-hol2{height:286px; background:url(../images/trellis-thumb.jpg) center center no-repeat; background-size:cover;width:100%;}
 .img-hol3{height:286px; background:url(../images/habitat-thumb.jpg) center center no-repeat; background-size:cover;width:100%;}
 .location{}
 .viewallprojects a{ text-decoration:none;color: #d20023;}
-.projectshortdetails{ padding:24px 20px 9px 20px;}
+.projectshortdetails{ padding:44px 20px 9px 20px;}
 .projectshortdetails ul{ list-style:none; padding:0px;font-family: Manrope;}
 .projectshortdetails li{ padding-left:40px ;width:50%; margin-bottom:17px; float:left; color:#404040; font-weight:bold; font-size:14px; }
 .projectshortdetails li span{color:#7e7e7e; font-size:11px;}
@@ -418,9 +418,11 @@ text-decoration: none;
 .project-title1 {
     background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 5%, rgba(0, 0, 0, 0.6) 79%, rgba(0, 0, 0, 0.86) 114%);
     position: relative;
-    top: 78%;
+    z-index: 15;
+    bottom: 63px;
     padding: 0px 0px 12px 15px;
 }
+.project-title1 a{ text-decoration:none; color:#FFF;}
 .project-title1 h3{ margin-bottom:0px; padding-bottom:0px; text-transform:capitalize;}
 .project-title1 p{ margin-bottom:0px; padding-bottom:0px; }
 .projects-item1 {

@@ -15,6 +15,9 @@
 <link rel="stylesheet" href="<?php echo base_url('assets/web/css/style.css')?>">
 <link rel="stylesheet" href="<?php echo base_url('assets/web/css/inner-page.css')?>">
 <link rel="stylesheet" href="<?php echo base_url('assets/web/css/responsive.css')?>">
+<style type="text/css">
+   
+</style>
 </head>
 <body>
 <header class="top position-relative">
@@ -131,7 +134,30 @@
                         <!-- Begin Mailchimp Signup Form -->
 <link href="//cdn-images.mailchimp.com/embedcode/classic-10_7.css" rel="stylesheet" type="text/css">
 <style type="text/css">
+
     #mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; }
+     #mc_embed_signup .button {
+    clear: both;
+    background-color: #c3282d;
+    border: 0 none;
+    border-radius: 4px;
+    transition: all 0.23s ease-in-out 0s;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 15px;
+    font-weight: normal;
+    height: 32px;
+    line-height: 32px;
+    margin: 0 11px 0px 0;
+    padding: 0 22px;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: top;
+    white-space: nowrap;
+    width: auto;
+    float: right;
+}
     /* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
        We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
 </style>

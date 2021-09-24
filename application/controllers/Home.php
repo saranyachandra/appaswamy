@@ -25,11 +25,26 @@ class Home extends CI_Controller {
             $this->db->group_by('property_banner.property_id');         
             $this->db->where('status = 1');
 
-            $data['property'] = $this->db->get()->result();   
-           // print_r($data['property']) ;    	
+            $data['property'] = $this->db->get()->result(); 
 
 			$this->load->view('web/property',$data);
 	}
+	public function property_details($id)
+	{		
+			$property_query = "select * FROM property WHERE property_id = '$id' ";
+			$data['property_details']  = $this->db->query($property_query)->row();
+
+			$faq_query = "select * FROM property_faq WHERE property_id = '$id' ";
+			$data['property_faq']  = $this->db->query($faq_query)->result();
+
+			$banner_query = "select * FROM property_banner WHERE property_id = '$id' ";
+			$data['property_banner']  = $this->db->query($banner_query)->result();
+           
+            //print_r($data['property_banner']);
+
+			$this->load->view('web/property_details',$data);
+	}
+
 
 	public function magazine()
 	{	

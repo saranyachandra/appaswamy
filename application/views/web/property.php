@@ -117,31 +117,34 @@
                   <?php 
                     foreach($property as $details){
                       if($details->property_status == 'Ready-to-Move'){
-                  ?>
+                  ?>                
                 <div class="col-xxl-4 col-xl-4 col-lg-4  col-sm-6 col-xs-12">
-                  <div class="projects-item1">
-                    <div class="img-hol">
-                    <div class="project-title1">
-                    <h3 class="text-white"><?php echo $details->name; ?></h3>
-                    <p class="text-white">
-                      <img src="<?php echo base_url('assets/admin/uploads/property_banner/'.$details->banner_img)?>"> &nbsp; <?php echo $details->title; ?>
-                    </p>
-                    </div>
-                    </div>
-                    <div class="projectshortdetails">
-                      <ul>
+                    <div class="projects-item1">                                           
+                        <div class="img-hol">
+                          <a href="<?php echo base_url('Home/property_details/'.$details->property_id)?>">                           
+                          <img src="<?php echo base_url('assets/admin/uploads/property_banner/'.$details->banner_img)?>"  class="img-fluid">
+                          <div class="project-title1">
+                          <h3 class="text-white"><?php echo $details->name; ?></h3>
+                          <p class="text-white"><img src="<?php echo base_url('assets/web/images/location@2x.webp')?>"> &nbsp; <?php echo $details->title; ?></p>
+                          </div>
+                          </a>                           
+                        </div>  
+                                                            
+                      <div class="projectshortdetails">
+                        <ul>
                         <li class="app"><span>Apartments</span><br>
-                        2, 3 &amp; 4 BHK</li>
+                        <?php echo $details->apartment_type; ?> BHK</li>
                         <li class="Possession"><span>Possession</span><br>
-                        From Apr 2024</li>
+                        From <?php $timestamp = strtotime($details->possession); 
+                                      $new_date = date('M Y', $timestamp);  echo $new_date; ?></li>
                         <li class="price"><span>Starting from</span><br>
-                        6.81 Cr Onwards*</li>
+                        <?php echo $details->price; ?> Onwards*</li>
                         <li class="status"><span>Project Status</span><br>
-                        Underconstruction</li>
-                      </ul>
-                      <div class="clearfix"></div>
+                        <?php echo $details->property_status; ?></li>
+                        </ul>
+                        <div class="clearfix"></div>
+                      </div>
                     </div>
-                  </div>
                 </div>
                   <?php } } ?>
 
@@ -154,150 +157,38 @@
                 <h2 class="text-left pb20">Residential</h2>
                 <h5 class="text-left pb20">Residential</h5>
                 </div>
-
-                <div class="col-xxl-4 col-xl-4 col-lg-4  col-sm-6 col-xs-12">
-                  <div class="projects-item1">
-                  <div class="img-hol">
-                  <div class="project-title1">
-                  <h3 class="text-white">Azure The Oceanique</h3>
-                  <p class="text-white"><img src="<?php echo base_url('assets/web/images/location@2x.webp')?>"> &nbsp; Raja Annamalai Puram, Chennai</p>
-                  </div>
-                  </div>
-                  <div class="projectshortdetails">
-                  <ul>
-                  <li class="app"><span>Apartments</span><br>
-                  2, 3 &amp; 4 BHK</li>
-                  <li class="Possession"><span>Possession</span><br>
-                  From Apr 2024</li>
-                  <li class="price"><span>Starting from</span><br>
-                  6.81 Cr Onwards*</li>
-                  <li class="status"><span>Project Status</span><br>
-                  Underconstruction</li>
-                  </ul>
-                  <div class="clearfix"></div>
-                  </div>
-                  </div>
+                    <?php 
+                      foreach($property as $details){
+                        if($details->property_status == 'Ongoing'){
+                    ?> 
+                  <div class="col-xxl-4 col-xl-4 col-lg-4  col-sm-6 col-xs-12">
+                    <div class="projects-item1">                     
+                        <div class="img-hol">
+                          <a href="<?php echo base_url('Home/property_details/'.$details->property_id)?>"> 
+                            <img src="<?php echo base_url('assets/admin/uploads/property_banner/'.$details->banner_img)?>"  class="img-fluid">
+                          <div class="project-title1">
+                          <h3 class="text-white"><?php echo $details->name; ?></h3>
+                          <p class="text-white"><img src="<?php echo base_url('assets/web/images/location@2x.webp')?>"> &nbsp; <?php echo $details->title; ?></p>
+                          </div>
+                          </a>
+                        </div>                                         
+                      <div class="projectshortdetails">
+                        <ul>
+                        <li class="app"><span>Apartments</span><br>
+                        <?php echo $details->apartment_type; ?> BHK</li>
+                        <li class="Possession"><span>Possession</span><br>
+                        From <?php $timestamp = strtotime($details->possession); 
+                                      $new_date = date('M Y', $timestamp);  echo $new_date; ?></li>
+                        <li class="price"><span>Starting from</span><br>
+                        <?php echo $details->price; ?> Onwards*</li>
+                        <li class="status"><span>Project Status</span><br>
+                        <?php echo $details->property_status; ?></li>
+                        </ul>
+                        <div class="clearfix"></div>
+                      </div>
+                    </div>
                 </div>
-
-                <div class="col-xxl-4 col-xl-4 col-lg-4  col-sm-6 col-xs-12">
-                  <div class="projects-item1">
-                  <div class="img-hol2">
-                  <div class="project-title1">
-                  <h3 class="text-white">Trellis</h3>
-                  <p class="text-white"><img src="<?php echo base_url('assets/web/images/location@2x.webp')?>"> &nbsp; Vadapalani, Chennai</p>
-                  </div>
-                  </div>
-                  <div class="projectshortdetails">
-                  <ul>
-                  <li class="app"><span>Apartments</span><br>
-                  2, 3 &amp; 4 BHK</li>
-                  <li class="Possession"><span>Possession</span><br>
-                  From May 2021</li>
-                  <li class="price"><span>Starting from</span><br>
-                  6.81 Cr Onwards*</li>
-                  <li class="status"><span>Project Status</span><br>
-                  Ready to Move</li>
-                  </ul>
-                  <div class="clearfix"></div>
-                  </div>
-                  </div>
-                </div>
-
-                <div class="col-xxl-4 col-xl-4 col-lg-4  col-sm-6 col-xs-12">
-                  <div class="projects-item1">
-                  <div class="img-hol3">
-                  <div class="project-title1">
-                  <h3 class="text-white">Habitat</h3>
-                  <p class="text-white"><img src="<?php echo base_url('assets/web/images/location@2x.webp')?>"> &nbsp; Siruseri, Chennai</p>
-                  </div>
-                  </div>
-                  <div class="projectshortdetails">
-                  <ul>
-                  <li class="app"><span>Apartments</span><br>
-                  2, 3 &amp; 4 BHK</li>
-                  <li class="Possession"><span>Possession</span><br>
-                  From May 2021</li>
-                  <li class="price"><span>Starting from</span><br>
-                  56.5 Lakhs Onwards</li>
-                  <li class="status"><span>Project Status</span><br>
-                  Ready to move</li>
-                  </ul>
-                  <div class="clearfix"></div>
-                  </div>
-                  </div>
-                </div>
-
-                <div class="col-xxl-4 col-xl-4 col-lg-4  col-sm-6 col-xs-12">
-                  <div class="projects-item1">
-                  <div class="img-hol3">
-                  <div class="project-title1">
-                  <h3 class="text-white">Habitat</h3>
-                  <p class="text-white"><img src="images/location@2x.webp"> &nbsp; Siruseri, Chennai</p>
-                  </div>
-                  </div>
-                  <div class="projectshortdetails">
-                  <ul>
-                  <li class="app"><span>Apartments</span><br>
-                  2, 3 &amp; 4 BHK</li>
-                  <li class="Possession"><span>Possession</span><br>
-                  From May 2021</li>
-                  <li class="price"><span>Starting from</span><br>
-                  56.5 Lakhs Onwards</li>
-                  <li class="status"><span>Project Status</span><br>
-                  Ready to move</li>
-                  </ul>
-                  <div class="clearfix"></div>
-                  </div>
-                  </div>
-                </div>
-
-                <div class="col-xxl-4 col-xl-4 col-lg-4  col-sm-6 col-xs-12">
-                  <div class="projects-item1">
-                  <div class="img-hol3">
-                  <div class="project-title1">
-                  <h3 class="text-white">Habitat</h3>
-                  <p class="text-white"><img src="images/location@2x.webp"> &nbsp; Siruseri, Chennai</p>
-                  </div>
-                  </div>
-                  <div class="projectshortdetails">
-                  <ul>
-                  <li class="app"><span>Apartments</span><br>
-                  2, 3 &amp; 4 BHK</li>
-                  <li class="Possession"><span>Possession</span><br>
-                  From May 2021</li>
-                  <li class="price"><span>Starting from</span><br>
-                  56.5 Lakhs Onwards</li>
-                  <li class="status"><span>Project Status</span><br>
-                  Ready to move</li>
-                  </ul>
-                  <div class="clearfix"></div>
-                  </div>
-                  </div>
-                </div>
-
-                <div class="col-xxl-4 col-xl-4 col-lg-4  col-sm-6 col-xs-12">
-                  <div class="projects-item1">
-                  <div class="img-hol3">
-                  <div class="project-title1">
-                  <h3 class="text-white">Habitat</h3>
-                  <p class="text-white"><img src="images/location@2x.webp"> &nbsp; Siruseri, Chennai</p>
-                  </div>
-                  </div>
-                  <div class="projectshortdetails">
-                  <ul>
-                  <li class="app"><span>Apartments</span><br>
-                  2, 3 &amp; 4 BHK</li>
-                  <li class="Possession"><span>Possession</span><br>
-                  From May 2021</li>
-                  <li class="price"><span>Starting from</span><br>
-                  56.5 Lakhs Onwards</li>
-                  <li class="status"><span>Project Status</span><br>
-                  Ready to move</li>
-                  </ul>
-                  <div class="clearfix"></div>
-                  </div>
-                  </div>
-                </div>
+                    <?php } } ?>
             </div>
           </div>
 
@@ -308,148 +199,40 @@
                 <h5 class="text-left pb20">Residential</h5>
                 </div>
 
-                <div class="col-xxl-4 col-xl-4 col-lg-4  col-sm-6 col-xs-12">
-                  <div class="projects-item1">
-                  <div class="img-hol">
-                  <div class="project-title1">
-                  <h3 class="text-white">Azure The Oceanique</h3>
-                  <p class="text-white"><img src="images/location@2x.webp"> &nbsp; Raja Annamalai Puram, Chennai</p>
+                    <?php 
+                      foreach($property as $details){
+                        if($details->property_status == 'Completed'){
+                    ?> 
+                  <div class="col-xxl-4 col-xl-4 col-lg-4  col-sm-6 col-xs-12">
+                    <div class="projects-item1">                     
+                        <div class="img-hol">
+                          <a href="<?php echo base_url('Home/property_details/'.$details->property_id)?>"> 
+                            <img src="<?php echo base_url('assets/admin/uploads/property_banner/'.$details->banner_img)?>"  class="img-fluid">
+                          <div class="project-title1">
+                          <h3 class="text-white"><?php echo $details->name; ?></h3>
+                          <p class="text-white"><img src="<?php echo base_url('assets/web/images/location@2x.webp')?>"> &nbsp; <?php echo $details->title; ?></p>
+                          </div>
+                          </a>
+                        </div>                                         
+                      <div class="projectshortdetails">
+                        <ul>
+                        <li class="app"><span>Apartments</span><br>
+                        <?php echo $details->apartment_type; ?> BHK</li>
+                        <li class="Possession"><span>Possession</span><br>
+                        From <?php $timestamp = strtotime($details->possession); 
+                                      $new_date = date('M Y', $timestamp);  echo $new_date; ?></li>
+                        <li class="price"><span>Starting from</span><br>
+                        <?php echo $details->price; ?> Onwards*</li>
+                        <li class="status"><span>Project Status</span><br>
+                        <?php echo $details->property_status; ?></li>
+                        </ul>
+                        <div class="clearfix"></div>
+                      </div>
+                    </div>
                   </div>
-                  </div>
-                  <div class="projectshortdetails">
-                  <ul>
-                  <li class="app"><span>Apartments</span><br>
-                  2, 3 &amp; 4 BHK</li>
-                  <li class="Possession"><span>Possession</span><br>
-                  From Apr 2024</li>
-                  <li class="price"><span>Starting from</span><br>
-                  6.81 Cr Onwards*</li>
-                  <li class="status"><span>Project Status</span><br>
-                  Underconstruction</li>
-                  </ul>
-                  <div class="clearfix"></div>
-                  </div>
-                  </div>
-                </div>
-                <div class="col-xxl-4 col-xl-4 col-lg-4  col-sm-6 col-xs-12">
-                  <div class="projects-item1">
-                  <div class="img-hol2">
-                  <div class="project-title1">
-                  <h3 class="text-white">Trellis</h3>
-                  <p class="text-white"><img src="images/location@2x.webp"> &nbsp; Vadapalani, Chennai</p>
-                  </div>
-                  </div>
-                  <div class="projectshortdetails">
-                  <ul>
-                  <li class="app"><span>Apartments</span><br>
-                  2, 3 &amp; 4 BHK</li>
-                  <li class="Possession"><span>Possession</span><br>
-                  From May 2021</li>
-                  <li class="price"><span>Starting from</span><br>
-                  6.81 Cr Onwards*</li>
-                  <li class="status"><span>Project Status</span><br>
-                  Ready to Move</li>
-                  </ul>
-                  <div class="clearfix"></div>
-                  </div>
-                  </div>
-                </div>
-
-                <div class="col-xxl-4 col-xl-4 col-lg-4  col-sm-6 col-xs-12">
-                  <div class="projects-item1">
-                  <div class="img-hol3">
-                  <div class="project-title1">
-                  <h3 class="text-white">Habitat</h3>
-                  <p class="text-white"><img src="images/location@2x.webp"> &nbsp; Siruseri, Chennai</p>
-                  </div>
-                  </div>
-                  <div class="projectshortdetails">
-                  <ul>
-                  <li class="app"><span>Apartments</span><br>
-                  2, 3 &amp; 4 BHK</li>
-                  <li class="Possession"><span>Possession</span><br>
-                  From May 2021</li>
-                  <li class="price"><span>Starting from</span><br>
-                  56.5 Lakhs Onwards</li>
-                  <li class="status"><span>Project Status</span><br>
-                  Ready to move</li>
-                  </ul>
-                  <div class="clearfix"></div>
-                  </div>
-                  </div>
-                </div>
-
-                <div class="col-xxl-4 col-xl-4 col-lg-4  col-sm-6 col-xs-12">
-                  <div class="projects-item1">
-                  <div class="img-hol3">
-                  <div class="project-title1">
-                  <h3 class="text-white">Habitat</h3>
-                  <p class="text-white"><img src="images/location@2x.webp"> &nbsp; Siruseri, Chennai</p>
-                  </div>
-                  </div>
-                  <div class="projectshortdetails">
-                  <ul>
-                  <li class="app"><span>Apartments</span><br>
-                  2, 3 &amp; 4 BHK</li>
-                  <li class="Possession"><span>Possession</span><br>
-                  From May 2021</li>
-                  <li class="price"><span>Starting from</span><br>
-                  56.5 Lakhs Onwards</li>
-                  <li class="status"><span>Project Status</span><br>
-                  Ready to move</li>
-                  </ul>
-                  <div class="clearfix"></div>
-                  </div>
-                  </div>
-                </div>
-
-                <div class="col-xxl-4 col-xl-4 col-lg-4  col-sm-6 col-xs-12">
-                  <div class="projects-item1">
-                  <div class="img-hol3">
-                  <div class="project-title1">
-                  <h3 class="text-white">Habitat</h3>
-                  <p class="text-white"><img src="images/location@2x.webp"> &nbsp; Siruseri, Chennai</p>
-                  </div>
-                  </div>
-                  <div class="projectshortdetails">
-                  <ul>
-                  <li class="app"><span>Apartments</span><br>
-                  2, 3 &amp; 4 BHK</li>
-                  <li class="Possession"><span>Possession</span><br>
-                  From May 2021</li>
-                  <li class="price"><span>Starting from</span><br>
-                  56.5 Lakhs Onwards</li>
-                  <li class="status"><span>Project Status</span><br>
-                  Ready to move</li>
-                  </ul>
-                  <div class="clearfix"></div>
-                  </div>
-                  </div>
-                </div>
-
-                <div class="col-xxl-4 col-xl-4 col-lg-4  col-sm-6 col-xs-12">
-                  <div class="projects-item1">
-                  <div class="img-hol3">
-                  <div class="project-title1">
-                  <h3 class="text-white">Habitat</h3>
-                  <p class="text-white"><img src="images/location@2x.webp"> &nbsp; Siruseri, Chennai</p>
-                  </div>
-                  </div>
-                  <div class="projectshortdetails">
-                  <ul>
-                  <li class="app"><span>Apartments</span><br>
-                  2, 3 &amp; 4 BHK</li>
-                  <li class="Possession"><span>Possession</span><br>
-                  From May 2021</li>
-                  <li class="price"><span>Starting from</span><br>
-                  56.5 Lakhs Onwards</li>
-                  <li class="status"><span>Project Status</span><br>
-                  Ready to move</li>
-                  </ul>
-                  <div class="clearfix"></div>
-                  </div>
-                  </div>
-                </div>
+                    <?php } } ?>
+                
+            
             </div>
           </div>
 

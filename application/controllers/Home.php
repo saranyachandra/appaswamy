@@ -40,7 +40,7 @@ class Home extends CI_Controller {
 			$banner_query = "select * FROM property_banner WHERE property_id = '$id' ";
 			$data['property_banner']  = $this->db->query($banner_query)->result();
            
-            //print_r($data['property_banner']);
+            //print_r($data['property_details']);
 
 			$this->load->view('web/property_details',$data);
 	}

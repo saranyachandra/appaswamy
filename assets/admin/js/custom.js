@@ -159,13 +159,6 @@
           
 
  });
-//add blog ckditor plugin  
-var editor = CKEDITOR.replace( 'ckfinder' );
-    CKFinder.setupCKEditor( editor );
-    CKEDITOR.replace( 'editor', {
-        filebrowserUploadMethod: 'form',
-         filebrowserUploadUrl:'admin/upload_ckeditor',
-        } );
 
 //add blog insert form 
     $(document).on("submit", "#blog_form", function(e){

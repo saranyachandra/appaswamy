@@ -347,73 +347,27 @@ class Admin extends CI_Controller {
 	}
 
 	public function insert_property1()
-	{
-		 			$pgm_schedule1 = array();
-                    $count = count($_FILES['banner_img1']['name']); 
+	{		
+		 $insert_data = array('type'        => $this->input->post('project_type'),
+                        'name'              => $this->input->post('property_name'),
+                        'title'             => $this->input->post('property_title'),
+                        'possession'        => $this->input->post('possession'),
+                        'location'          => $this->input->post('location'),
+                        'location_address'  => $this->input->post('location_address'),
+                        'description'       => $this->input->post('description'),                       
+                        'walkthrough_video' => $videoname['file_name'],
+                        'E-Brochure'        => $EBrochure_upload['file_name'],
+                        'apartment_type'    => implode(', ', $_POST['apartment_type']),
+                        'price'             => $this->input->post('price'),
+                        'property_status'   => $this->input->post('project_status'),                      
+                        'feature'           => implode(',', $_POST['features']),  
+                        'specification'     => $this->input->post('specification[]'),  
+                        'google_map'        => $this->input->post('google_map'),                      
+                        'created_at'        => $now
+                    );
 
-                    for($i = 0; $i < $count; $i++) 
-                    {
-
-                        $_FILES['file']['name']     = $_FILES['banner_img1']['name'][$i]; 
-                        $_FILES['file']['type']     = $_FILES['banner_img1']['type'][$i]; 
-                        $_FILES['file']['tmp_name'] = $_FILES['banner_img1']['tmp_name'][$i]; 
-                        $_FILES['file']['error']    = $_FILES['banner_img1']['error'][$i]; 
-                        $_FILES['file']['size']     = $_FILES['banner_img1']['size'][$i];                             
-
-                        $config1['upload_path'] = './assets/admin/uploads/floor_plan';   
-                        $config1['allowed_types'] = 'jpg|jpeg|bmp|png';  
-                        $config1['max_size'] = '30720';   
-                        $config1['encrypt_name'] = TRUE;   
-
-                        $this->load->library('upload', $config1); 
-                        $this->upload->initialize($config1);
-                        $this->upload->do_upload('file');                               
-                        $fileData = $this->upload->data();
-                        $uploadData[$i]['file_name'] = $fileData['file_name']; 
-                        array_push($pgm_schedule1, array(
-                                'img'       =>  $fileData['file_name'], 
-                            ));        
-                        $json_data1 = json_encode($pgm_schedule1);
-                         
-                    }
-                    $pgm_schedule2 = array();
-                    $count = count($_FILES['banner_img2']['name']); 
-
-                    for($i = 0; $i < $count; $i++) 
-                    {
-
-                        $_FILES['file']['name']     = $_FILES['banner_img2']['name'][$i]; 
-                        $_FILES['file']['type']     = $_FILES['banner_img2']['type'][$i]; 
-                        $_FILES['file']['tmp_name'] = $_FILES['banner_img2']['tmp_name'][$i]; 
-                        $_FILES['file']['error']    = $_FILES['banner_img2']['error'][$i]; 
-                        $_FILES['file']['size']     = $_FILES['banner_img2']['size'][$i];                             
-
-                        $config1['upload_path'] = './assets/admin/uploads/floor_plan';   
-                        $config1['allowed_types'] = 'jpg|jpeg|bmp|png';  
-                        $config1['max_size'] = '30720';   
-                        $config1['encrypt_name'] = TRUE;   
-
-                        $this->load->library('upload', $config1); 
-                        $this->upload->initialize($config1);
-                        $this->upload->do_upload('file');                               
-                        $fileData1 = $this->upload->data();
-                        $uploadData[$i]['file_name'] = $fileData1['file_name']; 
-                        array_push($pgm_schedule2, array(
-                                'img'       =>  $fileData1['file_name'], 
-                            ));        
-                        $json_data2 = json_encode($pgm_schedule2);
-                         
-                    }
-                    $data = array(  'property_id'      => 10,
-                                    'floor_name1'      => $this->input->post('tower_name1'),
-                                    'floor_title1'     => $this->input->post('tower_title1'),
-                                    'floor_img1'       =>  $json_data1, 
-                                    'floor_name2'      => $this->input->post('tower_name2'),
-                                    'floor_title2'     => $this->input->post('tower_title2'),
-                                    'floor_img2'       =>  $json_data2,                                        
-                                     );
-                    $this->db->insert('property_floorplan',$data); 
-
+                $insert_property = $this->db->insert('property',$insert_data);
 	}
+
 	
 }

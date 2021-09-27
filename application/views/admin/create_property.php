@@ -5,7 +5,9 @@
 .error{
 	color:red;
 }
-
+#fieldGroupTemplate {
+  display: none;
+}
 </style>
 <body>
 
@@ -224,9 +226,30 @@
 
                                                                         <div id="Specifications" class="tab-pane fade">
                                                                             <div class="col-lg-12 mb-2">
-                                                                                <div class="form-group">
-                                                                                    <label class="text-label">Description</label>
-                                                                                    <textarea name="editor" id="editor" rows="10" cols="80"></textarea>
+                                                                               <div class="row fieldGroup">
+                                                                                      
+                                                                                      <div class="col-md-12  text-right">
+                                                                                        <a href="javascript:void(0)" class="btn btn-success addMore">
+                                                                                           +
+                                                                                        </a>
+                                                                                      </div>
+                                                                                      <div class="col-md-12  ">
+                                                                                        <div class="form-group">
+                                                                                          <h4>Section Content</h4>
+                                                                                          <textarea name="specification[]" class="editor"></textarea>
+                                                                                        </div>
+                                                                                      </div>
+                                                                                </div>
+                                                                                <div class="row" id="fieldGroupTemplate">
+                                                                                  <div class="col-md-12 text-right ">
+                                                                                    <a href="javascript:void(0)" class="btn btn-danger remove"> X </a>
+                                                                                  </div>
+                                                                                  <div class="col-sm-12 ">
+                                                                                    <div class="form-group">
+                                                                                      <h4>Section Content</h4>
+                                                                                      <textarea name="specification[]"></textarea>
+                                                                                    </div>
+                                                                                  </div>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -624,113 +647,33 @@
                                                                         <!-- feature tab end here -->
 
                                                                         <div id="Floor-Plan" class="tab-pane fade">
+                                                                            <label>Select Floor Blocks</label>
+                                                                            <input type="number" id="btn-add-tab" name="tab-count" min="1" value="1">     
                                                                             <div class="default-tab">
-                                                                                <ul class="nav nav-tabs" role="tablist">
+                                                                                <ul class="nav nav-tabs" role="tablist" id="tab-list">
                                                                                     <li class="nav-item">
                                                                                         <a class="nav-link active" data-toggle="tab" href="#home"> Tower A</a>
                                                                                     </li>
-                                                                                    <li class="nav-item">
-                                                                                        <a class="nav-link" data-toggle="tab" href="#profile"> Tower B</a>
-                                                                                    </li>
-                                                                                    <li class="nav-item">
-                                                                                        <a class="nav-link" data-toggle="tab" href="#contact">Tower C</a>
-                                                                                    </li>
-                                                                                    <li class="nav-item">
-                                                                                        <a class="nav-link" data-toggle="tab" href="#message"> Tower D</a>
-                                                                                    </li>
-                                                                                    <li class="nav-item">
-                                                                                        <a class="nav-link" data-toggle="tab" href="#TowerE"> Tower E</a>
-                                                                                    </li>
+                                                                                    
                                                                                 </ul>
-                                                                                <div class="tab-content">
+                                                                                <div class="tab-content" id="tab-content">
                                                                                     <div class="tab-pane fade active show" id="home" role="tabpanel">
                                                                                          <div class="col-lg-12 mb-2">
                                                                                                 <div class="form-group">
                                                                                                     <label class="text-label">Tower Name </label>
-                                                                                                    <input type="text" name="tower_name1" class="form-control">
+                                                                                                    <input type="text" name="tower_name1[]" class="form-control">
                                                                                                 </div>
                                                                                                 <div class="form-group">
                                                                                                     <label class="text-label">Title </label>
-                                                                                                    <input type="text" name="tower_title1" class="form-control" >
+                                                                                                    <input type="text" name="tower_title1[]" class="form-control" >
                                                                                                 </div>
                                                                                                 <div class="form-group">
                                                                                                     <label class="text-label">Floor Plan Upload </label>
-                                                                                                    <input type="file" name="banner_img1[]" class="form-control"  accept=".jpg, .jpeg, .png" multiple>
+                                                                                                    <input type="file" name="floor_banner_img1[][]" class="form-control"  accept=".jpg, .jpeg, .png" multiple>
                                                                                                 </div>
                                                                                             </div> 
                                                                                     </div>
-                                                                                    <div class="tab-pane fade" id="profile">
-                                                                                        <div class="pt-4">
-                                                                                            <div class="col-lg-12 mb-2">
-                                                                                                <div class="form-group">
-                                                                                                    <label class="text-label">Tower Name </label>
-                                                                                                    <input type="text" name="tower_name2" class="form-control">
-                                                                                                </div>
-                                                                                                <div class="form-group">
-                                                                                                    <label class="text-label">Title </label>
-                                                                                                    <input type="text" name="tower_title2" class="form-control" >
-                                                                                                </div>
-                                                                                                <div class="form-group">
-                                                                                                    <label class="text-label">Floor Plan Upload </label>
-                                                                                                    <input type="file" name="banner_img2[]" class="form-control"  accept=".jpg, .jpeg, .png" multiple>
-                                                                                                </div>
-                                                                                            </div> 
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div class="tab-pane fade" id="contact">
-                                                                                        <div class="pt-4">
-                                                                                             <div class="col-lg-12 mb-2">
-                                                                                                <div class="form-group">
-                                                                                                    <label class="text-label">Tower Name </label>
-                                                                                                    <input type="text" name="tower_name3" class="form-control">
-                                                                                                </div>
-                                                                                                <div class="form-group">
-                                                                                                    <label class="text-label">Title </label>
-                                                                                                    <input type="text" name="tower_title3" class="form-control" >
-                                                                                                </div>
-                                                                                                <div class="form-group">
-                                                                                                    <label class="text-label">Floor Plan Upload </label>
-                                                                                                    <input type="file" name="banner_img3[]" class="form-control"  accept=".jpg, .jpeg, .png" multiple>
-                                                                                                </div>
-                                                                                            </div> 
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div class="tab-pane fade" id="message">
-                                                                                        <div class="pt-4">
-                                                                                             <div class="col-lg-12 mb-2">
-                                                                                                <div class="form-group">
-                                                                                                    <label class="text-label">Tower Name </label>
-                                                                                                    <input type="text" name="tower_name4" class="form-control">
-                                                                                                </div>
-                                                                                                <div class="form-group">
-                                                                                                    <label class="text-label">Title </label>
-                                                                                                    <input type="text" name="tower_title4" class="form-control" >
-                                                                                                </div>
-                                                                                                <div class="form-group">
-                                                                                                    <label class="text-label">Floor Plan Upload </label>
-                                                                                                    <input type="file" name="banner_img4[]" class="form-control"  accept=".jpg, .jpeg, .png" multiple>
-                                                                                                </div>
-                                                                                            </div> 
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div class="tab-pane fade" id="TowerE">
-                                                                                        <div class="pt-4">
-                                                                                             <div class="col-lg-12 mb-2">
-                                                                                                <div class="form-group">
-                                                                                                    <label class="text-label">Tower Name </label>
-                                                                                                    <input type="text" name="tower_name5" class="form-control">
-                                                                                                </div>
-                                                                                                <div class="form-group">
-                                                                                                    <label class="text-label">Title </label>
-                                                                                                    <input type="text" name="tower_title5" class="form-control" >
-                                                                                                </div>
-                                                                                                <div class="form-group">
-                                                                                                    <label class="text-label">Floor Plan Upload </label>
-                                                                                                    <input type="file" name="banner_img5[]" class="form-control"  accept=".jpg, .jpeg, .png" multiple>
-                                                                                                </div>
-                                                                                            </div> 
-                                                                                        </div>
-                                                                                    </div>
+                                                                                    
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -802,6 +745,7 @@
 
 <script src="<?php echo base_url('assets/admin/plugins/ckfinder/ckfinder.js')?>"></script>
 <script src="<?php echo base_url('assets/admin/plugins/ckeditor/ckeditor.js')?>"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ckeditor/4.11.3/adapters/jquery.js"></script>
 <script src="<?php echo base_url('assets/admin/js/jquery.validate.js')?>"></script>
 
 <script src="<?php echo base_url('assets/admin/js/custom.js')?>"></script>
@@ -823,43 +767,78 @@ $(document).ready(function(){
 });  
  
 
+//add dynamic tab 
+$(document).ready(function(){  
+ $('#btn-add-tab').on('change',function()
+     {
+        var i = 0;
+         var selectedValue = $(this).val();  
+          $('#tab-list').html('');        //clear tab data before select option
+          $('#tab-content').html('');     
+          $('#no_of_days').val(selectedValue);
 
+          var tabID = 1;
 
+    for(i=0;i<selectedValue;i++)
+    {    
+         
+        $('#tab-list').append($('<li class="nav-item"><a class="nav-link " href="#tab' + tabID + '" role="tab" data-toggle="tab"> Tower ' + tabID + ' <br> <span id="' + tabID + '"> </span></a></li>'));  //class name - in active hide  
+
+        $('#tab-content').append($('<div class=" tab-pane fade tab_' + tabID + '" id="tab' + tabID + '">   <div id="day_' +tabID+' "> <div class="form-group col-sm-12" id="day1_dynamicadd_1"> <div class="col-lg-12 mb-2"> <div class="form-group"> <label class="text-label">Name </label> <input type="text" name="tower_name'+tabID+'[]" class="form-control"></div> </div> <div class="col-lg-12 mb-2"> <div class="form-group"> <label class="text-label">Title </label>    <input type="text" name="tower_title'+tabID+'[]" class="form-control" ></div> </div> <div class="col-lg-12 mb-2"> <div class="form-group"> <label class="text-label">Floor Images Upload </label> <input type="file" name="floor_banner_img'+tabID+'[][]" class="form-control"  accept=".jpg, .jpeg, .png" multiple> </div> </div>   </div> </div>'));
+         
+        tabID++;
+    }
+
+       i++;     
+
+     });
+});
 //ckeditor dynamic
 
-function createNewEditor(targetElement) {
-  var element = document.createElement("textarea");
-  $(element)
-    .addClass(".ckeditor")
-    .appendTo(targetElement);
-  return CKEDITOR.replace(element);
-}
+$(function() {
 
-$(document).ready(function() {
-  $(".ckeditor").each(function(_, ckeditor) {
-    CKEDITOR.replace(ckeditor);
+  //section add limit
+  var maxGroup = 10;
+
+  // initialize all current editor(s)
+  $('.editor').ckeditor();
+
+  //add more section
+  $(".addMore").click(function() {
+
+    // define the number of existing sections
+    var numGroups = $('.fieldGroup').length;
+
+    // check whether the count is less than the maximum
+    if (numGroups < maxGroup) {
+
+      // create new section from template
+      var $fieldHTML = $('<div>', {
+        'class': 'row fieldGroup',
+        'html': $("#fieldGroupTemplate").html()
+      });
+
+      // insert new group after last one
+      $('.fieldGroup:last').after($fieldHTML);
+
+      // instantiate ckeditor on new textarea
+      $fieldHTML.find('textarea').ckeditor();
+
+    } else {
+      alert('Maximum ' + maxGroup + ' sections are allowed.');
+    }
+
   });
 
-  
-  $(".add-chapter-para").each(function(_, addParaBtn) {
-    var addTo = $(addParaBtn).data("add-to");
-    $(addParaBtn).on("click", function() {
-      createNewEditor(addTo);
-    });
+  //remove fields 
+  $("body").on("click", ".remove", function() {
+    $(this).parents(".fieldGroup").remove();
   });
-  
-  $(".delete-editor").on("click", function() {
 
-    var editorsList = Object.keys(CKEDITOR.instances);
-    var editorElement = $(".ckeditor");
-    editorsList.forEach(function(_, i) {
-      if (i === editorsList.length - 1) {
-        CKEDITOR.instances[editorsList[i]].destroy();
-        $(editorElement[i]).remove();
-      }
-    });
-  });
 });
+  
+ 
+ 
 
 //select all checkbox
 document.getElementById('select-all').onclick = function() {
@@ -869,6 +848,7 @@ document.getElementById('select-all').onclick = function() {
   }
 }
 
+//add 
 </script>
 </body>
 

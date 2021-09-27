@@ -155,8 +155,8 @@
                 <img src="<?php echo base_url('assets/web/images/trellis-logo.webp')?>" class="img-fluid" />
                 </div>
                 <div class="col-xxl-10 col-xl-10 col-lg-2 col-sm-2 col-xs-2 col-10">
-                <h2>Trellis</h2>
-                <h4>Meet the fine home within the city</h4>
+                <h2><?php echo $property_details->name; ?> </h2>
+                <h4><?php echo $property_details->title; ?></h4>
                 <h5><img src="<?php echo base_url('assets/web/images/location-black2.webp')?>" />&nbsp;&nbsp; Vadapalani</h5>
                 </div>
               </div>
@@ -165,9 +165,9 @@
                   <img src="<?php echo base_url('assets/web/images/trellis-logo.webp')?>" class="img-fluid" />
                   </div>
                   <div class="col-xxl-10 col-xl-6 col-lg-6 col-sm-12 col-xs-12  col-12">
-                    <h2 class="d-none d-sm-block">Trellis</h2>
-                    <h4 class="d-none d-sm-block">Meet the fine home within the city</h4>
-                    <h5 class="d-none d-sm-block"><img src="<?php echo base_url('assets/web/images/location-black2.webp')?>" />&nbsp;&nbsp; Vadapalani</h5>
+                    <h2 class="d-none d-sm-block"><?php echo $property_details->name; ?></h2>
+                    <h4 class="d-none d-sm-block"><?php echo $property_details->title; ?></h4>
+                    <h5 class="d-none d-sm-block"><img src="<?php echo base_url('assets/web/images/location-black2.webp')?>" />&nbsp;&nbsp; <?php echo $property_details->location; ?></h5>
                     <div class="row">
                       <div class="col-xxl-4 col-xl-4 col-lg-4 col-sm-6 col-xs-6  col-6">
                         <div class="broucher-bt"><a href="#"><center> <img src="<?php echo base_url('assets/web/images/Brochure1.webp')?>" />&nbsp;&nbsp; Brochure</center></a></div>
@@ -185,7 +185,7 @@
             </div>
 
             <div class="col-xxl-6 col-xl-5 col-lg-5 col-sm-12 col-xs-12  col-12">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sapien eget mi proin sed libero enim sed faucibus. Quam viverra orci sagittis eu volutpat odio facilisis mauris sit. Tortor condimentum lacinia quis vel eros donec ac odio. Eu volutpat odio facilisis mauris sit amet massa. Aliquet risus feugiat in ante metus dictum at tempor. Magna etiam tempor orci eu. Sapien et ligula ullamcorper malesuada. Nulla facilisi morbi tempus iaculis. </p>
+            <p><?php echo $property_details->description; ?> </p>
             </div>
           </div>
 
@@ -194,24 +194,28 @@
               <div class="col-xxl-4 col-xl-4 col-lg-4 col-sm-12 col-xs-12  col-12">
               <div class="app  overdetails">
                 <span>Apartments</span><br>
-                  2, 3 &amp; 4 BHK
+                  <?php echo $property_details->apartment_type; ?> BHK
               </div>
               </div>
               <div class="col-xxl-4 col-xl-4 col-lg-4 col-sm-12 col-xs-12  col-12">
               <div class="Possession overdetails"><span>Possession</span><br>
-              From Apr 2021</div>
+              From <?php 
+                              $timestamp = strtotime($property_details->possession); 
+                              $new_date = date('M Y', $timestamp);                             
+                              echo $new_date; 
+                          ?>    </div>
               </div>
               <div class="col-xxl-4 col-xl-4 col-lg-4 col-sm-12 col-xs-12  col-12">
                 <div class="pro-location overdetails"><span>Location</span><br>
-              NSK Salai, Arcot Road, Vadapalani</div>
+              <?php echo $property_details->location_address; ?></div>
               </div>
               <div class="col-xxl-4 col-xl-4 col-lg-4 col-sm-12 col-xs-12  col-12">
                 <div class="price overdetails"><span>Starting from</span><br>
-              1.81 Cr Onwards*</div>
+              <?php echo $property_details->price; ?> Onwards*</div>
               </div>
               <div class="col-xxl-4 col-xl-4 col-lg-4 col-sm-12 col-xs-12  col-12">
                 <div class="status overdetails"><span>Project Status</span><br>
-              Underconstruction</div>
+              <?php echo $property_details->property_status; ?></div>
               </div>
             </div>
           </div>
@@ -236,85 +240,39 @@
     </section>
 
 <!-- About Us --> 
-<section class="pro-big-title">
-<div class="container">
-<div class="row align-items-center">
-<div class="col-xxl-12 col-xl-12 col-lg-12 col-sm-12 col-xs-12">
-<h2 class="text-center">Trellis</h2>
-</div>
-</div>
-</div>
-</section>
-<!-- -->
-<section id="Specifications" class="specifications ptb56">
-<div class="container">
-<div class="row">
-<div class="col-xxl-12 col-xl-12 col-lg-12 col-sm-12 col-xs-12">
-<h2 class="text-center pb20">Specifications</h2>
-</div>
-</div>
-<div class="row pb40">
-<div class="col-xxl-3 col-xl-3 col-lg-3 col-sm-12 col-xs-12">
-<h3>Type of Flats</h3>
-<p>1BHK, 1.5 BHK, 2BHK, 2.5 BHK,  3BHK &amp; 4BHK (Only 3 BHK Available)</p>
-<h3>Apartment Range</h3>
-<p>1 BHK - 515 - 523 sq.ft.<br />
-1.5 BHK - 611 sq.ft.<br />
-2 BHK - 663 sq.ft - 1080 sq.ft.<br />
-2.5 BHK - 1345 sq.ft. - 1487 sq.ft.<br />
-3 BHK - 1495 - 1925 sq.ft.<br />
-4 BHK  - 2350 sq.ft.</p>
-<h3>Car Parking</h3>
-<p><strong>Blocks 1 & 2 </strong><br />
-Basement, Lobby, First Floor & Second Floor 
-</p>
-<p><strong>Blocks 3, 4 & 5 </strong><br />
-Stilt
-</p>
-</div>
-<div class="col-xxl-3 col-xl-3 col-lg-3 col-sm-12 col-xs-12">
-<h3>Lift Lobbies & Corridors</h3>
-<p>Vitrified / Granite / Natural Stone</p>
-<h3>Sanitary Ware</h3>
-<p>Branded sanitary ware wall mounted closet parkyware/johnson or equivalent shower partition in master bed bathroom ledge in all bathrooms.</p>
-<h3>Electricals</h3>
-<ul>
-<li>3-Phase electricity with individual electronic meters</li>
-<li>2 way switch for light and fan in master bedroom</li>
-<li>Hi-end switches</li>
-<li>Siemens/Equivalent ELCB in all units</li>
-</ul>
+    <section class="pro-big-title">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-xxl-12 col-xl-12 col-lg-12 col-sm-12 col-xs-12">
+            <h2 class="text-center">Trellis</h2>
+          </div>
+        </div>
+      </div>
+    </section>
 
-</div>
-<div class="col-xxl-6 col-xl-6 col-lg-6 col-sm-12 col-xs-12">
-<img src="images/specificiation.webp" class="img-fluid" />
-</div>
-</div>
-<div class="row pb40">
-<div class="col-xxl-6 col-xl-6 col-lg-6 col-sm-12 col-xs-12">
-<img src="images/specificiation1.webp" class="img-fluid" />
-</div>
-<div class="col-xxl-3 col-xl-3 col-lg-3 col-sm-12 col-xs-12">
-<h3>Tiles</h3>
-<p><strong>Hi-end vitrified Tiles</strong><br />Entrance Foyer + Living + Ding</p>
-<p><strong>Balcony, Bathroom</strong><br />Balcony, Bathroom</p>
-<h3>Doors</h3>
-<p><strong>Main Door</strong><br />Classy Main Door</p>
-<p><strong>Internal Doors</strong><br />Flush Doors</p>
+<!--specification start here  -->
+    <section id="Specifications" class="specifications ptb56">
+      <div class="container">
+        <div class="row">
+          <div class="col-xxl-12 col-xl-12 col-lg-12 col-sm-12 col-xs-12">
+            <h2 class="text-center pb20">Specifications</h2>
+          </div>
+        </div>
+        <div class="row pb40">
+          <?php
+          $arr=explode(',',$property_details->specification);
+          foreach($arr as $det)
+            {   echo $det;         
+          ?>
+          <div class="col-xxl-4 col-xl-4 col-lg-4 col-sm-12 col-xs-12">
+             <?php echo $det; ?>
+          </div>
 
-</div>
-<div class="col-xxl-3 col-xl-3 col-lg-3 col-sm-12 col-xs-12">
-<h3>Kitchen</h3>
-<p>Granite Platform with S.S.Sink</p>
-<h3>Bathroom</h3>
-<p>Up to false-ceiling height</p>
-<h3>Locks</h3>
-<p>Dorma or equivalent pin lock for main door</p>
-</div>
-
-</div>
-</div>
-</section>
+        <?php } ?>         
+          
+        </div>        
+      </div>
+    </section>
 
 <!-- Features list -->
       <section id="Features" class="fearures ptb56">
@@ -330,13 +288,24 @@ Stilt
               <ul>
                   
                   <?php if (preg_match("/Water-Treatment-Plant/", "$property_details->feature")) 
-                    {
+                    {                      
                   ?>
                   <li><img src="<?php echo base_url('assets/web/images/features/Water-Treatment-Plant.webp')?>" /><p>Water treatment plant</p></li>
                   <?php  }?>
 
-                <li><img src="images/bar@2x.webp" /><p>Clubhouse</p></li>
-                <li><img src="images/water@2x.webp" /><p>Rain Water Harvesting</p></li>
+                  <?php if (preg_match("/Clubhouse/", "$property_details->feature")) 
+                    {                      
+                  ?>
+                  <li><img src="<?php echo base_url('assets/web/images/features/Clubhouse.webp')?>" /><p>Clubhouse</p></li>
+                  <?php  }?>
+
+                  <?php if (preg_match("/Rain-water-Harvesting/", "$property_details->feature")) 
+                    {                      
+                  ?>
+                  <li><img src="<?php echo base_url('assets/web/images/features/Rain-water-Harvesting.webp')?>" /><p>Rain Water Harvesting</p></li>
+                  <?php  }?>
+
+                                
                 <li><img src="images/guest-star1@2x.webp" /><p>Guest Rooms</p></li>
                 <li><img src="images/party(1)@2x.webp" /><p>Party Hall</p></li>
                 <li><img src="images/surface1@2x.webp" /><p>Video Security Phone & Intercom</p></li>

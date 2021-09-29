@@ -794,7 +794,13 @@ $(document).ready(function(){
      });
 });
 //ckeditor dynamic
-
+ var editor = CKEDITOR.replace( 'ckfinder' );
+    CKFinder.setupCKEditor( editor );
+    CKEDITOR.replace( 'editor', {
+        filebrowserUploadMethod: 'form',
+         filebrowserUploadUrl:'<?php echo base_url('admin/upload_ckeditor'); ?>',
+        } );
+    
 $(function() {
 
   //section add limit
@@ -823,6 +829,7 @@ $(function() {
 
       // instantiate ckeditor on new textarea
       $fieldHTML.find('textarea').ckeditor();
+     // $fieldHTML.find('textarea').attr('disabled', false).ckeditor();
 
     } else {
       alert('Maximum ' + maxGroup + ' sections are allowed.');

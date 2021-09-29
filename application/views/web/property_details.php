@@ -260,15 +260,15 @@
         </div>
         <div class="row pb40">
           <?php
-          $arr=explode(',',$property_details->specification);
-          foreach($arr as $det)
-            {   echo $det;         
+          $arr=$property_details->specification;
+         
+               echo $arr;         
           ?>
           <div class="col-xxl-4 col-xl-4 col-lg-4 col-sm-12 col-xs-12">
-             <?php echo $det; ?>
+             
           </div>
 
-        <?php } ?>         
+              
           
         </div>        
       </div>

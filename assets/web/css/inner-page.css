@@ -35,6 +35,9 @@ body{background: #FFF;font-family: 'Manrope', sans-serif;}
 .ptb56{padding-top:56px; padding-bottom:56px;}
 .pb40{padding-bottom:40px;}
 .pb20{padding-bottom:20px;}
+.pb30 {padding-bottom: 30px;}
+    
+
 .projectslist{background:#333940;}
 .projectslist h2{color:#FFF;font-size:28px;font-family: 'Objectivity ExtraBold';font-weight: 800; text-transform:uppercase;}
 .projectslist h3{color:#333940;font-size:24px;font-family: 'Objectivity Bold';font-weight: 800; text-transform:uppercase;padding-bottom: 15px;}
@@ -216,7 +219,7 @@ video {
     padding-top: 25px; }
 .blog-list h4{font-family: 'Manrope', sans-serif; color:#333940; }
 .blog-date{color:#707479;font-size:14px;}
-.blog-list a{ text-decoration:none;}
+.blog-list a{ text-decoration:none; color: #707479;}
 .blog-disc{color:#707479;font-size:16px;}
 .subscribe{box-shadow: 0 10px 15px 0 rgba(0, 0, 0, 0.16);
   background-color: #fff; padding:31px 20px 33px 20px;}

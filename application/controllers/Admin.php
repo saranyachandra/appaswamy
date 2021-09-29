@@ -1,4 +1,5 @@
 <?php
+
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Admin extends CI_Controller {
@@ -10,6 +11,7 @@ class Admin extends CI_Controller {
 		$this->load->helper(array('form','url'));
 		$this->load->database();
 		$this->load->model('Propertymodel');
+		$this->load->model('Pressmodel');
 		if($this->session->userdata('admin_id') == '') { 
 			redirect('Login/index');
 		}
@@ -235,7 +237,6 @@ class Admin extends CI_Controller {
 		$thumb_upload=$this->upload->data(); // 
 
 		  	$add_blog = array(									
-									
 									'title' 			=> $this->input->post('blog_title'),									
 									'author' 		    => $this->input->post('blog_author'),
 									'updated_date' 		=> $this->input->post('blog_date'),
@@ -287,7 +288,7 @@ class Admin extends CI_Controller {
 	public function get_blog_details()
 	{		
 		$result['activeTab'] = "apps";
-		$admin_id = $this->session->userdata('admin_id');
+		
 		$this->db->select('*');
 	  	$this->db->from('blog_post'); 	
 	  	$result['details']  = $this->db->get()->result();	  	  	
@@ -295,8 +296,7 @@ class Admin extends CI_Controller {
 	}
 	public function edit_blog_by_id($blog_id)
 	{		
-		$result['activeTab'] = "apps";
-		$admin_id = $this->session->userdata('admin_id');
+		$result['activeTab'] = "apps";		
 		$this->db->select('*');
 	  	$this->db->from('blog_post');
 	  	$this->db->where('blog_id',$blog_id);	
@@ -306,10 +306,10 @@ class Admin extends CI_Controller {
 
 	public function delete_blog_by_id($id)
 	{
-	    $this->db->where('blog_id', $id);
-	    $del=$this->db->delete('blog_post'); 
+	    $active_update = array( 'Active' => 1 );    
+	    $update = $this->db->where('blog_id', $id)->update('blog_post', $active_update);	   
 
-	    if($del == true)
+	    if($update == true)
 				{		 	
 					$this->session->set_flashdata('success', 'Blog updated successfully...');
 					$response['status'] = 'success'; 			
@@ -320,15 +320,12 @@ class Admin extends CI_Controller {
 				}		
 		
 	}
-	public function upload_ckeditor()
-	{
-		$result['activeTab'] = "apps";
-		$this->load->view('admin/create_blog',$result);
-	}
+	
 	public function create_property()
 	{
 		$result['activeTab'] = "forms";
 		$this->load->view('admin/create_property',$result);
+		
 	}
 
 	public function insert_property()
@@ -346,28 +343,33 @@ class Admin extends CI_Controller {
         echo json_encode($response);
 	}
 
-	public function insert_property1()
-	{		
-		 $insert_data = array('type'        => $this->input->post('project_type'),
-                        'name'              => $this->input->post('property_name'),
-                        'title'             => $this->input->post('property_title'),
-                        'possession'        => $this->input->post('possession'),
-                        'location'          => $this->input->post('location'),
-                        'location_address'  => $this->input->post('location_address'),
-                        'description'       => $this->input->post('description'),                       
-                        'walkthrough_video' => $videoname['file_name'],
-                        'E-Brochure'        => $EBrochure_upload['file_name'],
-                        'apartment_type'    => implode(', ', $_POST['apartment_type']),
-                        'price'             => $this->input->post('price'),
-                        'property_status'   => $this->input->post('project_status'),                      
-                        'feature'           => implode(',', $_POST['features']),  
-                        'specification'     => $this->input->post('specification[]'),  
-                        'google_map'        => $this->input->post('google_map'),                      
-                        'created_at'        => $now
-                    );
-
-                $insert_property = $this->db->insert('property',$insert_data);
+	public function create_press()
+	{
+		$result['activeTab'] = "press";
+		$this->load->view('admin/create_press',$result);
 	}
 
-	
+	public function insert_press()
+	{		
+		$response = array();
+           if($this->Pressmodel->add_press())
+            {
+            	$response['status'] = 'success';            	
+            }
+            else
+            {
+            	$response['status'] = 'failed';
+            }
+        	
+        echo json_encode($response);
+	}
+
+	public function get_press_details()
+	{		
+		$result['activeTab'] = "press";		
+		$this->db->select('*');
+	  	$this->db->from('press'); 	
+	  	$result['details']  = $this->db->get()->result();	  	  	
+		$this->load->view('admin/press_details',$result);
+	}
 }

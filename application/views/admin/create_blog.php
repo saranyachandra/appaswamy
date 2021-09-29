@@ -117,7 +117,7 @@
                                                             <div class="col-lg-12 mb-2">
                                                                 <div class="form-group">
                                                                     <label class="text-label">Description</label>
-                                                                    <textarea name="editor"  id="editor" rows="10" cols="80">
+                                                                    <textarea name="editor"   rows="10" cols="80">
                                                                     </textarea>
                                                                 </div>
                                                             </div>
@@ -170,6 +170,14 @@
 
 <script type='text/javascript'>
     var baseURL= "<?php echo base_url();?>";
+    //ckeditor dynamic
+ var editor = CKEDITOR.replace( 'ckfinder' );
+    CKFinder.setupCKEditor( editor );
+    CKEDITOR.replace( 'editor', {
+        filebrowserUploadMethod: 'form',
+         filebrowserUploadUrl:'<?php echo base_url('admin/upload_ckeditor'); ?>',
+        } );
+
 </script>
 </body>
 

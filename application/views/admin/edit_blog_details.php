@@ -143,7 +143,7 @@
                                                             <div class="col-lg-12 mb-2">
                                                                 <div class="form-group">
                                                                     <label class="text-label">Description</label>
-                                                                    <textarea name="editor"  id="editor" rows="10" cols="80">
+                                                                    <textarea name="editor"  rows="10" cols="80">
                                                                         <?php echo $details->description ?>
                                                                     </textarea>
                                                                 </div>
@@ -187,15 +187,23 @@
     
 <?php $this->load->view('layout/admin_js'); ?>
 
-<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 
 <script src="<?php echo base_url('assets/admin/plugins/ckfinder/ckfinder.js')?>"></script>
 <script src="<?php echo base_url('assets/admin/plugins/ckeditor/ckeditor.js')?>"></script>
 <script src="<?php echo base_url('assets/admin/js/custom.js')?>"></script>
  <script src="<?php echo base_url('assets/admin/js/jquery.validate.js')?>"></script>
 
+
 <script type='text/javascript'>
     var baseURL= "<?php echo base_url();?>";
+    var editor = CKEDITOR.replace( 'ckfinder' );
+    CKFinder.setupCKEditor( editor );
+    CKEDITOR.replace( 'editor', {
+        filebrowserUploadMethod: 'form',
+         filebrowserUploadUrl:'<?php echo base_url('admin/upload_ckeditor');?>',
+        } );
+    
 </script>
 </body>
 

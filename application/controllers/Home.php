@@ -8,13 +8,14 @@ class Home extends CI_Controller {
 		parent:: __construct();		
 		$this->load->library('session'); 
 		$this->load->helper(array('form','url'));
-		$this->load->database();
-		$this->load->model('');		
+		$this->load->database();		
+		$this->load->model('Webmodel');	
 	}
 	
 	public function index()
 	{		
-		$this->load->view('web/index');
+		$data['banner_img'] = $this->Webmodel->get_banner_img();
+		$this->load->view('web/index',$data);		
 	}
 
 	public function property()
@@ -45,7 +46,6 @@ class Home extends CI_Controller {
 			$this->load->view('web/property_details',$data);
 	}
 
-
 	public function magazine()
 	{	
 		//SELECT * FROM `blog_post` where updated_date not in(SELECT max(updated_date) FROM `blog_post`); without show last row
@@ -72,7 +72,11 @@ class Home extends CI_Controller {
 		$this->load->view('web/magazine_details',$result);
 	}
 
-	
+	public function press()
+	{	
+		$data['details'] = $this->Webmodel->get_press_details();
+		$this->load->view('web/press_coverage',$data);
+	}
 
 
 }

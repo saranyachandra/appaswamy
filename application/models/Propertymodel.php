@@ -11,6 +11,7 @@ class Propertymodel extends CI_Model
     {
         
         $now = date('Y-m-d H:i:s');  
+        $specifications = $_POST['specification'];
 
         if($_FILES['walkthrough-video']['size'] != 0 )
         {
@@ -67,7 +68,7 @@ class Propertymodel extends CI_Model
                         'price'             => $this->input->post('price'),
                         'property_status'   => $this->input->post('project_status'),                      
                         'feature'           => implode(',', $_POST['features']),  
-                        'specification'     => implode(',', $_POST['specification']),   
+                        'specification'     => json_encode($specifications),   
                         'google_map'        => $this->input->post('google_map'),                      
                         'created_at'        => $now
                     );

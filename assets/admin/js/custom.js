@@ -1,3 +1,6 @@
+
+
+
 //login form 
 
     $(document).on("submit", "#login", function(e){
@@ -278,7 +281,8 @@
                         {
                            if(response.status == 'success')
                            {                             
-                                $('#success_msg').show();                                                          
+                                $('#success_msg').show(); 
+                                window.location.href = baseURL+'Admin/get_blog_details';                                                           
                             }   
                             else 
                             {                            
@@ -290,49 +294,6 @@
 
  });
 
-//blog delete form 
-
-var base_url = '<?php echo base_url() ?>'; //form submited
-$(document).ready(function(){
-
-   $(document).on("submit", ".edit_id", function(e){     
-         e.preventDefault();
-        var url = $(this).attr('action');
-        var formdata = new FormData(this);
-      bootbox.confirm("Are you sure you want to delete?", function(result) {
-            if(result)
-               {
-                    $.ajax({
-
-                            url : url,
-                            context:this,
-                            type: 'POST',                            
-                            processData: false,
-                            contentType: false,
-                            dataType:'json',
-                            error: function(xhr,status,error)
-                            {   
-                               alert(xhr.responseText);
-                            },         
-                            success: function(response)
-                            {
-                               if(response.status == 'success')
-                               {
-                                 $('#success_msg').show();
-                                 window.location.href = "<?php echo base_url('admin/get_user_details'); ?>";
-                                                                   
-                                }else 
-                                 {                    
-                                    alert('Something went wrong..');
-                                 }
-                            }
-
-                        });
-                }
-            });
-    }); 
-   
-});
 
 //insert property
 
@@ -397,4 +358,64 @@ $(document).ready(function(){
 
  });
 
+//insert press
+
+    $(document).on("submit", "#press_form", function(e){
+        e.preventDefault();
+         $(this).validate({ 
+                          rules: {                           
+                                    press_title: "required",
+                                    press_date: "required",
+                                    thumb_img: "required",                                    
+                                                                                                             
+                                 },
+                          messages: {                           
+                                  press_title: {
+                                      required: "Required ", 
+                                  },
+                                  press_date: {
+                                      required: "Required ", 
+                                  }, 
+                                  thumb_img: {
+                                      required: "Required ", 
+                                  },                                
+                                                                                                                                                       
+                             },
+
+                           }); 
+    if($(this).valid())
+        {     
+                var url = $(this).attr('action');
+                var formdata = new FormData(this);              
+                $.ajax({
+                        url :baseURL+'admin/insert_press',
+                        method: 'POST',
+                        data: formdata,
+                        processData: false,
+                        contentType: false,
+                        dataType:'json',
+                        error: function(xhr,status,error)
+                        {   
+                            alert(xhr.responseText);
+                        },
+                        beforeSend: function()
+                        {
+                                      
+                        },                        
+                        success: function(response)
+                        {
+                           if(response.status == 'success')
+                           {                             
+                               $('#press_form').trigger("reset");
+                                $('#success_msg').show();
+                            }   
+                            else 
+                            {                            
+                               $('#error_msg').show();
+                            }          
+                        }
+               });
+        }     
+
+ });
 

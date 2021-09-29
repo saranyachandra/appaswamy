@@ -109,7 +109,7 @@
 
                                                 <td>                                              
                                                     <div class="d-flex"> 
-                                                        <form class="edit_id" action="<?php echo base_url('admin/edit_blog_by_id/'.$detail->blog_id); ?>" method="POST" style="float: left;"> 
+                                                        <form  action="<?php echo base_url('admin/edit_blog_by_id/'.$detail->blog_id); ?>" method="POST" style="float: left;"> 
                                                             <button class="btn btn-primary shadow btn-xs sharp mr-1" >
                                                                    <i class="fa fa-pencil"></i>
                                                             </button>

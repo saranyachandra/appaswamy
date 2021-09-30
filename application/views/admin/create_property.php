@@ -153,6 +153,12 @@
                                                                                                     <label class="text-label">Description</label>
                                                                                                     <textarea class="form-control" name="description"></textarea>
                                                                                                 </div>
+                                                                                            </div> 
+                                                                                            <div class="col-lg-12 mb-2">
+                                                                                                <div class="form-group">
+                                                                                                    <label class="text-label">Thumb Upload </label>
+                                                                                                    <input type="file" name="thumb_img" class="form-control" >
+                                                                                                </div>
                                                                                             </div>                                                     
                                                                                         </section>
                                                                                     </div>
@@ -224,7 +230,7 @@
                                                                                  
                                                                         </div>
 
-                                                                        <div id="Specifications" class="tab-pane fade">
+                                                                         <div id="Specifications" class="tab-pane fade">
                                                                             <div class="col-lg-12 mb-2">
                                                                                <div class="row fieldGroup">
                                                                                       
@@ -247,7 +253,7 @@
                                                                                   <div class="col-sm-12 ">
                                                                                     <div class="form-group">
                                                                                       <h4>Section Content</h4>
-                                                                                      <textarea name="specification[]"></textarea>
+                                                                                      <textarea name="specification[]" disabled></textarea>
                                                                                     </div>
                                                                                   </div>
                                                                                 </div>
@@ -814,7 +820,7 @@ $(function() {
 
     // define the number of existing sections
     var numGroups = $('.fieldGroup').length;
-
+   
     // check whether the count is less than the maximum
     if (numGroups < maxGroup) {
 
@@ -828,8 +834,7 @@ $(function() {
       $('.fieldGroup:last').after($fieldHTML);
 
       // instantiate ckeditor on new textarea
-      $fieldHTML.find('textarea').ckeditor();
-     // $fieldHTML.find('textarea').attr('disabled', false).ckeditor();
+      $fieldHTML.find('textarea').attr('disabled', false).ckeditor();
 
     } else {
       alert('Maximum ' + maxGroup + ' sections are allowed.');
@@ -843,7 +848,6 @@ $(function() {
   });
 
 });
-  
  
  
 

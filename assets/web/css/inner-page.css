@@ -35,9 +35,6 @@ body{background: #FFF;font-family: 'Manrope', sans-serif;}
 .ptb56{padding-top:56px; padding-bottom:56px;}
 .pb40{padding-bottom:40px;}
 .pb20{padding-bottom:20px;}
-.pb30 {padding-bottom: 30px;}
-    
-
 .projectslist{background:#333940;}
 .projectslist h2{color:#FFF;font-size:28px;font-family: 'Objectivity ExtraBold';font-weight: 800; text-transform:uppercase;}
 .projectslist h3{color:#333940;font-size:24px;font-family: 'Objectivity Bold';font-weight: 800; text-transform:uppercase;padding-bottom: 15px;}
@@ -92,6 +89,7 @@ font-weight: 500;line-height: 24px;}
 .blog-links a{ color:#d20023; text-decoration:none; font-weight:800; }
 .blogtag2{}
 .contactus{background:#f5f6f7; position:relative}
+.contactus1{ background:url(../images/contact-us-bg.jpg) repeat-y top center;position:relative}
 .contact-address{
     width: 320px;
    
@@ -271,6 +269,86 @@ text-decoration: none;
 .footer-address  span{ color:#7e8082;font-size: 14px;
     font-weight: 500;}
 	.mb20{margin-bottom:20px;}
+.contact-us-banner{
+    background: url(../images/contact-us-banner.jpg) no-repeat top center ;
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+  .contact-us-banner h2 {
+    color: #FFF;
+    font-size: 45px;
+    font-family: 'Objectivity ExtraBold';
+    text-transform: uppercase;
+    letter-spacing: 7px;
+}
+/* Address Section */
+
+.address-col {
+    line-height: 25px;
+    padding-top: 0px;
+}
+
+.address-col a {
+    color: red;
+}
+
+.mapbackground {
+    background-size: cover;
+}
+
+.contacts-address {
+    width: 320px;
+   
+    padding:0px 30px 30px 30px;
+    margin: 0px auto;
+   
+}
+
+.contacts-address p {
+    font-weight: 500;
+    margin-bottom: 5px;
+    font-size: 17px;
+    color: #707479;
+    text-align: center;
+}
+
+.contacts-address h4 {
+    color: #333940;
+    font-weight: 800;
+}
+
+.contacts-address a {
+    text-decoration: none;
+}
+
+
+/* Contacts Form Section */
+
+.contacts-form {
+    padding: 0px 30px 30px 30px;
+}
+
+.contacts-form p {
+    font-size: 17px;
+    color: #707479;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.contacts-form select {
+    padding-left: 10px;
+    padding-right: 10px;
+    word-wrap: normal;
+    width: 100%;
+    height: 55px;
+}
+
+
+/* Map Section */
+
+.googlemap {
+    width: auto;
+}
 @media only screen and (max-width: 800px)  {
 	.innerpage-title h2
 {

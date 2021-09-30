@@ -7,7 +7,7 @@
     background: #FFF;
 }.logo {
     position: relative;
-    z-index: 1000;
+    z-index: 12;
     padding: 5px 0px 5px 0px;
 }
 .aboutus h3 {
@@ -200,5 +200,16 @@
     font-weight: 500;
     padding: 20px 20px 0px 0px;
     margin-right: 5px;
+	margin-left:10px;
+}
+.faq h2 {
+    font-family: 'Objectivity Bold';
+    color: #333940;
+    font-weight: bold;
+    font-size: 24px;
+}
+.contactus1 {
+    background:#FFF;
+    position: relative;
 }
 }

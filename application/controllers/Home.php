@@ -15,20 +15,15 @@ class Home extends CI_Controller {
 	public function index()
 	{		
 		$data['banner_img'] = $this->Webmodel->get_banner_img();
+		$data['press'] = $this->Webmodel->get_press_details_home();
+		$data['property'] = $this->Webmodel->get_property_details_home();
 		$this->load->view('web/index',$data);		
 	}
 
 	public function property()
 	{		
-			$this->db->select('*');
-            $this->db->from('property');  
-            $this->db->join('property_banner', 'property_banner.property_id = property.property_id');  
-            $this->db->group_by('property_banner.property_id');         
-            $this->db->where('status = 1');
-
-            $data['property'] = $this->db->get()->result(); 
-
-			$this->load->view('web/property',$data);
+		$data['property'] = $this->Webmodel->get_property_details();
+		$this->load->view('web/property',$data);
 	}
 	public function property_details($id)
 	{		
@@ -76,6 +71,11 @@ class Home extends CI_Controller {
 	{	
 		$data['details'] = $this->Webmodel->get_press_details();
 		$this->load->view('web/press_coverage',$data);
+	}
+
+	public function contact_us()
+	{	
+		$this->load->view('web/contact_us');
 	}
 
 

@@ -3960,7 +3960,12 @@ textarea.form-control-lg {
 .tab-content > .active {
   display: block;
 }
-
+.tab-content> .tab-pane:not(.active) {
+    height: 0 !important;
+    overflow: hidden;
+    padding: 0;
+    display: block;
+}
 .navbar {
   position: relative;
   display: flex;

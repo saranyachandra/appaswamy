@@ -342,6 +342,30 @@ class Admin extends CI_Controller {
         	
         echo json_encode($response);
 	}
+	public function property_details()
+	{		
+		$result['activeTab'] = "forms";		
+		$result['property_details'] = $this->Propertymodel->get_property_details();	  	
+		$this->load->view('admin/property_details',$result);
+	}
+	public function edit_property($id)
+	{		
+		$result['activeTab'] = "forms";	
+
+		$property_query = "select * FROM property WHERE property_id = '$id' ";
+        $result['details']  = $this->db->query($property_query)->row();
+
+        $faq_query = "select * FROM property_faq WHERE property_id = '$id' ";
+        $result['faq']  = $this->db->query($faq_query)->result();
+
+        $banner_query = "select * FROM property_banner WHERE property_id = '$id' ";
+        $result['banner']  = $this->db->query($banner_query)->result();
+
+        $banner_query = "select * FROM property_floorplan WHERE property_id = '$id' ";
+        $result['floor_plan']  = $this->db->query($banner_query)->result(); 
+
+		$this->load->view('admin/edit_property_details',$result);
+	}
 
 	public function create_press()
 	{

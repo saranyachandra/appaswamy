@@ -62,7 +62,7 @@
 						<div class="col-xl-12 col-xxl-12 col-lg-12 col-md-12">
 								<div class="card">
 									<div class="card-header border-0 pb-0">
-										<h4 class="card-title"  style="font-size: 27px;">View  User Details</h4>
+										<h4 class="card-title"  style="font-size: 27px;">Blog Details</h4>
 									</div>
 									<div class="card-body">
 									   

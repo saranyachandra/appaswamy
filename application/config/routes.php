@@ -54,3 +54,7 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 $route['/'] = 'Home/index';
+$route['residential-property'] = 'Home/property';
+$route['magazine'] = 'Home/magazine';
+$route['press'] = 'Home/press';
+$route['contact-us'] = 'Home/contact_us';

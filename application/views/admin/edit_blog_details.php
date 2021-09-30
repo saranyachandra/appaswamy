@@ -61,7 +61,7 @@
                            <div class="col-xl-12 col-xxl-12 col-lg-12 col-md-12">
                                 <div class="card">
                                     <div class="card-header border-0 pb-0">
-                                        <h2 class="card-title" style="font-size: 27px;">Create Blog</h2>
+                                        <h2 class="card-title" style="font-size: 27px;">Edit Blog</h2>
                                     </div>
                                     <div class="card-body">
                                         <div class="alert alert-success" id="success_msg" role="alert" style="display:none;" >Successfully updated

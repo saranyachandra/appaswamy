@@ -1,91 +1,168 @@
 <!DOCTYPE html>
 <html lang="zxx">
-<head>
-<!-- Required Meta Tags -->
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
-<!-- Page Title -->
-<title>Properties in Chennai - Appaswamy Real Estates</title>
-<meta name="description" content="Appaswamy Real Estates offers elegantly designed properties in Chennai with exciting facilities and amenities at prominent locations.">
-<!-- Favicon Icon -->
-<link rel="shortcut icon" href="favicon.png">
-<!-- CSS Files -->
-<link rel="stylesheet" href="<?php echo base_url('assets/web/css/bootstrap.css')?>">
-<link rel="stylesheet" href="<?php echo base_url('assets/web/css/style.css')?>">
-<link rel="stylesheet" href="<?php echo base_url('assets/web/css/responsive.css')?>">
-</head>
+    <head>
+    <!-- Required Meta Tags -->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <!-- Page Title -->
+        <title>Properties in Chennai - Appaswamy Real Estates</title>
+        <meta name="description" content="Appaswamy Real Estates offers elegantly designed properties in Chennai with exciting facilities and amenities at prominent locations.">
+        <!-- Favicon Icon -->
+        <link rel="shortcut icon" href="<?php echo base_url('assets/web/images/favicon.png')?>">
+        <!-- CSS Files -->
+        <link rel="stylesheet" href="<?php echo base_url('assets/web/css/bootstrap.css')?>">
+        <link rel="stylesheet" href="<?php echo base_url('assets/web/css/style.css')?>">
+        <link rel="stylesheet" href="<?php echo base_url('assets/web/css/responsive.css')?>">
+        <!-- icon css file -->
+        <link rel="stylesheet" href="<?php echo base_url('assets/web/css/icons.css')?>">
+        <!-- metis menu css file -->
+        <link rel="stylesheet" href="<?php echo base_url('assets/web/assets/css/metismenu.css')?>">
+        <!--  main style css file -->
+        <link rel="stylesheet" href="<?php echo base_url('assets/web/assets/css/style.css')?>">   
+    </head>
 <body>
-<div class="top">
-<div class="container">
-<div class="row align-items-center">
-<div class="col-xxl-2 col-xl-2 col-lg-2  col-sm-2 col-xs-4 col-8">
-<div class="logo">
-<a href="index.html"><img src="<?php echo base_url('assets/web/images/logo.png')?>" /></a>   
-</div>
-</div>
-<div class="col-xxl-7 col-xl-7 col-lg-7  col-sm-4 col-xs-5 col-2">
+    <div class="top">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-xxl-2 col-xl-2 col-lg-2  col-sm-2 col-xs-4 col-8">
+                    <div class="logo">
+                        <a href="<?php echo base_url('/');?>"><img src="<?php echo base_url('assets/web/images/logo.png')?>" /></a>   
+                    </div>
+                </div>
+                <div class="col-xxl-7 col-xl-7 col-lg-7  col-sm-4 col-xs-5 col-2">
+                    <div class="mobicon d-block d-sm-none">
+                        <a href="tel:+91 766 733 0000"><img src="<?php echo base_url('assets/web/images/phone-icon2.jpg')?>" /> </a>
+                    </div>
+                </div>
+                <div class="col-xxl-3 col-xl-3 col-lg-3  col-sm-3 col-xs-3 col-2">
+                    <div class="mobile  d-none d-sm-block">
+                        <a href="tel:+91 766 733 0000"><span>Sales Enquiries</span><br />
+                        +91 766 733 0000 </a>
+                    </div>
+                    <div class="mobimenu d-block d-sm-none">
+                        <div class="mobile-nav-wrap">
+                            <div id="hamburger">
+                                <i class="fal fa-bars"></i>
+                            </div>
+                        <!-- mobile menu - responsive menu  -->
+                            <div class="mobile-nav">
+                                <button type="button" class="close-nav">
+                                    <i class="fal fa-times"></i>
+                                </button>
+                               <center> <a href="<?php echo base_url('/');?>"><img src="<?php echo base_url('assets/web/images/logo.png')?>" /></a></center>
+                                <div class="sidebar-nav">
+                                    <ul class="metismenu" id="mobile-menu">
+                                        <li><a href="javascript:void(0);"></a></li>
+                                        <li><a class="has-arrow" href="#">Residential</a>
+                                            <ul class="sub-menu">
+                                                <li><a href="javascript:void(0);">Navasuja</a></li>
+                                                <li><a href="javascript:void(0);">Azure The Oceanic</a></li>
+                                                <li><a href="javascript:void(0);">Altezza</a></li>
+                                                 <li><a href="javascript:void(0);">Clover By The River</a></li>
+                                                <li><a href="javascript:void(0);">More</a></li>
+                                            </ul>
+                                        </li>
+                                        <li> <a class="has-arrow" href="#">Commercials</a>                                       
+                                            <ul class="sub-menu">
+                                                <li><a href="javascript:void(0);">Platina</a></li>
+                                                <li><a href="javascript:void(0);">Greensville</a></li>
+                                                <li><a href="javascript:void(0);">Time Square Commercial</a></li>
+                                                <li><a href="javascript:void(0);">Jaya Commercial</a></li>
+                                                 <li><a href="javascript:void(0);">More</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="#">Hospitality</a></li>
+                                        <li><a class="has-arrow" href="#">Buyers Guide</a>
+                                            <ul class="sub-menu">
+                                                <li><a href="javascript:void(0);">Guide For NRI</a></li>
+                                                <li><a href="javascript:void(0);">Indian Investors</a></li>
+                                            </ul>
+                                        </li>
+                                        <sssli><a class="has-arrow" href="#">About Us</a>
+                                            <ul class="sub-menu">
+                                                <li><a href="javascript:void(0);">About us</a></li>
+                                                <li><a href="javascript:void(0);">Careers</a></li>
+                                                <li><a href="<?php echo base_url('magazine');?>">Magazine</a></li>
+                                                <li><a href="<?php echo base_url('press');?>">Press</a></li>
+                                                <li><a href="<?php echo base_url('contact-us');?>">Contact Us</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <!--<div class="action-bar">
+                                    <a href="mailto:info@appaswamy.com"><i class="fal fa-envelope"></i>info@appaswamy.com</a>
+                                    <a href="tel:+91 766 733 0000"><i class="fal fa-phone"></i>+91 766 733 0000</a>
+                                    <a href="contact.html" class="theme-btn promo-btn">get started now</a>
+                                </div>-->
+                            </div>
+                        </div>
 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-<div class="mobicon d-block d-sm-none">
-<a href="tel:+91 766 733 0000"><img src="<?php echo base_url('assets/web/images/phone-icon2.jpg')?>" /> </a>
-</div>
-</div>
-<div class="col-xxl-3 col-xl-3 col-lg-3  col-sm-3 col-xs-3 col-2">
-
-<div class="mobile  d-none d-sm-block">
-<a href="tel:+91 766 733 0000"><span>Sales Enquiries</span><br />
-+91 766 733 0000 </a>
-</div>
-<div class="mobimenu d-block d-sm-none">
-<a href="#"><img src="<?php echo base_url('assets/web/images/menu.jpg')?>" /> </a>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="header-container">
-<div class="navbar d-block primary-navigation">
-<div class="d-flex justify-content-between align-items-center">
-<div class="col d-none d-xl-block col p-0 primary-nav-container">
-<nav class="navbar-nav primary-nav-links  offset-3" role="navigation" aria-label="Main">
-<ul role="menu" class="p-0 m-0 d-flex align-items-center">
-<li role="presentation" class="nav-item"><a class="nav-link" role="menuitem" href="#" target="_self"></a></li>
-<li role="presentation" class="primary-nav-dropdown nav-item"><a class="nav-link" href="#" target="_self" aria-haspopup="true" aria-expanded="false" role="menuitem">Residential</a>
-<div class="dropdown-container">
-<ul class="dropdown-list">
-<li class="dropdown-list-item"><a class="nav-link" href="#" target="_self">Navasuja</a></li>
-<li class="dropdown-list-item"><a class="nav-link" href="#" target="_self">Azure The Oceanic</a></li>
-<li class="dropdown-list-item"><a class="nav-link" href="#" target="_self">Altezza</a></li>
-<li class="dropdown-list-item"><a class="nav-link" href="#" target="_self">Clover By The River</a></li>
-<li class="dropdown-list-item"><a class="nav-link" href="#" target="_self">Capella</a></li>
-<li class="dropdown-list-item"><a class="nav-link" href="#" target="_blank">Splendour</a></li>
-</ul></div></li>
-<li role="presentation" class="primary-nav-dropdown nav-item"><a class="nav-link" href="#" target="_self" aria-haspopup="true" aria-expanded="false" role="menuitem">                                   Commercials</a>
-<div class="dropdown-container"><ul class="dropdown-list">
-<li class="dropdown-list-item"><a class="nav-link" href="#" target="_self">Platina</a></li>
-<li class="dropdown-list-item"><a class="nav-link" href="#" target="_self">Greensville</a></li>
-<li class="dropdown-list-item"><a class="nav-link" href="#" target="_self">Time Square Commercial</a></li>
-<li class="dropdown-list-item"><a class="nav-link" href="#" target="_self">Jaya Commercial</a></li>
-<li class="dropdown-list-item"><a class="nav-link" href="#" target="_self">Paypal</a></li>
-</ul></div></li>
-<li role="presentation" class="primary-nav-dropdown nav-item">
-<a class="nav-link" href="residences.html" target="_self" aria-haspopup="true" aria-expanded="false" role="menuitem">Hospitality</a></li>
-<li role="presentation" class="primary-nav-dropdown nav-item">
-<a class="nav-link" href="residences.html" target="_self" aria-haspopup="true" aria-expanded="false" role="menuitem">Buyers Guide</a></li>
-<li role="presentation" class="primary-nav-dropdown nav-item">
-<a class="nav-link" href="residences.html" target="_self" aria-haspopup="true" aria-expanded="false" role="menuitem">About Us</a><div class="dropdown-container"><ul class="dropdown-list">
-<li class="dropdown-list-item"><a class="nav-link" href="meetings-and-events/find-a-venue.html" target="_self">About us</a></li>
-<li class="dropdown-list-item"><a class="nav-link" href="meetings-and-events/group-offers.html" target="_self">Careers</a></li>
-<li class="dropdown-list-item"><a class="nav-link" href="meetings-and-events/rosewood-rest-assured.html" target="_self">Magazine</a></li>
-<li class="dropdown-list-item"><a class="nav-link" href="meetings-and-events/rosewood-rewards.html" target="_self">Press</a></li>
-<li class="dropdown-list-item"><a class="nav-link" href="meetings-and-events/same-time-next-year.html" target="_self"></a></li>
-</ul></div></li>
-</ul>
-</nav></div>
-</div>
-</div>
-</div>
+    <div class="header-container">
+        <div class="navbar d-block primary-navigation">
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="col d-none d-xl-block col p-0 primary-nav-container">
+                    <div class="navbar-nav primary-nav-links  offset-4" role="navigation" aria-label="Main">
+                        <ul role="menu" class="p-0 m-0 d-flex align-items-center">
+                            <li role="presentation" class="nav-item"><a class="nav-link" role="menuitem" href="#" target="_self"></a></li>
+                            <li role="presentation" class="primary-nav-dropdown nav-item"><a class="nav-link" href="#" target="_self" aria-haspopup="true" aria-expanded="false" role="menuitem">Residential</a>
+                                <div class="dropdown-container">
+                                    <ul class="dropdown-list">
+                                        <li class="dropdown-list-item"><a class="nav-link" href="#" target="_self">Navasuja</a></li>
+                                        <li class="dropdown-list-item"><a class="nav-link" href="#" target="_self">Azure The Oceanic</a></li>
+                                        <li class="dropdown-list-item"><a class="nav-link" href="#" target="_self">Altezza</a></li>
+                                        <li class="dropdown-list-item"><a class="nav-link" href="#" target="_self">Clover By The River</a></li>
+                                        <li class="dropdown-list-item"><a class="nav-link" href="#" target="_self">Capella</a></li>
+                                        <li class="dropdown-list-item"><a class="nav-link" href="#" target="_blank">Splendour</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li role="presentation" class="primary-nav-dropdown nav-item"><a class="nav-link" href="#" target="_self" aria-haspopup="true" aria-expanded="false" role="menuitem">  Commercials</a>
+                                <div class="dropdown-container">
+                                    <ul class="dropdown-list">
+                                        <li class="dropdown-list-item"><a class="nav-link" href="#" target="_self">Platina</a></li>
+                                        <li class="dropdown-list-item"><a class="nav-link" href="#" target="_self">Greensville</a></li>
+                                        <li class="dropdown-list-item"><a class="nav-link" href="#" target="_self">Time Square Commercial</a></li>
+                                        <li class="dropdown-list-item"><a class="nav-link" href="#" target="_self">Jaya Commercial</a></li>
+                                        <li class="dropdown-list-item"><a class="nav-link" href="#" target="_self">Paypal</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li role="presentation" class="primary-nav-dropdown nav-item">
+                            <a class="nav-link" href="javascript:void(0);" target="_self" aria-haspopup="true" aria-expanded="false" role="menuitem">Hospitality</a></li>
+                            <li role="presentation" class="primary-nav-dropdown nav-item">
+                                <a class="nav-link" href="javascript:void(0);" target="_self" aria-haspopup="true" aria-expanded="false" role="menuitem">Buyers Guide</a>
+                                <div class="dropdown-container">
+                                    <ul class="dropdown-list">
+                                        <li class="dropdown-list-item"><a class="nav-link" href="#" target="_self">Guide For NRI</a></li>
+                                        <li class="dropdown-list-item"><a class="nav-link" href="#" target="_self">Indian Investors</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li role="presentation" class="primary-nav-dropdown nav-item">
+                                <a class="nav-link" href="javascript:void(0);" target="_self" aria-haspopup="true" aria-expanded="false" role="menuitem">About Us</a>
+                                <div class="dropdown-container">
+                                    <ul class="dropdown-list">
+                                        <li class="dropdown-list-item"><a class="nav-link" href="javascript:void(0);" target="_self">About us</a></li>
+                                        <li class="dropdown-list-item"><a class="nav-link" href="javascript:void(0);" target="_self">Careers</a></li>
+                                        <li class="dropdown-list-item"><a class="nav-link" href="<?php echo base_url('magazine');?>" target="_self">Magazine</a></li>
+                                        <li class="dropdown-list-item"><a class="nav-link" href="<?php echo base_url('press');?>" target="_self">Press</a></li>
+                                        <li class="dropdown-list-item"><a class="nav-link" href="<?php echo base_url('contact-us');?>" target="_self">Contact Us</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 <!-- Banner-section -->
 <section>
@@ -170,7 +247,8 @@
                 <h2 class="text-center pb40">About Our Story</h2>
             </div>
             <div class="col-xxl-6 col-xl-6 col-lg-6  col-sm-6 col-xs-12">
-                <img src="<?php echo base_url('assets/web/images/founder.jpg')?>" class="img-fluid" />
+                <center>
+                <img src="<?php echo base_url('assets/web/images/founder1.webp')?>" class="img-fluid" /></center>
             </div>
             <div class="col-xxl-6 col-xl-6 col-lg-6  col-sm-6 col-xs-12">
                 <h3>APPASWAMY<br />
@@ -182,7 +260,8 @@
         </div>
     </div>
 </section>
-<!-- Projects list -->
+
+<!-- residential Projects list -->
 
 <section class="projectslist ptb56">
     <div class="container">
@@ -190,73 +269,80 @@
             <div class="col-xxl-12 col-xl-12 col-lg-12 col-sm-12 col-xs-12">
                 <h2 class="text-center pb40">residential apartments</h2>
             </div>
+               
             <div class="col-xxl-4 col-xl-4 col-lg-4  col-sm-6 col-xs-12">
                 <div class="projects-item">
-                    <div class="img-hol">
-                        <div class="project-title">
-                            <h3 class="text-white">Azure The Oceanique</h3>
-                            <p class="text-white"><img src="<?php echo base_url('assets/web/images/location@2x.webp')?>"> &nbsp; Raja Annamalai Puram, Chennai</p>
-                        </div>
-                    </div>
-                    <div class="projectshortdetails">
-                        <ul>
-                            <li class="app"><span>Apartments</span><br />2, 3 & 4 BHK</li>                        
-                            <li class="Possession"><span>Possession</span><br />From Apr 2024</li>                        
-                            <li class="price"><span>Starting from</span><br />6.81 Cr Onwards*</li>                        
-                            <li class="status"><span>Project Status</span><br /> Underconstruction</li>                       
-                        </ul>
-                        <div class="clearfix"></div>
-                    </div>
+                <div class="img-hol">
+                <div class="project-title">
+                <h3 class="text-white">Azure The Oceanique</h3>
+                <p class="text-white"><img src="<?php echo base_url('assets/web/images/location@2x.webp')?>"> &nbsp; Raja Annamalai Puram, Chennai</p>
+                </div>
+                </div>
+                <div class="projectshortdetails">
+                <ul>
+                <li class="app"><span>Apartments</span><br>
+                2, 3 &amp; 4 BHK</li>
+                <li class="Possession"><span>Possession</span><br>
+                From Apr 2024</li>
+                <li class="price"><span>Starting from</span><br>
+                6.81 Cr Onwards*</li>
+                <li class="status"><span>Project Status</span><br>
+                Underconstruction</li>
+                </ul>
+                <div class="clearfix"></div>
+                </div>
                 </div>
             </div>
             <div class="col-xxl-4 col-xl-4 col-lg-4  col-sm-6 col-xs-12">
                 <div class="projects-item">
-                    <div class="img-hol2">
-                    <div class="project-title">
-                    <h3 class="text-white">Trellis</h3>
-                    <p class="text-white"><img src="<?php echo base_url('assets/web/images/location@2x.webp')?>"> &nbsp; Vadapalani, Chennai</p>
-                    </div>
-                    </div>
-                    <div class="projectshortdetails">
-                    <ul>
-                    <li class="app"><span>Apartments</span><br />
-                    2, 3 & 4 BHK</li>
-                    <li class="Possession"><span>Possession</span><br />
-                    From May 2021</li>
-                    <li class="price"><span>Starting from</span><br />
-                    6.81 Cr Onwards*</li>
-                    <li class="status"><span>Project Status</span><br />
-                    Ready to Move</li>
-                    </ul>
-                    <div class="clearfix"></div>
-                    </div>
+                <div class="img-hol2">
+                <div class="project-title">
+                <h3 class="text-white">Trellis</h3>
+                <p class="text-white"><img src="<?php echo base_url('assets/web/images/location@2x.webp')?>"> &nbsp; Vadapalani, Chennai</p>
+                </div>
+                </div>
+                <div class="projectshortdetails">
+                <ul>
+                <li class="app"><span>Apartments</span><br>
+                2, 3 &amp; 4 BHK</li>
+                <li class="Possession"><span>Possession</span><br>
+                From May 2021</li>
+                <li class="price"><span>Starting from</span><br>
+                6.81 Cr Onwards*</li>
+                <li class="status"><span>Project Status</span><br>
+                Ready to Move</li>
+                </ul>
+                <div class="clearfix"></div>
+                </div>
                 </div>
             </div>
             <div class="col-xxl-4 col-xl-4 col-lg-4  col-sm-6 col-xs-12">
                 <div class="projects-item">
-                    <div class="img-hol3">
-                    <div class="project-title">
-                    <h3 class="text-white">Habitat</h3>
-                    <p class="text-white"><img src="<?php echo base_url('assets/web/images/location@2x.webp')?>"> &nbsp; Siruseri, Chennai</p>
-                    </div>
-                    </div>
-                    <div class="projectshortdetails">
-                    <ul>
-                    <li class="app"><span>Apartments</span><br />
-                    2, 3 & 4 BHK</li>
-                    <li class="Possession"><span>Possession</span><br />
-                    From May 2021</li>
-                    <li class="price"><span>Starting from</span><br />
-                    56.5 Lakhs Onwards</li>
-                    <li class="status"><span>Project Status</span><br />
-                    Ready to move</li>
-                    </ul>
-                    <div class="clearfix"></div>
-                    </div>
+                <div class="img-hol3">
+                <div class="project-title">
+                <h3 class="text-white">Habitat</h3>
+                <p class="text-white"><img src="<?php echo base_url('assets/web/images/location@2x.webp')?>"> &nbsp; Siruseri, Chennai</p>
+                </div>
+                </div>
+                <div class="projectshortdetails">
+                <ul>
+                <li class="app"><span>Apartments</span><br>
+                2, 3 &amp; 4 BHK</li>
+                <li class="Possession"><span>Possession</span><br>
+                From May 2021</li>
+                <li class="price"><span>Starting from</span><br>
+                56.5 Lakhs Onwards</li>
+                <li class="status"><span>Project Status</span><br>
+                Ready to move</li>
+                </ul>
+                <div class="clearfix"></div>
+                </div>
                 </div>
             </div>
+               
+           
             <div class="col-xxl-12 col-xl-12 col-lg-12  col-sm-6 col-xs-12">
-                <div class="viewallprojects"><a href="#">View All Projects</a></div>
+                <div class="viewallprojects"><a href="<?php echo base_url('residential-property')?>">View All Projects</a></div>
             </div>
         </div>
     </div>
@@ -282,105 +368,54 @@
     </div>
 </section>
 
-<!-- Blog Details -->
+<!-- Press coverage -->
 <section class="Press ptb56">
     <div class="container">
         <div class="row">
             <div class="col-xxl-12 col-xl-12 col-lg-12 col-sm-12 col-xs-12">
                 <h2 class="text-center pb40">Press coverage</h2>
             </div>
+                <?php 
+                    foreach($press as $detail){
+                ?>
             <div class="col-xxl-3 col-xl-3 col-lg-3  col-sm-6 col-xs-12">
                 <div class="projects-item">
-                <div class="img-ho">
-                <img src="<?php echo base_url('assets/web/images/blog-img1.webp')?>" class="img-fluid" />
-                <div class="blogtag1">News</div>
-                </div>
-                <div class="blogtitle">
-                Covid-19: Home loan rates set to dip to 15-year low, EMIs to fall  EMIs to fall  EMIs to fall
-                </div>
-                <div class="bloglinks">
-                <div class="row">
-                <div class="col-xxl-6 col-xl-6 col-lg-6  col-sm-6 col-xs-12">
-                <div class="blog-date">15 May 2021</div>
-                </div>
-                <div class="col-xxl-6 col-xl-6 col-lg-6  col-sm-6 col-xs-12">
-                <div class="blog-links"><a href="#">Read more</a></div>
-                </div>
-                <div class="clearfix"></div>
-                </div>
-                </div>
-                </div>
-            </div>
-            <div class="col-xxl-3 col-xl-3 col-lg-3  col-sm-6 col-xs-12">
-                <div class="projects-item">
-                <div class="img-ho">
-                <img src="<?php echo base_url('assets/web/images/blog-img2.webp')?>" class="img-fluid" />
-                <div class="blogtag1">News</div>
-                </div>
-                <div class="blogtitle">
-                Lockdown effect: As families spend more time at home, realty players see rising buyer interest
-                </div>
-                <div class="bloglinks">
-                <div class="row">
-                <div class="col-xxl-6 col-xl-6 col-lg-6  col-sm-6 col-xs-12">
-                <div class="blog-date">12 May 2021</div>
-                </div>
-                <div class="col-xxl-6 col-xl-6 col-lg-6  col-sm-6 col-xs-12">
-                <div class="blog-links"><a href="#">Read more</a></div>
-                </div>
-                <div class="clearfix"></div>
-                </div>
-                </div>
+                    <div class="img-ho">
+                        <img src="<?php echo base_url('assets/admin/uploads/press/thumb_img/'.$detail->thumb_img)?>" class="img-fluid" />
+                        <div class="blogtag1">News</div>
+                    </div>
+                    <div class="blogtitle">
+                        <?php $desc = substr($detail->title, 0, 80); echo $desc."..." ?>
+                    </div>
+                    <div class="bloglinks">
+                        <div class="row">
+                            <div class="col-xxl-6 col-xl-6 col-lg-6  col-sm-6 col-xs-12">
+                                <div class="blog-date">
+                                 <?php $timestamp = strtotime($detail->press_date); 
+                                    $new_date = date('d M Y', $timestamp);  echo $new_date; ?>
+                                </div>
+                            </div>
+                            <div class="col-xxl-6 col-xl-6 col-lg-6  col-sm-6 col-xs-12">
+                                <div class="blog-links">
+                                    <?php if($detail->news_url != null){ ?>
+                                    <a href="<?php echo $detail->news_url; ?>" target="_blank">Read more</a>
+                                    <?php } ?>
+                                    <?php if($detail->news_url == null){ ?>
+                                    <a href="<?php echo base_url('assets/admin/uploads/press/pdf/'.$detail->pdf_file)?>" target="_blank">Read more</a>
+                                    <?php } ?>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="col-xxl-3 col-xl-3 col-lg-3  col-sm-6 col-xs-12">
-                <div class="projects-item">
-                <div class="img-ho">
-                <img src="<?php echo base_url('assets/web/images/blog-img3.webp')?>" class="img-fluid" />
-                <div class="blogtag1">News</div>
-                </div>
-                <div class="blogtitle">
-                Real estate could see major headwinds in the short term: KPMG
-                </div>
-                <div class="bloglinks">
-                <div class="row">
-                <div class="col-xxl-6 col-xl-6 col-lg-6  col-sm-6 col-xs-12">
-                <div class="blog-date">10 May 2021</div>
-                </div>
-                <div class="col-xxl-6 col-xl-6 col-lg-6  col-sm-6 col-xs-12">
-                <div class="blog-links"><a href="#">Read more</a></div>
-                </div>
-                <div class="clearfix"></div>
-                </div>
-                </div>
-                </div>
-            </div>
-            <div class="col-xxl-3 col-xl-3 col-lg-3  col-sm-6 col-xs-12">
-                <div class="projects-item">
-                <div class="img-ho">
-                <img src="<?php echo base_url('assets/web/images/blog-img4.webp')?>" class="img-fluid" />
-                <div class="blogtag1">News</div>
-                </div>
-                <div class="blogtitle">
-                Clover by the river - a truly dream home
-                </div>
-                <div class="bloglinks">
-                <div class="row">
-                <div class="col-xxl-6 col-xl-6 col-lg-6  col-sm-6 col-xs-12">
-                <div class="blog-date">15 Apr 2021</div>
-                </div>
-                <div class="col-xxl-6 col-xl-6 col-lg-6  col-sm-6 col-xs-12">
-                <div class="blog-links"><a href="#">Read more</a></div>
-                </div>
-                <div class="clearfix"></div>
-                </div>
-                </div>
-                </div>
-            </div>
+                <?php } ?>          
+            
         </div>
         <div class="row">
             <div class="col-xxl-12 col-xl-12 col-lg-12  col-sm-6 col-xs-12">
-                <div class="viewallprojects"><a href="#">View All News</a></div>
+                <div class="viewallprojects"><a href="<?php echo base_url('press')?>">View All News</a></div>
             </div>
         </div>
 </section>
@@ -474,7 +509,8 @@
 </div>
 <div class="col-xxl-3 col-xl-3 col-lg-3 col-sm-3 col-xs-12">
 <div class="footersoical">
-<img src="<?php echo base_url('assets/web/images/facebook@2x.webp')?>" /> &nbsp; <img src="<?php echo base_url('assets/web/images/instagram@2x.webp')?>" /> &nbsp;  <img src="<?php echo base_url('assets/web/images/youtube@2x.webp')?>" />  &nbsp; <img src="<?php echo base_url('assets/web/images/whatsapp@2x.webp')?>" />
+    <center>
+<img src="<?php echo base_url('assets/web/images/facebook@2x.webp')?>" /> &nbsp; <img src="<?php echo base_url('assets/web/images/instagram@2x.webp')?>" /> &nbsp;  <img src="<?php echo base_url('assets/web/images/youtube@2x.webp')?>" />  &nbsp; <img src="<?php echo base_url('assets/web/images/whatsapp@2x.webp')?>" /></center>
 </div>
 </div>
 </div>
@@ -495,5 +531,10 @@
 <button class="scrollup"><i class="fas fa-angle-up"></i></button>-->
 <!-- Javascript Files -->
 <script src="<?php echo base_url('assets/web/js/bootstrap.js')?>"></script>
+<!-- Javascript Files -->
+
+    <script src="<?php echo base_url('assets/web/assets/js/jquery.min.js');?>"></script>
+    <script src="<?php echo base_url('assets/web/assets/js/metismenu.js');?>"></script>
+    <script src="<?php echo base_url('assets/web/assets/js/active.js')?>"></script>
 </body>
 </html>

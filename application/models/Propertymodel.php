@@ -9,11 +9,27 @@ class Propertymodel extends CI_Model
 
     public function property()
     {
-        
-        $now = date('Y-m-d H:i:s');  
         $specifications = $_POST['specification'];
+        $specArr = array();
+        foreach ($specifications as $key => $value) {
+            array_push($specArr, array("spec".$key=> htmlspecialchars($value)) );
+        } 
+       
+        $now = date('Y-m-d H:i:s');  
+        if (isset($_FILES['thumb_img']) && !empty($_FILES['thumb_img']["name"]))
+        {
+            $config1['upload_path'] = './assets/admin/uploads/property_thumb';  
+            $config1['allowed_types'] = 'jpg|jpeg|bmp|png|webp';
+            $config1['max_size'] = '30720';   
+            $config1['encrypt_name'] = TRUE;   
 
-        if($_FILES['walkthrough-video']['size'] != 0 )
+            $this->load->library('upload', $config1);
+            $this->upload->initialize($config1); 
+            $this->upload->do_upload('thumb_img'); 
+            $thumb_upload=$this->upload->data(); 
+        }
+
+        if(isset($_FILES['walkthrough-video']) && $_FILES['walkthrough-video']['size'] != 0 )
         {
                          
             $configVideo['upload_path'] = './assets/admin/uploads/walkthrough_video'; # check path is correct
@@ -22,8 +38,6 @@ class Propertymodel extends CI_Model
             $configVideo['overwrite'] = FALSE;
             $configVideo['remove_spaces'] = TRUE;
             $configVideo['encrypt_name'] = TRUE; // For unique image name at a time
-          //  $video_name = random_string('numeric', 5);
-           // $configVideo['file_name'] = $videoname;
 
             $this->load->library('upload', $configVideo);
             $this->upload->initialize($configVideo);
@@ -61,14 +75,15 @@ class Propertymodel extends CI_Model
                         'possession'        => $this->input->post('possession'),
                         'location'          => $this->input->post('location'),
                         'location_address'  => $this->input->post('location_address'),
-                        'description'       => $this->input->post('description'),                       
+                        'description'       => $this->input->post('description'), 
+                        'thumb_img'         => $thumb_upload['file_name'],                      
                         'walkthrough_video' => $videoname['file_name'],
                         'E-Brochure'        => $EBrochure_upload['file_name'],
                         'apartment_type'    => implode(', ', $_POST['apartment_type']),
                         'price'             => $this->input->post('price'),
                         'property_status'   => $this->input->post('project_status'),                      
                         'feature'           => implode(',', $_POST['features']),  
-                        'specification'     => json_encode($specifications),   
+                        'specification'     => json_encode($specArr),   
                         'google_map'        => $this->input->post('google_map'),                      
                         'created_at'        => $now
                     );
@@ -174,7 +189,15 @@ class Propertymodel extends CI_Model
                     }   
         
     }
+    public function get_property_details()
+    {       
+        $this->db->select('*');
+        $this->db->from('property');   
+        $query = $this->db->get();
+        return $query->result();
+    }
 
+    
     //not use in project but reference
     public function insert_multiple_img_dynamic()
     {   

@@ -12,6 +12,8 @@ class Webmodel extends CI_Model
         $this->db->from('banner');   
         $query = $this->db->get();
         return $query->row();
+
+
     }
     public function get_press_details()
     {       
@@ -20,6 +22,32 @@ class Webmodel extends CI_Model
         $query = $this->db->get();
         return $query->result();
     }
-    
-
+    public function get_press_details_home()
+    {       
+        $this->db->select('*');
+        $this->db->from('press');  
+        $this->db->order_by('press_id', 'DESC');  
+        $this->db->limit('4');        
+        return $this->db->get()->result();
+    }
+    public function get_property_details_home()
+    {       
+        $this->db->select('*');
+        $this->db->from('property');  
+        $this->db->join('property_banner', 'property_banner.property_id = property.property_id');  
+        $this->db->group_by('property_banner.property_id');
+        $this->db->order_by('property.property_id', 'DESC');  
+        $this->db->limit('3');         
+        $this->db->where('status = 1');       
+        return $this->db->get()->result();
+    }
+    public function get_property_details()
+    {       
+        $this->db->select('*');
+        $this->db->from('property');  
+        $this->db->join('property_banner', 'property_banner.property_id = property.property_id');  
+        $this->db->group_by('property_banner.property_id');         
+        $this->db->where('status = 1');       
+        return $this->db->get()->result();
+    }
 }

@@ -173,6 +173,10 @@ footer p{color: #7e8082;
 footer a{ text-decoration:none; color:#7e8082; font-size:14px; padding-right:10px;}
 footer a:hover{ color:#7e8082; font-size:14px; padding-right:10px;}
 .footer-bottom{ color:#7e8082;margin-top:30px; border-top:solid 1px #4a4a4a; padding:10px 0px 10px 0px;}
+.footer-bottom a{
+    
+    padding-right:0px;
+}
 .zoom-effect-1 img,
 .zoom-effect-2 img,
 .opacity-effect img,
@@ -249,6 +253,7 @@ video {
 .ptb70{padding-top:70px; padding-bottom:70px;}
 .pb40{padding-bottom:40px;}
 .pb20{padding-bottom:20px;}
+.pb30{padding-bottom:30px;}
 .pt40{ padding-top:40px;}
 .mb30{margin-bottom:30px;}
 
@@ -402,3 +407,4 @@ position: absolute;
 	width: auto;
 	max-height: 520px;
 }
+<!-- Mobile Menu -->

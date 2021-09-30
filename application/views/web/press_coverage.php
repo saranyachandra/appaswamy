@@ -9,7 +9,7 @@
 <title>Properties in Chennai - Appaswamy Real Estates</title>
 <meta name="description" content="Appaswamy Real Estates offers elegantly designed properties in Chennai with exciting facilities and amenities at prominent locations.">
 <!-- Favicon Icon -->
-<link rel="shortcut icon" href="favicon.png">
+<link rel="shortcut icon" href="<?php echo base_url('assets/web/images/favicon.png')?>">
 <!-- CSS Files -->
 <link rel="stylesheet" href="<?php echo base_url('assets/web/css/bootstrap.css')?>">
 <link rel="stylesheet" href="<?php echo base_url('assets/web/css/style.css')?>">
@@ -76,7 +76,7 @@
         <div class="col-xxl-3 col-xl-3 col-lg-3  col-sm-6 col-xs-12 margin">
           <div class="projects-item mb30">
             <div class="img-ho">
-              <img src="<?php echo base_url('assets/web/images/blog-img1.webp')?>" class="img-fluid" />
+              <img src="<?php echo base_url('assets/admin/uploads/press/thumb_img/'.$detail->thumb_img)?>" class="img-fluid" />
               <div class="blogtag1">News</div>
             </div>
             <div class="blogtitle">
@@ -137,7 +137,7 @@
           </div>
           <div class="col-xxl-3 col-xl-3 col-lg-3 col-sm-3 col-xs-12">
             <div class="footersoical mb20">
-            <img src="images/facebook@2x.webp" /> &nbsp; <img src="images/instagram@2x.webp" /> &nbsp;  <img src="images/youtube@2x.webp" />  &nbsp; <img src="images/whatsapp@2x.webp" />
+             <img src="<?php echo base_url('assets/web/images/facebook@2x.webp')?>" /> &nbsp; <img src="<?php echo base_url('assets/web/images/instagram@2x.webp')?>" /> &nbsp; <img src="<?php echo base_url('assets/web/images/youtube@2x.webp')?>" /> &nbsp; <img src="<?php echo base_url('assets/web/images/whatsapp@2x.webp')?>" />
             </div>
           </div>  
         </div>

@@ -16,18 +16,29 @@ Version: 1.0
 }
 .project-menus{ background:#f4f4f4;}
 .project-menus ul{ list-style:none; margin:0px; padding:0px;}
-.project-menus li{ list-style:none; text-decoration:none; color:#797979; float:left;font-family: 'Manrope'; font-weight: 500; padding:20px 0px 0px 0px; margin-right:30px;}
+.project-menus li{ list-style:none; text-decoration:none; color:#797979; float:left;font-family: 'Manrope'; font-weight: 500;  margin-right:30px;}
 .project-menu-active{ color:#000 !important; border-bottom:solid 3px #d20023;font-weight: 900 !important;}
-.project-menus a{ list-style:none; text-decoration:none; color:#797979; float:left;font-family: 'Manrope'; font-weight: 500;padding-bottom: 20px;}
+.project-menus a{ list-style:none; text-decoration:none; color:#797979; float:left;font-family: 'Manrope'; font-weight: 500;padding-top: 20px;
+    padding-bottom: 20px;}
+.fixed-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+	z-index: 20;
+}
+.project-menus1{}
+.project-menus1 a{list-style:none; text-decoration:none; color:#797979; float:left;font-family: 'Manrope'; font-weight: 500;padding-top: 10px;
+    padding-bottom: 10px;}
 .project-overview{}
 .project-overview p{ color:#707479; font-size:16px;}
 .project-overview h2{font-family: 'Objectivity Bold';margin-bottom:0px; font-size:34px;color:#333940;}
 .project-overview h3{}
 .project-overview h4{font-family: 'Manrope';margin-bottom:8px; font-weight:900;  font-size:20px;color:#333940;}
 .project-overview h5{font-family: 'Manrope';font-weight: 500;  margin-bottom: 8px; font-weight:800;font-size:14px;color:#333940;}
-.broucher-bt{ border:solid 0.5px #9d9fa2; border-radius:3px;  color:#333940; padding:8px 0px 8px 0px;}
+.broucher-bt{ border:solid 0.5px #9d9fa2; border-radius:3px;  color:#333940; padding:8px 0px 8px 0px;height: 43px;}
 .broucher-bt a{color:#333940; text-decoration:none; font-size:16px; font-weight:900;}
-.enquirenow-bt{ background:#d20023; color:#FFF; border-radius:3px;  color:#333940; padding:8px 0px 8px 0px;}
+.enquirenow-bt{ background:#d20023; color:#FFF; border-radius:3px;  color:#333940; padding:8px 0px 8px 0px;height: 43px;}
 .enquirenow-bt a{color:#FFF; text-decoration:none; font-size:16px; font-weight:900;}
 .overdetails{ padding-left:50px ; margin-bottom:37px; color:#404040;font-family: 'Objectivity Bold'; font-weight: 900; font-size:20px; }
 .overdetails span{ color:#7e7e7e; font-weight:bold; font-size:16px;font-family: 'Manrope'; }
@@ -144,7 +155,7 @@ Version: 1.0
 }
 .nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
 color: #495057;
-    background-color: transparent;
+    background: transparent;
     border-color: transparent;
     border-bottom: 3px solid #d20023;
     font-weight: 900;
@@ -469,8 +480,9 @@ text-decoration: none;
 }
 .allprojectslist {
     background: #f5f6f7;
-    padding: 100px 0px 56px 0px;
+    padding: 90px 0px 56px 0px;
 }
+.pro-tab{ margin-bottom:20px; margin-right:10px;}
 .allprojectslist h2 {
     color: #333940;
     font-size: 34px;
@@ -498,4 +510,6 @@ text-decoration: none;
     z-index: 1;
     font-family: 'Objectivity ExtraBold';
 }
+
+
 	}

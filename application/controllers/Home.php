@@ -27,6 +27,7 @@ class Home extends CI_Controller {
 	}
 	public function property_details($id)
 	{		
+		
 			$property_query = "select * FROM property WHERE property_id = '$id' ";
 			$data['property_details']  = $this->db->query($property_query)->row();
 
@@ -35,8 +36,11 @@ class Home extends CI_Controller {
 
 			$banner_query = "select * FROM property_banner WHERE property_id = '$id' ";
 			$data['property_banner']  = $this->db->query($banner_query)->result();
+
+			$floorplan_query = "select * FROM property_floorplan WHERE property_id = '$id' ";
+			$data['floorplan_details']  = $this->db->query($floorplan_query)->result();
            
-            //print_r($data['property_details']);
+            //print_r($data['floorplan_details']);
 
 			$this->load->view('web/property_details',$data);
 	}

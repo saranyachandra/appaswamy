@@ -7,11 +7,7 @@ Version: 1.0
 --------------------------------------------*/
 
 body{background: #FFF;font-family: 'Manrope', sans-serif;}
-.top{position: absolute;
-    top: 0px;
-    z-index: 1000;
-    width: 100%;
-    background: #FFF;}
+
 .logo{}
 .backgroundVideo {
       position: fixed;
@@ -183,7 +179,7 @@ video {
 .innerpage-title
 {
 	background: url(../images/inner-bg.jpg) repeat #4b5f76;
-	padding-top:40px;
+	padding-top:104px;
 	padding-bottom:0px;
 }
 .innerpage-title h2

@@ -9,7 +9,8 @@ class Home extends CI_Controller {
 		$this->load->library('session'); 
 		$this->load->helper(array('form','url'));
 		$this->load->database();		
-		$this->load->model('Webmodel');	
+		$this->load->model('Webmodel');
+		$this->load->library("pagination");
 	}
 	
 	public function index()
@@ -48,15 +49,21 @@ class Home extends CI_Controller {
 	public function magazine()
 	{	
 		//SELECT * FROM `blog_post` where updated_date not in(SELECT max(updated_date) FROM `blog_post`); without show last row
-
-		$this->db->select('*');
-	  	$this->db->from('blog_post'); 	
-	  	$result['details']  = $this->db->get()->result();
+		$config = array();
+		$config["base_url"] = base_url() . "web/magazine";
+		$config["total_rows"] = $this->Webmodel->get_count();
+		$config["per_page"] = 5;
+        $config["uri_segment"] = 2;
+        $this->pagination->initialize($config);
+        $page = ($this->uri->segment(2)) ? $this->uri->segment(2) : 0;
+        $result["links"] = $this->pagination->create_links();
+        $result['details'] = $this->Webmodel->get_count_magazine($config["per_page"], $page);
 
 	  	$result['last_row'] = $this->db->order_by('blog_id',"desc")
             ->limit(1)
             ->get('blog_post')
             ->row();  
+       //  print_r($result['authors']);
 		
 		$this->load->view('web/magazine',$result);
 	}
@@ -81,6 +88,12 @@ class Home extends CI_Controller {
 	{	
 		$this->load->view('web/contact_us');
 	}
-
-
+	public function disclaimer()
+	{	
+		$this->load->view('web/disclaimer');
+	}
+	public function guide_for_nri()
+	{	
+		$this->load->view('web/guide-for-nri');
+	}
 }

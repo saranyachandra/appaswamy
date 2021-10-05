@@ -1,13 +1,125 @@
-
-<?php $this->load->view('layout/header_css1'); ?>
+<!DOCTYPE html>
+<html lang="zxx">
+<head>
+<!-- Required Meta Tags -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<!-- Page Title -->
+<title><?php echo $property_details->name; ?> - Appaswamy Real Estates</title>
+<meta name="description" content="Appaswamy Real Estates offers elegantly designed properties in Chennai with exciting facilities and amenities at prominent locations.">
+<!-- Favicon Icon -->
+<link rel="shortcut icon" href="<?php echo base_url('assets/web/images/favicon.png')?>">
+<!-- CSS Files -->
+<link rel="stylesheet" href="<?php echo base_url('assets/web/css/bootstrap.css')?>">
+<link rel="stylesheet" href="<?php echo base_url('assets/web/css/bootstrap.min.css')?>">
+<link rel="stylesheet" href="<?php echo base_url('assets/web/css/style.css')?>">
 <link rel="stylesheet" href="<?php echo base_url('assets/web/css/projects-details-page.css')?>">
+<link rel="stylesheet" href="<?php echo base_url('assets/web/css/responsive.css')?>">
+<!-- icon css file -->
+<link rel="stylesheet" href="css/icons.css"> 
+<!-- metis menu css file -->
+<link rel="stylesheet" href="<?php echo base_url('assets/web/assets/css/metismenu.css')?>">
+<link rel="stylesheet" href="<?php echo base_url('assets/web/assets/css/style.css')?>">
+ <!-- Syntax Highlighter -->
+<link href="<?php echo base_url('assets/web/css1/shCore.css')?>" rel="stylesheet" type="text/css" />
+<link href="<?php echo base_url('assets/web/css1/shThemeDefault.css')?>" rel="stylesheet" type="text/css" />
+ <!-- Demo CSS -->  
+<link rel="stylesheet" href="<?php echo base_url('assets/web/flexslider.css')?>" type="text/css" media="screen" />
+<!-- Modernizr -->
+<script src="<?php echo base_url('assets/web/js1/modernizr.js')?>"></script>
 <style>
 .specifications img{
   width: 100% !important;
 }
 </style>
+</head>
+<body>
+  <div class="top">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-xxl-2 col-xl-2 col-lg-2  col-sm-2 col-xs-4 col-8">
+          <div class="logo">
+          <a href="<?php echo base_url('/');?>"><img src="<?php echo base_url('assets/web/images/logo.png')?>" /></a>   
+          </div>
+        </div>
+        <div class="col-xxl-7 col-xl-7 col-lg-7  col-sm-4 col-xs-5 col-2">
+          <div class="mobicon d-block d-sm-none">
+            <a href="tel:+91 766 733 0000"><img src="<?php echo base_url('assets/web/images/phone-icon2.jpg')?>" /> </a>
+          </div>
+        </div>
+        <div class="col-xxl-3 col-xl-3 col-lg-3  col-sm-3 col-xs-3 col-2">
+          <div class="mobile d-none d-sm-block">
+            <a href="tel:+91 766 733 0000"><span>Sales Enquiries</span><br />
+            +91 766 733 0000 </a>
+          </div>
+          <div class="mobimenu d-block d-sm-none">
+          <a href="#"><img src="<?php echo base_url('assets/web/images/menu.jpg')?>" /> </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-<?php $this->load->view('layout/header-menu'); ?>
+ <div class="header-container">
+        <div class="navbar d-block primary-navigation">
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="col d-none d-xl-block col p-0 primary-nav-container">
+                    <div class="navbar-nav primary-nav-links  offset-4" role="navigation" aria-label="Main">
+                        <ul role="menu" class="p-0 m-0 d-flex align-items-center">
+                            <li role="presentation" class="nav-item"><a class="nav-link" role="menuitem" href="#" target="_self"></a></li>
+                            <li role="presentation" class="primary-nav-dropdown nav-item"><a class="nav-link" href="#" target="_self" aria-haspopup="true" aria-expanded="false" role="menuitem">Residential</a>
+                                <div class="dropdown-container">
+                                    <ul class="dropdown-list">
+                                        <li class="dropdown-list-item"><a class="nav-link" href="#" target="_self">Navasuja</a></li>
+                                        <li class="dropdown-list-item"><a class="nav-link" href="#" target="_self">Azure The Oceanic</a></li>
+                                        <li class="dropdown-list-item"><a class="nav-link" href="#" target="_self">Altezza</a></li>
+                                        <li class="dropdown-list-item"><a class="nav-link" href="#" target="_self">Clover By The River</a></li>
+                                        <li class="dropdown-list-item"><a class="nav-link" href="#" target="_self">Capella</a></li>
+                                        <li class="dropdown-list-item"><a class="nav-link" href="#" target="_blank">Splendour</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li role="presentation" class="primary-nav-dropdown nav-item"><a class="nav-link" href="#" target="_self" aria-haspopup="true" aria-expanded="false" role="menuitem">  Commercials</a>
+                                <div class="dropdown-container">
+                                    <ul class="dropdown-list">
+                                        <li class="dropdown-list-item"><a class="nav-link" href="#" target="_self">Platina</a></li>
+                                        <li class="dropdown-list-item"><a class="nav-link" href="#" target="_self">Greensville</a></li>
+                                        <li class="dropdown-list-item"><a class="nav-link" href="#" target="_self">Time Square Commercial</a></li>
+                                        <li class="dropdown-list-item"><a class="nav-link" href="#" target="_self">Jaya Commercial</a></li>
+                                        <li class="dropdown-list-item"><a class="nav-link" href="#" target="_self">Paypal</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li role="presentation" class="primary-nav-dropdown nav-item">
+                            <a class="nav-link" href="javascript:void(0);" target="_self" aria-haspopup="true" aria-expanded="false" role="menuitem">Hospitality</a></li>
+                            <li role="presentation" class="primary-nav-dropdown nav-item">
+                                <a class="nav-link" href="javascript:void(0);" target="_self" aria-haspopup="true" aria-expanded="false" role="menuitem">Buyers Guide</a>
+                                <div class="dropdown-container">
+                                    <ul class="dropdown-list">
+                                        <li class="dropdown-list-item"><a class="nav-link" href="#" target="_self">Guide For NRI</a></li>
+                                        <li class="dropdown-list-item"><a class="nav-link" href="#" target="_self">Indian Investors</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li role="presentation" class="primary-nav-dropdown nav-item">
+                                <a class="nav-link" href="javascript:void(0);" target="_self" aria-haspopup="true" aria-expanded="false" role="menuitem">About Us</a>
+                                <div class="dropdown-container">
+                                    <ul class="dropdown-list">
+                                        <li class="dropdown-list-item"><a class="nav-link" href="javascript:void(0);" target="_self">About us</a></li>
+                                        <li class="dropdown-list-item"><a class="nav-link" href="javascript:void(0);" target="_self">Careers</a></li>
+                                        <li class="dropdown-list-item"><a class="nav-link" href="<?php echo base_url('magazine');?>" target="_self">Magazine</a></li>
+                                        <li class="dropdown-list-item"><a class="nav-link" href="<?php echo base_url('press');?>" target="_self">Press</a></li>
+                                        <li class="dropdown-list-item"><a class="nav-link" href="<?php echo base_url('contact-us');?>" target="_self">Contact Us</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
 <!-- Banner-section -->
@@ -255,102 +367,102 @@
         <div class="row">
           <div class="col-xxl-6 col-xl-6 col-lg-6 col-sm-12 col-xs-12 offset-3 slider">
             <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
-              <?php
-                foreach($floorplan_details as $k=>$val){
-                  if($k == 0){
-                ?>
-                <li class="nav-item tabnav" >
-                <a class="nav-link active" id="home-tab_<?=$k?>" data-bs-toggle="tab" data-bs-target="#home_<?=$k?>" type="button" role="tab" aria-controls="home" aria-selected="true"><?=$val->floor_name?></a>
+              <li class="nav-item tabnav" >
+                <a class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Tower A</a>
               </li>
-              <?php } else{?>
-                <li class="nav-item tabnav" >
-                  <a class="nav-link " id="home-tab_<?=$k?>" data-bs-toggle="tab" data-bs-target="#home_<?=$k?>" type="button" role="tab" aria-controls="home" aria-selected="true"><?=$val->floor_name?></a>
-                </li>
-              <?php } } ?>  
-                           
+              <li class="nav-item tabnav">
+                <a class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Tower B</a>
+              </li>
+              <li class="nav-item tabnav">
+                <a class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">Tower C</a>
+              </li>
             </ul>
-            
             <div class="tab-content" id="myTabContent">
-              <?php
-              foreach($floorplan_details as $k=>$val){
-                if($k == 0 ){
-              ?>
-              <div class="tab-pane fade show active" id="home_<?=$k?>" role="tabpanel" aria-labelledby="home-tab_<?=$k?>">
-                <?php                
-                  $floor_images = json_decode($floorplan_details[$k]->floor_img);
-                ?>
+              <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                 <center>  
                   <div>
                     <section class="">
-                      <div id="slider_<?=$k?>" data-id="<?=$k?>" class="flexslider">
+                      <div id="slider" class="flexslider">
                         <ul class="slides">
-                          <?php
-                            foreach($floor_images as $k=>$val){
-                          ?>
-                            <li>
-                              <img src="<?php echo base_url('assets/admin/uploads/floor_plan/'.$val->img)?>" />
-                            </li>
-                          <?php } ?>  
+                          <li>
+                            <img src="<?php echo base_url('assets/web/images/tower-a-1.webp')?>" />
+                          </li>
+                          <li>
+                            <img src="<?php echo base_url('assets/web/images/tower-a-1-a.webp')?>" />
+                          </li>
+                          <li>
+                            <img src="<?php echo base_url('assets/web/images/tower-a-1.webp')?>" />
+                          </li>
+                          <li>
+                            <img src="<?php echo base_url('assets/web/images/tower-a-1-a.webp')?>" />
+                          </li>
+                          
                         </ul>
                       </div>
-                      <div id="carousel_<?=$k?>" data-id="<?=$k?>" class="flexslider">
+                      <div id="carousel" class="flexslider">
                         <ul class="slides">
-                          <?php
-                          foreach($floor_images as $k=>$val){
-                            
-                            ?>
-                            <li>
-                            <img src="<?php echo base_url('assets/admin/uploads/floor_plan/'.$val->img)?>" />
+                          <li>
+                            <img src="<?php echo base_url('assets/web/images/tower-a-1.webp')?>" />
                           </li>
-                            <?php
-                          }
-                          ?>                                          
+                          <li>
+                            <img src="<?php echo base_url('assets/web/images/tower-a-1-a.webp')?>" />
+                          </li>
+                          <li>
+                            <img src="<?php echo base_url('assets/web/images/tower-a-1.webp')?>" />
+                          </li>
+                          <li>
+                            <img src="<?php echo base_url('assets/web/images/tower-a-1-a.webp')?>" />
+                          </li>                  
                         </ul>
                       </div>
                     </section>      
                   </div> 
                 </center>
               </div>
-              <?php } else{ ?>
-                
-              <div class="tab-pane fade" id="home_<?=$k?>" role="tabpanel" aria-labelledby="home-tab_<?=$k?>">
-                <?php                
-                  $floor_images = json_decode($floorplan_details[$k]->floor_img);
-                ?>
-                <center>  
-                  <div>
-                    <section class="">
-                      <div id="slider_<?=$k?>" data-id="<?=$k?>" class="flexslider">
-                        <ul class="slides">
-                          <?php
-                            foreach($floor_images as $k=>$val){
-                          ?>
-                            <li>
-                              <img src="<?php echo base_url('assets/admin/uploads/floor_plan/'.$val->img)?>" />
-                            </li>
-                          <?php } ?>  
-                        </ul>
-                      </div>
-                      <div id="carousel_<?=$k?>" data-id="<?=$k?>" class="flexslider">
-                        <ul class="slides">
-                          <?php
-                          foreach($floor_images as $k=>$val){
-                            
-                            ?>
-                            <li>
-                            <img src="<?php echo base_url('assets/admin/uploads/floor_plan/'.$val->img)?>" />
+              <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab"> 
+                <center>
+                <div>
+                  <section class="">
+                    <div id="slider2" class="flexslider">
+                      <ul class="slides">
+                        <li>
+                            <img src="<?php echo base_url('assets/web/images/tower-a-1.webp')?>" />
                           </li>
-                            <?php
-                          }
-                          ?>                                          
-                        </ul>
-                      </div>
-                    </section>      
-                  </div> 
+                          <li>
+                            <img src="<?php echo base_url('assets/web/images/tower-a-1-a.webp')?>" />
+                          </li>
+                          <li>
+                            <img src="<?php echo base_url('assets/web/images/tower-a-1.webp')?>" />
+                          </li>
+                          <li>
+                            <img src="<?php echo base_url('assets/web/images/tower-a-1-a.webp')?>" />
+                          </li>
+                      </ul>
+                    </div>
+                    <div id="carouse12" class="flexslider">
+                      <ul class="slides">
+                        <li>
+                            <img src="<?php echo base_url('assets/web/images/tower-a-1.webp')?>" />
+                          </li>
+                          <li>
+                            <img src="<?php echo base_url('assets/web/images/tower-a-1-a.webp')?>" />
+                          </li>
+                          <li>
+                            <img src="<?php echo base_url('assets/web/images/tower-a-1.webp')?>" />
+                          </li>
+                          <li>
+                            <img src="<?php echo base_url('assets/web/images/tower-a-1-a.webp')?>" />
+                          </li>
+                      </ul>
+                    </div>
+                  </section>      
+                </div>  
                 </center>
               </div>
-              <?php } } ?>
-             
+              <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab"> 
+                <center>
+                </center>
+              </div>
             </div>
           </div>
         </div>
@@ -360,35 +472,41 @@
 <!-- floor plan end here -->
 
 <!-- Location Map -->
-  <section class="model-flat ptb56" id="virtual-tour">
-    <div class="container">
-      <div class="row">
-        <div class="col-xxl-12 col-xl-12 col-lg-12 col-sm-12 col-xs-12">
-          <h2 class="text-center pb40">360° Virtual Tour </h2>
-        </div>
-        <div class="col-xxl-6 col-xl-6 col-lg-6 col-sm-6 col-xs-12">
-          <iframe class="pb-4" width="100%" height="480" src="https://my.matterport.com/show/?m=Dth1zsgsjKD" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>         						
-        </div>
-        <div class="col-xxl-6 col-xl-6 col-lg-6 col-sm-6 col-xs-12">
-          <iframe class="pb-4" width="100%" height="480" src="https://my.matterport.com/show/?m=QRHY1d9UYGG" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>         						
-        </div>
-      </div>
-    </div>
-  </section>
+<section class="model-flat ptb56" id="virtual-tour">
+<div class="container">
+<div class="row">
+<div class="col-xxl-12 col-xl-12 col-lg-12 col-sm-12 col-xs-12">
+<h2 class="text-center pb40">360° Virtual Tour </h2>
+</div>
+<div class="col-xxl-6 col-xl-6 col-lg-6 col-sm-6 col-xs-12">
+
+<iframe class="pb-4" width="100%" height="480" src="https://my.matterport.com/show/?m=Dth1zsgsjKD" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
+						
+</div>
+<div class="col-xxl-6 col-xl-6 col-lg-6 col-sm-6 col-xs-12">
+
+<iframe class="pb-4" width="100%" height="480" src="https://my.matterport.com/show/?m=QRHY1d9UYGG" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
+						
+</div>
+</div>
+
+</div>
+
+</section>
 
 <!-- Location Map -->
-  <section id="location" class="location-map ptb56">
-    <div class="container">
-      <div class="row">
-        <div class="col-xxl-12 col-xl-12 col-lg-12 col-sm-12 col-xs-12">
-          <h2 class="text-center pb40">Location Map</h2>                 
-        </div>
-      </div>
-      <div class="row">
-        <?php echo $property_details->google_map; ?>
-      </div>
-    </div>
-  </section>
+          <section id="location" class="location-map ptb56">
+            <div class="container">
+                <div class="row">
+                  <div class="col-xxl-12 col-xl-12 col-lg-12 col-sm-12 col-xs-12">
+                  <h2 class="text-center pb40">Location Map</h2>                 
+                  </div>
+                </div>
+                <div class="row">
+                   <?php echo $property_details->google_map; ?>
+                </div>
+            </div>
+          </section>
 
 <!-- faq list start here  -->
 
@@ -540,16 +658,87 @@ Ready to move</li>
 
 
 <!-- footer-area -->
-<?php $this->load->view('layout/footer-menu-inner'); ?>
+<footer>
+<div class="footer-top">
+<div class="container">
+<div class="row">
+<div class="col-xxl-3 col-xl-3 col-lg-3 col-sm-3 col-xs-12">
+<div class=" footer-mobile mb20">
+<a href="tel:+91 766 733 0000"><span>Sales Enquiries</span><br />
++91 766 733 0000 </a>
 
-<?php $this->load->view('layout/footer-home-js'); ?>
+</div>
+</div>
+<div class="col-xxl-3 col-xl-3 col-lg-3 col-sm-3 col-xs-12">
+<div class="footer-email mb20">
+<a href="mailto:info@appasamy.com"><span>Email</span><br />
+info@appasamy.com </a>
+
+</div>
+</div>
+<div class="col-xxl-3 col-xl-3 col-lg-3 col-sm-3 col-xs-12">
+<div class="footer-address mb20">
+<a href="https://goo.gl/maps/bFGzmXsWyG8xH6UT8" target="_blank"><span>Office</span><br />
+3, Mangesh Street, T.Nagar,
+Chennai - 600 017 </a>
+
+</div>
+</div>
+<div class="col-xxl-3 col-xl-3 col-lg-3 col-sm-3 col-xs-12">
+<div class="footersoical mb20">
+ <img src="<?php echo base_url('assets/web/images/facebook@2x.webp')?>" /> &nbsp; <img src="<?php echo base_url('assets/web/images/instagram@2x.webp')?>" /> &nbsp; <img src="<?php echo base_url('assets/web/images/youtube@2x.webp')?>" /> &nbsp; <img src="<?php echo base_url('assets/web/images/whatsapp@2x.webp')?>" />
+</div>
+</div>
+
+
+
+</div>
+</div>
+</div>
+<div class="container">
+<div class="row">
+<div class="col-xxl-9 col-xl-9 col-lg-9 col-sm-9 col-xs-12">
+<h3>Appasamy Realestates</h3>
+<p>Founded in 1959 by the visionary entrepreneur Mr S Appaswamy, Appaswamy Real Estate Ltd is a highly respected leading Real Estate conglomerate, headquartered in Chennai. </p>
+<div class="pt-2">
+<h3>Ongoing Projects</h3>
+<p><a href="#">Appasamy Habitat</a>    <a href="#"> Appasamy Azure The Oceanic</a>     <a href="#">Appasamy Splendour</a>     <a href="#"> Appasamy The Bloomingdale</a>      <a href="#">Appasamy Clover</a></p>
+</div>
+<div  class="pt-2">
+<h3>Website</h3>
+<a href="#">Home</a>    <a href="#"> About Us </a>    <a href="#">Contact </a>    <a href="#">Blog </a>    <a href="#">Press</a>
+</div>
+</div>
+<div class="col-xxl-3 col-xl-3 col-lg-3 col-sm-3 col-xs-12">
+
+</div>
+</div>
+</div>
+
+<div class="footer-bottom">
+<div class="container">
+<div class="row">
+<div class="col-xxl-12 col-xl-12 col-lg-12 col-sm-12 col-xs-12">
+<p class="text-center">Copyright 2021 © Appaswamy.com All Rights Reserved.  <a href="#">Privacy Policy</a> |  <a href="#">Disclaimer</a></p>
+</div>
+</div>
+</div>
+</div>
+</footer>
+
+
+</script>
+<script src="<?php echo base_url('assets/web/js/bootstrap.js')?>"></script>
+<script src="<?php echo base_url('assets/web/assets/js/jquery.min.js');?>"></script>
+<script src="<?php echo base_url('assets/web/assets/js/metismenu.js');?>"></script>
+<script src="<?php echo base_url('assets/web/assets/js/active.js')?>"></script>
 <!-- FlexSlider -->
 <script defer src="<?php echo base_url('assets/web/jquery.flexslider.js')?>"></script>
 <!-- Syntax Highlighter -->
 <script type="text/javascript" src="<?php echo base_url('assets/web/js1/shCore.js')?>"></script>
 <script type="text/javascript" src="<?php echo base_url('assets/web/js1/shBrushXml.js')?>"></script>
 <script type="text/javascript" src="<?php echo base_url('assets/web/js1/shBrushJScript.js')?>')?>"></script>
-<!-- Optional FlexSlider Additions -->
+!-- Optional FlexSlider Additions -->
 <script src="<?php echo base_url('assets/web/js1/jquery.easing.js')?>"></script>
 <script src="<?php echo base_url('assets/web/js1/jquery.mousewheel.js')?>"></script>
 <script defer src="<?php echo base_url('assets/web/js1/demo.js')?>"></script>
@@ -557,33 +746,58 @@ Ready to move</li>
 <script type="text/javascript">
         $(window).scroll(function(){  if ($(window).scrollTop() >= 300) {  $('nav').addClass('fixed-header');  $('nav').addClass('project-menus1');  }  else {  $('nav').removeClass('fixed-header');  $('nav').removeClass('project-menus1');  } });
 
-
-//flex slider 
-
+$(function(){
+      SyntaxHighlighter.all();
+    });
     $(window).load(function(){
-      $('[id^="carousel"]').flexslider({
+      $('#carousel').flexslider({
         animation: "slide",
         controlNav: false,
         animationLoop: false,
         slideshow: false,
         itemWidth: 210,
         itemMargin: 5,
-        asNavFor: "[id^='slider']",
+        asNavFor: '#slider'
       });
 
-      $('[id^="slider"]').flexslider({
+      $('#slider').flexslider({
         animation: "slide",
         controlNav: false,
         animationLoop: false,
         slideshow: false,
-        sync: "carousel",
+        sync: "#carousel",
         start: function(slider){
           $('body').removeClass('loading');
         }
       });
     });
+    $(function(){
+    
+      SyntaxHighlighter.all();
+    });
+    $(window).load(function(){
+    
+      $('#carouse12').flexslider({
+        animation: "slide",
+        controlNav: false,
+        animationLoop: false,
+        slideshow: false,
+        itemWidth: 210,
+        itemMargin: 5,
+        asNavFor: '#slider2'
+      });
 
-   
+      $('#slider2').flexslider({
+        animation: "slide",
+        controlNav: false,
+        animationLoop: false,
+        slideshow: false,
+        sync: "#carousel2",
+        start: function(slider){
+          $('body').removeClass('loading');
+        }
+      });
+    });        
 </script>
 </body>
 </html>

@@ -52,7 +52,7 @@
                                         <li><a href="#">Hospitality</a></li>
                                         <li><a class="has-arrow" href="#">Buyers Guide</a>
                                             <ul class="sub-menu">
-                                                <li><a href="javascript:void(0);">Guide For NRI</a></li>
+                                                <li><a href="<?php echo base_url('Guide-For-NRI');?>">Guide For NRI</a></li>
                                                 <li><a href="javascript:void(0);">Indian Investors</a></li>
                                             </ul>
                                         </li>
@@ -80,7 +80,7 @@
             </div>
         </div>
     </div>
-
+<!-- desktop menu -->
     <div class="header-container">
         <div class="navbar d-block primary-navigation">
             <div class="d-flex justify-content-between align-items-center">
@@ -117,7 +117,7 @@
                                 <a class="nav-link" href="javascript:void(0);" target="_self" aria-haspopup="true" aria-expanded="false" role="menuitem">Buyers Guide</a>
                                 <div class="dropdown-container">
                                     <ul class="dropdown-list">
-                                        <li class="dropdown-list-item"><a class="nav-link" href="#" target="_self">Guide For NRI</a></li>
+                                        <li class="dropdown-list-item"><a class="nav-link" href="<?php echo base_url('Guide-For-NRI');?>" target="_self">Guide For NRI</a></li>
                                         <li class="dropdown-list-item"><a class="nav-link" href="#" target="_self">Indian Investors</a></li>
                                     </ul>
                                 </div>

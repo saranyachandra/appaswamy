@@ -2,6 +2,8 @@
 
 class Webmodel extends CI_Model
 {
+    protected $table = 'blog_post';
+
 	function __construct()
     {
         parent::__construct();
@@ -49,5 +51,16 @@ class Webmodel extends CI_Model
         $this->db->group_by('property_banner.property_id');         
         $this->db->where('status = 1');       
         return $this->db->get()->result();
+    }
+
+    public function get_count() {
+       return  $this->db->count_all($this->table);
+
+    }
+    public function get_count_magazine($limit, $start) {
+        $this->db->limit($limit, $start);
+        $query = $this->db->get($this->table);
+
+        return $query->result();
     }
 }

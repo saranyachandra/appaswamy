@@ -13,6 +13,7 @@
     <link rel="shortcut icon" href="<?php echo base_url('assets/web/images/favicon.png')?>">
     <!-- CSS Files -->
     <link rel="stylesheet" href="<?php echo base_url('assets/web/css/bootstrap.css')?>">
+    <link rel="stylesheet" href="<?php echo base_url('assets/web/css/bootstrap.min.css')?>">
     <link rel="stylesheet" href="<?php echo base_url('assets/web/css/style.css')?>">
     <link rel="stylesheet" href="<?php echo base_url('assets/web/css/inner-page.css')?>">
     <link rel="stylesheet" href="<?php echo base_url('assets/web/css/responsive.css')?>">

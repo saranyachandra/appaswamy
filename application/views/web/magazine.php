@@ -2,6 +2,7 @@
 <?php $this->load->view('layout/header_css1'); ?>
 
 <?php $this->load->view('layout/header-menu'); ?>
+
 <!-- inner page Banner-section -->
 <section class="innerpage-title">
     <div class="container">
@@ -51,7 +52,9 @@
             </div>
             </div>
             <?php } ?>
-
+            <div class="pagination">
+                <p ><?php echo $links; ?></p>
+            </div>    
         </div>
 
         <div class="col-xxl-3 col-xl-3 col-lg-3  col-sm-3 col-12">

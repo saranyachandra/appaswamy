@@ -58,3 +58,5 @@ $route['residential-property'] = 'Home/property';
 $route['magazine'] = 'Home/magazine';
 $route['press'] = 'Home/press';
 $route['contact-us'] = 'Home/contact_us';
+$route['disclaimer'] = 'Home/disclaimer';
+$route['Guide-For-NRI'] = 'Home/guide_for_nri';

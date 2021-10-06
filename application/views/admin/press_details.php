@@ -1,5 +1,5 @@
 
-<?php $this->load->view('layout/admin_css'); ?>
+<?php $this->load->view('layout/admin/admin_css'); ?>
 <link href="<?php echo base_url('assets/admin/plugins/datatables/datatables.css')?>" rel="stylesheet" type="text/css" />
 <link href="<?php echo base_url('assets/admin/plugins/datatables/datatables.min.css')?>" rel="stylesheet" type="text/css" />
 
@@ -19,9 +19,9 @@
             </div>
         </div>      
 		
-		<?php $this->load->view('layout/sidebar'); ?>
+		<?php $this->load->view('layout/admin/sidebar'); ?>
 	
-        <?php $this->load->view('layout/headerbar'); ?>
+        <?php $this->load->view('layout/admin/headerbar'); ?>
      
         <div class="deznav">
             <div class="deznav-scroll">
@@ -39,9 +39,15 @@
 					<li class="nav-item">
 						<a class="nav-link" data-toggle="tab" href="#forms">
 							<svg id="icon-forms" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" style="stroke-dasharray: 66, 86; stroke-dashoffset: 0;"></path><path d="M14,2L14,8L20,8" style="stroke-dasharray: 12, 32; stroke-dashoffset: 0;"></path><path d="M16,13L8,13" style="stroke-dasharray: 8, 28; stroke-dashoffset: 0;"></path><path d="M16,17L8,17" style="stroke-dasharray: 8, 28; stroke-dashoffset: 2;"></path><path d="M10,9L9,9L8,9" style="stroke-dasharray: 2, 22; stroke-dashoffset: 12;"></path></svg>
-                            <span style="font-size: 12px;text-align: center;">Report  </span>
+                            <span style="font-size: 12px;text-align: center;">Property  </span>
 						</a>
-					</li>					
+					</li>	
+                    <li class="nav-item">
+                        <a class="nav-link active" data-toggle="tab" href="#press">
+                            <svg id="icon-forms" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" style="stroke-dasharray: 66, 86; stroke-dashoffset: 0;"></path><path d="M14,2L14,8L20,8" style="stroke-dasharray: 12, 32; stroke-dashoffset: 0;"></path><path d="M16,13L8,13" style="stroke-dasharray: 8, 28; stroke-dashoffset: 0;"></path><path d="M16,17L8,17" style="stroke-dasharray: 8, 28; stroke-dashoffset: 2;"></path><path d="M10,9L9,9L8,9" style="stroke-dasharray: 2, 22; stroke-dashoffset: 12;"></path></svg>
+                            <span style="font-size: 12px;text-align: center;">Press </span>
+                        </a>
+                    </li>       				
 				</ul>
 			</div>
 			<a href="<?php echo base_url('super_admin/Logout') ?>" class="logout-btn"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-log-out"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg></a>
@@ -160,7 +166,7 @@
 
     </div>
     
- <?php $this->load->view('layout/admin_js'); ?> 
+ <?php $this->load->view('layout/admin/admin_js'); ?> 
 
 
 

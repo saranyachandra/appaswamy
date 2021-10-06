@@ -1,5 +1,5 @@
 
-<?php $this->load->view('layout/admin_css'); ?>
+<?php $this->load->view('layout/admin/admin_css'); ?>
 <body>  
     <div id="main-wrapper">
         <div class="nav-header">
@@ -15,8 +15,8 @@
                 </div>
             </div>
         </div>
-		<?php $this->load->view('layout/sidebar'); ?>		
-        <?php $this->load->view('layout/headerbar'); ?>     
+		<?php $this->load->view('layout/admin/sidebar'); ?>		
+        <?php $this->load->view('layout/admin/headerbar'); ?>     
 	        <div class="deznav">
 	            <div class="deznav-scroll">
 					<ul class="nav menu-tabs">
@@ -40,6 +40,12 @@
 								<span style="font-size: 12px;text-align: center;">Property  </span>
 							</a>
 						</li>
+						<li class="nav-item">
+	                        <a class="nav-link " data-toggle="tab" href="#press">
+	                            <svg id="icon-forms" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" style="stroke-dasharray: 66, 86; stroke-dashoffset: 0;"></path><path d="M14,2L14,8L20,8" style="stroke-dasharray: 12, 32; stroke-dashoffset: 0;"></path><path d="M16,13L8,13" style="stroke-dasharray: 8, 28; stroke-dashoffset: 0;"></path><path d="M16,17L8,17" style="stroke-dasharray: 8, 28; stroke-dashoffset: 2;"></path><path d="M10,9L9,9L8,9" style="stroke-dasharray: 2, 22; stroke-dashoffset: 12;"></path></svg>
+	                            <span style="font-size: 12px;text-align: center;">Press </span>
+	                        </a>
+                    	</li>   	
 						
 					</ul>
 				</div>
@@ -308,7 +314,7 @@
     ***********************************-->
     <!-- Required vendors -->
    
-	<?php $this->load->view('layout/admin_js'); ?>	
+	<?php $this->load->view('layout/admin/admin_js'); ?>	
 </body>
 
 <!-- Mirrored from motaadmin.dexignlab.com/xhtml/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 04 Feb 2021 05:30:46 GMT -->

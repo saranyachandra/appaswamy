@@ -1,0 +1,214 @@
+@font-face {
+  font-family: 'icomoon';
+  
+  src:  url(../fonts/icomoon.eot) format('embedded-opentype'),
+    url(..fonts/icomoon.ttf) format('truetype'),
+    url(../fonts/icomoon.woff) format('woff'),
+    url(..fonts/icomoon.svg) format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-solor-powered-led-lights:before {
+  content: "\e900";
+  color: #4b4b4b;
+}
+.icon-CCTV-surveillance:before {
+  content: "\e901";
+  color: #4b4b4b;
+}
+.icon-association-room:before {
+  content: "\e902";
+  color: #4b4b4b;
+}
+.icon-regulator-gas:before {
+  content: "\e903";
+  color: #4b4b4b;
+}
+.icon-fire-alarm:before {
+  content: "\e904";
+  color: #4b4b4b;
+}
+.icon-fire-flight-sprinker-system:before {
+  content: "\e905";
+  color: #4b4b4b;
+}
+.icon-parking-barrier:before {
+  content: "\e906";
+  color: #4b4b4b;
+}
+.icon-video-security-phone-intercom:before {
+  content: "\e907";
+  color: #4b4b4b;
+}
+.icon-intercom:before {
+  content: "\e908";
+  color: #4b4b4b;
+}
+.icon-access-controlled-doors:before {
+  content: "\e909";
+  color: #4b4b4b;
+}
+.icon-servant-quarters:before {
+  content: "\e90a";
+  color: #4b4b4b;
+}
+.icon-wifi-multiplesystem:before {
+  content: "\e90b";
+}
+.icon-DTH-provision:before {
+  content: "\e90c";
+  color: #4b4b4b;
+}
+.icon-indoor-games .path1:before {
+  content: "\e90d";
+  color: rgb(75, 75, 75);
+}
+.icon-indoor-games .path2:before {
+  content: "\e90e";
+  margin-left: -1.599609375em;
+  color: rgb(75, 75, 75);
+}
+.icon-indoor-games .path3:before {
+  content: "\e90f";
+  margin-left: -1.599609375em;
+  color: rgb(255, 255, 255);
+}
+.icon-indoor-games .path4:before {
+  content: "\e910";
+  margin-left: -1.599609375em;
+  color: none;
+}
+.icon-childerns-play-area:before {
+  content: "\e911";
+  color: #4b4b4b;
+}
+.icon-kids-play-area:before {
+  content: "\e912";
+  color: #4b4b4b;
+}
+.icon-security-cabin:before {
+  content: "\e913";
+  color: #4b4b4b;
+}
+.icon-guest-room:before {
+  content: "\e914";
+  color: #4b4b4b;
+}
+.icon-toilet-for-drivers:before {
+  content: "\e915";
+  color: #4b4b4b;
+}
+.icon-drivers-waiting-room .path1:before {
+  content: "\e916";
+  color: rgb(75, 75, 75);
+}
+.icon-drivers-waiting-room .path2:before {
+  content: "\e917";
+  margin-left: -1.0634765625em;
+  color: rgb(75, 75, 75);
+}
+.icon-drivers-waiting-room .path3:before {
+  content: "\e918";
+  margin-left: -1.0634765625em;
+  color: rgb(255, 255, 255);
+}
+.icon-drivers-waiting-room .path4:before {
+  content: "\e919";
+  margin-left: -1.0634765625em;
+  color: none;
+}
+.icon-drivers-waiting-room .path5:before {
+  content: "\e91a";
+  margin-left: -1.0634765625em;
+  color: none;
+}
+.icon-water-treatment-plant:before {
+  content: "\e91b";
+  color: #4b4b4b;
+}
+.icon-water-softening-plant:before {
+  content: "\e91c";
+  color: #4b4b4b;
+}
+.icon-rain-water-harvesting:before {
+  content: "\e91d";
+  color: #4b4b4b;
+}
+.icon-waster-management:before {
+  content: "\e91e";
+  color: #4b4b4b;
+}
+.icon-water-meter:before {
+  content: "\e91f";
+  color: #4b4b4b;
+}
+.icon-power-backup:before {
+  content: "\e920";
+  color: #4b4b4b;
+}
+.icon-power-supply:before {
+  content: "\e921";
+  color: #4b4b4b;
+}
+.icon-party-hall:before {
+  content: "\e922";
+}
+.icon-fitness-center:before {
+  content: "\e923";
+}
+.icon-landscaped-garden:before {
+  content: "\e924";
+  color: #4b4b4b;
+}
+.icon-swimming-pool:before {
+  content: "\e925";
+  color: #4b4b4b;
+}
+.icon-mini-thestre:before {
+  content: "\e926";
+}
+.icon-wifi:before {
+  content: "\e927";
+  color: #4b4b4b;
+}
+.icon-clubhouse:before {
+  content: "\e928";
+  color: #5d5d5d;
+}
+.icon-super-market:before {
+  content: "\e929";
+  color: #4b4b4b;
+}
+.icon-Elevator:before {
+  content: "\e92a";
+  color: #4b4b4b;
+}
+.icon-ac-outdoor-units:before {
+  content: "\e92b";
+  color: #4b4b4b;
+}
+.icon-private-clothes-drying:before {
+  content: "\e92c";
+  color: #4b4b4b;
+}
+.icon-garbage-collection-room:before {
+  content: "\e92d";
+  color: #4b4b4b;
+}

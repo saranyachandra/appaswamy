@@ -1,6 +1,8 @@
 
 <?php $this->load->view('layout/header_css1'); ?>
+<link rel="stylesheet" href="<?php echo base_url('assets/web/flexslider.css')?>" type="text/css" media="screen" />
 <link rel="stylesheet" href="<?php echo base_url('assets/web/css/projects-details-page.css')?>">
+<script src="<?php echo base_url('assets/web/js1/modernizr.js')?>"></script>
 <style>
 .specifications img{
   width: 100% !important;
@@ -543,21 +545,22 @@ Ready to move</li>
 <?php $this->load->view('layout/footer-menu-inner'); ?>
 
 <?php $this->load->view('layout/footer-home-js'); ?>
-<!-- FlexSlider -->
-<script defer src="<?php echo base_url('assets/web/jquery.flexslider.js')?>"></script>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.min.js">\x3C/script>')</script>
 <!-- Syntax Highlighter -->
-<script type="text/javascript" src="<?php echo base_url('assets/web/js1/shCore.js')?>"></script>
-<script type="text/javascript" src="<?php echo base_url('assets/web/js1/shBrushXml.js')?>"></script>
-<script type="text/javascript" src="<?php echo base_url('assets/web/js1/shBrushJScript.js')?>')?>"></script>
+
 <!-- Optional FlexSlider Additions -->
+<script src="<?php echo base_url('assets/web/jquery.flexslider.js')?>"></script>
 <script src="<?php echo base_url('assets/web/js1/jquery.easing.js')?>"></script>
 <script src="<?php echo base_url('assets/web/js1/jquery.mousewheel.js')?>"></script>
 <script defer src="<?php echo base_url('assets/web/js1/demo.js')?>"></script>
+<!-- FlexSlider -->
 
 <script type="text/javascript">
         $(window).scroll(function(){  if ($(window).scrollTop() >= 300) {  $('nav').addClass('fixed-header');  $('nav').addClass('project-menus1');  }  else {  $('nav').removeClass('fixed-header');  $('nav').removeClass('project-menus1');  } });
 
-
+  
 //flex slider 
 
     $(window).load(function(){
@@ -568,7 +571,7 @@ Ready to move</li>
         slideshow: false,
         itemWidth: 210,
         itemMargin: 5,
-        asNavFor: "[id^='slider']",
+        asNavFor: '#slider',
       });
 
       $('[id^="slider"]').flexslider({
@@ -576,7 +579,7 @@ Ready to move</li>
         controlNav: false,
         animationLoop: false,
         slideshow: false,
-        sync: "carousel",
+        sync: "#carousel",
         start: function(slider){
           $('body').removeClass('loading');
         }

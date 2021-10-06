@@ -50,12 +50,13 @@ class Home extends CI_Controller {
 	{	
 		//SELECT * FROM `blog_post` where updated_date not in(SELECT max(updated_date) FROM `blog_post`); without show last row
 		$config = array();
-		$config["base_url"] = base_url() . "web/magazine";
+		$config["base_url"] = base_url() ."web/magazine";
 		$config["total_rows"] = $this->Webmodel->get_count();
 		$config["per_page"] = 5;
         $config["uri_segment"] = 2;
         $this->pagination->initialize($config);
-        $page = ($this->uri->segment(2)) ? $this->uri->segment(2) : 0;
+        //$page = ($this->uri->segment(2)) ? $this->uri->segment(2) : 0;
+        $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
         $result["links"] = $this->pagination->create_links();
         $result['details'] = $this->Webmodel->get_count_magazine($config["per_page"], $page);
 

@@ -31,7 +31,7 @@
                                 <div class="sidebar-nav">
                                     <ul class="metismenu" id="mobile-menu">
                                         <li><a href="javascript:void(0);"></a></li>
-                                        <li><a class="has-arrow" href="#">Residential</a>
+                                        <li><a class="has-arrow" href="<?php echo base_url('residential-property');?>">Residential</a>
                                             <ul class="sub-menu">
                                                 <li><a href="javascript:void(0);">Navasuja</a></li>
                                                 <li><a href="javascript:void(0);">Azure The Oceanic</a></li>
@@ -49,16 +49,17 @@
                                                  <li><a href="javascript:void(0);">More</a></li>
                                             </ul>
                                         </li>
+                                        <li><a href="#">Retail</a></li>
                                         <li><a href="#">Hospitality</a></li>
                                         <li><a class="has-arrow" href="#">Buyers Guide</a>
                                             <ul class="sub-menu">
                                                 <li><a href="<?php echo base_url('Guide-For-NRI');?>">Guide For NRI</a></li>
-                                                <li><a href="javascript:void(0);">Indian Investors</a></li>
+                                                <li><a href="<?php echo base_url('Indian-Investor');?>">Indian Investors</a></li>
                                             </ul>
                                         </li>
-                                        <sssli><a class="has-arrow" href="#">About Us</a>
+                                        <li><a class="has-arrow" href="#">About Us</a>
                                             <ul class="sub-menu">
-                                                <li><a href="javascript:void(0);">About us</a></li>
+                                                <li><a href="<?php echo base_url('about-us');?>">About us</a></li>
                                                 <li><a href="javascript:void(0);">Careers</a></li>
                                                 <li><a href="<?php echo base_url('magazine');?>">Magazine</a></li>
                                                 <li><a href="<?php echo base_url('press');?>">Press</a></li>
@@ -85,18 +86,17 @@
         <div class="navbar d-block primary-navigation">
             <div class="d-flex justify-content-between align-items-center">
                 <div class="col d-none d-xl-block col p-0 primary-nav-container">
-                    <div class="navbar-nav primary-nav-links  offset-4" role="navigation" aria-label="Main">
+                    <div class="navbar-nav primary-nav-links offset-xxl-4 offset-xl-3 offset-md-3 offset-lg-3 " role="navigation" aria-label="Main">
                         <ul role="menu" class="p-0 m-0 d-flex align-items-center">
                             <li role="presentation" class="nav-item"><a class="nav-link" role="menuitem" href="#" target="_self"></a></li>
-                            <li role="presentation" class="primary-nav-dropdown nav-item"><a class="nav-link" href="#" target="_self" aria-haspopup="true" aria-expanded="false" role="menuitem">Residential</a>
+                            <li role="presentation" class="primary-nav-dropdown nav-item"><a class="nav-link" href="<?php echo base_url('residential-property');?>" target="_self" aria-haspopup="true" aria-expanded="false" role="menuitem">Residential</a>
                                 <div class="dropdown-container">
                                     <ul class="dropdown-list">
-                                        <li class="dropdown-list-item"><a class="nav-link" href="#" target="_self">Navasuja</a></li>
-                                        <li class="dropdown-list-item"><a class="nav-link" href="#" target="_self">Azure The Oceanic</a></li>
-                                        <li class="dropdown-list-item"><a class="nav-link" href="#" target="_self">Altezza</a></li>
-                                        <li class="dropdown-list-item"><a class="nav-link" href="#" target="_self">Clover By The River</a></li>
-                                        <li class="dropdown-list-item"><a class="nav-link" href="#" target="_self">Capella</a></li>
-                                        <li class="dropdown-list-item"><a class="nav-link" href="#" target="_blank">Splendour</a></li>
+                                        <li class="dropdown-list-item"><a class="nav-link" href="https://www.yungmedia.com/beta/demo/appaswamy/home/property_details/37" target="_self">Trellis</a></li>
+                                        <li class="dropdown-list-item"><a class="nav-link" href="https://www.yungmedia.com/beta/demo/appaswamy/home/property_details/34" target="_self">Azure The Oceanic</a></li>
+                                        <li class="dropdown-list-item"><a class="nav-link" href="https://www.yungmedia.com/beta/demo/appaswamy/home/property_details/32" target="_self">Altezza</a></li>
+                                        <li class="dropdown-list-item"><a class="nav-link" href="https://www.yungmedia.com/beta/demo/appaswamy/home/property_details/33" target="_self">Clover By The River</a></li>
+                                        <li class="dropdown-list-item"><a class="nav-link" href="https://www.yungmedia.com/beta/demo/appaswamy/home/property_details/36" target="_self">Delmar</a></li>
                                     </ul>
                                 </div>
                             </li>
@@ -112,13 +112,15 @@
                                 </div>
                             </li>
                             <li role="presentation" class="primary-nav-dropdown nav-item">
+                            <a class="nav-link" href="javascript:void(0);" target="_self" aria-haspopup="true" aria-expanded="false" role="menuitem">Retail</a></li>
+                            <li role="presentation" class="primary-nav-dropdown nav-item">
                             <a class="nav-link" href="javascript:void(0);" target="_self" aria-haspopup="true" aria-expanded="false" role="menuitem">Hospitality</a></li>
                             <li role="presentation" class="primary-nav-dropdown nav-item">
                                 <a class="nav-link" href="javascript:void(0);" target="_self" aria-haspopup="true" aria-expanded="false" role="menuitem">Buyers Guide</a>
                                 <div class="dropdown-container">
                                     <ul class="dropdown-list">
                                         <li class="dropdown-list-item"><a class="nav-link" href="<?php echo base_url('Guide-For-NRI');?>" target="_self">Guide For NRI</a></li>
-                                        <li class="dropdown-list-item"><a class="nav-link" href="#" target="_self">Indian Investors</a></li>
+                                        <li class="dropdown-list-item"><a class="nav-link" href="<?php echo base_url('Indian-Investor');?>" target="_self">Indian Investors</a></li>
                                     </ul>
                                 </div>
                             </li>
@@ -126,7 +128,7 @@
                                 <a class="nav-link" href="javascript:void(0);" target="_self" aria-haspopup="true" aria-expanded="false" role="menuitem">About Us</a>
                                 <div class="dropdown-container">
                                     <ul class="dropdown-list">
-                                        <li class="dropdown-list-item"><a class="nav-link" href="javascript:void(0);" target="_self">About us</a></li>
+                                        <li class="dropdown-list-item"><a class="nav-link" href="<?php echo base_url('about-us');?>" target="_self">About us</a></li>
                                         <li class="dropdown-list-item"><a class="nav-link" href="javascript:void(0);" target="_self">Careers</a></li>
                                         <li class="dropdown-list-item"><a class="nav-link" href="<?php echo base_url('magazine');?>" target="_self">Magazine</a></li>
                                         <li class="dropdown-list-item"><a class="nav-link" href="<?php echo base_url('press');?>" target="_self">Press</a></li>

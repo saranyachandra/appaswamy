@@ -14,7 +14,7 @@
     <div id="main-wrapper">
         <div class="nav-header">
             <a href="<?php echo base_url('admin/dashboard') ?>" class="brand-logo">
-                <img class="logo-abbr" src="<?php echo base_url('assets/admin/images/Logo.png');?>" alt="">
+                <img class="logo-abbr" src="<?php echo base_url('assets/admin/images/logo1.png');?>" alt="">
                 <img class="logo-compact" src="<?php echo base_url('assets/admin/images/Logo.png');?>" alt="">
                 <img class="brand-title" src="<?php echo base_url('assets/admin/images/Logo.png');?>" alt="">
             </a>
@@ -57,7 +57,7 @@
                     </li>       				
 				</ul>
 			</div>
-			<a href="<?php echo base_url('super_admin/Logout') ?>" class="logout-btn"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-log-out"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg></a>
+			<a href="<?php echo base_url('login/Logout') ?>" class="logout-btn"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-log-out"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg></a>
         </div>
         
         <div class="content-body">
@@ -271,14 +271,14 @@
                                                                                 <div class="col-lg-12 mb-2">
                                                                                     <div class="form-check form-check-inline">
                                                                                         <label class="form-check-label">
-                                                                                            <input type="checkbox" id="select-all" class="form-check-input">Select all 
+                                                                                            <input type="checkbox" id="select-all" class="form-check-input" name="features[]">Select all 
                                                                                         </label>
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="col-lg-3 mb-2">
                                                                                     <div class="form-check form-check-inline">
                                                                                         <label class="form-check-label">
-                                                                                            <input type="checkbox" name="features[]" class="form-check-input" value="Water-Treatment- Plant">
+                                                                                            <input type="checkbox" name="features[]" class="form-check-input" value="Water-Treatment">
                                                                                         Water Treatment Plant</label>
                                                                                        
                                                                                     </div>
@@ -286,7 +286,7 @@
                                                                                 <div class="col-lg-3 mb-2">
                                                                                     <div class="form-check form-check-inline">
                                                                                        
-                                                                                        <span>  <input type="checkbox" name="features[]" class="form-check-input" value="100%-Power-Back-up-for-common-areas-&- apartments"></span>
+                                                                                        <span>  <input type="checkbox" name="features[]" class="form-check-input" value="100-Power-Back-up"></span>
                                                                                        <span> 100% Power Back up for common areas & apartments </span>
                                                                                         
                                                                                     </div>
@@ -294,14 +294,16 @@
                                                                                 <div class="col-lg-3 mb-2">
                                                                                     <div class="form-check form-check-inline">
                                                                                         <label class="form-check-label">
-                                                                                            <input type="checkbox" name="features[]" class="form-check-input" value="Reticulated-Gas">Reticulated Gas
+                                                                                            <input type="checkbox" name="features[]" class="form-check-input" 
+                                                                                            value="Regulator-Gas">Regulator Gas 
                                                                                         </label>
                                                                                     </div>
                                                                                 </div>  
                                                                                 <div class="col-lg-3 mb-2">
                                                                                     <div class="form-check form-check-inline">
                                                                                         <label class="form-check-label">
-                                                                                            <input type="checkbox" name="features[]" class="form-check-input" value="Rain-water-Harvesting">Rain water Harvesting
+                                                                                            <input type="checkbox" name="features[]" class="form-check-input" 
+                                                                                            value="Rain-water-Harvesting">Rain water Harvesting
                                                                                         </label>
                                                                                     </div>
                                                                                 </div>  
@@ -315,22 +317,24 @@
                                                                                 <div class="col-lg-3 mb-2">
                                                                                     <div class="form-check form-check-inline">
                                                                                         <label class="form-check-label">
-                                                                                            <input type="checkbox" name="features[]" class="form-check-input" value="Swimming-Pool"> Swimming Pool
+                                                                                            <input type="checkbox" name="features[]" class="form-check-input" 
+                                                                                            value="Swimming-Pool"> Swimming Pool
                                                                                         </label>
                                                                                     </div>
                                                                                 </div>  
                                                                                 <div class="col-lg-3 mb-2">
                                                                                     <div class="form-check form-check-inline">
                                                                                         <label class="form-check-label">
-                                                                                            <input type="checkbox" name="features[]" class="form-check-input" value="Fire-Alarm-&-Wet- riser system"> Fire Alarm & Wet riser system
+                                                                                            <input type="checkbox" name="features[]" class="form-check-input" value="Fire-Alarm"> Fire Alarm & Wet riser system
                                                                                         </label>
                                                                                     </div>
                                                                                 </div>  
                                                                                 <div class="col-lg-3 mb-2">
                                                                                     <div class="form-check form-check-inline">
                                                                                         <span>
-                                                                                            <input type="checkbox" name="features[]" class="form-check-input" value="Landscaped-garden-with-Water-bodies"> </span>
-                                                                                        <span>    Landscaped garden with Water bodies</span>
+                                                                                            <input type="checkbox" name="features[]" class="form-check-input" 
+                                                                                            value="Landscaped-garden"> </span>
+                                                                                        <span> Landscaped garden with Water bodies</span>
                                                                                        
                                                                                     </div>
                                                                                 </div>  
@@ -344,36 +348,36 @@
                                                                                 <div class="col-lg-3 mb-2">
                                                                                     <div class="form-check form-check-inline">
                                                                                         <label class="form-check-label">
-                                                                                            <input type="checkbox" name="features[]" class="form-check-input" value="Color-video-Door- Phone"> Color video Door Phone
+                                                                                            <input type="checkbox" name="features[]" class="form-check-input" value="Color-video-Door-Phone"> Color video Door Phone
                                                                                         </label>
                                                                                     </div>
                                                                                 </div>  
                                                                                 <div class="col-lg-3 mb-2">
                                                                                     <div class="form-check form-check-inline">
                                                                                         <label class="form-check-label">
-                                                                                            <input type="checkbox" name="features[]" class="form-check-input" value="Garbage-collection- room"> Garbage collection room
+                                                                                            <input type="checkbox" name="features[]" class="form-check-input" value="Garbage"> Garbage collection room
                                                                                         </label>
                                                                                     </div>
                                                                                 </div>  
                                                                                 <div class="col-lg-3 mb-2">
                                                                                     <div class="form-check form-check-inline">
                                                                                         <span>
-                                                                                            <input type="checkbox" name="features[]" class="form-check-input" value="Motion-Sensor- Lighting-system-in-club-house"></span> <span>Motion Sensor Lighting system in club house</span>
+                                                                                            <input type="checkbox" name="features[]" class="form-check-input" 
+                                                                                            value="club-house"></span> <span>Motion Sensor Lighting system in club house</span>
                                                                                         
                                                                                     </div>
                                                                                 </div>  
                                                                                 <div class="col-lg-3 mb-2">
                                                                                     <div class="form-check form-check-inline">
                                                                                         <label class="form-check-label">
-                                                                                            <input type="checkbox" name="features[]" class="form-check-input" value="CCTV-Surveillance">CCTV Surveillance
+                                                                                            <input type="checkbox" name="features[]" class="form-check-input" value="CCTV">CCTV Surveillance
                                                                                         </label>
                                                                                     </div>
                                                                                 </div>  
                                                                                 <div class="col-lg-3 mb-2">
                                                                                     <div class="form-check form-check-inline">
                                                                                        <span>
-                                                                                            <input type="checkbox" name="features[]" class="form-check-input" value="Solar-Powered-LED- Lights-in-coomon-area"></span><span>Solar Powered LED Lights in coomon area</span>
-                                                                                        
+                                                                                            <input type="checkbox" name="features[]" class="form-check-input" value="solar-lights"></span><span>Solar Powered LED Lights in coomon area</span>
                                                                                     </div>
                                                                                 </div>  
                                                                                 <div class="col-lg-3 mb-2">
@@ -386,28 +390,31 @@
                                                                                 <div class="col-lg-3 mb-2">
                                                                                     <div class="form-check form-check-inline">
                                                                                         <label class="form-check-label">
-                                                                                            <input type="checkbox" name="features[]" class="form-check-input" value="Security-Chain">Security Chain
+                                                                                            <input type="checkbox" name="features[]" class="form-check-input" 
+                                                                                            value="security-cabin">Security Cabin
                                                                                         </label>
                                                                                     </div>
                                                                                 </div>  
                                                                                 <div class="col-lg-3 mb-2">
                                                                                     <div class="form-check form-check-inline">
                                                                                         <label class="form-check-label">
-                                                                                            <input type="checkbox" name="features[]" class="form-check-input" value="Fitness-Centre">Fitness Centre
+                                                                                            <input type="checkbox" name="features[]" class="form-check-input" 
+                                                                                            value="fitness-center">Fitness Center
                                                                                         </label>
                                                                                     </div>
                                                                                 </div>  
                                                                                 <div class="col-lg-3 mb-2">
                                                                                     <div class="form-check form-check-inline">
                                                                                         <label class="form-check-label">
-                                                                                            <input type="checkbox" name="features[]" class="form-check-input" value="Party-Hall">Party Hall
+                                                                                            <input type="checkbox" name="features[]" class="form-check-input" value="party-hall">Party Hall
                                                                                         </label>
                                                                                     </div>
                                                                                 </div>  
                                                                                 <div class="col-lg-3 mb-2">
                                                                                     <div class="form-check form-check-inline">
                                                                                         <span>
-                                                                                            <input type="checkbox" name="features[]" class="form-check-input" value="Access-Controlled- Barrier-for-Car-Park-Entry"></span>
+                                                                                            <input type="checkbox" name="features[]" class="form-check-input" 
+                                                                                            value="parking-barrier"></span>
                                                                                             <span>Access Controlled Barrier for Car Park Entry</span>
                                                                                       
                                                                                     </div>
@@ -415,91 +422,79 @@
                                                                                 <div class="col-lg-3 mb-2">
                                                                                     <div class="form-check form-check-inline">
                                                                                         <label class="form-check-label">
-                                                                                            <input type="checkbox" name="features[]" class="form-check-input" value="Lifts-with-V3F-&-ARD">Lifts with V3F & ARD
+                                                                                            <input type="checkbox" name="features[]" class="form-check-input" 
+                                                                                            value="lifts-V3F">Lifts with V3F & ARD
                                                                                         </label>
                                                                                     </div>
                                                                                 </div>  
                                                                                 <div class="col-lg-3 mb-2">
                                                                                     <div class="form-check form-check-inline">
                                                                                         <span>
-                                                                                            <input type="checkbox" name="features[]" class="form-check-input" value="Water-meters-for-all-apartments-(Digital)"></span>
+                                                                                            <input type="checkbox" name="features[]" class="form-check-input" value="water-meter"></span>
                                                                                         <span>Water meters for all apartments (Digital)</span>
                                                                                     </div>
                                                                                 </div>  
                                                                                 <div class="col-lg-3 mb-2">
                                                                                     <div class="form-check form-check-inline">
                                                                                         <label class="form-check-label">
-                                                                                            <input type="checkbox" name="features[]" class="form-check-input" value="Toilets-for-drivers- &-domestic-help">Toilets for drivers & domestic help
+                                                                                            <input type="checkbox" name="features[]" class="form-check-input" value="toilet-driver">Toilets for drivers & domestic help
                                                                                         </label>
                                                                                     </div>
                                                                                 </div>  
                                                                                 <div class="col-lg-3 mb-2">
                                                                                     <div class="form-check form-check-inline">
                                                                                         <label class="form-check-label">
-                                                                                            <input type="checkbox" name="features[]" class="form-check-input" value="Fire-fighting- sprinkler-system">Fire fighting sprinkler system
+                                                                                            <input type="checkbox" name="features[]" class="form-check-input" value="fire-flight">Fire fighting sprinkler system
                                                                                         </label>
                                                                                     </div>
                                                                                 </div>  
                                                                                 <div class="col-lg-3 mb-2">
                                                                                     <div class="form-check form-check-inline">
                                                                                         <label class="form-check-label">
-                                                                                            <input type="checkbox" name="features[]" class="form-check-input" value="Hydro-Pnuematic- System">Hydro Pnuematic System
+                                                                                            <input type="checkbox" name="features[]" class="form-check-input" value="hydro-pnuematic">Hydro Pnuematic System
                                                                                         </label>
                                                                                     </div>
                                                                                 </div>  
                                                                                 <div class="col-lg-3 mb-2">
                                                                                     <div class="form-check form-check-inline">
                                                                                         <label class="form-check-label">
-                                                                                            <input type="checkbox" name="features[]" class="form-check-input" value="Access-Controlled- Doors">Access Controlled Doors
+                                                                                            <input type="checkbox" name="features[]" class="form-check-input" 
+                                                                                            value="access-controlled">Access Controlled Doors
                                                                                         </label>
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="col-lg-3 mb-2">
                                                                                     <div class="form-check form-check-inline">
                                                                                         <label class="form-check-label">
-                                                                                            <input type="checkbox" name="features[]" class="form-check-input" value="Gymnasium">Gymnasium
-                                                                                        </label>
-                                                                                    </div>
-                                                                                </div> 
-                                                                                <div class="col-lg-3 mb-2">
-                                                                                    <div class="form-check form-check-inline">
-                                                                                        <label class="form-check-label">
-                                                                                            <input type="checkbox" name="features[]" class="form-check-input" value="Sewage-Treatment- Plant">Sewage Treatment Plant
+                                                                                            <input type="checkbox" name="features[]" class="form-check-input" value="sewage-treatment">Sewage Treatment Plant
                                                                                         </label>
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="col-lg-3 mb-2">
                                                                                     <div class="form-check form-check-inline">
                                                                                         <label class="form-check-label">
-                                                                                            <input type="checkbox" name="features[]" class="form-check-input" value="Security-Cabin">Security Cabin
-                                                                                        </label>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div class="col-lg-3 mb-2">
-                                                                                    <div class="form-check form-check-inline">
-                                                                                        <label class="form-check-label">
-                                                                                            <input type="checkbox" name="features[]" class="form-check-input" value="Indoor-Games">Indoor Games
+                                                                                            <input type="checkbox" name="features[]" class="form-check-input" value="indoor-games">Indoor Games
                                                                                         </label>
                                                                                     </div>
                                                                                 </div>  
                                                                                 <div class="col-lg-3 mb-2">
                                                                                     <div class="form-check form-check-inline">
                                                                                         <label class="form-check-label">
-                                                                                            <input type="checkbox" name="features[]" class="form-check-input" value="Video-Security-Phone-and-Intercom">Video Security Phone and Intercom
+                                                                                            <input type="checkbox" name="features[]" class="form-check-input" value="video-intercom">Video Security Phone and Intercom
                                                                                         </label>
                                                                                     </div>
                                                                                 </div>  
                                                                                 <div class="col-lg-3 mb-2">
                                                                                     <div class="form-check form-check-inline">
                                                                                         <label class="form-check-label">
-                                                                                            <input type="checkbox" name="features[]" class="form-check-input" value="DTH-Provision">DTH Provision
+                                                                                            <input type="checkbox" name="features[]" class="form-check-input" value="DTH">DTH Provision
                                                                                         </label>
                                                                                     </div>
                                                                                 </div>  
                                                                                 <div class="col-lg-3 mb-2">
                                                                                     <div class="form-check form-check-inline">
                                                                                         <span>
-                                                                                            <input type="checkbox" name="features[]" class="form-check-input" value="1000-Watts-Power- Back-up-for -each-unit"></span>
+                                                                                            <input type="checkbox" name="features[]" class="form-check-input" value="power-backup"></span>
                                                                                             <span>1000 Watts Power Back up for each unit</span>
                                                                                        
                                                                                     </div>
@@ -507,66 +502,46 @@
                                                                                 <div class="col-lg-3 mb-2">
                                                                                     <div class="form-check form-check-inline">
                                                                                         <label class="form-check-label">
-                                                                                            <input type="checkbox" name="features[]" class="form-check-input" value="Children's-Play-Area">Children's Play Area
+                                                                                            <input type="checkbox" name="features[]" class="form-check-input" value="childerns-play">Children's Play Area
                                                                                         </label>
                                                                                     </div>
                                                                                 </div>  
                                                                                 <div class="col-lg-3 mb-2">
                                                                                     <div class="form-check form-check-inline">
                                                                                         <label class="form-check-label">
-                                                                                            <input type="checkbox" name="features[]" class="form-check-input" value="Guest-Rooms">Guest Rooms
+                                                                                            <input type="checkbox" name="features[]" class="form-check-input" value="guest-rooms">Guest Rooms
                                                                                         </label>
                                                                                     </div>
                                                                                 </div> 
                                                                                 <div class="col-lg-3 mb-2">
                                                                                     <div class="form-check form-check-inline">
                                                                                         <span>
-                                                                                            <input type="checkbox" name="features[]" class="form-check-input" value="Comprehensive-Waste- management-system"></span>
+                                                                                            <input type="checkbox" name="features[]" class="form-check-input" 
+                                                                                            value="waste-management"></span>
                                                                                         <span>Comprehensive Waste management system</span>
                                                                                         
                                                                                     </div>
-                                                                                </div>  
+                                                                                </div> 
+                                                                                                                                                                
                                                                                 <div class="col-lg-3 mb-2">
                                                                                     <div class="form-check form-check-inline">
                                                                                         <label class="form-check-label">
-                                                                                            <input type="checkbox" name="features[]" class="form-check-input" value="Super-Market-(Groceries & Vegetables)">Guest Rooms
+                                                                                            <input type="checkbox" name="features[]" class="form-check-input" value="drivers-waiting-room">Drivers Waiting room with fittings
                                                                                         </label>
                                                                                     </div>
                                                                                 </div> 
                                                                                 <div class="col-lg-3 mb-2">
                                                                                     <div class="form-check form-check-inline">
                                                                                         <label class="form-check-label">
-                                                                                            <input type="checkbox" name="features[]" class="form-check-input" value="Associate-Office-Room">Associate Office Room
+                                                                                            <input type="checkbox" name="features[]" class="form-check-input" value="elevators">Elevators in each block
                                                                                         </label>
                                                                                     </div>
-                                                                                </div>
-                                                                                <div class="col-lg-3 mb-2">
-                                                                                    <div class="form-check form-check-inline">
-                                                                                        <label class="form-check-label">
-                                                                                            <input type="checkbox" name="features[]" class="form-check-input" value="Drivers-Waiting-room- with-fittings">Drivers Waiting room with fittings
-                                                                                        </label>
-                                                                                    </div>
-                                                                                </div> 
-                                                                                <div class="col-lg-3 mb-2">
-                                                                                    <div class="form-check form-check-inline">
-                                                                                        <label class="form-check-label">
-                                                                                            <input type="checkbox" name="features[]" class="form-check-input" value="Elevators-in-each-block">Elevators in each block
-                                                                                        </label>
-                                                                                    </div>
-                                                                                </div>        
-         
+                                                                                </div>      
+                                                                                
                                                                                 <div class="col-lg-3 mb-2">
                                                                                     <div class="form-check form-check-inline">
                                                                                         <span>
-                                                                                            <input type="checkbox" name="features[]" class="form-check-input" value="Minor-Sensor- Lighting-system-in-Club-House"></span>
-                                                                                            <span>Minor Sensor Lighting system in Club House</span>
-                                                                                        
-                                                                                    </div>
-                                                                                </div>  
-                                                                                <div class="col-lg-3 mb-2">
-                                                                                    <div class="form-check form-check-inline">
-                                                                                        <span>
-                                                                                            <input type="checkbox" name="features[]" class="form-check-input" value="Access-Controlled- doors-with-CCTV-cameras-coverage-@-vantage- point"></span>
+                                                                                            <input type="checkbox" name="features[]" class="form-check-input" value="access-doors"></span>
                                                                                             <span>Access Controlled doors with CCTV cameras coverage @ vantage point</span>
                                                                                         
                                                                                     </div>
@@ -574,14 +549,14 @@
                                                                                 <div class="col-lg-3 mb-2">
                                                                                     <div class="form-check form-check-inline">
                                                                                         <label class="form-check-label">
-                                                                                            <input type="checkbox" name="features[]" class="form-check-input" value="Water-Softening-plant">Water Softening plant
+                                                                                            <input type="checkbox" name="features[]" class="form-check-input" value="water-softening-plant">Water Softening plant
                                                                                         </label>
                                                                                     </div>
                                                                                 </div>
                                                                                   <div class="col-lg-3 mb-2">
                                                                                     <div class="form-check form-check-inline">
                                                                                         <span>
-                                                                                            <input type="checkbox" name="features[]" class="form-check-input" value="500-watt-standby- power-supply-for-EWS-Block"></span>
+                                                                                            <input type="checkbox" name="features[]" class="form-check-input" value="500-watt"></span>
                                                                                             <span>500 watt standby power supply for EWS Block</span>
                                                                                        
                                                                                     </div>
@@ -589,35 +564,35 @@
                                                                                   <div class="col-lg-3 mb-2">
                                                                                     <div class="form-check form-check-inline">
                                                                                         <label class="form-check-label">
-                                                                                            <input type="checkbox" name="features[]" class="form-check-input" value="Wifi-Connectivity-in-club-house">Wifi Connectivity in club house
+                                                                                            <input type="checkbox" name="features[]" class="form-check-input" value="Wifi-connectivity">Wifi Connectivity in club house
                                                                                         </label>
                                                                                     </div>
                                                                                 </div>  
                                                                                   <div class="col-lg-3 mb-2">
                                                                                     <div class="form-check form-check-inline">
                                                                                         <span>
-                                                                                            <input type="checkbox" name="features[]" class="form-check-input" value="Provision-for-AC Outdoor-Unit-Placement"></span><span>Provision for AC Outdoor Unit Placement</span>
+                                                                                            <input type="checkbox" name="features[]" class="form-check-input" value="ac-outdoor"></span><span>Provision for AC Outdoor Unit Placement</span>
                                                                                         
                                                                                     </div>
                                                                                 </div>  
                                                                                   <div class="col-lg-3 mb-2">
                                                                                     <div class="form-check form-check-inline">
                                                                                         <label class="form-check-label">
-                                                                                            <input type="checkbox" name="features[]" class="form-check-input" value="Servant-Quarters">Servant Quarters
+                                                                                            <input type="checkbox" name="features[]" class="form-check-input" value="servant-quarters">Servant Quarters
                                                                                         </label>
                                                                                     </div>
                                                                                 </div>  
                                                                                   <div class="col-lg-3 mb-2">
                                                                                     <div class="form-check form-check-inline">
                                                                                         <label class="form-check-label">
-                                                                                            <input type="checkbox" name="features[]" class="form-check-input" value="Intercom">Intercom
+                                                                                            <input type="checkbox" name="features[]" class="form-check-input" value="intercom">Intercom
                                                                                         </label>
                                                                                     </div>
                                                                                 </div>  
                                                                                   <div class="col-lg-3 mb-2">
                                                                                     <div class="form-check form-check-inline">
                                                                                         <span>
-                                                                                            <input type="checkbox" name="features[]" class="form-check-input" value="Boundary-Line- Landscaping-&-Sprawling-Lawn"></span>
+                                                                                            <input type="checkbox" name="features[]" class="form-check-input" value="boundary-line"></span>
                                                                                         <span> Boundary Line Landscaping & Sprawling Lawn</span>
                                                                                         
                                                                                     </div>
@@ -625,14 +600,16 @@
                                                                                   <div class="col-lg-3 mb-2">
                                                                                     <div class="form-check form-check-inline">
                                                                                         <span>
-                                                                                            <input type="checkbox" name="features[]" class="form-check-input" value="Wifi-and- Multiplesystem-Service-provider-Television- Enablement"></span>
+                                                                                            <input type="checkbox" name="features[]" class="form-check-input" 
+                                                                                            value="wifi-multiplesystem"></span>
                                                                                         <span> Wifi and Multiplesystem Service provider Television Enablement</span>
                                                                                         
                                                                                     </div>
                                                                                 </div>    <div class="col-lg-3 mb-2">
                                                                                     <div class="form-check form-check-inline">
                                                                                         <span>
-                                                                                            <input type="checkbox" name="features[]" class="form-check-input" value="Placement-Provision- for-Air-Conditioning-Outdoor-Units"></span>
+                                                                                            <input type="checkbox" name="features[]" class="form-check-input" 
+                                                                                            value="air-conditioning"></span>
                                                                                             <span>Placement Provision for Air-Conditioning Outdoor Units</span>
                                                                                         
                                                                                     </div>  
@@ -640,7 +617,7 @@
                                                                                   <div class="col-lg-3 mb-2">
                                                                                     <div class="form-check form-check-inline">
                                                                                         <span>
-                                                                                            <input type="checkbox" name="features[]" class="form-check-input" value="Private-Clothes- Drying-areas-for-each-apartment"></span>
+                                                                                            <input type="checkbox" name="features[]" class="form-check-input" value="private-clothes"></span>
                                                                                         <span>    Private Clothes Drying areas for each apartment</span>
                                                                                         
                                                                                     </div>
@@ -648,8 +625,8 @@
                                                                                   <div class="col-lg-3 mb-2">
                                                                                     <div class="form-check form-check-inline">
                                                                                         <span>
-                                                                                            <input type="checkbox" name="features[]" class="form-check-input" value="Kids-Play-area(Children-Under-8)"></span>
-                                                                                        <span>   Kids Play area(Children Under-8)
+                                                                                            <input type="checkbox" name="features[]" class="form-check-input" value="kids-play"></span>
+                                                                                        <span>  Kids Play area(Children Under-8)
                                                                                         </span>
                                                                                     </div>
                                                                                 </div>  

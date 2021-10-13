@@ -8,20 +8,20 @@
       <div class="row align-items-center">
         <div class="col-xxl-12 col-xl-12 col-lg-12 col-sm-12 col-xs-12">
           <h2 class="text-center">Guide For NRI</h2>
-          
+          <h3 class="text-center">Guide</h3>
         </div>
       </div>
     </div>   
   </section>
 <!-- Blog Details --> 
-  <section class="Press ptb56 ashbg">
+  <section class="blog-list ptb56">
     <div class="container">
       <div class="row">           
-        <section class="justifycontent">
-          <h2 class="paddingUp-30 text-center">Guide For NRI</h2>
-          <div class="container paddingUp-60">
+        <section class="justifycontent blog-disc">
+          <!--<h2 class="paddingUp-30 text-center">Guide For NRI</h2>-->
+         
             <p>In recent years, non-resident Indians (NRIs) have played a very important role in transforming the Indian real estate market. NRI investments in real estate offer the advantage of repatriation of the capital invested and even the rental proceeds under the circumstances prescribed by RBI.</p>
-            <h4>Who is an NRI Investor?</h4>
+            <h4 >Who is an NRI Investor?</h4>
             <p>An NRI (Non-Resident Indian) is a Person of Indian Origin (PIO) and can own both residential as well as commercial properties in India and there is no restriction on the number of properties that can be bought.</p>
             <p>However, they cannot purchase/own any agricultural land, farm house and plantation property unless it is gifted or inherited. In case the property (irrespective of its nature) is acquired when you were a resident of India, you can sell or build on the property without the approval of the Reserve Bank of India. However, if you wish to sell it, you must be a resident citizen of India.</p>
             <h4>What should be the currency for transaction?</h4>
@@ -75,7 +75,7 @@
                 <li> A registration fee of 1% is applicable for all property transactions</li>
               </ul>
               <p>Subject to the terms and conditions of the applicable agreements governing their use, which may change from time to time.</p>
-          </div>
+          
         </section>        
       </div>
     </div>

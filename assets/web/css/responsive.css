@@ -212,4 +212,23 @@
     background:#FFF;
     position: relative;
 }
+.tabnav {
+    margin-right: 10px !important;
+    margin-bottom: 30px;
+}
+.innerpage-title h3 {
+    color: transparent;
+    -webkit-text-stroke: 0.5px #cbcbcb;
+    text-stroke: 1px #cbcbcb;
+    text-shadow: none;
+    font-size: 37px;
+    font-family: 'Objectivity ExtraBold';
+    text-transform: uppercase;
+    letter-spacing: 7px;
+    line-height: 12px;
+    padding-top: 33px;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+}
+
 }

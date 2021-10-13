@@ -232,7 +232,7 @@
 
  });
 
-//add blog edit form 
+// blog edit form 
     $(document).on("submit", "#blog_edit", function(e){
         e.preventDefault();
          $(this).validate({ 
@@ -282,7 +282,7 @@
                            if(response.status == 'success')
                            {                             
                                 $('#success_msg').show(); 
-                                window.location.href = baseURL+'Admin/get_blog_details';                                                           
+                                window.location.href = baseURL+'Admin/blog_details';                                                           
                             }   
                             else 
                             {                            
@@ -358,6 +358,68 @@
 
  });
 
+//Edit property form   
+ $(document).on("submit", "#property_edit_form", function(e){
+    e.preventDefault();
+     $(this).validate({ 
+                      rules: {                           
+                                project_type: "required",
+                                property_title: "required",
+                                property_title: "required",                                    
+                                possession: "required",                                                                           
+                             },
+                      messages: {                           
+                              project_type: {
+                                  required: "Required ", 
+                              },
+                              property_title: {
+                                  required: "Required ", 
+                              }, 
+                              property_title: {
+                                  required: "Required ", 
+                              },                                
+                              possession: {
+                                  required: "Required", 
+                              },                                                                                                                       
+                         },
+
+                       }); 
+if($(this).valid())
+    {     
+            var url = $(this).attr('action');
+            var formdata = new FormData(this);              
+            $.ajax({
+                    url :baseURL+'admin/edit_property_overview',
+                    method: 'POST',
+                    data: formdata,
+                    processData: false,
+                    contentType: false,
+                    dataType:'json',
+                    error: function(xhr,status,error)
+                    {   
+                        alert(xhr.responseText);
+                    },
+                    beforeSend: function()
+                    {
+                                  
+                    },                        
+                    success: function(response)
+                    {
+                       if(response.status == 'success')
+                       {                             
+                            $('#property_form').trigger("reset");
+                            $('#success_msg').show();
+                        }   
+                        else 
+                        {                            
+                           $('#error_msg').show();
+                        }          
+                    }
+           });
+    }     
+
+});
+
 //insert press
 
     $(document).on("submit", "#press_form", function(e){
@@ -418,4 +480,62 @@
         }     
 
  });
+
+// press edit form 
+    $(document).on("submit", "#press_edit", function(e){
+        e.preventDefault();
+         $(this).validate({ 
+                          rules: {                           
+                                    press_title: "required",
+                                    press_date: "required",
+                                                                  
+                                                                                                            
+                                 },
+                          messages: {                           
+                                  press_title: {
+                                      required: "Required ", 
+                                  },
+                                  press_date: {
+                                      required: "Required ", 
+                                  },
+                                                                                                                                                        
+                             },
+
+                           }); 
+    if($(this).valid())
+        {     
+                var url = $(this).attr('action');
+                var formdata = new FormData(this);              
+                $.ajax({
+                        url :baseURL+'admin/update_press',
+                        method: 'POST',
+                        data: formdata,
+                        processData: false,
+                        contentType: false,
+                        dataType:'json',
+                        error: function(xhr,status,error)
+                        {   
+                            alert(xhr.responseText);
+                        },
+                        beforeSend: function()
+                        {
+                                      
+                        },                        
+                        success: function(response)
+                        {
+                           if(response.status == 'success')
+                           {                             
+                                $('#success_msg').show(); 
+                                window.location.href = baseURL+'Admin/press_details';                                                           
+                            }   
+                            else 
+                            {                            
+                               $('#error_msg').show();
+                            }          
+                        }
+               });
+        }     
+
+ });
+
 

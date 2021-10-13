@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- Page Title -->
-    <title>Properties in Chennai - Appaswamy Real Estates</title>
+    <title><?php echo $title; ?></title>
     <meta name="description" content="Appaswamy Real Estates offers elegantly designed properties in Chennai with exciting facilities and amenities at prominent locations.">
     <!-- Favicon Icon -->
     <link rel="shortcut icon" href="<?php echo base_url('assets/web/images/favicon.png')?>">

@@ -15,20 +15,23 @@ class Home extends CI_Controller {
 	
 	public function index()
 	{		
+		$data['title'] = 'Properties in Chennai - Appaswamy Real Estates';
 		$data['banner_img'] = $this->Webmodel->get_banner_img();
 		$data['press'] = $this->Webmodel->get_press_details_home();
 		$data['property'] = $this->Webmodel->get_property_details_home();
 		$this->load->view('web/index',$data);		
 	}
 
-	public function property()
+	public function property()	
 	{		
+		$data['title'] = 'Property - Appaswamy Real Estates';
 		$data['property'] = $this->Webmodel->get_property_details();
+						
 		$this->load->view('web/property',$data);
 	}
 	public function property_details($id)
 	{		
-		
+			$data['title'] = 'Property - Appaswamy Real Estates';
 			$property_query = "select * FROM property WHERE property_id = '$id' ";
 			$data['property_details']  = $this->db->query($property_query)->row();
 
@@ -42,59 +45,98 @@ class Home extends CI_Controller {
 			$data['floorplan_details']  = $this->db->query($floorplan_query)->result();
            
             //print_r($data['floorplan_details']);
+            $data['property'] = $this->Webmodel->get_property_details_home();
 
 			$this->load->view('web/property_details',$data);
 	}
 
+	
 	public function magazine()
-	{	
-		//SELECT * FROM `blog_post` where updated_date not in(SELECT max(updated_date) FROM `blog_post`); without show last row
-		$config = array();
-		$config["base_url"] = base_url() ."web/magazine";
-		$config["total_rows"] = $this->Webmodel->get_count();
-		$config["per_page"] = 5;
-        $config["uri_segment"] = 2;
-        $this->pagination->initialize($config);
-        //$page = ($this->uri->segment(2)) ? $this->uri->segment(2) : 0;
-        $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
-        $result["links"] = $this->pagination->create_links();
-        $result['details'] = $this->Webmodel->get_count_magazine($config["per_page"], $page);
-
-	  	$result['last_row'] = $this->db->order_by('blog_id',"desc")
+	{
+		$data['title'] = 'Blogs - Appaswamy Real Estates';
+		$data['last_row'] = $this->db->order_by('blog_id',"desc")
             ->limit(1)
             ->get('blog_post')
-            ->row();  
-       //  print_r($result['authors']);
+            ->row();
+
+        $data['property'] = $this->Webmodel->get_property_details_home();    
+
+		$this->load->library("Pagination_bootstrap");
+		$links = array('next'=>'Next', 'prev'=>'Previous', 'last'=>'Last', 'first'=>'First');
+		$this->pagination_bootstrap->set_links($links);	
+		$this->db->limit(10);	
+		$sql = $this->db->get('blog_post');	
 		
-		$this->load->view('web/magazine',$result);
+
+		$this->pagination_bootstrap->offset(5);
+		$data['details'] = $this->pagination_bootstrap->config('/Home/magazine',$sql);		
+
+		$this->load->view('web/magazine',$data);
 	}
+
 	
 	public function magazine_details($blog_id)
 	{		
-		
+		$result['title'] = 'Blogs - Appaswamy Real Estates';
 		$this->db->select('*');
 	  	$this->db->from('blog_post');
 	  	$this->db->where('blog_id',$blog_id);	
 	  	$result['details']  = $this->db->get()->row();	  	  	
 		$this->load->view('web/magazine_details',$result);
 	}
+	function search_keyword()
+	{
+	    $data['title'] = 'Blogs - Appaswamy Real Estates';
+	    $keyword    =   $this->input->post('keyword');	   
+
+	    $this->load->library("Pagination_bootstrap");
+		$links = array('next'=>'Next', 'prev'=>'Previous', 'last'=>'Last', 'first'=>'First');
+		$this->pagination_bootstrap->set_links($links);
+
+		$sql = $this->db->get('blog_post');
+		$this->pagination_bootstrap->offset(5);
+		$data['details'] = $this->pagination_bootstrap->config('/Home/magazine',$sql);
+
+	    $data['details']    =   $this->Webmodel->blog_search($keyword);
+	   
+	    $this->load->view('web/magazine',$data);
+	}
 
 	public function press()
 	{	
+		$data['title'] = 'Press - Appaswamy Real Estates';
 		$data['details'] = $this->Webmodel->get_press_details();
 		$this->load->view('web/press_coverage',$data);
 	}
 
 	public function contact_us()
 	{	
-		$this->load->view('web/contact_us');
+		$data['title'] = 'Contact Us - Appaswamy Real Estates';
+		$this->load->view('web/contact_us',$data);
 	}
 	public function disclaimer()
 	{	
-		$this->load->view('web/disclaimer');
+		$data['title'] = 'Contact Us - Appaswamy Real Estates';
+		$this->load->view('web/disclaimer',$data);
 	}
 	public function guide_for_nri()
 	{	
-		$this->load->view('web/guide-for-nri');
+		$data['title'] = 'Guide For NRI - Appaswamy Real Estates';
+		$this->load->view('web/guide-for-nri',$data);
+	}
+	public function indian_investor()
+	{	
+		$data['title'] = 'Indian Investor - Appaswamy Real Estates';
+		$this->load->view('web/indian_investor',$data);
+	}
+	public function privacy_policy()
+	{	
+		$data['title'] = 'Privacy Policy - Appaswamy Real Estates';
+		$this->load->view('web/privacy_policy',$data);
+	}
+	public function about_us()
+	{	
+		$data['title'] = 'About Us - Appaswamy Real Estates';
+		$this->load->view('web/about_us',$data);
 	}
 }

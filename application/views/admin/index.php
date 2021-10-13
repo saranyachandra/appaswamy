@@ -4,7 +4,7 @@
     <div id="main-wrapper">
         <div class="nav-header">
             <a href="<?php echo base_url('admin/dashboard') ?>" class="brand-logo">
-                <img class="logo-abbr" src="<?php echo base_url('assets/admin/images/Logo.png');?>" alt="">
+                <img class="logo-abbr" src="<?php echo base_url('assets/admin/images/logo1.png');?>" alt="">
                 <img class="logo-compact" src="<?php echo base_url('assets/images/logo-text.png');?>" alt="">
                 <img class="brand-title" src="<?php echo base_url('assets/images/logo-text.png');?>" alt="">
             </a>
@@ -49,7 +49,7 @@
 						
 					</ul>
 				</div>
-				<a href="<?php echo base_url('super_admin/Logout') ?>" class="logout-btn"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-log-out"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg></a>
+				<a href="<?php echo base_url('login/Logout') ?>" class="logout-btn"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-log-out"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg></a>
 	        </div>
         <!--**********************************
             Sidebar end
@@ -69,8 +69,8 @@
 									<div class="card-body pb-0 px-4 pt-4">
 										<div class="row">
 											<div class="col">
-												<h5 class="mb-1"><?php echo "65"; ?></h5>
-												<span class="text-success">Total GWS Member</span>
+												<h5 class="mb-1"><?php echo $total_res->total; ?></h5>
+												<span class="text-success">Total Residential</span>
 											</div>
 										</div>
 									</div>
@@ -84,8 +84,8 @@
 									<div class="card-body pb-0 px-4 pt-4">
 										<div class="row">
 											<div class="col">
-												<h5 class="text-white mb-1">67</h5></h5>
-												<span class="text-white">Active GWS Member</span>
+												<h5 class="text-white mb-1"><?php echo $total_com->total; ?></h5></h5>
+												<span class="text-white">Total Commercial</span>
 											</div>
 										</div>
 									</div>
@@ -99,8 +99,8 @@
 									<div class="card-body pb-0 px-4 pt-4">
 										<div class="row">
 											<div class="col text-white">
-												<h5 class="text-white mb-1"><?php echo "₹"."657 "; ?></h5>
-												<span>Total Order Value</span>
+												<h5 class="text-white mb-1"><?php echo "2"; ?></h5>
+												<span>Total Retail</span>
 											</div>
 										</div>
 									</div>
@@ -117,47 +117,49 @@
 									</div>
 									<div class="card-body">
 										<div class="table-responsive">
-											<table class="table table-responsive-sm mb-0">
-												<thead>
-													<tr>														
-														<th><strong>NAME</strong></th>
-														<th><strong>MOBILE NO</strong></th>
-														<th><strong>ORDER VALUE</strong></th>	
-														<th><strong>OFFER</strong></th>										
-														<th><strong>CREATE AT</strong></th>	
-													</tr>
-												</thead>
-												<tbody>
-													
-													<tr>													
-		                                                <td>
-		                                                  saran
-		                                                </td>
-														<td>
-		                                                   657657657
-		                                                </td>
-		                                                <td >
-		                                                  676
-		                                                </td>
-		                                                <td >
-		                                                 
-		                                                </td>
-		                                                <td >
-		                                                  <?php 
-                                                        	 	
-                                                         		echo "87";
-                                                    		?>
-		                                                </td>
-														
-													</tr>
-																									
-													
-												</tbody>
-											</table>
+										<table  id="table_view" class="table table-striped table-bordered">
+                                         <div class="alert alert-success" id="success_msg" role="alert" style="display:none;" >Successfully deleted
+                                        </div>
+                                        <thead>
+                                            <tr>
+                                                <th>S.No</th> 
+                                                <th>Property Name</th>   
+                                                <th>Type</th>                          
+                                                <th>Property Status</th>                                               
+                                                <th>Create at</th>
+                                            </tr>
+                                        </thead>
+                                            <tbody>
+                                                <?php 
+                                                    $i=1;
+                                                    foreach ($property_details as $detail) 
+                                                    {                                                
+                                                ?>
+                                            <tr>                                               
+                                                <td>
+                                                   <?php echo $i; ?>
+                                                </td>                                              
+                                                <td>                                              
+                                                    <?php echo $detail->name; ?>
+                                                </td>  
+                                                 <td><?php echo $detail->type; ?> </td>                                                                             
+                                                <td><?php echo $detail->property_status; ?> </td>      
+                                                <td>                                              
+                                                    <?php 
+                                                         $timestamp = strtotime($detail->created_at);
+                                                         echo date('d-m-Y', $timestamp);
+                                                    ?>
+                                                </td>
+                                            </tr> 
+
+                                            <?php $i++; } ?>     <!--   here end foreach   -->                            
+                                           
+                                        </tbody>
+                                    </table>
 										</div>
 									</div>
 									<div class="form-group text-center">
-										<a href="<?php echo base_url('admin/get_order_details') ?>" class="btn btn-info"> View All</a>
+										<a href="<?php echo base_url('admin/property_details') ?>" class="btn btn-info"> View All</a>
 									</div>
 								</div>
 							</div>
@@ -181,14 +183,14 @@
 												</div>
                                                 <div class="media-body">
 													<h5 class="mb-1 text-white" style="text-transform: capitalize;">
-														saran
+														John
 													</h5>
 													<small class="d-block">
 													
 													</small>
 												</div>
 												<div class="dropdown">
-													<a class="btn btn-primary light sharp" href="<?php echo base_url('admin/get_order_details') ?>">View</a>				
+													<a class="btn btn-primary light sharp" href="#">View</a>				
 												</div>
 											</div>
                                         </li>

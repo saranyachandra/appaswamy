@@ -32,7 +32,7 @@
 						</a>
 					</li>					
 					<li class="nav-item">
-						<a class="nav-link active" data-toggle="tab" href="#apps">
+						<a class="nav-link " data-toggle="tab" href="#apps">
 							<svg id="icon-apps" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-users"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg><span style="font-size: 12px;text-align: center;">User  </span>
 						</a>
 					</li>					
@@ -50,7 +50,7 @@
                     </li>       				
 				</ul>
 			</div>
-			<a href="<?php echo base_url('super_admin/Logout') ?>" class="logout-btn"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-log-out"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg></a>
+			<a href="<?php echo base_url('login/Logout') ?>" class="logout-btn"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-log-out"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg></a>
         </div>
         <!--**********************************
             Sidebar end
@@ -66,89 +66,76 @@
 					<div class="col-xl-12 col-xxl-12">
 						<div class="row">
 						<div class="col-xl-12 col-xxl-12 col-lg-12 col-md-12">
-								<div class="card">
-									<div class="card-header border-0 pb-0">
-										<h4 class="card-title"  style="font-size: 27px;">View  User Details</h4>
-									</div>
-									<div class="card-body">
-									   
-                                    	<div>
-                                        
-                                        <section>
-                                           <div class="table-responsive">
-                                    <table  id="table_view" class="table table-striped table-bordered">
-                                         <div class="alert alert-success" id="success_msg" role="alert" style="display:none;" >Successfully deleted
-                                        </div>
-                                        <thead>
-                                            <tr>
-                                                <th>S.No</th>    
-                                                <th>Title</th>                              
-                                                <th>Thumb Img</th>                                     
-                                                <th>Create At</th>                                               
-                                                <th>Action</th>
-                                            </tr>
-                                        </thead>
-                                            <tbody>
-                                                <?php 
-                                                        $i=1;
-                                                        foreach ($details as $detail) 
-                                                        {                                                
-                                                ?>
-                                            <tr>                                               
-                                                <td>
-                                                   <?php echo $i; ?>
-                                                </td>
-                                                <td><?php echo $detail->title; ?> </td>
-                                               
-                                                <td>                                              
-                                                    <img style="width:100px; height: 65px;"  src="<?php echo base_url('assets/admin/uploads/press/thumb_img/').$detail->thumb_img?>" >
-                                                </td>                                                                               
-                                                <td>
-                                                   <?php 
-                                                         $timestamp = strtotime($detail->press_date);
-                                                         echo date('d-m-Y', $timestamp);
-                                                    ?>
-                                                </td>                                               
-
-                                                <td>                                              
-                                                    <div class="d-flex"> 
-                                                        <form  action="<?php echo base_url('admin/edit_press_by_id/'.$detail->press_id); ?>" method="POST" style="float: left;"> 
-                                                            <button class="btn btn-primary shadow btn-xs sharp mr-1" >
-                                                                   <i class="fa fa-pencil"></i>
-                                                            </button>
-                                                        </form>
-                                                        <form class="delete_id" action="" method="POST" style="float: left;">
-                                                            <button type="submit" class="btn btn-danger shadow btn-xs sharp">
-                                                                <i class="fa fa-trash"></i>
-                                                            </button>
-                                                        </form>
-                                                        
-                                                    </div>
-                                                </td>
-                                            </tr> 
-
-                                            <?php $i++; } ?>     <!--   here end foreach   -->                            
-                                           
-                                        </tbody>
-                                    </table>
-                                </div>
-                                        </section>                                        
-                                       
-                                        </div>
-                                        
-                                
-                           </div>
+							<div class="card">
+								<div class="card-header border-0 pb-0">
+								    <h4 class="card-title"  style="font-size: 27px;">View  Press Details</h4>
 								</div>
-							</div>
-							
-						
-						</div>
-					</div>
-					
-					
-					
-			  
-			   </div>
+    							<div class="card-body">			   
+                                    <section>
+                                        <div class="table-responsive">
+                                            <table  id="table_view" class="table table-striped table-bordered">
+                                                <div class="alert alert-success" id="success_msg" role="alert" style="display:none;" >Successfully deleted
+                                                </div>
+                                                <thead>
+                                                    <tr>
+                                                        <th>S.No</th>    
+                                                        <th>Title</th>                              
+                                                        <th>Thumb Img</th>                                     
+                                                        <th>Create At</th>                                               
+                                                        <th>Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <?php 
+                                                            $i=1;
+                                                            foreach ($details as $detail) 
+                                                            {                                                
+                                                    ?>
+                                                <tr>                                               
+                                                    <td>
+                                                       <?php echo $i; ?>
+                                                    </td>
+                                                    <td><?php echo $detail->title; ?> </td>
+                                                   
+                                                    <td>                                              
+                                                        <img style="width:100px; height: 65px;"  src="<?php echo base_url('assets/admin/uploads/press/thumb_img/').$detail->thumb_img?>" >
+                                                    </td>                                                                               
+                                                    <td>
+                                                       <?php 
+                                                             $timestamp = strtotime($detail->press_date);
+                                                             echo date('d-m-Y', $timestamp);
+                                                        ?>
+                                                    </td>                                               
+
+                                                    <td>                                              
+                                                        <div class="d-flex"> 
+                                                            <form  action="<?php echo base_url('admin/edit_press/'.$detail->press_id); ?>" method="POST" style="float: left;"> 
+                                                                <button class="btn btn-primary shadow btn-xs sharp mr-1" >
+                                                                       <i class="fa fa-pencil"></i>
+                                                                </button>
+                                                            </form>
+                                                            <form class="press_delete" action="<?php echo base_url('admin/delete_press/'.$detail->press_id); ?>" method="POST" style="float: left;">
+                                                                <button type="submit" class="btn btn-danger shadow btn-xs sharp">
+                                                                    <i class="fa fa-trash"></i>
+                                                                </button>
+                                                            </form>
+                                                            
+                                                        </div>
+                                                    </td>
+                                                </tr> 
+
+                                                    <?php $i++; } ?>     <!--   here end foreach   -->                            
+                                               
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </section>                                     
+                                </div>
+						    </div>
+					    </div>							
+				        </div>
+			        </div>			
+			    </div>
             </div>
         </div>
         <!--**********************************
@@ -183,11 +170,9 @@
     $('#table_view').DataTable();
 } ); 
 
-// delete blog details  form submit
-var base_url = '<?php echo base_url() ?>'; //form submited
 $(document).ready(function(){
 
-   $(document).on("submit", ".delete_id", function(e){     
+   $(document).on("submit", ".press_delete", function(e){     
          e.preventDefault();
         var url = $(this).attr('action');
         var formdata = new FormData(this);
@@ -213,8 +198,8 @@ $(document).ready(function(){
                             {
                                if(response.status == 'success')
                                {
-                                 $('#success_msg').show();
-                                 window.location.href = "<?php echo base_url('admin/get_blog_details'); ?>";
+                                    $('#success_msg').show();
+                                    window.location.href = "<?php echo base_url('admin/press_details'); ?>";
                                                                    
                                 }else 
                                  {                    
@@ -228,9 +213,6 @@ $(document).ready(function(){
     }); 
    
 });
-
-
-  
 
 </script>
 

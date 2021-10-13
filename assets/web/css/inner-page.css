@@ -1,4 +1,4 @@
-/*-------------------------------------------------------------
+------------------------------------------------------------
 Template Name: Appaswamy Realestate
 Template Type: Realestate
 Author Name: Yungmedia
@@ -37,16 +37,16 @@ body{background: #FFF;font-family: 'Manrope', sans-serif;}
 .projectslist h3 span{color:#707479;font-size:13px;font-family: 'Manrope';font-weight: 500; text-transform:uppercase;}
 .projects-item{ border:solid 0px #e8e8e8; background:#FFF;}
 .viewallprojects{width: 200px;margin: 0px auto;border: solid 2px #d20023; text-align: center;color: #d20023;font-family: 'Manrope';font-weight: 800;border-radius: 10px;padding: 15px 20px 15px 20px;margin-top: 50px;font-size: 17px;}
-.project-title{background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 5%, rgba(0, 0, 0, 0.6) 79%, rgba(0, 0, 0, 0.86) 114%); position: relative;top: 78%;
+.project-title{background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 5%, rgba(0, 0, 0, 0.6) 79%, rgba(0, 0, 0, 0.86) 114%); position: relative;top: -22%;
    padding: 0px 0px 12px 15px;}
 .project-title h3{ margin-bottom:0px; padding-bottom:0px; text-transform:capitalize;}
 .project-title p{ margin-bottom:0px; padding-bottom:0px; }
-.img-hol{height:286px; background:url(../images/Azure-The-Oceanique-thumb.jpg) center center no-repeat; background-size:cover;width:100%;}
-.img-hol2{height:286px; background:url(../images/trellis-thumb.jpg) center center no-repeat; background-size:cover;width:100%;}
-.img-hol3{height:286px; background:url(../images/habitat-thumb.jpg) center center no-repeat; background-size:cover;width:100%;}
+.img-hol{height:286px;  background-size:cover;width:100%;}
+.img-hol2{height:286px;  background-size:cover;width:100%;}
+.img-hol3{height:286px;  background-size:cover;width:100%;}
 .location{}
 .viewallprojects a{ text-decoration:none;color: #d20023;}
-.projectshortdetails{ padding:24px 20px 9px 20px;}
+.projectshortdetails{ padding:44px 20px 9px 20px;}
 .projectshortdetails ul{ list-style:none; padding:0px;font-family: Manrope;}
 .projectshortdetails li{ padding-left:40px ;width:50%; margin-bottom:17px; float:left; color:#404040; font-weight:bold; font-size:14px; }
 .projectshortdetails li span{color:#7e7e7e; font-size:11px;}
@@ -62,7 +62,8 @@ body{background: #FFF;font-family: 'Manrope', sans-serif;}
 .hospitality p{color: #707479;font-size: 15px;font-family: 'Manrope';
 font-weight: 500;line-height: 24px;}
 .hospitality a{ text-decoration:none;}
-.Press{background:#FFF;}
+.Press{background:#FFF;position: relative;
+ z-index: 10;}
 .Press h2{color:#333940;font-size:34px;font-family: 'Objectivity ExtraBold';font-weight: 800; text-transform:uppercase;}
 
 .blogtag1 {
@@ -207,7 +208,7 @@ video {
     padding-bottom: 0px;
 
 }
-.blog-list{ position:relative; z-index:100;background:#FFF;}
+.blog-list{ position:relative; z-index:10;background:#FFF;}
 .blog-list h2{font-family: 'Manrope', sans-serif;font-size:40px; line-height:40px; font-weight:900; color:#333940;padding-top:20px}
 .blog-list h3{font-family: 'Manrope', sans-serif; color:#333940;font-weight: 700;
     padding-top: 25px; }
@@ -340,16 +341,39 @@ text-decoration: none;
 }
 
 
-/* Map Section */
+
 
 .googlemap {
     width: auto;
 }
+
+.page-item.disabled .page-link {
+    color: #6c757d;
+    pointer-events: none;
+    background-color: #fff;
+    border-color: #dee2e6;
+}
+.page-link {    
+    color: #000;
+    font-weight: bold;
+}
+
+.blog-list ul li{
+    list-style: square;
+    padding-bottom: 15px;
+}
+.aboutus b{
+    color: #7d8284;
+}
+.aboutus b a{
+    color: #7d8284;
+}
+
 @media only screen and (max-width: 800px)  {
 	.innerpage-title h2
 {
  color:#FFF;
- font-size:35px;
+ font-size:25px;
   font-family: 'Objectivity ExtraBold';
   text-transform:uppercase;
  letter-spacing:7px;

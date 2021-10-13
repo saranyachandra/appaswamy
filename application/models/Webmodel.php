@@ -63,4 +63,11 @@ class Webmodel extends CI_Model
 
         return $query->result();
     }
+    function blog_search($keyword)
+    {
+        $this->db->like('title',$keyword);
+        $query  =   $this->db->get('blog_post');
+        return $query->result();
+    }
+
 }

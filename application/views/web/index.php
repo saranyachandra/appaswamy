@@ -1,6 +1,15 @@
 
 <?php $this->load->view('layout/header-home'); ?>
 <?php $this->load->view('layout/header-menu'); ?>
+<style type="text/css">
+    
+    #sidebar {
+    display: none;
+}
+.projects-item:hover #sidebar {
+    display:block;
+}
+</style>
 <!-- Banner-section -->
 <section>
     <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
@@ -92,7 +101,7 @@
                 <span>Founder & Chairman</span></h3>
                 <p>Founded in 1959 by a visionary entrepreneur, Mr S Appaswamy, Appaswamy Real Estates is an eminent real estate conglomerate and one of the leading builders in Chennai. We are constantly expanding our footprint with exquisite dwellings and elevated lifestyle solutions in our apartments in Chennai. Our clientele spans thousands of happy residents and families in this beloved city.</p>
                 <p>From residences that can be appreciated by the burgeoning upper middle class to extravagant luxury homes in Chennai that are akin to castles in the air, we’ve done it all over our 60 years in the real estate industry. Our Chairman, Mr Appaswamy is widely credited to have introduced the “Apartment Culture” in Chennai by being one of the first to offer elegantly designed residences. Additionally, we were the builders in Chennai to pioneer the concept of creating townships in key suburban locations through the urban development model – one that is now replicated by many others.</p>
-                <a href="#"><div class="readmore">Read More</div></a>
+                <a href="<?php echo base_url('about-us');?>"><div class="readmore">Read More</div></a>
             </div>
         </div>
     </div>
@@ -105,79 +114,40 @@
         <div class="row">
             <div class="col-xxl-12 col-xl-12 col-lg-12 col-sm-12 col-xs-12">
                 <h2 class="text-center pb40">residential apartments</h2>
-            </div>
-               
+            </div>               
+                <?php 
+                    foreach($property as $detail){
+                ?>   
             <div class="col-xxl-4 col-xl-4 col-lg-4  col-sm-6 col-xs-12">
                 <div class="projects-item">
-                <div class="img-hol">
-                <div class="project-title">
-                <h3 class="text-white">Azure The Oceanique</h3>
-                <p class="text-white"><img src="<?php echo base_url('assets/web/images/location@2x.webp')?>"> &nbsp; Raja Annamalai Puram, Chennai</p>
-                </div>
-                </div>
-                <div class="projectshortdetails">
-                <ul>
-                <li class="app"><span>Apartments</span><br>
-                2, 3 &amp; 4 BHK</li>
-                <li class="Possession"><span>Possession</span><br>
-                From Apr 2024</li>
-                <li class="price"><span>Starting from</span><br>
-                6.81 Cr Onwards*</li>
-                <li class="status"><span>Project Status</span><br>
-                Underconstruction</li>
-                </ul>
-                <div class="clearfix"></div>
-                </div>
-                </div>
-            </div>
-            <div class="col-xxl-4 col-xl-4 col-lg-4  col-sm-6 col-xs-12">
-                <div class="projects-item">
-                <div class="img-hol2">
-                <div class="project-title">
-                <h3 class="text-white">Trellis</h3>
-                <p class="text-white"><img src="<?php echo base_url('assets/web/images/location@2x.webp')?>"> &nbsp; Vadapalani, Chennai</p>
-                </div>
-                </div>
-                <div class="projectshortdetails">
-                <ul>
-                <li class="app"><span>Apartments</span><br>
-                2, 3 &amp; 4 BHK</li>
-                <li class="Possession"><span>Possession</span><br>
-                From May 2021</li>
-                <li class="price"><span>Starting from</span><br>
-                6.81 Cr Onwards*</li>
-                <li class="status"><span>Project Status</span><br>
-                Ready to Move</li>
-                </ul>
-                <div class="clearfix"></div>
-                </div>
+                    <div class="img-hol">
+                        <a href="<?php echo base_url('home/property_details/'.$detail->property_id)?>">                           
+                        <img src="<?php echo base_url('assets/admin/uploads/property_thumb/'.$detail->thumb_img)?>"  class="img-fluid">
+                        <div class="project-title">
+                            <h3 class="text-white"><?php echo $detail->name; ?></h3>
+                            <p class="text-white"><img src="<?php echo base_url('assets/web/images/location@2x.webp')?>"> &nbsp;  <?php echo $detail->location; ?></p>
+                        </div>
+                        </a>
+                    </div>
+                    <div class="projectshortdetails">
+                        <ul>
+                            <li class="app"><span>Apartments</span><br>
+                                <?php echo $detail->apartment_type; ?></li>
+                            <li class="Possession"><span>Possession</span><br>
+                                From <?php $timestamp = strtotime($detail->possession); 
+                                              $new_date = date('M Y', $timestamp);  echo $new_date; ?></li>
+                            <li class="price"><span>Starting from</span><br>
+                                <?php echo $detail->price; ?> Onwards*</li>
+                            <li class="status"><span>Project Status</span><br>
+                                <?php echo $detail->property_status; ?></li>
+                        </ul>
+                        <div class="clearfix"></div>
+                    </div>                   
+                   
                 </div>
             </div>
-            <div class="col-xxl-4 col-xl-4 col-lg-4  col-sm-6 col-xs-12">
-                <div class="projects-item">
-                <div class="img-hol3">
-                <div class="project-title">
-                <h3 class="text-white">Habitat</h3>
-                <p class="text-white"><img src="<?php echo base_url('assets/web/images/location@2x.webp')?>"> &nbsp; Siruseri, Chennai</p>
-                </div>
-                </div>
-                <div class="projectshortdetails">
-                <ul>
-                <li class="app"><span>Apartments</span><br>
-                2, 3 &amp; 4 BHK</li>
-                <li class="Possession"><span>Possession</span><br>
-                From May 2021</li>
-                <li class="price"><span>Starting from</span><br>
-                56.5 Lakhs Onwards</li>
-                <li class="status"><span>Project Status</span><br>
-                Ready to move</li>
-                </ul>
-                <div class="clearfix"></div>
-                </div>
-                </div>
-            </div>
-               
-           
+                <?php } ?>
+
             <div class="col-xxl-12 col-xl-12 col-lg-12  col-sm-6 col-xs-12">
                 <div class="viewallprojects"><a href="<?php echo base_url('residential-property')?>">View All Projects</a></div>
             </div>

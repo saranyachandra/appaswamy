@@ -88,17 +88,20 @@ font-size: 15px;padding: 0px 25px 25px 0px;}
 .projectslist h3 span{color:#707479;font-size:13px;font-family: 'Manrope';font-weight: 500; text-transform:uppercase;}
 .projects-item{ border:solid 1px #e8e8e8;}
 .viewallprojects{width: 200px;margin: 0px auto;border: solid 2px #d20023; text-align: center;color: #d20023;font-family: 'Manrope';font-weight: 800;border-radius: 10px;padding: 15px 20px 15px 20px;margin-top: 50px;font-size: 17px;}
-.project-title{background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 5%, rgba(0, 0, 0, 0.6) 79%, rgba(0, 0, 0, 0.86) 114%); position: relative;top: 78%;
-   padding: 0px 0px 12px 15px;}
+.project-title{background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 5%, rgba(0, 0, 0, 0.6) 79%, rgba(0, 0, 0, 0.86) 114%);
+    position: relative;
+    z-index: 15;
+    bottom: 63px;
+    padding: 0px 0px 12px 15px;}
 .project-title h3{ margin-bottom:0px; padding-bottom:0px; text-transform:capitalize;}
 .project-title p{ margin-bottom:0px; padding-bottom:0px; }
 .img-hol a{ text-decoration:none; color:#FFF;}
-.img-hol{height:286px; background:url(../images/Azure-The-Oceanique-thumb.jpg) center center no-repeat; background-size:cover;width:100%;}
+.img-hol{height:286px;}
 .img-hol2{height:286px; background:url(../images/trellis-thumb.jpg) center center no-repeat; background-size:cover;width:100%;}
 .img-hol3{height:286px; background:url(../images/habitat-thumb.jpg) center center no-repeat; background-size:cover;width:100%;}
 .location{}
 .viewallprojects a{ text-decoration:none;color: #d20023;}
-.projectshortdetails{ padding:24px 20px 9px 20px;}
+.projectshortdetails{ padding: 44px 20px 9px 20px;}
 .projectshortdetails ul{ list-style:none; padding:0px;font-family: Manrope;}
 .projectshortdetails li{ padding-left:40px ;width:50%; margin-bottom:17px; float:left; color:#404040; font-weight:bold; font-size:14px; }
 .projectshortdetails li span{color:#7e7e7e; font-size:11px;}
@@ -173,9 +176,11 @@ footer p{color: #7e8082;
 footer a{ text-decoration:none; color:#7e8082; font-size:14px; padding-right:10px;}
 footer a:hover{ color:#7e8082; font-size:14px; padding-right:10px;}
 .footer-bottom{ color:#7e8082;margin-top:30px; border-top:solid 1px #4a4a4a; padding:10px 0px 10px 0px;}
-.footer-bottom a{
-    
+.footer-bottom a{    
     padding-right:0px;
+}
+.footer-bottom a:hover{    
+    padding-right:0px;    
 }
 .zoom-effect-1 img,
 .zoom-effect-2 img,
@@ -266,7 +271,7 @@ position: absolute;
     z-index: 12;
     top: 10px;}
 .pagination {
-  display: block;
+  justify-content: center!important;
   width: 75%;
   margin: 1em auto;
   text-align: center;
@@ -275,6 +280,9 @@ position: absolute;
     content: '';
     clear: both;
   }
+}
+.pagination ul{
+    list-style: none !important;
 }
 
 .pagination-button {
@@ -407,4 +415,9 @@ position: absolute;
 	width: auto;
 	max-height: 520px;
 }
-<!-- Mobile Menu -->
+.modal.show .modal-dialog {
+    transform: none;
+    background: #fff;
+}
+
+

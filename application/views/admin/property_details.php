@@ -8,7 +8,7 @@
     <div id="main-wrapper">
         <div class="nav-header">
             <a href="<?php echo base_url('admin/dashboard') ?>" class="brand-logo">
-                <img class="logo-abbr" src="<?php echo base_url('assets/admin/images/Logo.png');?>" alt="">
+                <img class="logo-abbr" src="<?php echo base_url('assets/admin/images/logo1.png');?>" alt="">
                 <img class="logo-compact" src="<?php echo base_url('assets/admin/images/Logo.png');?>" alt="">
                 <img class="brand-title" src="<?php echo base_url('assets/admin/images/Logo.png');?>" alt="">
             </a>
@@ -32,7 +32,7 @@
 						</a>
 					</li>					
 					<li class="nav-item">
-						<a class="nav-link active" data-toggle="tab" href="#apps">
+						<a class="nav-link " data-toggle="tab" href="#apps">
 							<svg id="icon-apps" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-users"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg><span style="font-size: 12px;text-align: center;">User  </span>
 						</a>
 					</li>					
@@ -50,7 +50,7 @@
                     </li>       				
 				</ul>
 			</div>
-			<a href="<?php echo base_url('super_admin/Logout') ?>" class="logout-btn"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-log-out"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg></a>
+			<a href="<?php echo base_url('login/Logout') ?>" class="logout-btn"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-log-out"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg></a>
         </div>
         <!--**********************************
             Sidebar end
@@ -68,7 +68,7 @@
 						<div class="col-xl-12 col-xxl-12 col-lg-12 col-md-12">
 								<div class="card">
 									<div class="card-header border-0 pb-0">
-										<h4 class="card-title"  style="font-size: 27px;">View  User Details</h4>
+										<h4 class="card-title"  style="font-size: 27px;">Property Details</h4>
 									</div>
 									<div class="card-body">
 									   
@@ -81,10 +81,11 @@
                                         </div>
                                         <thead>
                                             <tr>
-                                                <th>S.No</th>    
-                                                <th>Type</th>                              
-                                                <th>Property Name</th>                                     
-                                                <th>Property Status</th>                                               
+                                                <th>S.No</th>   
+                                                <th>Property Name</th> 
+                                                <th>Type</th>                             
+                                                <th>Property Status</th>
+                                                 <th>Create at</th>                                              
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
@@ -98,15 +99,19 @@
                                                 <td>
                                                    <?php echo $i; ?>
                                                 </td>
-                                                <td><?php echo $detail->type; ?> </td>
-                                               
                                                 <td>                                              
                                                     <?php echo $detail->name; ?>
-                                                </td>                                                                               
+                                                </td>    
+                                                <td><?php echo $detail->type; ?> </td>                                               
                                                 <td>
                                                    <?php echo $detail->property_status; ?>
                                                 </td>                                               
-
+                                                 <td>                                              
+                                                    <?php 
+                                                         $timestamp = strtotime($detail->created_at);
+                                                         echo date('d-m-Y', $timestamp);
+                                                    ?>
+                                                </td>
                                                 <td>                                              
                                                     <div class="d-flex"> 
                                                         <form  action="<?php echo base_url('admin/edit_property/'.$detail->property_id); ?>" method="POST" style="float: left;"> 

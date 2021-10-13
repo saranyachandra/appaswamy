@@ -115,7 +115,8 @@
                                                             <div class="col-lg-6 mb-2">
                                                                 <div class="form-group">
                                                                     <label class="text-label">Banner Upload </label>
-                                                                    <input type="file" name="banner_img" class="form-control"  accept=".jpg, .jpeg, .png" >
+                                                                    <input type="file" name="banner_img_new" class="form-control"  accept=".jpg, .jpeg, .png, .webp" >
+                                                                    <input type="hidden"  name="banner_img" value="<?php echo $details->banner_img; ?>"  >
                                                                 </div>
                                                             </div>
                                                             <div class="col-lg-6 mb-2">
@@ -130,8 +131,8 @@
                                                                 <div class="col-lg-6 mb-2">
                                                                     <div class="form-group">
                                                                         <label class="text-label">Thumb Upload</label>
-                                                                        <input type="file" name="thumb_img" class="form-control"  accept=".jpg, .jpeg, .png">
-                                                                        
+                                                                        <input type="file" name="thumb_img_new" class="form-control"  accept=".jpg, .jpeg, .png, .webp">
+                                                                        <input type="hidden"  name="thumb_img" value="<?php echo $details->thumb_img; ?>"  >
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-lg-6 mb-2">

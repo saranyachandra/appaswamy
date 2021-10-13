@@ -8,7 +8,7 @@
     <div id="main-wrapper">
         <div class="nav-header">
             <a href="<?php echo base_url('admin/dashboard') ?>" class="brand-logo">
-                <img class="logo-abbr" src="<?php echo base_url('assets/admin/images/Logo.png');?>" alt="">
+                <img class="logo-abbr" src="<?php echo base_url('assets/admin/images/logo1.png');?>" alt="">
                 <img class="logo-compact" src="<?php echo base_url('assets/admin/images/Logo.png');?>" alt="">
                 <img class="brand-title" src="<?php echo base_url('assets/admin/images/Logo.png');?>" alt="">
             </a>
@@ -50,7 +50,7 @@
                     </li>       					
 				</ul>
 			</div>
-			<a href="<?php echo base_url('super_admin/Logout') ?>" class="logout-btn"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-log-out"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg></a>
+			<a href="<?php echo base_url('login/Logout') ?>" class="logout-btn"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-log-out"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg></a>
         </div>
         <!--**********************************
             Sidebar end
@@ -115,12 +115,12 @@
 
                                                 <td>                                              
                                                     <div class="d-flex"> 
-                                                        <form  action="<?php echo base_url('admin/edit_blog_by_id/'.$detail->blog_id); ?>" method="POST" style="float: left;"> 
+                                                        <form  action="<?php echo base_url('admin/edit_blog/'.$detail->blog_id); ?>" method="POST" style="float: left;"> 
                                                             <button class="btn btn-primary shadow btn-xs sharp mr-1" >
                                                                    <i class="fa fa-pencil"></i>
                                                             </button>
                                                         </form>
-                                                        <form class="delete_id" action="" method="POST" style="float: left;">
+                                                        <form class="blog_delete" action="<?php echo base_url('admin/delete_blog/'.$detail->blog_id); ?>" method="POST" style="float: left;">
                                                             <button type="submit" class="btn btn-danger shadow btn-xs sharp">
                                                                 <i class="fa fa-trash"></i>
                                                             </button>
@@ -170,13 +170,14 @@
     </div>
     
  <?php $this->load->view('layout/admin/admin_js'); ?> 
-<script src="<?php echo base_url('assets/admin/js/custom.js')?>"></script>
-<script src="<?php echo base_url('assets/admin/js/bootbox.js')?>"></script>
+
+
 
 <script src="<?php echo base_url('assets/admin/plugins/datatables/datatables.js')?>"></script>
 <script src="<?php echo base_url('assets/admin/plugins/datatables/datatables.min.js')?>"></script>
 <script src="<?php echo base_url('assets/admin/js/jquery.validate.js')?>"></script>
-
+<script src="<?php echo base_url('assets/admin/js/custom.js')?>"></script>
+<script src="<?php echo base_url('assets/admin/js/bootbox.js')?>"></script>
 <script>
   var baseURL= "<?php echo base_url();?>";
 // show table inbuild function like pagination 
@@ -184,11 +185,9 @@
     $('#table_view').DataTable();
 } ); 
 
-// delete blog details  form submit
-var base_url = '<?php echo base_url() ?>'; //form submited
 $(document).ready(function(){
 
-   $(document).on("submit", ".delete_id", function(e){     
+   $(document).on("submit", ".blog_delete", function(e){     
          e.preventDefault();
         var url = $(this).attr('action');
         var formdata = new FormData(this);
@@ -215,8 +214,7 @@ $(document).ready(function(){
                                if(response.status == 'success')
                                {
                                  $('#success_msg').show();
-                                 window.location.href = "<?php echo base_url('admin/get_blog_details'); ?>";
-                                                                   
+                                 window.location.href = "<?php echo base_url('admin/blog_details'); ?>";                                                                   
                                 }else 
                                  {                    
                                     alert('Something went wrong..');
@@ -229,7 +227,6 @@ $(document).ready(function(){
     }); 
    
 });
-
 
   
 

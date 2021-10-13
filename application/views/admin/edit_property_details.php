@@ -1,9 +1,13 @@
-
-
-<?php $this->load->view('layout/admin/admin_css'); ?>
+<?php 
+$details = (array)$details;
+$spec = array(); 
+if(isset($details['specification']) && !empty($details['specification'])){
+    $spec = json_decode($details['specification']);
+}
+$this->load->view('layout/admin/admin_css'); ?>
 <style>
 .error{
-	color:red;
+    color:red;
 }
 #fieldGroupTemplate {
   display: none;
@@ -14,7 +18,7 @@
     <div id="main-wrapper">
         <div class="nav-header">
             <a href="<?php echo base_url('admin/dashboard') ?>" class="brand-logo">
-                <img class="logo-abbr" src="<?php echo base_url('assets/admin/images/Logo.png');?>" alt="">
+                <img class="logo-abbr" src="<?php echo base_url('assets/admin/images/logo1.png');?>" alt="">
                 <img class="logo-compact" src="<?php echo base_url('assets/admin/images/Logo.png');?>" alt="">
                 <img class="brand-title" src="<?php echo base_url('assets/admin/images/Logo.png');?>" alt="">
             </a>
@@ -24,150 +28,159 @@
                 </div>
             </div>
         </div>    
-		
-		<?php $this->load->view('layout/admin/sidebar'); ?>     
+        
+        <?php $this->load->view('layout/admin/sidebar'); ?>     
         <?php $this->load->view('layout/admin/headerbar'); ?>
       
         <div class="deznav">
             <div class="deznav-scroll">
-				<ul class="nav menu-tabs">					
-					<li class="nav-item">
-						<a class="nav-link" data-toggle="tab" href="#dashboard">
-							<svg id="icon-home1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                <ul class="nav menu-tabs">                  
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#dashboard">
+                            <svg id="icon-home1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
                             <span style="font-size: 12px;text-align: center;">home  </span>
-						</a>
-					</li>					
-					<li class="nav-item">
-						<a class="nav-link " data-toggle="tab" href="#apps">
-							<svg id="icon-apps" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-users"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                        </a>
+                    </li>                   
+                    <li class="nav-item">
+                        <a class="nav-link " data-toggle="tab" href="#apps">
+                            <svg id="icon-apps" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-users"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
                             <span style="font-size: 12px;text-align: center;">Blog  </span>
-						</a>
-					</li>					
-					<li class="nav-item">
-						<a class="nav-link active" data-toggle="tab" href="#forms">
-							<svg id="icon-forms" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" style="stroke-dasharray: 66, 86; stroke-dashoffset: 0;"></path><path d="M14,2L14,8L20,8" style="stroke-dasharray: 12, 32; stroke-dashoffset: 0;"></path><path d="M16,13L8,13" style="stroke-dasharray: 8, 28; stroke-dashoffset: 0;"></path><path d="M16,17L8,17" style="stroke-dasharray: 8, 28; stroke-dashoffset: 2;"></path><path d="M10,9L9,9L8,9" style="stroke-dasharray: 2, 22; stroke-dashoffset: 12;"></path></svg>
+                        </a>
+                    </li>                   
+                    <li class="nav-item">
+                        <a class="nav-link active" data-toggle="tab" href="#forms">
+                            <svg id="icon-forms" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" style="stroke-dasharray: 66, 86; stroke-dashoffset: 0;"></path><path d="M14,2L14,8L20,8" style="stroke-dasharray: 12, 32; stroke-dashoffset: 0;"></path><path d="M16,13L8,13" style="stroke-dasharray: 8, 28; stroke-dashoffset: 0;"></path><path d="M16,17L8,17" style="stroke-dasharray: 8, 28; stroke-dashoffset: 2;"></path><path d="M10,9L9,9L8,9" style="stroke-dasharray: 2, 22; stroke-dashoffset: 12;"></path></svg>
                             <span style="font-size: 12px;text-align: center;">Property  </span>
-						</a>
-					</li>	
+                        </a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link " data-toggle="tab" href="#press">
                             <svg id="icon-forms" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" style="stroke-dasharray: 66, 86; stroke-dashoffset: 0;"></path><path d="M14,2L14,8L20,8" style="stroke-dasharray: 12, 32; stroke-dashoffset: 0;"></path><path d="M16,13L8,13" style="stroke-dasharray: 8, 28; stroke-dashoffset: 0;"></path><path d="M16,17L8,17" style="stroke-dasharray: 8, 28; stroke-dashoffset: 2;"></path><path d="M10,9L9,9L8,9" style="stroke-dasharray: 2, 22; stroke-dashoffset: 12;"></path></svg>
                             <span style="font-size: 12px;text-align: center;">Press </span>
                         </a>
-                    </li>       				
-				</ul>
-			</div>
-			<a href="<?php echo base_url('super_admin/Logout') ?>" class="logout-btn"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-log-out"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg></a>
+                    </li>                          
+                </ul>
+            </div>
+            <a href="<?php echo base_url('login/Logout') ?>" class="logout-btn"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-log-out"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg></a>
         </div>
         
         <div class="content-body">
             <!-- row -->
-			<div class="container-fluid">
+            <div class="container-fluid">
                 <div class="row">
-					<div class="col-xl-12 col-xxl-12">
-						<div class="row">
-						   <div class="col-xl-12 col-xxl-12 col-lg-12 col-md-12">
-								<div class="card">
-									<div class="card-header border-0 pb-0">
-										<h2 class="card-title" style="font-size: 27px;">Create Property</h2>
-									</div>
-									<div class="card-body">
+                    <div class="col-xl-12 col-xxl-12">
+                        <div class="row">
+                           <div class="col-xl-12 col-xxl-12 col-lg-12 col-md-12">
+                                <div class="card">
+                                    <div class="card-header border-0 pb-0">
+                                        <h2 class="card-title" style="font-size: 27px;">Edit Property</h2>
+                                    </div>
+                                    <div class="card-body">
                                         <!--tab view stat -->
-                                            <div class="col-xl-12">
-                                                <div class="card">
-                                                    <div class="card-header">
-                                                        <h4 class="card-title">Property Details</h4>
+                                        <div class="col-xl-12">
+                                            <div class="card">
+                                                <div class="card-header">
+                                                    <h4 class="card-title">Property Details</h4>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div class="alert alert-success" id="success_msg" role="alert" style="display:none;" >Successfully updated
+                                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                        </button>
                                                     </div>
-                                                    <div class="card-body">
-                                                        <div class="alert alert-success" id="success_msg" role="alert" style="display:none;" >Successfully updated
-                                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                    <div class="alert alert-danger" id="error_msg" role="alert" style="display:none;" >Something went wrong please try again
+                                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                                                 <span aria-hidden="true">&times;</span>
-                                                            </button>
+                                                        </button>
+                                                    </div>                                                             
+                                                    <div class="row">                                                       
+                                                        <div class="col-xl-2">
+                                                            <div class="nav flex-column nav-pills mb-3">
+                                                                <a href="#Project-Overview" data-toggle="pill" class="nav-link show active">Project Overview</a>
+                                                                <a href="#Specifications" data-toggle="pill" class="nav-link">Specifications</a>
+                                                                <a href="#Features" data-toggle="pill" class="nav-link">Features</a>
+                                                                <a href="#Floor-Plan" data-toggle="pill" class="nav-link">Floor Plan</a>
+                                                                <a href="#faq" data-toggle="pill" class="nav-link">FAQ</a>
+                                                            </div>
                                                         </div>
-                                                        <div class="alert alert-danger" id="error_msg" role="alert" style="display:none;" >Something went wrong please try again
-                                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                                                <span aria-hidden="true">&times;</span>
-                                                            </button>
-                                                        </div>
-                                                        <form id="property_edit_form" action="" method="POST" enctype="multipart/form-data">     
-                                                            <div class="row">                                                       
-                                                                <div class="col-xl-2">
-                                                                    <div class="nav flex-column nav-pills mb-3">
-                                                                        <a href="#Project-Overview" data-toggle="pill" class="nav-link show active">Project Overview</a>
-                                                                        <a href="#Specifications" data-toggle="pill" class="nav-link">Specifications</a>
-                                                                        <a href="#Features" data-toggle="pill" class="nav-link">Features</a>
-                                                                        <a href="#Floor-Plan" data-toggle="pill" class="nav-link">Floor Plan</a>
-                                                                        <a href="#faq" data-toggle="pill" class="nav-link">FAQ</a>
+                                                    <div class="col-xl-10">
+                                                    <div class="tab-content">
+                                                    <div id="Project-Overview" class="tab-pane fade active show">
+                                                        <form id="property_edit_form" action="" method="POST" enctype="multipart/form-data">
+                                                            <div class="row"> 
+                                                                <div class="col-lg-6 col-md-6"> 
+                                                                <section>   
+                                                                    <div class="col-lg-12 mb-2">
+                                                                        <div class="form-group">
+                                                                            <input type="hidden" name="id" value="<?=$details['property_id']?>">
+                                                                            <label class="text-label">Property Type</label>
+                                                                            <select name="project_type" class="form-control" >
+                                                                                <option>--Select Project Type--</option>
+                                                                                <option value="Residential" <?php if($details['type'] == 'Residential'){?> selected="selected" <?php } ?>>Residential Projects</option>
+                                                                                <option value="Commercial" <?php if($details['type'] == 'Commercial'){?> selected="selected" <?php } ?>>Commercial Projects</option>
+                                                                                <option value="Hospitality" <?php if($details['type'] == 'Hospitality'){?> selected="selected" <?php } ?>>Hospitality Projects</option>
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>      
+                                                                    <div class="col-lg-12 mb-2">
+                                                                        <div class="form-group">
+                                                                            <label class="text-label">Property Name</label>
+                                                                            <input type="text" name="property_name" class="form-control alpha-only" placeholder="Enter Name" style="text-transform: capitalize;" value="<?=$details['name']?>">
+                                                                        </div>
                                                                     </div>
-                                                                </div>
-                                                                <div class="col-xl-10">
-                                                                    <div class="tab-content">
-                                                                        <div id="Project-Overview" class="tab-pane fade active show">
-                                                                           
-                                                                                <div class="row"> 
-                                                                                    <div class="col-lg-6 col-md-6"> 
-                                                                                        <section>   
-                                                                                            <div class="col-lg-12 mb-2">
-                                                                                                <div class="form-group">
-                                                                                                    <label class="text-label">Property Type</label>
-                                                                                                    <select name="project_type" class="form-control" >
-                                                                                                        <option>--Select Project Type--</option>
-                                                                                                        <option value="Residential">Residential Projects</option>
-                                                                                                        <option value="Commercial">Commercial Projects</option>
-                                                                                                        <option value="Hospitality">Hospitality Projects</option>
-                                                                                                    </select>
-                                                                                                </div>
-                                                                                            </div>      
-                                                                                            <div class="col-lg-12 mb-2">
-                                                                                                <div class="form-group">
-                                                                                                    <label class="text-label">Property Name</label>
-                                                                                                    <input type="text" name="property_name" class="form-control alpha-only" placeholder="Enter Name" style="text-transform: capitalize;">
-                                                                                                </div>
-                                                                                            </div>
-                                                                                            <div class="col-lg-12 mb-2">
-                                                                                                <div class="form-group">
-                                                                                                    <label class="text-label">Title</label>
-                                                                                                    <input type="text" name="property_title"  class="form-control" placeholder="Enter Title ">
-                                                                                                </div>
-                                                                                            </div>
-                                                                                            <div class="col-lg-12 mb-2">
-                                                                                                <div class="form-group">
-                                                                                                    <label class="text-label">Possession</label>
-                                                                                                    <input type="date" name="possession"  class="form-control" >
+                                                                    <div class="col-lg-12 mb-2">
+                                                                        <div class="form-group">
+                                                                            <label class="text-label">Title</label>
+                                                                            <input type="text" name="property_title"  class="form-control" placeholder="Enter Title " value="<?php echo $details['title']?>">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-lg-12 mb-2">
+                                                                        <div class="form-group">
+                                                                            <label class="text-label">Possession</label>
+                                                                            <input type="date" name="possession"  class="form-control" value="<?=date('Y-m-d',strtotime($details['possession']))?>">
                                                                                                      
-                                                                                                </div>
-                                                                                            </div>
+                                                                        </div>
+                                                                    </div>
                                                                                             <div class="col-lg-12 mb-2">
                                                                                                 <div class="form-group">
                                                                                                     <label class="text-label">Location</label>
                                                                                                      <select name="location" class="form-control" >
                                                                                                         <option>--Select Location--</option>
-                                                                                                        <option value="Chennai">Chennai</option>
-                                                                                                        <option value="Coimbatore">Coimbatore</option>
+                                                                                                        <option value="Chennai" <?php  if($details['location'] == 'Chennai'){?> selected <?php }?>>Chennai</option>
+                                                                                                        <option value="Coimbatore" <?php if($details['location'] == 'Coimbatore'){?> selected <?php }?>>Coimbatore</option>
                                                                                                     </select>
                                                                                                     </div>
                                                                                             </div> 
                                                                                             <div class="col-lg-12 mb-2">
                                                                                                 <div class="form-group">
                                                                                                     <label class="text-label">Location address</label>
-                                                                                                    <input type="text" name="location_address"  class="form-control" >
+                                                                                                    <input type="text" name="location_address"  class="form-control" value="<?=$details['location_address']?>" >
                                                                                                     </div>
                                                                                             </div>
                                                                                             <div class="col-lg-12 mb-2">
                                                                                                 <div class="form-group">
                                                                                                     <label class="text-label">Description</label>
-                                                                                                    <textarea class="form-control" name="description"></textarea>
+                                                                                                    <textarea class="form-control" name="description"><?=$details['description']?></textarea>
                                                                                                 </div>
-                                                                                            </div>                                                     
+                                                                                            </div>                         
+                                                                                            <div class="col-lg-12 mb-2">
+                                                                                                <div class="form-group">
+                                                                                                    <label class="text-label">Thumb Upload </label>
+                                                                                                    <input type="file" name="thumb_img" class="form-control" >
+                                                                                                    <?php if(isset($details['thumb_img'])){?>
+                                                                                                    <img src="../../assets/admin/uploads/property_thumb/<?=$details['thumb_img']?>" alt="Thumb image" height="100" width="200">
+                                                                                                    <?php } ?>
+                                                                                                </div>
+                                                                                            </div>                                                                                 
                                                                                         </section>
                                                                                     </div>
 
                                                                                     <div class="col-lg-6 "> 
                                                                                         <section>
-                                                                                            <div class="col-lg-12 mb-2">
+                                                                                            <!--<div class="col-lg-12 mb-2">
                                                                                                 <div class="form-group">
                                                                                                     <label class="text-label">Banner Upload </label>
-                                                                                                    <input type="file" name="banner_img[]" class="form-control"  accept=".jpg, .jpeg, .png" multiple>
+                                                                                                    <input type="file" name="banner_img[]" class="form-control"  accept=".jpg, .jpeg, .png" multiple>                                                    
                                                                                                 </div>
                                                                                             </div> 
                                                                                             <div class="col-lg-12 mb-2">
@@ -181,18 +194,19 @@
                                                                                                     <label class="text-label">E-Brochure Upload </label>
                                                                                                     <input type="file" name="E_Brochure" class="form-control"  accept=".pdf" multiple>
                                                                                                 </div>
-                                                                                            </div>
+                                                                                            </div>-->
                                                                                             
                                                                                             <div class="col-lg-12 mb-2">
                                                                                                 <div class="form-group">
                                                                                                     <label>Apartment Type:</label>
-                                                                                                <div class="dropdown bootstrap-select show-tick form-control">
-                                                                                                    <select multiple="" 
-                                                                                                        name="apartment_type[]" class="form-control" id="sel2" tabindex="-98">
-                                                                                                        <option value="1">1 BHK</option>
-                                                                                                        <option value="2">2 BHK</option>
-                                                                                                        <option value="3">3 BHK</option>
-                                                                                                        <option value="4">4 BHK</option>
+                                                                                                <div class="dropdown bootstrap-select show-tick form-control"><?php
+                                                                                                            $apartMentExplode = explode(',',$details['apartment_type']);
+                                                                                                    ?>                                                                    
+                                                                                                    <select multiple="" name="apartment_type[]" class="form-control" id="sel2" tabindex="-98">
+                                                                                                        <option value="1" <?php   if(in_array(1,$apartMentExplode)){ ?> selected= "selected" <?php }?>>1 BHK</option>
+                                                                                                        <option value="2" <?php   if(in_array(2,$apartMentExplode)){ ?> selected= "selected" <?php }?>>2 BHK</option>
+                                                                                                        <option value="3" <?php   if(in_array(3,$apartMentExplode)){ ?> selected= "selected" <?php }?>>3 BHK</option>
+                                                                                                        <option value="4" <?php   if(in_array(4,$apartMentExplode)){ ?> selected= "selected" <?php }?>>4 BHK</option>
                                                                                                     </select>
                                                                                                     
                                                                                                 </div>
@@ -201,7 +215,7 @@
                                                                                             <div class="col-lg-12 mb-2">
                                                                                                 <div class="form-group">
                                                                                                     <label class="text-label">Price </label>
-                                                                                                    <input type="text" name="price" class="form-control" >
+                                                                                                    <input type="text" name="price" class="form-control" value="<?=$details['price']?>">
                                                                                                 </div>
                                                                                             </div>
                                                                                            
@@ -210,54 +224,89 @@
                                                                                                     <label class="text-label">Property Status</label>
                                                                                                     <select name="project_status" class="form-control" >
                                                                                                         <option disabled selected hidden>--Select Project Status--</option>
-                                                                                                        <option value="underconstruction">Underconstruction</option>
-                                                                                                        <option value="Ready-to-Move">Ready to Move</option>
-                                                                                                        <option value="Ongoing">Ongoing</option>
-                                                                                                        <option value="Completed">Completed</option>
+                                                                                                        <option value="underconstruction" <?php if($details['property_status'] == 'underconstruction') {?> selected <?php }?>>Underconstruction</option>
+                                                                                                        <option value="Ready-to-Move" <?php if($details['property_status'] == 'Ready-to-Move'){ ?> selected <?php }?>>Ready to Move</option>
+                                                                                                        <option value="Ongoing" <?php if($details['property_status'] == 'Ongoing'){ ?> selected <?php } ?>>Ongoing</option>
+                                                                                                        <option value="Completed" <?php if($details['property_status'] == 'Completed') {?> selected <?php } ?>>Completed</option>
                                                                                                     </select>
                                                                                                 </div>
                                                                                             </div>
                                                                                             <div class="col-lg-12 mb-2">
                                                                                                 <div class="form-group">
                                                                                                     <label class="text-label">Google Map</label>
-                                                                                                    <textarea class="form-control" name="google_map"></textarea>
+                                                                                                    <textarea class="form-control" name="google_map"><?=$details['google_map']?></textarea>
                                                                                                 </div>
                                                                                             </div>     
+                                                                                            <div class="col-lg-12 text-center mb-2">
+                                                                                                <div class="form-group"> 
+                                                                                                    <button type="reset" class="btn btn-secondary waves-effect m-l-5">
+                                                                                                    Cancel</button>                                            
+                                                                                                    <button type="submit" class="btn btn-primary waves-effect waves-light">
+                                                                                                    Submit
+                                                                                                    </button>                                            
+                                                                                                </div>
+                                                                                            </div>
                                                                                         </section>
                                                                                     </div>
                                                                                 </div>
-                                                                                 
+                                                                            </form>     
                                                                         </div>
 
-                                                                         <div id="Specifications" class="tab-pane fade">
-                                                                            <div class="col-lg-12 mb-2">
-                                                                               <div class="row fieldGroup">
+                                                <div id="Specifications" class="tab-pane fade">
+                                                    <div class="col-lg-12 mb-2">
+                                                        <form id="specification_edit_form" action="" method="POST" enctype="multipart/form-data">
+                                                            <input type="hidden" name="id" value="<?=$details['property_id']?>">
+                                                            <div class="row fieldGroup">
+                                                            <div class="col-md-12  text-right">
+                                                                <a href="javascript:void(0)" class="btn btn-success addMore">+</a>
+                                                            </div>
+                                                                <?php
+                                                                    if(!empty($spec)){
+                                                                    foreach($spec as $k=>$det)
+                                                                        { 
+                                                                          $x = (array)$det;  
+                                                                          $y = (array)$x['spec'.$k];
+                                                                ?>
+                                                            <div class="col-md-12  ">
+                                                                <div class="form-group">
+                                                                    <h4>Section Content</h4>
+                                                                    <textarea name="specification[]" class="editor"><?php echo(html_entity_decode($y[0])); ?></textarea>
+                                                                </div>
+                                                            </div>
+                                                                <?php 
+                                                                    } }else{ ?>   
+                                                            <div class="col-md-12  ">
+                                                                <div class="form-group">
+                                                                    <h4>Section Content</h4>
+                                                                    <textarea name="specification[]" class="editor"></textarea>
+                                                                </div>
+                                                            </div> 
+                                                                <?php } ?>
                                                                                       
-                                                                                      <div class="col-md-12  text-right">
-                                                                                        <a href="javascript:void(0)" class="btn btn-success addMore">
-                                                                                           +
-                                                                                        </a>
-                                                                                      </div>
-                                                                                      <div class="col-md-12  ">
-                                                                                        <div class="form-group">
-                                                                                          <h4>Section Content</h4>
-                                                                                          <textarea name="specification[]" class="editor"></textarea>
-                                                                                        </div>
-                                                                                      </div>
-                                                                                </div>
-                                                                                <div class="row" id="fieldGroupTemplate">
-                                                                                  <div class="col-md-12 text-right ">
-                                                                                    <a href="javascript:void(0)" class="btn btn-danger remove"> X </a>
-                                                                                  </div>
-                                                                                  <div class="col-sm-12 ">
-                                                                                    <div class="form-group">
-                                                                                      <h4>Section Content</h4>
-                                                                                      <textarea name="specification[]" disabled></textarea>
-                                                                                    </div>
-                                                                                  </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
+                                                            </div>
+                                                            <div class="row" id="fieldGroupTemplate">
+                                                                <div class="col-md-12 text-right ">
+                                                                    <a href="javascript:void(0)" class="btn btn-danger remove"> X </a>
+                                                                </div>
+                                                                <div class="col-sm-12 ">
+                                                                    <div class="form-group">
+                                                                        <h4>Section Content</h4>
+                                                                        <textarea name="specification[]" disabled></textarea>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-12 text-center mb-2">
+                                                                <div class="form-group"> 
+                                                                                                    <button type="reset" class="btn btn-secondary waves-effect m-l-5">
+                                                                                                    Cancel</button>                                            
+                                                                                                    <button type="submit" class="btn btn-primary waves-effect waves-light">
+                                                                                                    Submit
+                                                                                                    </button>                                            
+                                                                </div>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
                                                                         <!-- feature tab start here -->
                                                                         <div id="Features" class="tab-pane fade">
                                                                             <div class="row">
@@ -700,17 +749,9 @@
 
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-lg-12 text-center mb-2">
-                                                                    <div class="form-group"> 
-                                                                        <button type="reset" class="btn btn-secondary waves-effect m-l-5">
-                                                                        Cancel</button>                                            
-                                                                        <button type="submit" class="btn btn-primary waves-effect waves-light">
-                                                                          Submit
-                                                                        </button>                                            
-                                                                    </div>
-                                                                </div>
+                                                                
                                                             </div>
-                                                        </form>
+                                                        
                                                     </div>
                                                 </div>
                                             </div>
@@ -721,11 +762,11 @@
 
                                        
                                     </div>
-								</div>
-							</div>						
-						</div>
-					</div>					
-			   </div>
+                                </div>
+                            </div>                      
+                        </div>
+                    </div>                  
+               </div>
             </div>
         </div>
         <!--**********************************

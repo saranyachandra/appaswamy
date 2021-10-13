@@ -196,8 +196,65 @@ class Propertymodel extends CI_Model
         $query = $this->db->get();
         return $query->result();
     }
+    public function get_property_details_dashboard()
+    {       
+        $this->db->select('*');
+        $this->db->from('property'); 
+        $this->db->order_by('property_id', 'desc');    
+        $this->db->limit(5);  
+        $query = $this->db->get();
 
-    
+        return $query->result();
+
+        
+    }
+
+    //Edit property overview details
+    public function edit_property()
+    {
+        $id = $this->input->post('id');
+        $now = date('Y-m-d H:i:s');  
+        if (isset($_FILES['thumb_img']) && !empty($_FILES['thumb_img']["name"]))
+        {
+            $config1['upload_path'] = './assets/admin/uploads/property_thumb';  
+            $config1['allowed_types'] = 'jpg|jpeg|bmp|png|webp';
+            $config1['max_size'] = '30720';   
+            $config1['encrypt_name'] = TRUE;   
+
+            $this->load->library('upload', $config1);
+            $this->upload->initialize($config1); 
+            $this->upload->do_upload('thumb_img'); 
+            $thumb_upload=$this->upload->data(); 
+            $thumb = $thumb_upload['file_name'];
+        }
+       
+        $update_data = array('type'         => $this->input->post('project_type'),
+                        'name'              => $this->input->post('property_name'),
+                        'title'             => $this->input->post('property_title'),
+                        'possession'        => $this->input->post('possession'),
+                        'location'          => $this->input->post('location'),
+                        'location_address'  => $this->input->post('location_address'),
+                        'description'       => $this->input->post('description'), 
+                        'thumb_img'         => $thumb, 
+                        'apartment_type'    => implode(', ', $_POST['apartment_type']),
+                        'price'             => $this->input->post('price'),
+                        'property_status'   => $this->input->post('project_status'),                      
+                        //'feature'           => implode(',', $_POST['features']),  
+                        //'specification'     => json_encode($specArr),   
+                        'google_map'        => $this->input->post('google_map')
+                    );
+
+                    
+        $update = $this->db->where('property_id', $id)->update('property', $update_data);
+            if($update == true)
+                {   
+                    return true;            
+                }
+            else 
+                {   
+                    return false;
+                }
+    }
     //not use in project but reference
     public function insert_multiple_img_dynamic()
     {   

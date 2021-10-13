@@ -20,6 +20,14 @@ class Admin extends CI_Controller {
 	public function dashboard()
 	{
 		$result['activeTab'] = "dashboard";
+
+		$tot_res = 'SELECT count(property_id) as total FROM property where type="Residential" ';
+		$result['total_res']=$this->db->query($tot_res)->row();
+
+		$tot_com = 'SELECT count(property_id) as total FROM property where type="Commercial" ';
+		$result['total_com']=$this->db->query($tot_com)->row();
+
+		$result['property_details'] = $this->Propertymodel->get_property_details_dashboard();	
 		$this->load->view('admin/index',$result);
 	}
 
@@ -40,7 +48,7 @@ class Admin extends CI_Controller {
 		$response = array();
 
 		$config1['upload_path'] = './assets/admin/uploads/main_banner';   
-		$config1['allowed_types'] = 'jpg|jpeg|bmp|png';  
+		$config1['allowed_types'] = '*';  
 		$config1['max_size'] = '30720';   
 		$config1['encrypt_name'] = TRUE;   
 
@@ -49,7 +57,7 @@ class Admin extends CI_Controller {
 		$banner_upload1=$this->upload->data();  
 
 		$config2['upload_path'] = './assets/admin/uploads/main_banner';   
-		$config2['allowed_types'] = 'jpg|jpeg|bmp|png'; 
+		$config2['allowed_types'] = '*'; 
 		$config2['max_size'] = '30720';  
 		$config2['encrypt_name'] = TRUE;
 
@@ -58,7 +66,7 @@ class Admin extends CI_Controller {
 		$banner_upload2=$this->upload->data(); 
 
 		$config3['upload_path'] = './assets/admin/uploads/main_banner';   
-		$config3['allowed_types'] = 'jpg|jpeg|bmp|png'; 
+		$config3['allowed_types'] = '*'; 
 		$config3['max_size'] = '30720';  
 		$config3['encrypt_name'] = TRUE;
 
@@ -67,7 +75,7 @@ class Admin extends CI_Controller {
 		$banner_upload3=$this->upload->data(); 
 
 		$config4['upload_path'] = './assets/admin/uploads/main_banner';   
-		$config4['allowed_types'] = 'jpg|jpeg|bmp|png'; 
+		$config4['allowed_types'] = '*'; 
 		$config4['max_size'] = '30720';  
 		$config4['encrypt_name'] = TRUE;
 
@@ -76,7 +84,7 @@ class Admin extends CI_Controller {
 		$banner_upload4=$this->upload->data(); 
 
 		$config5['upload_path'] = './assets/admin/uploads/main_banner';   
-		$config5['allowed_types'] = 'jpg|jpeg|bmp|png'; 
+		$config5['allowed_types'] = '*'; 
 		$config5['max_size'] = '30720';  
 		$config5['encrypt_name'] = TRUE;
 
@@ -120,7 +128,7 @@ class Admin extends CI_Controller {
 
 			if(!empty($_FILES['banner_img_new1']['name'])){
 				$config1['upload_path'] = './assets/admin/uploads/main_banner';   
-				$config1['allowed_types'] = 'jpg|jpeg|bmp|png';  
+				$config1['allowed_types'] = '*';  
 				$config1['max_size'] = '30720';   
 				$config1['encrypt_name'] = TRUE;   
 
@@ -136,7 +144,7 @@ class Admin extends CI_Controller {
 
 			if(!empty($_FILES['banner_img_new2']['name'])){
 				$config1['upload_path'] = './assets/admin/uploads/main_banner';   
-				$config1['allowed_types'] = 'jpg|jpeg|bmp|png';  
+				$config1['allowed_types'] = '*';  
 				$config1['max_size'] = '30720';   
 				$config1['encrypt_name'] = TRUE;   
 
@@ -151,7 +159,7 @@ class Admin extends CI_Controller {
 
 			if(!empty($_FILES['banner_img_new3']['name'])){
 				$config1['upload_path'] = './assets/admin/uploads/main_banner';   
-				$config1['allowed_types'] = 'jpg|jpeg|bmp|png';  
+				$config1['allowed_types'] = '*';  
 				$config1['max_size'] = '30720';   
 				$config1['encrypt_name'] = TRUE;   
 
@@ -165,7 +173,7 @@ class Admin extends CI_Controller {
 			}
 			if(!empty($_FILES['banner_img_new4']['name'])){
 				$config1['upload_path'] = './assets/admin/uploads/main_banner';   
-				$config1['allowed_types'] = 'jpg|jpeg|bmp|png';  
+				$config1['allowed_types'] = '*';  
 				$config1['max_size'] = '30720';   
 				$config1['encrypt_name'] = TRUE;   
 
@@ -179,7 +187,7 @@ class Admin extends CI_Controller {
 			}
 			if(!empty($_FILES['banner_img_new5']['name'])){
 				$config1['upload_path'] = './assets/admin/uploads/main_banner';   
-				$config1['allowed_types'] = 'jpg|jpeg|bmp|png';  
+				$config1['allowed_types'] = '*';  
 				$config1['max_size'] = '30720';   
 				$config1['encrypt_name'] = TRUE;   
 
@@ -216,39 +224,8 @@ class Admin extends CI_Controller {
 	public function insert_blog()
 	{	
 		$response = array();
-
-		$config['upload_path'] = './assets/admin/uploads/banner';   // Directory 
-		$config['allowed_types'] = 'jpg|jpeg|bmp|png';  //type of images allowed
-		$config['max_size'] = '30720';   //Max Size
-		$config['encrypt_name'] = TRUE;   // For unique image name at a time
-
-		$this->load->library('upload', $config);  //File Uploading library
-		$this->upload->do_upload('banner_img');  // input name which have to upload 
-		$banner_upload=$this->upload->data();   //variable which store the path
-
-		$config2['upload_path'] = './assets/admin/uploads/thumb';   // Directory 
-		$config2['allowed_types'] = 'jpg|jpeg|bmp|png'; //type of images allowed
-		$config2['max_size'] = '30720';   //Max Size
-		$config2['encrypt_name'] = TRUE;   // For unique image name at a time
-
-
-		$this->upload->initialize($config2); 
-		$this->upload->do_upload('thumb_img');  // File Name
-		$thumb_upload=$this->upload->data(); // 
-
-		  	$add_blog = array(									
-									'title' 			=> $this->input->post('blog_title'),									
-									'author' 		    => $this->input->post('blog_author'),
-									'updated_date' 		=> $this->input->post('blog_date'),
-									'banner_img' 		=> $banner_upload['file_name'],
-									'thumb_img' 		=> $thumb_upload['file_name'],									  
-									'description' 		=> $this->input->post('editor'),										
-									'updated_date'      => $this->input->post('facebook'),
-									'create_at' 		=> date('Y-m-d'),
-
-								);
-		    $insert =  $this->db->insert('blog_post', $add_blog);
-		    if($insert == true)
+	 
+			if($this->Pressmodel->insert_blog_details())
 				{		 	
 					$this->session->set_flashdata('success', 'Blog updated successfully...');
 					$response['status'] = 'success'; 			
@@ -257,25 +234,13 @@ class Admin extends CI_Controller {
 				{	
 					$response['status'] = 'failed';
 				}
-			echo json_encode($response); 
+		echo json_encode($response); 
 		
 	}
 	public function update_blog()
 	{
-			$response = array();
-			$id=$this->input->post('blog_id');
-			
-		  	$update_blog = array(									
-									'title' 			=> $this->input->post('blog_title'),									
-									'author' 		    => $this->input->post('blog_author'),
-									'updated_date' 		=> $this->input->post('blog_date'),											  
-									'description' 		=> $this->input->post('editor'),										
-									'updated_date'      => $this->input->post('blog_date'),
-									'create_at' 		=> date('Y-m-d'),
-
-								);
-			$update = $this->db->where('blog_id', $id)->update('blog_post', $update_blog);
-			if($update == true)
+		$response = array();			
+			if($this->Pressmodel->update_blog_det())
 				{ 	
 					$response['status'] = 'success'; 			
 				}
@@ -285,47 +250,37 @@ class Admin extends CI_Controller {
 				}
 		echo json_encode($response); 
 	}
-	public function get_blog_details()
-	{		
-		$result['activeTab'] = "apps";
-		
-		$this->db->select('*');
-	  	$this->db->from('blog_post'); 	
-	  	$result['details']  = $this->db->get()->result();	  	  	
-		$this->load->view('admin/blog_details',$result);
-	}
-	public function edit_blog_by_id($blog_id)
+	public function blog_details()
 	{		
 		$result['activeTab'] = "apps";		
-		$this->db->select('*');
-	  	$this->db->from('blog_post');
-	  	$this->db->where('blog_id',$blog_id);	
-	  	$result['details']  = $this->db->get()->row();	  	  	
+	  	$result['details']  = $this->Pressmodel->get_blog_details();	  	  	
+		$this->load->view('admin/blog_details',$result);
+	}
+	public function edit_blog($blog_id)
+	{		
+		$result['activeTab'] = "apps";		
+	  	$result['details']  = $this->Pressmodel->edit_blog_by_id($blog_id);	  	  	
 		$this->load->view('admin/edit_blog_details',$result);
 	}
 
-	public function delete_blog_by_id($id)
+	public function delete_blog($id)
 	{
-	    $active_update = array( 'Active' => 1 );    
-	    $update = $this->db->where('blog_id', $id)->update('blog_post', $active_update);	   
-
-	    if($update == true)
+	    $response = array();
+	    if($this->Pressmodel->delete_blog_by_id($id))
 				{		 	
-					$this->session->set_flashdata('success', 'Blog updated successfully...');
 					$response['status'] = 'success'; 			
 				}
 			else 
 				{	
 					$response['status'] = 'failed';
 				}		
-		
+		echo json_encode($response);
 	}
 	
 	public function create_property()
 	{
 		$result['activeTab'] = "forms";
-		$this->load->view('admin/create_property',$result);
-		
+		$this->load->view('admin/create_property',$result);		
 	}
 
 	public function insert_property()
@@ -366,6 +321,21 @@ class Admin extends CI_Controller {
 
 		$this->load->view('admin/edit_property_details',$result);
 	}
+	public function edit_property_overview()
+	{		
+		$response = array();
+           if($this->Propertymodel->edit_property())
+            {
+            	$response['status'] = 'success';            	
+            }
+            else
+            {
+            	$response['status'] = 'failed';
+            }
+        	
+        echo json_encode($response);
+	}
+
 
 	public function create_press()
 	{
@@ -383,17 +353,46 @@ class Admin extends CI_Controller {
             else
             {
             	$response['status'] = 'failed';
-            }
-        	
+            }        	
         echo json_encode($response);
 	}
 
-	public function get_press_details()
+	public function press_details()
 	{		
 		$result['activeTab'] = "press";		
-		$this->db->select('*');
-	  	$this->db->from('press'); 	
-	  	$result['details']  = $this->db->get()->result();	  	  	
+		$result['details'] = $this->Pressmodel->get_press_details(); 	  	
 		$this->load->view('admin/press_details',$result);
+	}
+	public function delete_press($id)
+	{
+	    $response = array();
+	    if($this->Pressmodel->delete_press_by_id($id))
+				{		 	
+					$response['status'] = 'success'; 			
+				}
+			else 
+				{	
+					$response['status'] = 'failed';
+				}		
+		echo json_encode($response);
+	}
+	public function edit_press($id)
+	{		
+		$result['activeTab'] = "press";		
+	  	$result['details']  = $this->Pressmodel->edit_press_by_id($id);	  	  	
+		$this->load->view('admin/edit_press_details',$result);
+	}
+	public function update_press()
+	{
+		$response = array();			
+			if($this->Pressmodel->update_press_det())
+				{ 	
+					$response['status'] = 'success'; 			
+				}
+			else 
+				{	
+					$response['status'] = 'failed';
+				}
+		echo json_encode($response); 
 	}
 }

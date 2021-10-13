@@ -24,7 +24,7 @@
     <div id="main-wrapper">
         <div class="nav-header">
             <a href="<?php echo base_url('admin/dashboard') ?>" class="brand-logo">
-                <img class="logo-abbr" src="<?php echo base_url('assets/admin/images/Logo.png');?>" alt="">
+                <img class="logo-abbr" src="<?php echo base_url('assets/admin/images/logo1.png');?>" alt="">
                 <img class="logo-compact" src="<?php echo base_url('assets/admin/images/Logo.png');?>" alt="">
                 <img class="brand-title" src="<?php echo base_url('assets/admin/images/Logo.png');?>" alt="">
             </a>
@@ -67,7 +67,7 @@
                     </li>   					
 				</ul>
 			</div>
-			<a href="<?php echo base_url('super_admin/Logout') ?>" class="logout-btn"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-log-out"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg></a>
+			<a href="<?php echo base_url('login/Logout') ?>" class="logout-btn"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-log-out"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg></a>
         </div>
         
         <div class="content-body">
@@ -79,7 +79,7 @@
 						   <div class="col-xl-12 col-xxl-12 col-lg-12 col-md-12">
 								<div class="card">
 									<div class="card-header border-0 pb-0">
-										<h2 class="card-title" style="font-size: 27px;">Create Blog</h2>
+										<h2 class="card-title" style="font-size: 27px;">Create Banner</h2>
 									</div>
 									<div class="card-body">
                                          <div class="alert alert-success" id="success_msg" role="alert" style="display:none;" >Successfully updated

@@ -7,18 +7,19 @@
   <section class="allprojectslist">
     <div class="container">
       <div class="row">
-        <ul class="nav nav-tabs  justify-content-end" id="myTab" role="tablist">
-          <li class="nav-item tabnav" >
-            <a class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Ready to Move-in</a>
-          </li>
-          <li class="nav-item tabnav">
-            <a class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Ongoing</a>
-          </li>
-          <li class="nav-item tabnav">
-            <a class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">Completed</a>
-          </li>
-        </ul>
-
+        <div class="col-xxl-12 col-xl-12 col-lg-12 col-sm-12 col-xs-12">
+          <ul class="nav nav-tabs  justify-content-end" id="myTab" role="tablist">
+            <li class="nav-item tabnav" >
+              <a class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Ready to Move-in</a>
+            </li>
+            <li class="nav-item tabnav">
+              <a class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Ongoing</a>
+            </li>
+            <li class="nav-item tabnav">
+              <a class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">Completed</a>
+            </li>
+          </ul>
+        </div>
         <div class="tab-content" id="myTabContent">
 
           <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
@@ -35,7 +36,7 @@
                 <div class="col-xxl-4 col-xl-4 col-lg-4  col-sm-6 col-xs-12">
                     <div class="projects-item1">                                           
                         <div class="img-hol">
-                          <a href="<?php echo base_url('Home/property_details/'.$details->property_id)?>">                           
+                          <a href="<?php echo base_url('home/property_details/').$details->property_id;?> ">                           
                           <img src="<?php echo base_url('assets/admin/uploads/property_thumb/'.$details->thumb_img)?>"  class="img-fluid">
                           <div class="project-title1">
                           <h3 class="text-white"><?php echo $details->name; ?></h3>
@@ -61,6 +62,7 @@
                     </div>
                 </div>
                   <?php } } ?>
+                  
 
             </div> 
           </div>
@@ -78,8 +80,8 @@
                   <div class="col-xxl-4 col-xl-4 col-lg-4  col-sm-6 col-xs-12">
                     <div class="projects-item1">                     
                         <div class="img-hol">
-                          <a href="<?php echo base_url('Home/property_details/'.$details->property_id)?>"> 
-                            <img src="<?php echo base_url('assets/web/images/Azure-The-Oceanique-thumb.jpg')?>"  class="img-fluid">
+                          <a href="<?php echo base_url('home/property_details/').$details->property_id;?> ">  
+                            <img src="<?php echo base_url('assets/admin/uploads/property_thumb/'.$details->thumb_img)?>"  class="img-fluid">
                           <div class="project-title1">
                           <h3 class="text-white"><?php echo $details->name; ?></h3>
                           <p class="text-white"><img src="<?php echo base_url('assets/web/images/location@2x.webp')?>"> &nbsp; <?php echo $details->title; ?></p>
@@ -120,8 +122,8 @@
                   <div class="col-xxl-4 col-xl-4 col-lg-4  col-sm-6 col-xs-12">
                     <div class="projects-item1">                     
                         <div class="img-hol">
-                          <a href="<?php echo base_url('Home/property_details/'.$details->property_id)?>"> 
-                            <img src="<?php echo base_url('assets/web/images/Azure-The-Oceanique-thumb.jpg')?>"  class="img-fluid">
+                          <a href="<?php echo base_url('home/property_details/').$details->property_id;?> ">  
+                            <img src="<?php echo base_url('assets/admin/uploads/property_thumb/'.$details->thumb_img)?>"  class="img-fluid">
                           <div class="project-title1">
                           <h3 class="text-white"><?php echo $details->name; ?></h3>
                           <p class="text-white"><img src="<?php echo base_url('assets/web/images/location@2x.webp')?>"> &nbsp; <?php echo $details->title; ?></p>
@@ -144,8 +146,7 @@
                       </div>
                     </div>
                   </div>
-                    <?php } } ?>
-                
+                    <?php } } ?>                
             
             </div>
           </div>

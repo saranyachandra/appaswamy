@@ -24,7 +24,26 @@
           <div class="projects-item mb30">
             <div class="img-ho">
               <img src="<?php echo base_url('assets/admin/uploads/press/thumb_img/'.$detail->thumb_img)?>" class="img-fluid" />
-              <div class="blogtag1">News</div>
+              <?php 
+
+                $yesterday = new DateTime('yesterday');
+                $yes_for = $yesterday->format('Y-m-d');
+                $today = date('Y-m-d');
+                $timestamp = strtotime($detail->press_date); 
+                $new_date = date('Y-m-d', $timestamp);
+
+                $d = strtotime("today");
+                $start_week = strtotime("last sunday midnight",$d);
+                $start = date("Y-m-d",$start_week); //last week
+                
+
+                if(($new_date >= $yes_for) || ($new_date == $today))
+                {
+                  echo '<div class="blogtag1">New</div>';
+                }
+
+              ?>
+             
             </div>
             <div class="blogtitle">
                <?php $desc = substr($detail->title, 0, 80); echo $desc."..." ?>

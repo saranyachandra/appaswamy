@@ -192,7 +192,8 @@ class Propertymodel extends CI_Model
     public function get_property_details()
     {       
         $this->db->select('*');
-        $this->db->from('property');   
+        $this->db->from('property');  
+        $this->db->where('status', 1);   
         $query = $this->db->get();
         return $query->result();
     }
@@ -200,13 +201,98 @@ class Propertymodel extends CI_Model
     {       
         $this->db->select('*');
         $this->db->from('property'); 
+        $this->db->where('status', 1);  
         $this->db->order_by('property_id', 'desc');    
         $this->db->limit(5);  
         $query = $this->db->get();
-
         return $query->result();
-
         
+    }
+
+    public function property_banner_update_by()
+    {
+        
+        $id = $this->input->post('banner_id[]');       
+
+       if( (!empty($_FILES['banner_img_new']['name'])) && (($this->input->post('banner_img')) != null) && ($_FILES['banner_img_new']['size'] == 0 ))
+            {
+                $count = count($_FILES['banner_img_new']['name']); 
+                for($i = 0; $i < $count; $i++) 
+                {
+                    $banner_id = $id[$i];
+                    $_FILES['file']['name']     = $_FILES['banner_img_new']['name'][$i]; 
+                    $_FILES['file']['type']     = $_FILES['banner_img_new']['type'][$i]; 
+                    $_FILES['file']['tmp_name'] = $_FILES['banner_img_new']['tmp_name'][$i]; 
+                    $_FILES['file']['error']    = $_FILES['banner_img_new']['error'][$i];
+                    $_FILES['file']['size']     = $_FILES['banner_img_new']['size'][$i];
+
+                    $config['upload_path'] = './assets/admin/uploads/property_banner';   
+                    $config['allowed_types'] = 'jpg|jpeg|bmp|png|webp';  
+                    $config['max_size'] = '30720';   
+                    $config['remove_spaces']=TRUE;
+                    $config['encrypt_name'] = TRUE;   
+
+                    $this->load->library('upload', $config); 
+                           
+                    $this->upload->do_upload('file');                               
+                    $fileData = $this->upload->data();
+                    $uploadData[$i]['file_name'] = $fileData['file_name']; 
+                                    
+                    $data = array( 'banner_img'      =>  $fileData['file_name'] );                                                   
+                            
+                    $update = $this->db->where('banner_id', $banner_id)->update('property_banner', $data);
+                   
+                } 
+            }else if(($this->input->post('banner_img')) != null ){ 
+             
+           
+                    $count = count($this->input->post('banner_img')); 
+
+                    for($i = 0; $i < $count; $i++) 
+                    {
+                        $img    = $this->input->post('banner_img')[$i]; 
+                        $banner_id = $id[$i];               
+                        $data = array( 'banner_img'      =>  $img );   
+                                    
+                        $update = $this->db->where('banner_id', $banner_id)->update('property_banner', $data);
+                        //return true;
+                    } 
+
+            }
+            if((!$_FILES['banner_img_new1']['size'][0] == 0) && (!empty($_FILES['banner_img_new1']['name']))){
+
+                $count = count($_FILES['banner_img_new1']['name']); 
+                $property_id=$this->input->post('property_id');
+
+                    for($i = 0; $i < $count; $i++) 
+                    {
+                        $_FILES['file']['name']     = $_FILES['banner_img_new1']['name'][$i]; 
+                        $_FILES['file']['type']     = $_FILES['banner_img_new1']['type'][$i]; 
+                        $_FILES['file']['tmp_name'] = $_FILES['banner_img_new1']['tmp_name'][$i]; 
+                        $_FILES['file']['error']    = $_FILES['banner_img_new1']['error'][$i]; 
+                        $_FILES['file']['size']     = $_FILES['banner_img_new1']['size'][$i];                             
+
+                        $config1['upload_path'] = './assets/admin/uploads/property_banner';   
+                        $config1['allowed_types'] = 'jpg|jpeg|bmp|png';  
+                        $config1['max_size'] = '30720';   
+                        $config1['encrypt_name'] = TRUE;   
+
+                        $this->load->library('upload', $config1); 
+                        $this->upload->initialize($config1);
+                        $this->upload->do_upload('file');                               
+                        $fileData = $this->upload->data();
+                        $uploadData[$i]['file_name'] = $fileData['file_name']; 
+                                
+                        $data = array(  'property_id'      => $property_id,
+                                        'banner_img'      =>  $fileData['file_name'],                                       
+                                     );
+                        $this->db->insert('property_banner',$data);      
+                            
+                    }
+            }
+           
+         return true;   
+           
     }
 
     //Edit property overview details
@@ -226,6 +312,9 @@ class Propertymodel extends CI_Model
             $this->upload->do_upload('thumb_img'); 
             $thumb_upload=$this->upload->data(); 
             $thumb = $thumb_upload['file_name'];
+        }else
+        {
+            $thumb = $this->input->post('thumb_img_old');
         }
        
         $update_data = array('type'         => $this->input->post('project_type'),
@@ -238,9 +327,7 @@ class Propertymodel extends CI_Model
                         'thumb_img'         => $thumb, 
                         'apartment_type'    => implode(', ', $_POST['apartment_type']),
                         'price'             => $this->input->post('price'),
-                        'property_status'   => $this->input->post('project_status'),                      
-                        //'feature'           => implode(',', $_POST['features']),  
-                        //'specification'     => json_encode($specArr),   
+                        'property_status'   => $this->input->post('project_status'),                    
                         'google_map'        => $this->input->post('google_map')
                     );
 
@@ -254,6 +341,91 @@ class Propertymodel extends CI_Model
                 {   
                     return false;
                 }
+    }
+
+    public function edit_property_faq(){
+      
+        $faq_question_arr = $this->input->post('faq_question[]');
+        $faq_id_arr = $this->input->post('faq_id[]');
+        $faq_answer_arr = $this->input->post('faq_answer[]');
+        $faq_property_id_arr =  $this->input->post('property_id[]');
+        $update_faq_update_arr = array();
+        $update_faq_insert_arr = array(); 
+        foreach($faq_question_arr as $ke=>$val){
+           
+            if(isset($faq_id_arr[$ke])){ 
+                $temp = array();
+                $temp['faq_id']  = $faq_id_arr[$ke];
+                $temp['faq_question']  = $faq_question_arr[$ke];
+                $temp['faq_answer']  = $faq_answer_arr[$ke];
+                $temp['property_id']  = $faq_property_id_arr[$ke];
+                array_push($update_faq_update_arr, $temp);
+                $update = $this->db->where('faq_id', $temp['faq_id'])->update('property_faq', $temp);
+                if($update == true){
+                    
+                }
+                else{
+                    return false;
+                }
+            }else{
+                $temp = array();
+                $temp['faq_question']  = $faq_question_arr[$ke];
+                $temp['faq_answer']  = $faq_answer_arr[$ke];
+                $temp['property_id']  = $faq_property_id_arr[0];
+                array_push($update_faq_insert_arr, $temp);
+            }
+        }
+        
+        $result = true;
+        if(!empty($update_faq_insert_arr)){
+            $result = $this->db->insert_batch('property_faq',$update_faq_insert_arr);
+        }
+        
+        if($result == true){
+            return true;
+        }
+        else{
+            return false;
+        }
+       
+    }
+    public function edit_property_feature()
+    {
+        $faq_property_id =  $this->input->post('id');
+        $update_data = array( 'feature'   => implode(',', $_POST['features']));
+        $update = $this->db->where('property_id', $faq_property_id)->update('property', $update_data);
+
+        if($update == true){
+           return true;         
+        }
+        else{
+                return false;
+            } 
+    }
+    public function edit_property_specification(){
+        $id = $this->input->post('id');
+        $specifications = $_POST['specification'];
+        $specArr = array();
+        foreach ($specifications as $key => $value) {
+            array_push($specArr, array("spec".$key=> htmlspecialchars($value)) );
+        } 
+        $update_data = array('specification' => json_encode($specArr));
+        $update = $this->db->where('property_id', $id)->update('property', $update_data);
+        //print_r($update);exit;
+        if($update == true)
+        {   
+            return true;            
+        }
+        else 
+        {   
+            return false;
+        }
+    }
+    public function delete_property_by_id($id)
+    {       
+        $active_update = array( 'status' => 0 );    
+        $update = $this->db->where('property_id', $id)->update('property', $active_update);       
+        return true;       
     }
     //not use in project but reference
     public function insert_multiple_img_dynamic()

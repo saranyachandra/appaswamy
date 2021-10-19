@@ -119,7 +119,7 @@
                                                                    <i class="fa fa-pencil"></i>
                                                             </button>
                                                         </form>
-                                                        <form class="delete_id" action="" method="POST" style="float: left;">
+                                                        <form class="delete_property_id" action="<?php echo base_url('admin/delete_property/'.$detail->property_id); ?>" method="POST" style="float: left;">
                                                             <button type="submit" class="btn btn-danger shadow btn-xs sharp">
                                                                 <i class="fa fa-trash"></i>
                                                             </button>
@@ -185,54 +185,6 @@
     $('#table_view').DataTable();
 } ); 
 
-// delete blog details  form submit
-var base_url = '<?php echo base_url() ?>'; //form submited
-$(document).ready(function(){
-
-   $(document).on("submit", ".delete_id", function(e){     
-         e.preventDefault();
-        var url = $(this).attr('action');
-        var formdata = new FormData(this);
-
-      bootbox.confirm("Are you sure you want to delete?", function(result) {
-            if(result)
-               {
-
-                    $.ajax({
-
-                            url : url,
-                            context:this,
-                            type: 'POST',                            
-                            processData: false,
-                            contentType: false,
-                            dataType:'json',
-                            error: function(xhr,status,error)
-                            {   
-                               alert(xhr.responseText);
-                            },              
-                            
-                            success: function(response)
-                            {
-                               if(response.status == 'success')
-                               {
-                                 $('#success_msg').show();
-                                 window.location.href = "<?php echo base_url('admin/get_blog_details'); ?>";
-                                                                   
-                                }else 
-                                 {                    
-                                    alert('Something went wrong..');
-                                 }
-                            }
-
-                        });
-                }
-            });
-    }); 
-   
-});
-
-
-  
 
 </script>
 

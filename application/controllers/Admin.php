@@ -335,8 +335,94 @@ class Admin extends CI_Controller {
         	
         echo json_encode($response);
 	}
-
-
+	public function edit_property_faq()
+	{		
+		$response = array();
+           if($this->Propertymodel->edit_property_faq())
+            {
+            	$response['status'] = 'success';            	
+            }
+            else
+            {
+            	$response['status'] = 'failed';
+            }
+        	
+        echo json_encode($response);
+	}
+	public function delete_faq()
+	{
+	   $response = array();
+	   $faq_id = $_POST['id'];  
+	   $sql= $this->db->query("delete from property_faq where faq_id='".$faq_id."'");
+	    if($sql == true)
+            {
+            	$response['status'] = 'success';            	
+            }
+            else
+            {
+            	$response['status'] = 'failed';
+            }
+        	
+		echo json_encode($response);
+	}
+	public function delete_property_banner()
+	{
+	   $response = array();
+	   $id = $_POST['id'];  
+	   $sql= $this->db->query("delete from property_banner where banner_id='".$id."'");
+	    if($sql == true)
+            {
+            	$response['status'] = 'success';            	
+            }
+            else
+            {
+            	$response['status'] = 'failed';
+            }
+        	
+		echo json_encode($response);
+	}
+	public function property_banner_update()
+	{		
+		$response = array();
+           if($this->Propertymodel->property_banner_update_by())
+            {
+            	$response['status'] = 'success';            	
+            }
+            else
+            {
+            	$response['status'] = 'failed';
+            }
+        	
+        echo json_encode($response);
+	}
+	public function edit_property_specification()
+	{		
+		$response = array();
+           if($this->Propertymodel->edit_property_specification())
+            {
+            	$response['status'] = 'success';            	
+            }
+            else
+            {
+            	$response['status'] = 'failed';
+            }
+        	
+        echo json_encode($response);
+	}
+	public function edit_property_feature()
+	{		
+		$response = array();
+           if($this->Propertymodel->edit_property_feature())
+            {
+            	$response['status'] = 'success';            	
+            }
+            else
+            {
+            	$response['status'] = 'failed';
+            }
+        	
+        echo json_encode($response);
+	}
 	public function create_press()
 	{
 		$result['activeTab'] = "press";
@@ -356,7 +442,19 @@ class Admin extends CI_Controller {
             }        	
         echo json_encode($response);
 	}
-
+	public function delete_property($id)
+	{
+	    $response = array();
+	    if($this->Propertymodel->delete_property_by_id($id))
+				{		 	
+					$response['status'] = 'success'; 			
+				}
+			else 
+				{	
+					$response['status'] = 'failed';
+				}		
+		echo json_encode($response);
+	}
 	public function press_details()
 	{		
 		$result['activeTab'] = "press";		

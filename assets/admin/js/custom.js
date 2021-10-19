@@ -126,7 +126,7 @@
         }     
 
  });
-  //add banner edit form 
+  // banner edit form 
     $(document).on("submit", "#banner_update", function(e){
         e.preventDefault();        
        
@@ -162,7 +162,42 @@
           
 
  });
+//property  banner updated form 
+    $(document).on("submit", "#property_banner_update", function(e){
+        e.preventDefault();        
+       
+                var url = $(this).attr('action');
+                var formdata = new FormData(this);              
+                $.ajax({
+                        url :url,
+                        method: 'POST',
+                        data: formdata,
+                        processData: false,
+                        contentType: false,
+                        dataType:'json',
+                        error: function(xhr,status,error)
+                        {   
+                            alert(xhr.responseText);
+                        },
+                        beforeSend: function()
+                        {
+                                      
+                        },                        
+                        success: function(response)
+                        {
+                           if(response.status == 'success')
+                           {                             
+                                $('#success_msg').show();                                                          
+                            }   
+                            else 
+                            {                            
+                               $('#error_msg').show();
+                            }          
+                        }
+               });
+          
 
+ });
 //add blog insert form 
     $(document).on("submit", "#blog_form", function(e){
         e.preventDefault();
@@ -418,6 +453,157 @@ if($(this).valid())
            });
     }     
 
+});
+
+//faq edit 
+$(document).on("submit", "#faq_edit_form", function(e){
+    e.preventDefault();
+            var url = $(this).attr('action');
+            var formdata = new FormData(this);              
+            $.ajax({
+                    url :baseURL+'admin/edit_property_faq',
+                    method: 'POST',
+                    data: formdata,
+                    processData: false,
+                    contentType: false,
+                    dataType:'json',
+                    error: function(xhr,status,error)
+                    {   
+                        alert(xhr.responseText);
+                    },
+                    beforeSend: function()
+                    {
+                                  
+                    },                        
+                    success: function(response)
+                    {
+                       if(response.status == 'success')
+                       {                             
+                            $('#faq_edit_form').trigger("reset");
+                            $('#success_msg').show();
+                        }   
+                        else 
+                        {                            
+                           $('#error_msg').show();
+                        }          
+                    }
+           });
+    
+    });
+
+//Specification edit 
+$(document).on("submit", "#specification_edit_form", function(e){
+e.preventDefault();
+        var url = $(this).attr('action');
+        var formdata = new FormData(this);              
+        $.ajax({
+                url :baseURL+'admin/edit_property_specification',
+                method: 'POST',
+                data: formdata,
+                processData: false,
+                contentType: false,
+                dataType:'json',
+                error: function(xhr,status,error)
+                {   
+                    alert(xhr.responseText);
+                },
+                beforeSend: function()
+                {
+                              
+                },                        
+                success: function(response)
+                {
+                   if(response.status == 'success')
+                   {                             
+                        $('#property_form').trigger("reset");
+                        $('#success_msg').show();
+                    }   
+                    else 
+                    {                            
+                       $('#error_msg').show();
+                    }          
+                }
+            });
+
+});
+
+//feature edit 
+$(document).on("submit", "#features_edit_form", function(e){
+    e.preventDefault();
+            var url = $(this).attr('action');
+            var formdata = new FormData(this);              
+            $.ajax({
+                    url :baseURL+'admin/edit_property_feature',
+                    method: 'POST',
+                    data: formdata,
+                    processData: false,
+                    contentType: false,
+                    dataType:'json',
+                    error: function(xhr,status,error)
+                    {   
+                        alert(xhr.responseText);
+                    },
+                    beforeSend: function()
+                    {
+                                  
+                    },                        
+                    success: function(response)
+                    {
+                       if(response.status == 'success')
+                       {                             
+                            $('#success_msg').show();
+                            window.onload = timedRefresh(5000);     
+                        }   
+                        else 
+                        {                            
+                           $('#error_msg').show();
+                        }          
+                    }
+           });
+    
+    });
+// delete property 
+
+$(document).ready(function(){
+   $(document).on("submit", ".delete_property_id", function(e){     
+         e.preventDefault();
+        var url = $(this).attr('action');
+        var formdata = new FormData(this);
+
+      bootbox.confirm("Are you sure you want to delete?", function(result) {
+            if(result)
+               {
+                    $.ajax({
+
+                            url : url,
+                            context:this,
+                            type: 'POST',                            
+                            processData: false,
+                            contentType: false,
+                            dataType:'json',
+                            error: function(xhr,status,error)
+                            {   
+                               alert(xhr.responseText);
+                            },              
+                            
+                            success: function(response)
+                            {
+                               if(response.status == 'success')
+                               {
+                                 $('#success_msg').show();
+                                 window.location.href = baseURL+'Admin/property_details';
+                                                                   
+                                }else 
+                                 {                    
+                                    alert('Something went wrong..');
+                                 }
+                            }
+
+                        });
+                }
+            });
+    }); 
+   
 });
 
 //insert press

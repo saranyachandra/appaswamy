@@ -1,4 +1,6 @@
- <body>
+ <!-- hide source code <body oncontextmenu="return false">-->
+<body>    
+<div class="topmenufix">
     <div class="top">
         <div class="container">
             <div class="row align-items-center">
@@ -40,7 +42,7 @@
                                                 <li><a href="javascript:void(0);">More</a></li>
                                             </ul>
                                         </li>
-                                        <li> <a class="has-arrow" href="#">Commercials</a>                                       
+                                        <li> <a class="has-arrow" href="<?php echo base_url('commercial-property');?>">Commercials</a>                                       
                                             <ul class="sub-menu">
                                                 <li><a href="javascript:void(0);">Platina</a></li>
                                                 <li><a href="javascript:void(0);">Greensville</a></li>
@@ -50,7 +52,7 @@
                                             </ul>
                                         </li>
                                         <li><a href="#">Retail</a></li>
-                                        <li><a href="#">Hospitality</a></li>
+                                        <li><a href="<?php echo base_url('hospitality');?>">Hospitality</a></li>
                                         <li><a class="has-arrow" href="#">Buyers Guide</a>
                                             <ul class="sub-menu">
                                                 <li><a href="<?php echo base_url('Guide-For-NRI');?>">Guide For NRI</a></li>
@@ -100,7 +102,7 @@
                                     </ul>
                                 </div>
                             </li>
-                            <li role="presentation" class="primary-nav-dropdown nav-item"><a class="nav-link" href="#" target="_self" aria-haspopup="true" aria-expanded="false" role="menuitem">  Commercials</a>
+                            <li role="presentation" class="primary-nav-dropdown nav-item"><a class="nav-link" href="<?php echo base_url('commercial-property');?>" target="_self" aria-haspopup="true" aria-expanded="false" role="menuitem">  Commercials</a>
                                 <div class="dropdown-container">
                                     <ul class="dropdown-list">
                                         <li class="dropdown-list-item"><a class="nav-link" href="#" target="_self">Platina</a></li>
@@ -114,7 +116,7 @@
                             <li role="presentation" class="primary-nav-dropdown nav-item">
                             <a class="nav-link" href="javascript:void(0);" target="_self" aria-haspopup="true" aria-expanded="false" role="menuitem">Retail</a></li>
                             <li role="presentation" class="primary-nav-dropdown nav-item">
-                            <a class="nav-link" href="javascript:void(0);" target="_self" aria-haspopup="true" aria-expanded="false" role="menuitem">Hospitality</a></li>
+                            <a class="nav-link" href="<?php echo base_url('hospitality');?>" target="_self" aria-haspopup="true" aria-expanded="false" role="menuitem">Hospitality</a></li>
                             <li role="presentation" class="primary-nav-dropdown nav-item">
                                 <a class="nav-link" href="javascript:void(0);" target="_self" aria-haspopup="true" aria-expanded="false" role="menuitem">Buyers Guide</a>
                                 <div class="dropdown-container">
@@ -142,3 +144,4 @@
             </div>
         </div>
     </div>
+</div>

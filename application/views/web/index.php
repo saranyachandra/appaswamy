@@ -217,7 +217,40 @@
                     </div>
                 </div>
             </div>
+                <?php } ?> 
+
+                <?php 
+                    foreach($blog as $detail){
+                ?>
+            <div class="col-xxl-3 col-xl-3 col-lg-3  col-sm-6 col-xs-12">
+                <div class="projects-item">
+                    <div class="img-ho">
+                        <img src="<?php echo base_url('assets/admin/uploads/magazine/thumb/'.$detail->thumb_img)?>" class="img-fluid" />
+                        <div class="blogtag2">Magazine</div>
+                    </div>
+                    <div class="blogtitle">
+                        <?php $desc = substr($detail->title, 0, 80); echo $desc."..." ?>
+                    </div>
+                    <div class="bloglinks">
+                        <div class="row">
+                            <div class="col-xxl-6 col-xl-6 col-lg-6  col-sm-6 col-xs-12">
+                                <div class="blog-date">
+                                 <?php $timestamp = strtotime($detail->updated_date); 
+                                    $new_date = date('d M Y', $timestamp);  echo $new_date; ?>
+                                </div>
+                            </div>
+                            <div class="col-xxl-6 col-xl-6 col-lg-6  col-sm-6 col-xs-12">
+                                <div class="blog-links">                                    
+                                    <a href="<?php echo base_url('home/magazine_details/'.$detail->blog_id)?>" >Read more</a>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
                 <?php } ?>          
+                     
             
         </div>
         <div class="row">

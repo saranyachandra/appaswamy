@@ -34,12 +34,14 @@
 
                 $d = strtotime("today");
                 $start_week = strtotime("last sunday midnight",$d);
-                $start = date("Y-m-d",$start_week); //last week
-                
+                $start = date("Y-m-d",$start_week); //last week                
 
                 if(($new_date >= $yes_for) || ($new_date == $today))
                 {
                   echo '<div class="blogtag1">New</div>';
+                }
+                else{
+                  echo '<div class="blogtag1">News</div>';
                 }
 
               ?>

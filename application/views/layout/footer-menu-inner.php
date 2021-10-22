@@ -29,7 +29,18 @@
              <a href="#" > <img src="<?php echo base_url('assets/web/images/whatsapp@2x.webp')?>" /> </a>
              </center>
             </div>
-          </div>  
+            <div id="CounterVisitor">
+                  <span class="counter-item">0</span>
+                  <span class="counter-item">0</span>
+                  <span class="counter-item">1</span>
+                  <span class="counter-item">1</span>
+                  <span class="counter-item">8</span>
+                  <span class="counter-item">4</span>
+                </div>
+            </div> 
+          
+                
+        
         </div>
       </div>
     </div>

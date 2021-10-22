@@ -121,7 +121,7 @@
                                                             </div>
                                                             <div class="col-lg-6 mb-2">
                                                                 <div class="form-group">
-                                                                    <img style="width:100px; height: 65px;"  src="<?php echo base_url('assets/admin/uploads/banner/').$details->banner_img?>" >
+                                                                    <img style="width:100px; height: 65px;"  src="<?php echo base_url('assets/admin/uploads/magazine/banner/').$details->banner_img?>" >
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -137,7 +137,7 @@
                                                                 </div>
                                                                 <div class="col-lg-6 mb-2">
                                                                 <div class="form-group">
-                                                                    <img style="width:100px; height: 65px;"  src="<?php echo base_url('assets/admin/uploads/thumb/').$details->thumb_img?>" >
+                                                                    <img style="width:100px; height: 65px;"  src="<?php echo base_url('assets/admin/uploads/magazine/thumb/').$details->thumb_img?>" >
                                                                 </div>
                                                                 </div>
                                                             </div>

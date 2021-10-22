@@ -56,6 +56,7 @@ $route['translate_uri_dashes'] = FALSE;
 
 $route['/'] = 'Home/index';
 $route['residential-property'] = 'Home/property';
+$route['commercial-property'] = 'Home/commercial_property';
 $route['magazine'] = 'Home/magazine';
 
 
@@ -66,3 +67,4 @@ $route['Guide-For-NRI'] = 'Home/guide_for_nri';
 $route['Indian-Investor'] = 'Home/indian_investor';
 $route['Privacy-Policy'] = 'Home/privacy_policy';
 $route['about-us'] = 'Home/about_us';
+$route['hospitality'] = 'Home/hospitality';

@@ -27,7 +27,7 @@
                         if(isset($last_row->blog_id)){
                     ?>
                 <a href="<?php echo base_url('home/magazine_details/'.$last_row->blog_id)?>">
-                    <img src="<?php echo base_url('assets/admin/uploads/banner/'.$last_row->banner_img)?>" class="img-fluid" />
+                    <img src="<?php echo base_url('assets/admin/uploads/magazine/banner/'.$last_row->banner_img)?>" class="img-fluid" />
                 <h2><?php echo $last_row->title; ?></h2>
                 <p class="blog-date"><?php $timestamp = strtotime($last_row->updated_date); 
                     $new_date = date('d M Y', $timestamp);  echo $new_date; ?></p></a>
@@ -50,7 +50,7 @@
                         </div>
                         <div class="col-xxl-4 col-xl-4 col-lg-4  col-sm-3 col-12">
 
-                        <img src="<?php echo base_url('assets/admin/uploads/thumb/'.$detail->thumb_img)?>" class="img-fluid pb36" />
+                        <img src="<?php echo base_url('assets/admin/uploads/magazine/thumb/'.$detail->thumb_img)?>" class="img-fluid pb36" />
                         </div>                
                     </div>
                 </div>
@@ -199,6 +199,7 @@
 <!-- Javascript Files -->
 <?php $this->load->view('layout/footer-home-js'); ?>
 <script src="<?php echo base_url('assets/web/js/bootstrap.min.js')?>"></script>
+<script src="<?php echo base_url('assets/web/js/custom.js')?>"></script>
 <script type="text/javascript">
    
 </script>

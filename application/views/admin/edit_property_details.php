@@ -4,6 +4,7 @@ $spec = array();
 if(isset($details['specification']) && !empty($details['specification'])){
     $spec = json_decode($details['specification']);
 }
+$floor_plan_count = count($floor_plan);
 $this->load->view('layout/admin/admin_css'); ?>
 <style>
 .error{
@@ -285,6 +286,32 @@ $this->load->view('layout/admin/admin_css'); ?>
                                                 </div>
                                                 <!-- feature tab start here -->
                                                 <div id="Features" class="tab-pane fade">
+                                                    <div class="row">
+                                                            <div class="col-lg-12 mb-2">
+                                                                <div class="form-check form-check-inline">
+                                                                    <label class="form-check-label">
+                                                                        <input type="checkbox" id="select-all" class="form-check-input">Select all 
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-3 mb-2">
+                                                                <div class="form-check form-check-inline">
+                                                                    <label class="form-check-label">
+                                                                        <input type="checkbox" name="features[]" class="form-check-input" value="Water-Treatment" <?php if(preg_match("/Water-Treatment/", $details['feature'])) { echo 'checked';} else {echo "";} ?>  >Water Treatment Plant </label> 
+                                                                </div>
+                                                            </div>
+                                                            <?php 
+                                                                    foreach($features as $fe){
+                                                                        $test = array($fe);
+                                                                        print_r( $test->feature_name);
+                                                                    }
+                                                                   
+                                                            ?>
+                                                                    
+                                                             
+                                                    </div>
+                                                </div>
+                                              <!--  <div id="Features" class="tab-pane fade">
                                                     <form id="features_edit_form" method="POST" action="">
                                                         <input type="hidden" name="id" value="<?=$details['property_id']?>">
                                                         <div class="row">
@@ -626,37 +653,101 @@ $this->load->view('layout/admin/admin_css'); ?>
                                                             </div>
                                                         </div>
                                                     </form>                                                                            
-                                                </div>
+                                                </div>-->
                                             <!-- feature tab end here -->
+                                            <!-- floor plan tab starts here -->
                                             <div id="Floor-Plan" class="tab-pane fade">
-                                                <label>Select Floor Blocks</label>
-                                                <input type="number" id="btn-add-tab" name="tab-count" min="1" value="1">     
-                                                <div class="default-tab">
-                                                    <ul class="nav nav-tabs" role="tablist" id="tab-list">
-                                                        <li class="nav-item">
-                                                            <a class="nav-link active" data-toggle="tab" href="#home"> Tower A</a>
-                                                        </li>
-                                                    </ul>
-                                                    <div class="tab-content" id="tab-content">
-                                                        <div class="tab-pane fade active show" id="home" role="tabpanel">
-                                                            <div class="col-lg-12 mb-2">
-                                                                <div class="form-group">
-                                                                    <label class="text-label">Tower Name </label>
-                                                                    <input type="text" name="tower_name1[]" class="form-control">
+                                                <form method="POST" action="" id="floor_edit_form" enctype="multipart/form-data">
+                                                    <label>Select Floor Blocks</label>
+                                                    <input type="number" id="btn-add-tab" name="tab-count" min="1" value="<?=$floor_plan_count?>">     
+                                                    <div class="default-tab">
+                                                        <ul class="nav nav-tabs" role="tablist" id="tab-list">
+                                                           <?php
+                                                                foreach($floor_plan as $k=>$v){
+                                                                    if($k == 0){
+                                                            ?>
+                                                            <li class="nav-item">
+                                                                <a class="nav-link active" data-toggle="tab" href="#home<?=$k?>"> <?=$v->floor_name?></a>
+                                                            </li>
+                                                            <?php } else{?>
+                                                            <li class="nav-item">
+                                                                <a class="nav-link" data-toggle="tab" href="#home<?=$k?>"> <?=$v->floor_name?></a>
+                                                            </li>
+                                                            <?php } } ?>  
+                                                        </ul>
+                                                        <div class="tab-content" id="tab-content">
+                                                            <?php
+                                                                foreach($floor_plan as $k=>$val){
+                                                                $floor_imgs = json_decode($val->floor_img);
+                                                                if($k == 0 ){
+                                                            ?>                                                                          <div class="tab-pane fade active show" id="home<?=$k?>" role="tabpanel">
+                                                                <div class="col-lg-12 mt-2 text-right">
+                                                                    <button type="button" name="remove" id="<?=$k?>" data-id="<?=$val->floor_id?>" class="btn btn-danger floorplan_remove"><i class="fa fa-trash"></i></button>
                                                                 </div>
-                                                                <div class="form-group">
-                                                                    <label class="text-label">Title </label>
-                                                                    <input type="text" name="tower_title1[]" class="form-control" >
+                                                                <div class="col-lg-6 mb-2">
+                                                                    <div class="form-group">
+                                                                        <label class="text-label">Tower Name </label>
+                                                                        <input type="text" name="tower_name1[]" class="form-control" value="<?=$val->floor_name?>">
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <label class="text-label">Title </label>
+                                                                        <input type="text" name="tower_title1[]" class="form-control" value="<?=$val->floor_title?>">
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <label class="text-label">Floor Plan Upload </label>
+                                                                        <input type="file" name="floor_banner_img1[][]" class="form-control"  accept=".jpg, .jpeg, .png" multiple>
+                                                                    </div> 
+                                                                </div>       
+                                                                <div class="col-lg-12 mb-2">         
+                                                                    <?php
+                                                                        foreach($floor_imgs as $k=>$v){
+                                                                    ?>
+                                                                    <img src="<?php echo base_url('assets/admin/uploads/floor_plan/').$v->img ?>" height="100" width="200" class="img-thumbnail">
+                                                                    <?php } ?>   
+                                                                    
+                                                                </div> 
+                                                            </div>
+                                                            <?php } else{ ?>
+                                                            <div class="tab-pane fade " id="home<?=$k?>" role="tabpanel">
+                                                                <div class="col-lg-12 mt-2 text-right">
+                                                                    <button type="button" name="remove" id="<?=$k?>" data-id="<?=$val->floor_id?>" class="btn btn-danger floorplan_remove"><i class="fa fa-trash"></i></button>
                                                                 </div>
-                                                                <div class="form-group">
-                                                                    <label class="text-label">Floor Plan Upload </label>
-                                                                    <input type="file" name="floor_banner_img1[][]" class="form-control"  accept=".jpg, .jpeg, .png" multiple>
+                                                                <div class="col-lg-6 mb-2">
+                                                                    <div class="form-group">
+                                                                        <label class="text-label">Tower Name </label>
+                                                                        <input type="text" name="tower_name1[]" class="form-control" value="<?=$val->floor_name?>">
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <label class="text-label">Title </label>
+                                                                        <input type="text" name="tower_title1[]" class="form-control" value="<?=$val->floor_title?>">
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <label class="text-label">Floor Plan Upload </label>
+                                                                        <input type="file" name="floor_banner_img1[][]" class="form-control"  accept=".jpg, .jpeg, .png" multiple>
+                                                                    </div> 
                                                                 </div>
-                                                            </div> 
+                                                                <div class="col-lg-12 mb-2">      
+                                                                    <?php
+                                                                        foreach($floor_imgs as $k=>$v){
+                                                                    ?>
+                                                                    <img src="<?php echo base_url('assets/admin/uploads/floor_plan/').$v->img ?>" height="100" width="200" class="img-thumbnail">
+                                                                    <?php } ?>   
+                                                                </div> 
+                                                            </div>  
+                                                            <?php } } ?>   
+                                                            <div class="col-lg-12 text-center mb-2">
+                                                                <div class="form-group"> 
+                                                                    <button type="reset" class="btn btn-secondary waves-effect m-l-5">
+                                                                                                    Cancel</button>
+                                                                    <button type="submit" class="btn btn-primary waves-effect waves-light"> Submit </button>    
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                </div>
+                                                </form>
                                             </div>
+                                            <!-- floor plan tab ends here -->
+                                           
                                             <!-- FAQ tab start here -->
                                             <div id="faq" class="tab-pane fade ">
                                                 <div class="table-responsive">  

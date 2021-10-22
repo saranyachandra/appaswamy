@@ -96,7 +96,7 @@
                 var formdata = new FormData(this);
               
                 $.ajax({
-                        url :baseURL+'admin/insert_banner',
+                        url :baseURL+'Banner/insert_banner',
                         method: 'POST',
                         data: formdata,
                         processData: false,
@@ -133,7 +133,7 @@
                 var url = $(this).attr('action');
                 var formdata = new FormData(this);              
                 $.ajax({
-                        url :baseURL+'admin/update_banner',
+                        url :baseURL+'Banner/update_banner',
                         method: 'POST',
                         data: formdata,
                         processData: false,
@@ -491,6 +491,76 @@ $(document).on("submit", "#faq_edit_form", function(e){
     
     });
 
+//Floor plan edit 
+$(document).on("submit", "#floor_edit_form", function(e){
+    e.preventDefault();
+            var url = $(this).attr('action');
+            var formdata = new FormData(this);              
+            $.ajax({
+                    url :baseURL+'admin/edit_property_floor_plan',
+                    method: 'POST',
+                    data: formdata,
+                    processData: false,
+                    contentType: false,
+                    dataType:'json',
+                    error: function(xhr,status,error)
+                    {   
+                        alert(xhr.responseText);
+                    },
+                    beforeSend: function()
+                    {
+                                  
+                    },                        
+                    success: function(response)
+                    {
+                       if(response.status == 'success')
+                       {                             
+                            $('#faq_edit_form').trigger("reset");
+                            $('#success_msg').show();
+                        }   
+                        else 
+                        {                            
+                           $('#error_msg').show();
+                        }          
+                    }
+           });
+    
+    });  
+//delete floor plan
+$(document).on('click', '.floorplan_remove', function(){  
+           
+           var id = $(this).attr("data-id"); 
+           
+        bootbox.confirm("Are you sure you want to delete?", function(result) {
+            if(result)
+               {
+                    $.ajax({
+                            url : baseURL + 'admin/delete_floorplan',                          
+                            method: 'POST', 
+                            data: {id:id},
+                            dataType:'JSON',                          
+                            error: function(xhr,status,error)
+                            {   
+                               alert(xhr.responseText);
+                            },           
+                            success: function(response)
+                            {
+                               if(response.status == 'success')
+                               {
+                                    $('#faq').show();
+                                    
+                                }else 
+                                 {                    
+                                    alert('Something went wrong..');
+                                 }
+                            },
+                           
+                    });
+                }
+        });
+       
+          
+    });      
 //Specification edit 
 $(document).on("submit", "#specification_edit_form", function(e){
 e.preventDefault();
@@ -655,6 +725,59 @@ $(document).ready(function(){
                            if(response.status == 'success')
                            {                             
                                $('#press_form').trigger("reset");
+                                $('#success_msg').show();
+                            }   
+                            else 
+                            {                            
+                               $('#error_msg').show();
+                            }          
+                        }
+               });
+        }     
+
+ });
+
+// press edit form     
+ $(document).on("submit", "#features_add_form", function(e){
+        e.preventDefault();
+         $(this).validate({ 
+                          rules: {                           
+                                    features: "required",
+                                   
+                                 },
+
+                          messages: {                           
+                                  features: {
+                                      required: "Required ", 
+                                  },
+                                  
+                            },
+
+                           }); 
+    if($(this).valid())
+        {     
+                var url = $(this).attr('action');
+                var formdata = new FormData(this);              
+                $.ajax({
+                        url :baseURL+'Feature/insert_feature',
+                        method: 'POST',
+                        data: formdata,
+                        processData: false,
+                        contentType: false,
+                        dataType:'json',
+                        error: function(xhr,status,error)
+                        {   
+                            alert(xhr.responseText);
+                        },
+                        beforeSend: function()
+                        {
+                                      
+                        },                        
+                        success: function(response)
+                        {
+                           if(response.status == 'success')
+                           {                             
+                               $('#features_add_form').trigger("reset");
                                 $('#success_msg').show();
                             }   
                             else 

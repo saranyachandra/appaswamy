@@ -10,8 +10,8 @@ class Pressmodel extends CI_Model
     public function insert_blog_details()
     {   
         
-        $config['upload_path'] = './assets/admin/uploads/banner';   // Directory 
-        $config['allowed_types'] = 'jpg|jpeg|bmp|png';  //type of images allowed
+        $config['upload_path'] = './assets/admin/uploads/magazine/banner';   // Directory 
+        $config['allowed_types'] = 'jpg|jpeg|bmp|png|webp';  //type of images allowed
         $config['max_size'] = '30720';   //Max Size
         $config['encrypt_name'] = TRUE;   // For unique image name at a time
 
@@ -19,8 +19,8 @@ class Pressmodel extends CI_Model
         $this->upload->do_upload('banner_img');  // input name which have to upload 
         $banner_upload=$this->upload->data();   //variable which store the path
 
-        $config2['upload_path'] = './assets/admin/uploads/thumb';   // Directory 
-        $config2['allowed_types'] = 'jpg|jpeg|bmp|png'; //type of images allowed
+        $config2['upload_path'] = './assets/admin/uploads/magazine/thumb';   // Directory 
+        $config2['allowed_types'] = 'jpg|jpeg|bmp|png|webp'; //type of images allowed
         $config2['max_size'] = '30720';   //Max Size
         $config2['encrypt_name'] = TRUE;   // For unique image name at a time
 
@@ -59,8 +59,8 @@ class Pressmodel extends CI_Model
         if(!empty($_FILES['banner_img_new']['name']))
         {
 
-            $config['upload_path'] = './assets/admin/uploads/banner';    
-            $config['allowed_types'] = '*';  
+            $config['upload_path'] = './assets/admin/uploads/magazine/banner';    
+            $config['allowed_types'] = 'jpg|jpeg|bmp|png|webp';  
             $config['max_size'] = '30720';  
             $config['encrypt_name'] = TRUE;   
 
@@ -74,8 +74,8 @@ class Pressmodel extends CI_Model
 
         if(!empty($_FILES['thumb_img_new']['name']))
         {
-            $config2['upload_path'] = './assets/admin/uploads/thumb';   
-            $config2['allowed_types'] = '*'; 
+            $config2['upload_path'] = './assets/admin/uploads/magazine/thumb';   
+            $config2['allowed_types'] = 'jpg|jpeg|bmp|png|webp'; 
             $config2['max_size'] = '30720';  
             $config2['encrypt_name'] = TRUE;   
 
@@ -137,7 +137,7 @@ class Pressmodel extends CI_Model
     {   
       
         $config['upload_path'] = './assets/admin/uploads/press/thumb_img';   // Directory 
-        $config['allowed_types'] = '*';  //type of images allowed
+        $config['allowed_types'] = 'jpg|jpeg|bmp|png|webp';  //type of images allowed
         $config['max_size'] = '30720';   //Max Size
         $config['encrypt_name'] = TRUE;   // For unique image name at a time
 
@@ -212,7 +212,7 @@ class Pressmodel extends CI_Model
         if(!empty($_FILES['thumb_img_new']['name']))
             {
                 $config1['upload_path'] = './assets/admin/uploads/press/thumb_img';   
-                $config1['allowed_types'] = '*';  
+                $config1['allowed_types'] = 'jpg|jpeg|bmp|png|webp';  
                 $config1['max_size'] = '30720';   
                 $config1['encrypt_name'] = TRUE;   
 

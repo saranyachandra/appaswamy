@@ -194,19 +194,16 @@
                                 <div class="row">
                                     <div class="col-lg-12 col-md-12">
                                         <div class="form-group">
-                                            <select  class="form-control">
+                                            <select  class="form-control" name="enquiry_type">
                                                 <option value="" selected disabled>Select Enquiry Type</option>
-                                                <option value="">For Project</option>
-                                                <option value="">For Investor</option>
-                                                <option value="">For Hotel</option>
+                                                <option value="For Project">For Project</option>
+                                                <option value="For Investor">For Investor</option>
+                                                <option value="For Hotel">For Hotel</option>
                                             </select>
                                             <div class="help-block with-errors"></div>
                                         </div>
                                     </div>
-                                    <br>
-                                    <br>
-                                    <br>
-                                    <br>
+                                   
                                     <div class="col-lg-12 col-md-12">
                                         <div class="form-group">
                                             <input type="text" name="name" id="name" placeholder="Name" class="form-control" required data-error="Please enter your name">
@@ -216,7 +213,7 @@
                                     
                                     <div class="col-lg-12 col-md-12">
                                         <div class="form-group">
-                                            <input type="text" name="msg_subject" id="msg_subject" placeholder="Mobile" class="form-control" required data-error="Please enter your subject">
+                                            <input type="text" name="phone" id="msg_subject" placeholder="Mobile" class="form-control" required data-error="Please enter your subject">
                                             <div class="help-block with-errors"></div>
                                         </div>
                                     </div>
@@ -257,6 +254,10 @@
 <button class="scrollup"><i class="fas fa-angle-up"></i></button>-->
     <!-- Javascript Files -->
    <?php $this->load->view('layout/footer-home-js'); ?>
+   <script src="<?php echo base_url('assets/web/js/custom.js')?>"></script>
+   <script type="text/javascript">
+        var baseURL= "<?php echo base_url();?>";
+   </script>
 </body>
 
 </html>

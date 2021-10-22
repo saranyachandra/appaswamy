@@ -174,7 +174,7 @@
                                                                                             <div class="col-lg-12 mb-2">
                                                                                                 <div class="form-group">
                                                                                                     <label class="text-label">Banner Upload </label>
-                                                                                                    <input type="file" name="banner_img[]" class="form-control"  accept=".jpg, .jpeg, .png" multiple>
+                                                                                                    <input type="file" name="banner_img[]" class="form-control"  accept=".jpg, .jpeg, .png, .webp " multiple>
                                                                                                 </div>
                                                                                             </div> 
                                                                                             <div class="col-lg-12 mb-2">
@@ -267,6 +267,30 @@
                                                                         </div>
                                                                         <!-- feature tab start here -->
                                                                         <div id="Features" class="tab-pane fade">
+                                                                            <div class="row">
+                                                                                <div class="col-lg-12 mb-2">
+                                                                                    <div class="form-check form-check-inline">
+                                                                                         <span>
+                                                                                            <input type="checkbox" id="select-all" class="form-check-input" name="features[]"> </span>
+                                                                                            <span> Select all  </span>
+                                                                                        
+                                                                                    </div>
+                                                                                </div>
+                                                                                <?php 
+                                                                                    foreach($details as $detail){
+                                                                                ?>
+                                                                                <div class="col-lg-3 mb-2">
+                                                                                    <div class="form-check form-check-inline">
+                                                                                        <span> 
+                                                                                            <input type="checkbox" name="features[]" class="form-check-input" value="<?php echo $detail->feature_name; ?>"></span>
+                                                                                         <span><?php echo $detail->feature_name; ?></span>
+                                                                                       
+                                                                                    </div>
+                                                                                </div>
+                                                                                <?php  } ?>
+                                                                            </div>
+                                                                        </div>
+                                                                       <!-- <div id="Features" class="tab-pane fade">
                                                                             <div class="row">
                                                                                 <div class="col-lg-12 mb-2">
                                                                                     <div class="form-check form-check-inline">
@@ -632,7 +656,7 @@
                                                                                 </div>  
                                                                             </div>
                                                                             
-                                                                        </div>
+                                                                        </div>-->
                                                                         <!-- feature tab end here -->
 
                                                                         <div id="Floor-Plan" class="tab-pane fade">
@@ -643,41 +667,39 @@
                                                                                     <li class="nav-item">
                                                                                         <a class="nav-link active" data-toggle="tab" href="#home"> Tower A</a>
                                                                                     </li>
-                                                                                    
                                                                                 </ul>
                                                                                 <div class="tab-content" id="tab-content">
                                                                                     <div class="tab-pane fade active show" id="home" role="tabpanel">
-                                                                                         <div class="col-lg-12 mb-2">
-                                                                                                <div class="form-group">
-                                                                                                    <label class="text-label">Tower Name </label>
-                                                                                                    <input type="text" name="tower_name1[]" class="form-control">
-                                                                                                </div>
-                                                                                                <div class="form-group">
-                                                                                                    <label class="text-label">Title </label>
-                                                                                                    <input type="text" name="tower_title1[]" class="form-control" >
-                                                                                                </div>
-                                                                                                <div class="form-group">
-                                                                                                    <label class="text-label">Floor Plan Upload </label>
-                                                                                                    <input type="file" name="floor_banner_img1[][]" class="form-control"  accept=".jpg, .jpeg, .png" multiple>
-                                                                                                </div>
-                                                                                            </div> 
+                                                                                        <div class="col-lg-12 mb-2">
+                                                                                            <div class="form-group">
+                                                                                                <label class="text-label">Tower Name </label>
+                                                                                                <input type="text" name="tower_name1[]" class="form-control">
+                                                                                            </div>
+                                                                                            <div class="form-group">
+                                                                                                <label class="text-label">Title </label>
+                                                                                                <input type="text" name="tower_title1[]" class="form-control" >
+                                                                                            </div>
+                                                                                            <div class="form-group">
+                                                                                                <label class="text-label">Floor Plan Upload </label>
+                                                                                                <input type="file" name="floor_banner_img1[][]" class="form-control"  accept=".jpg, .jpeg, .png, .webp" multiple>
+                                                                                            </div>
+                                                                                        </div> 
                                                                                     </div>
-                                                                                    
                                                                                 </div>
                                                                             </div>
                                                                         </div>
                                                                         <!-- FAQ tab start here -->
                                                                         <div id="faq" class="tab-pane fade ">
                                                                             <div class="table-responsive">  
-                                                                               <table class="table" id="dynamic_field">  
+                                                                                <table class="table" id="dynamic_field">  
                                                                                     <tr>  
-                                                                                         <td><input type="text" name="faq_question[]" placeholder="Enter FAQ Question" class="form-control name_list" /></td>  
-                                                                                         <td>
-                                                                                            <textarea name="faq_answer[]" placeholder="Enter FAQ Answer" class="form-control"></textarea>
-                                                                                         </td> 
-                                                                                         <td><button type="button" name="add" id="add" class="btn btn-success">+</button></td>  
+                                                                                        <td><input type="text" name="faq_question[]" placeholder="Enter FAQ Question" class="form-control name_list" /></td>  
+                                                                                        <td>
+                                                                                        <textarea name="faq_answer[]" placeholder="Enter FAQ Answer" class="form-control"></textarea>
+                                                                                        </td> 
+                                                                                        <td><button type="button" name="add" id="add" class="btn btn-success">+</button></td>  
                                                                                     </tr>  
-                                                                               </table> 
+                                                                                </table> 
                                                                             </div>  
                                                                         </div>
                                                                         <!-- FAQ tab end here -->
@@ -773,7 +795,7 @@ $(document).ready(function(){
          
         $('#tab-list').append($('<li class="nav-item"><a class="nav-link " href="#tab' + tabID + '" role="tab" data-toggle="tab"> Tower ' + tabID + ' <br> <span id="' + tabID + '"> </span></a></li>'));  //class name - in active hide  
 
-        $('#tab-content').append($('<div class=" tab-pane fade tab_' + tabID + '" id="tab' + tabID + '">   <div id="day_' +tabID+' "> <div class="form-group col-sm-12" id="day1_dynamicadd_1"> <div class="col-lg-12 mb-2"> <div class="form-group"> <label class="text-label">Name </label> <input type="text" name="tower_name'+tabID+'[]" class="form-control"></div> </div> <div class="col-lg-12 mb-2"> <div class="form-group"> <label class="text-label">Title </label>    <input type="text" name="tower_title'+tabID+'[]" class="form-control" ></div> </div> <div class="col-lg-12 mb-2"> <div class="form-group"> <label class="text-label">Floor Images Upload </label> <input type="file" name="floor_banner_img'+tabID+'[][]" class="form-control"  accept=".jpg, .jpeg, .png" multiple> </div> </div>   </div> </div>'));
+        $('#tab-content').append($('<div class=" tab-pane fade tab_' + tabID + '" id="tab' + tabID + '">   <div id="day_' +tabID+' "> <div class="form-group col-sm-12" id="day1_dynamicadd_1"> <div class="col-lg-12 mb-2"> <div class="form-group"> <label class="text-label">Name </label> <input type="text" name="tower_name'+tabID+'[]" class="form-control"></div> </div> <div class="col-lg-12 mb-2"> <div class="form-group"> <label class="text-label">Title </label>    <input type="text" name="tower_title'+tabID+'[]" class="form-control" ></div> </div> <div class="col-lg-12 mb-2"> <div class="form-group"> <label class="text-label">Floor Images Upload </label> <input type="file" name="floor_banner_img'+tabID+'[][]" class="form-control"  accept=".jpg, .jpeg, .png, .webp" multiple> </div> </div>   </div> </div>'));
          
         tabID++;
     }

@@ -104,7 +104,7 @@
                                                   <?php echo $detail->author; ?>
                                                 </td>
                                                 <td>                                              
-                                                    <img style="width:100px; height: 65px;"  src="<?php echo base_url('assets/admin/uploads/thumb/').$detail->thumb_img?>" >
+                                                    <img style="width:100px; height: 65px;"  src="<?php echo base_url('assets/admin/uploads/magazine/thumb/').$detail->thumb_img?>" >
                                                 </td>                                                                               
                                                 <td>
                                                    <?php 

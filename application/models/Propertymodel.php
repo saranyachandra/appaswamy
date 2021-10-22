@@ -160,10 +160,10 @@ class Propertymodel extends CI_Model
                             $_FILES['file']['type']     = $_FILES['floor_banner_img'.$i]['type'][$j][0]; 
                             $_FILES['file']['tmp_name'] = $_FILES['floor_banner_img'.$i]['tmp_name'][$j][0]; 
                             $_FILES['file']['error']    = $_FILES['floor_banner_img'.$i]['error'][$j][0]; 
-                            $_FILES['file']['size']     = $_FILES['floor_banner_img'.$i]['size'][$j][0];                                 # code...
-                           
+                            $_FILES['file']['size']     = $_FILES['floor_banner_img'.$i]['size'][$j][0];                                 
+
                             $config1['upload_path'] = './assets/admin/uploads/floor_plan';   
-                            $config1['allowed_types'] = 'jpg|jpeg|bmp|png';  
+                            $config1['allowed_types'] = 'jpg|jpeg|bmp|png|webp';  
                             $config1['max_size'] = '30720';   
                             $config1['encrypt_name'] = TRUE;   
 
@@ -273,7 +273,7 @@ class Propertymodel extends CI_Model
                         $_FILES['file']['size']     = $_FILES['banner_img_new1']['size'][$i];                             
 
                         $config1['upload_path'] = './assets/admin/uploads/property_banner';   
-                        $config1['allowed_types'] = 'jpg|jpeg|bmp|png';  
+                        $config1['allowed_types'] = 'jpg|jpeg|bmp|png|webp';  
                         $config1['max_size'] = '30720';   
                         $config1['encrypt_name'] = TRUE;   
 
@@ -342,7 +342,11 @@ class Propertymodel extends CI_Model
                     return false;
                 }
     }
-
+    public function edit_property_floor_plan(){
+        echo "<pre>";
+        print_r($_POST);
+        exit;
+    }
     public function edit_property_faq(){
       
         $faq_question_arr = $this->input->post('faq_question[]');
@@ -411,7 +415,7 @@ class Propertymodel extends CI_Model
         } 
         $update_data = array('specification' => json_encode($specArr));
         $update = $this->db->where('property_id', $id)->update('property', $update_data);
-        //print_r($update);exit;
+       
         if($update == true)
         {   
             return true;            

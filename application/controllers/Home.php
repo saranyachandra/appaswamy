@@ -18,6 +18,7 @@ class Home extends CI_Controller {
 		$data['title'] = 'Properties in Chennai - Appaswamy Real Estates';
 		$data['banner_img'] = $this->Webmodel->get_banner_img();
 		$data['press'] = $this->Webmodel->get_press_details_home();
+		$data['blog'] = $this->Webmodel->get_blog_details_home();
 		$data['property'] = $this->Webmodel->get_property_details_home();
 		$this->load->view('web/index',$data);		
 	}
@@ -28,6 +29,13 @@ class Home extends CI_Controller {
 		$data['property'] = $this->Webmodel->get_property_details();
 						
 		$this->load->view('web/property',$data);
+	}
+	public function commercial_property()	
+	{		
+		$data['title'] = 'Property - Appaswamy Real Estates';
+		$data['property'] = $this->Webmodel->get_commercial_details();
+						
+		$this->load->view('web/commercial',$data);
 	}
 	public function property_details($id)
 	{		
@@ -78,6 +86,7 @@ class Home extends CI_Controller {
 	public function magazine_details($blog_id)
 	{		
 		$result['title'] = 'Blogs - Appaswamy Real Estates';
+		$result['property'] = $this->Webmodel->get_property_details_home();
 		$this->db->select('*');
 	  	$this->db->from('blog_post');
 	  	$this->db->where('blog_id',$blog_id);	
@@ -138,5 +147,10 @@ class Home extends CI_Controller {
 	{	
 		$data['title'] = 'About Us - Appaswamy Real Estates';
 		$this->load->view('web/about_us',$data);
+	}
+	public function hospitality()
+	{	
+		$data['title'] = 'hospitality - Appaswamy Real Estates';
+		$this->load->view('web/hospitality',$data);
 	}
 }

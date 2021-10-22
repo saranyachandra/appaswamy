@@ -24,13 +24,20 @@ src: url(../fonts/Objectivity-Bold.woff) format('woff');
     font-style: normal;
     font-weight: normal;
 src: url(../fonts/BigCaslon-Rom.woff) format('woff');
-}    
+}  
+
 body{background: #FFF;font-family: 'Manrope', sans-serif;}
 .top{position: absolute;
     top: 0px;
  
     width: 100%;
-    background:none;}
+    background:none;
+}
+.topmenufix{
+    position: fixed;
+    z-index: 100;
+    width: 100%;
+}
 .header-container{ position:absolute; top:0px; width:100%;z-index: 11;background: #FFF;}
 .header-container .primary-navigation .primary-nav-container{position:inherit}
 @media(max-width:767.98px){.header-container .primary-navigation .left-nav-icon-ul{position:absolute;z-index:2}

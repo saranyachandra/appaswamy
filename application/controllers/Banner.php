@@ -40,8 +40,8 @@ class Banner extends CI_Controller {
 	{
 		$result['activeTab'] = "dashboard";		
 		$this->db->select('*');
-	  	$this->db->from('banner'); 	
-	  	$result['details']  = $this->db->get()->row();	  	
+	  	$this->db->from('main_banner'); 	
+	  	$result['details']  = $this->db->get()->result();	  	
 	  		
 		$this->load->view('admin/banner_details',$result);
 	}

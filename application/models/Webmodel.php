@@ -48,7 +48,7 @@ class Webmodel extends CI_Model
         $this->db->select('*');
         $this->db->from('property');  
         $this->db->join('property_banner', 'property_banner.property_id = property.property_id');  
-        $this->db->group_by('property_banner.property_id');
+        $this->db->group_by('property.property_id');
         $this->db->order_by('property.property_id', 'DESC');  
         $this->db->limit('3');
         $this->db->where('type', 'Residential');         

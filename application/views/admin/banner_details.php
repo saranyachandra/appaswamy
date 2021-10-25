@@ -93,20 +93,72 @@
                                             </button>
                                         </div>
                                        <form id="banner_update" action="<?php echo base_url('admin/update_banner');?>"  enctype="multipart/form-data" method="POST">
-                                            <input type="hidden"  name="banner_id" value="<?php echo $details->banner_id ?>"  >
+                                            
                                                 <div class="col-lg-12 col-md-12">
-                                                        <div class="row ">
-                                                           <div class="col-lg-6 col-md-6 ">
-                                                                <label class="text-label">Banner Img1 Upload </label>
-                                                                <input type="file"  name="banner_img_new1" class="form-control"  accept=".jpg, .jpeg, .png" onchange="preview_image_1(event)">
-                                                                <input type="hidden"  name="banner_img_1" value="<?php echo $details->banner_img1 ?>"  >
-                                                            </div>
-                                                            <div class="col-lg-6 col-md-6 mb-2">
-                                                                <img id="output_image1"/>
-                                                                <img  id="img1" style="width:300px;height: 150px;" src="<?php echo base_url('assets/admin/uploads/main_banner/'.$details->banner_img1)?>" />
-                                                            </div>
+                                                    <?php 
+                                                        foreach($details as $detail){
+                                                    ?>
+                                                    <input type="hidden"  name="banner_id[]" value="<?php echo $detail->banner_id ?>"  >
+                                                    <div class="row">                                                        
+                                                        <div class="col-lg-6 col-md-6 ">
+                                                            <label class="text-label">Property Name </label>
+                                                            <input type="text"  name="name[]" class="form-control" value="<?php echo $detail->property_name ?>" >
+                                                        </div>  
+                                                        <div class="col-lg-6 col-md-6 ">
+                                                            <label class="text-label">Location </label>
+                                                            <input type="text"  name="location[]" class="form-control" value="<?php echo $detail->location ?>"  >
+                                                        </div> 
+                                                        <div class="col-lg-6 col-md-6 ">
+                                                            <label class="text-label">Title </label>
+                                                            <input type="text"  name="title[]" class="form-control" value="<?php echo $detail->title ?>"  >
+                                                        </div>                                               
+                                                    </div>   
+                                                    <div class="row">     
+                                                        <div class="col-lg-6 col-md-6 ">
+                                                            <label class="text-label">Website Banner Img Upload </label>
+                                                            <input type="file"  name="web_img_new[]" class="form-control"  accept=".jpg, .jpeg, .png, .webp" ><br>
+                                                            <input type="hidden" name="web_img_old[]"  class="form-control" value="<?= $detail->desk_banner; ?>" >
+                                                            <img style="width:300px;height: 150px;" src="<?php echo base_url('assets/admin/uploads/main_banner/web/'.$detail->desk_banner)?>">
+                                                        </div>      
+                                                        <div class="col-lg-6 col-md-6 ">
+                                                            <label class="text-label">Mobile Banner Img Upload </label>
+                                                            <input type="file"  name="mobile_img_new[]" class="form-control"  accept=".jpg, .jpeg, .png, .webp" ><br>
+                                                            <input type="hidden" name="mobile_img_old[]"  class="form-control" value="<?= $detail->desk_banner; ?>" >
+                                                            <img style="width:300px;height: 150px;" name="mobile_img_old[]" src="<?php echo base_url('assets/admin/uploads/main_banner/mobile/'.$detail->mobile_banner)?>" >
+                                                        </div> 
+                                                    </div><hr style="border: #999696 1px solid;">
+                                                    <?php } ?>
+                                                    <div class="text-right">
+                                                        <button type="button" name="add" id="add" class="btn btn-success ">+</button>
+                                                    </div>
+                                                    <div  id="dynamic_field">    
+                                                        <div class="row">                                                        
+                                                            <div class="col-lg-6 col-md-6 ">
+                                                                <label class="text-label">Property Name </label>
+                                                                <input type="text"  name="name_new[]" class="form-control"  >
+                                                            </div>  
+                                                            <div class="col-lg-6 col-md-6 ">
+                                                                <label class="text-label">Location </label>
+                                                                <input type="text"  name="location_new[]" class="form-control"  >
+                                                            </div> 
+                                                            <div class="col-lg-6 col-md-6 ">
+                                                                <label class="text-label">Location </label>
+                                                                <input type="text"  name="title_new[]" class="form-control"  >
+                                                            </div>                                                
+                                                        </div>   
+                                                        <div class="row">     
+                                                            <div class="col-lg-6 col-md-6 ">
+                                                                <label class="text-label">Website Banner Img Upload </label>
+                                                                <input type="file"  name="web_img_new[]" class="form-control"  accept=".jpg, .jpeg, .png, .webp" >
+                                                            </div>      
+                                                            <div class="col-lg-6 col-md-6 ">
+                                                                <label class="text-label">Mobile Banner Img Upload </label>
+                                                                <input type="file"  name="mobile_img_new[]" class="form-control"  accept=".jpg, .jpeg, .png, .webp" >
+                                                            </div> 
                                                         </div>
-                                                        <div class="row">
+                                                    </div>
+
+                                                        <!--<div class="row">
                                                            <div class="col-lg-6 col-md-6 ">
                                                                 <label class="text-label">Banner Img2 Upload </label>
                                                                 <input type="file"  name="banner_img_new2" class="form-control"  accept=".jpg, .jpeg, .png" onchange="preview_image_2(event)">
@@ -117,6 +169,7 @@
                                                                 <img id="img2" style="width:300px;height: 150px;" src="<?php echo base_url('assets/admin/uploads/main_banner/'.$details->banner_img2)?>" />
                                                             </div>
                                                         </div>
+
                                                         <div class="row">
                                                            <div class="col-lg-6 col-md-6 ">
                                                                 <label class="text-label">Banner Img3 Upload </label>
@@ -128,6 +181,7 @@
                                                                 <img id="img3" style="width:300px;height: 150px;" src="<?php echo base_url('assets/admin/uploads/main_banner/'.$details->banner_img3)?>" />
                                                             </div>
                                                         </div>
+
                                                         <div class="row">
                                                            <div class="col-lg-6 col-md-6 ">
                                                                 <label class="text-label">Banner Img4 Upload </label>
@@ -142,6 +196,7 @@
                                                                 <?php } ?>
                                                             </div>
                                                         </div>
+
                                                              
                                                         <div class="row ">
                                                            <div class="col-lg-6 col-md-6 ">
@@ -156,7 +211,7 @@
                                                                 <img id="img5" style="width:300px;height: 150px;" src="<?php echo base_url('assets/admin/uploads/main_banner/'.$details->banner_img5)?>" />
                                                                 <?php } ?>
                                                             </div>
-                                                        </div>                                                 
+                                                        </div> -->                                                
                                                 </div>
                                             
                                         
@@ -165,7 +220,7 @@
                                                   <button type="reset" class="btn btn-secondary waves-effect m-l-5">
                                                         Cancel</button>                                            
                                                   <button type="submit" class="btn btn-primary waves-effect waves-light">
-                                                        Submit
+                                                        Update
                                                     </button>                                            
                                                 </div>
                                             </div>
@@ -204,6 +259,20 @@
 
 <script type='text/javascript'>
 var baseURL= "<?php echo base_url();?>";
+
+//add banner dynamic
+$(document).ready(function(){  
+      var i=1;  
+        $('#add').click(function(){  
+           i++;  
+           $('#dynamic_field').append('<div id="row_remove'+i+'"><div class="row"><div class="col-lg-6 col-md-6 ">  <label class="text-label"> Property Name </label>  <input type="text"  name="name[]" class="form-control"  > </div> <div class="col-lg-6 col-md-6 ">  <label class="text-label">Location </label>  <input type="text"  name="location[]" class="form-control"  > </div></div><div class="row"> <div class="col-lg-6 col-md-6 ">   <label class="text-label">Banner Img Upload </label>  <input type="file"  name="web_img[]" class="form-control"  accept=".jpg, .jpeg, .png, .webp" ></div> <div class="col-lg-6 col-md-6 ">   <label class="text-label">Mobile Img Upload </label>  <input type="file"  name="mobile_img[]" class="form-control"  accept=".jpg, .jpeg, .png, .webp" ></div></div><div class="text-right"><hr style="border: #999696 1px solid;"><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn_remove">X</button></div></div>');        
+                                            
+        });  
+        $(document).on('click', '.btn_remove', function(){  
+           var button_id = $(this).attr("id");   
+           $('#row_remove'+button_id+'').remove();  
+        }); 
+});  
 
 //banner img1 preview
 function preview_image_1(event) 

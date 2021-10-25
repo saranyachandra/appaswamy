@@ -125,7 +125,7 @@ class Propertymodel extends CI_Model
                         $_FILES['file']['size']     = $_FILES['banner_img']['size'][$i];                             
 
                         $config1['upload_path'] = './assets/admin/uploads/property_banner';   
-                        $config1['allowed_types'] = 'jpg|jpeg|bmp|png';  
+                        $config1['allowed_types'] = '*';  
                         $config1['max_size'] = '30720';   
                         $config1['encrypt_name'] = TRUE;   
 
@@ -163,7 +163,7 @@ class Propertymodel extends CI_Model
                             $_FILES['file']['size']     = $_FILES['floor_banner_img'.$i]['size'][$j][0];                                 
 
                             $config1['upload_path'] = './assets/admin/uploads/floor_plan';   
-                            $config1['allowed_types'] = 'jpg|jpeg|bmp|png|webp';  
+                            $config1['allowed_types'] = '*';  
                             $config1['max_size'] = '30720';   
                             $config1['encrypt_name'] = TRUE;   
 
@@ -342,11 +342,64 @@ class Propertymodel extends CI_Model
                     return false;
                 }
     }
+   
     public function edit_property_floor_plan(){
-        echo "<pre>";
-        print_r($_POST);
-        exit;
+       
+        $tab_count = $this->input->post('tab-count');
+        $property_id = $this->input->post('property_id');
+        $tower_det_array = array();                 
+        for($i = 0; $i < $tab_count; $i++) 
+        {
+            $temp = array();
+            $temp['floor_name'] = $this->input->post('tower_name'.$i)[0];
+            $temp['floor_title'] = $this->input->post('tower_title'.$i)[0];
+            $temp['property_id']      = $property_id;
+            $floor_id = $this->input->post('floor_id'.$i)[0];
+            $img_count = count($_FILES['floor_banner_img'.$i]['tmp_name']);
+            //echo 'floor_banner_img'.$i."<----->".$img_count; 
+            $total_images = array();
+            if($img_count >= 1){
+                for ($j=0; $j < $img_count; $j++) 
+                { 
+                    if(!empty($_FILES['floor_banner_img'.$i]['name'][$j][0])){
+                        $floor_img = $_FILES['file']['name'] = $_FILES['floor_banner_img'.$i]['name'][$j][0]; 
+                        $_FILES['file']['type']     = $_FILES['floor_banner_img'.$i]['type'][$j][0]; 
+                        $_FILES['file']['tmp_name'] = $_FILES['floor_banner_img'.$i]['tmp_name'][$j][0]; 
+                        $_FILES['file']['error']    = $_FILES['floor_banner_img'.$i]['error'][$j][0]; 
+                        $_FILES['file']['size']     = $_FILES['floor_banner_img'.$i]['size'][$j][0];                                 
+                    
+                        $config1['upload_path'] = './assets/admin/uploads/floor_plan';   
+                        $config1['allowed_types'] = '*';  
+                        $config1['max_size'] = '30720';   
+                        $config1['encrypt_name'] = TRUE;   
+
+                        $this->load->library('upload', $config1); 
+                        $this->upload->initialize($config1);
+                        $this->upload->do_upload('file');   
+                        $fileData = $this->upload->data();
+                        $uploadData[$i]['file_name'] = $fileData['file_name']; 
+
+                        array_push($total_images, array("img"=> $fileData['file_name']));
+                    }
+                    
+                }
+            }
+            if(!empty($total_images)){
+                $temp['floor_img'] = json_encode($total_images);
+            }
+            array_push($tower_det_array, $temp);
+            $update = $this->db->where('floor_id', $floor_id)->update('property_floorplan', $temp);
+            if($update){
+               
+            }else{
+                return false;
+            }
+        }
+      
+        return true;
+       
     }
+    
     public function edit_property_faq(){
       
         $faq_question_arr = $this->input->post('faq_question[]');

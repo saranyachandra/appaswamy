@@ -659,7 +659,8 @@ $this->load->view('layout/admin/admin_css'); ?>
                                             <div id="Floor-Plan" class="tab-pane fade">
                                                 <form method="POST" action="" id="floor_edit_form" enctype="multipart/form-data">
                                                     <label>Select Floor Blocks</label>
-                                                    <input type="number" id="btn-add-tab" name="tab-count" min="1" value="<?=$floor_plan_count?>">     
+                                                    <input type="number" id="btn-add-tab" name="tab-count" min="1" value="<?=$floor_plan_count?>">    
+                                                    <input type="hidden" id="btn-add-tab" name="property_id" value="<?=$floor_plan[0]->property_id?>">    
                                                     <div class="default-tab">
                                                         <ul class="nav nav-tabs" role="tablist" id="tab-list">
                                                            <?php
@@ -686,16 +687,17 @@ $this->load->view('layout/admin/admin_css'); ?>
                                                                 </div>
                                                                 <div class="col-lg-6 mb-2">
                                                                     <div class="form-group">
+                                                                         <input type="hidden" id="btn-add-tab" name="floor_id<?=$k?>[]" value="<?=$val->floor_id?>"> 
                                                                         <label class="text-label">Tower Name </label>
-                                                                        <input type="text" name="tower_name1[]" class="form-control" value="<?=$val->floor_name?>">
+                                                                         <input type="text" name="tower_name<?=$k?>[]" class="form-control" value="<?=$val->floor_name?>">
                                                                     </div>
                                                                     <div class="form-group">
                                                                         <label class="text-label">Title </label>
-                                                                        <input type="text" name="tower_title1[]" class="form-control" value="<?=$val->floor_title?>">
+                                                                         <input type="text" name="tower_title<?=$k?>[]" class="form-control" value="<?=$val->floor_title?>">
                                                                     </div>
                                                                     <div class="form-group">
                                                                         <label class="text-label">Floor Plan Upload </label>
-                                                                        <input type="file" name="floor_banner_img1[][]" class="form-control"  accept=".jpg, .jpeg, .png" multiple>
+                                                                         <input type="file" name="floor_banner_img<?=$k?>[][]" class="form-control"  accept=".jpg, .jpeg, .png, .webp   " multiple>
                                                                     </div> 
                                                                 </div>       
                                                                 <div class="col-lg-12 mb-2">         
@@ -714,16 +716,17 @@ $this->load->view('layout/admin/admin_css'); ?>
                                                                 </div>
                                                                 <div class="col-lg-6 mb-2">
                                                                     <div class="form-group">
+                                                                         <input type="hidden" id="btn-add-tab" name="floor_id<?=$k?>[]" value="<?=$val->floor_id?>">     
                                                                         <label class="text-label">Tower Name </label>
-                                                                        <input type="text" name="tower_name1[]" class="form-control" value="<?=$val->floor_name?>">
+                                                                       <input type="text" name="tower_name<?=$k?>[]" class="form-control" value="<?=$val->floor_name?>">
                                                                     </div>
                                                                     <div class="form-group">
                                                                         <label class="text-label">Title </label>
-                                                                        <input type="text" name="tower_title1[]" class="form-control" value="<?=$val->floor_title?>">
+                                                                      <input type="text" name="tower_title<?=$k?>[]" class="form-control" value="<?=$val->floor_title?>">
                                                                     </div>
                                                                     <div class="form-group">
                                                                         <label class="text-label">Floor Plan Upload </label>
-                                                                        <input type="file" name="floor_banner_img1[][]" class="form-control"  accept=".jpg, .jpeg, .png" multiple>
+                                                                       <input type="file" name="floor_banner_img<?=$k?>[][]" class="form-control"  accept=".jpg, .jpeg, .png, .webp" multiple>
                                                                     </div> 
                                                                 </div>
                                                                 <div class="col-lg-12 mb-2">      
@@ -989,7 +992,7 @@ $(document).ready(function(){
          
         $('#tab-list').append($('<li class="nav-item"><a class="nav-link " href="#tab' + tabID + '" role="tab" data-toggle="tab"> Tower ' + tabID + ' <br> <span id="' + tabID + '"> </span></a></li>'));  //class name - in active hide  
 
-        $('#tab-content').append($('<div class=" tab-pane fade tab_' + tabID + '" id="tab' + tabID + '">   <div id="day_' +tabID+' "> <div class="form-group col-sm-12" id="day1_dynamicadd_1"> <div class="col-lg-12 mb-2"> <div class="form-group"> <label class="text-label">Name </label> <input type="text" name="tower_name'+tabID+'[]" class="form-control"></div> </div> <div class="col-lg-12 mb-2"> <div class="form-group"> <label class="text-label">Title </label>    <input type="text" name="tower_title'+tabID+'[]" class="form-control" ></div> </div> <div class="col-lg-12 mb-2"> <div class="form-group"> <label class="text-label">Floor Images Upload </label> <input type="file" name="floor_banner_img'+tabID+'[][]" class="form-control"  accept=".jpg, .jpeg, .png" multiple> </div> </div>   </div> </div>'));
+        $('#tab-content').append($('<div class=" tab-pane fade tab_' + tabID + '" id="tab' + tabID + '">   <div id="day_' +tabID+' "> <div class="form-group col-sm-12" id="day1_dynamicadd_1"> <div class="col-lg-12 mb-2"> <div class="form-group"> <label class="text-label">Name </label> <input type="text" name="tower_name'+tabID+'[]" class="form-control"></div> </div> <div class="col-lg-12 mb-2"> <div class="form-group"> <label class="text-label">Title </label>    <input type="text" name="tower_title'+tabID+'[]" class="form-control" ></div> </div> <div class="col-lg-12 mb-2"> <div class="form-group"> <label class="text-label">Floor Images Upload </label> <input type="file" name="floor_banner_img'+tabID+'[][]" class="form-control"  accept=".jpg, .jpeg, .png, .webp" multiple> </div> </div>   </div> </div>'));
          
         tabID++;
     }

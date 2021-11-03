@@ -7,6 +7,8 @@ Version: 1.0
 --------------------------------------------*/
 
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+
 @font-face {
     font-family: 'Objectivity ExtraBold';
     font-style: normal;
@@ -54,15 +56,16 @@ body{background: #FFF;font-family: 'Manrope', sans-serif;}
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-between;    
     padding-top: 0.5rem;
     padding-bottom: 0rem;
 }
-.navbar-nav {margin-top:14px;}.navbar-nav ul{list-style:none;font-family: 'BigCaslon-Rom';}.navbar-nav li{font-weight: 900;
+ .navbar-nav {margin-top:14px;}
+ .navbar-nav ul{list-style:none;font-family: 'Playfair Display', serif;}
+ .navbar-nav li{font-weight: 900;
 font-size: 15px;padding: 0px 25px 25px 0px;}
 .nav-link{ padding:0px;}
 .navbar-nav a{ color:#000;}.navbar-nav a:hover{ color:#d20023;}
-
 
 
 .logo{position:relative; z-index:1000;padding: 10px 0px 10px 0px;}
@@ -73,9 +76,17 @@ font-size: 15px;padding: 0px 25px 25px 0px;}
       min-width: 100%;
       min-height: 100%;
    }
-.mobile{ padding-left:55px; padding-bottom:10px;padding-bottom: 6px;background:url("../images/phone-icon.jpg") no-repeat; line-height:20px;position: absolute;
+.mobile{ padding-left:55px;     
+    padding-bottom: 6px;
+    background:url("../images/phone-icon.jpg") no-repeat; 
+    line-height:20px;
+    position: relative;
     z-index: 12;
-    top: 10px; padding-top: 3px;}.mobile a{ color: #333940; font-size:16px; text-decoration:none; font-weight:700;}.mobile span{ font-size:14px;font-weight:500;color:#777879}
+    float: right;
+    top: 0px; 
+    padding-top: 3px;
+}
+    .mobile a{ color: #333940; font-size:16px; text-decoration:none; font-weight:700;}.mobile span{ font-size:14px;font-weight:500;color:#777879}
 .carousel { position: relative;
     top: 0px; z-index: 1;
 }
@@ -229,6 +240,15 @@ footer a:hover{ color:#7e8082; font-size:14px; padding-right:10px;}
     width: 420px;
     background: rgb(0 0 0 / 83%);
     color: #FFF;
+}
+.caption-top1 {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    padding-right: 20px;
+    text-align: right;
+    color: #FFF;
+    right: 0px;
 }
 .caption-top h2{ font-size:28px; padding-top:30px;}
 .carousel-item {

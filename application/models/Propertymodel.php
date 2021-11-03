@@ -7,7 +7,7 @@ class Propertymodel extends CI_Model
         parent::__construct();
     }
 
-    public function property()
+    public function insert_property()
     {
         $specifications = $_POST['specification'];
         $specArr = array();
@@ -44,11 +44,7 @@ class Propertymodel extends CI_Model
             $this->upload->do_upload('walkthrough-video');
             $videoname=$this->upload->data(); 
         }
-        else
-        {
-            $video_upload = " ";
-        }
-
+       
         if (isset($_FILES['E_Brochure']) && !empty($_FILES['E_Brochure']["name"]))
         {
             $config2['upload_path'] = './assets/admin/uploads/e_brochure';   
@@ -63,10 +59,7 @@ class Propertymodel extends CI_Model
             $this->upload->do_upload('E_Brochure'); 
             $EBrochure_upload = $this->upload->data();
         }
-        else
-        {
-            $EBrochure_upload = " ";
-        }
+       
 
       
         $insert_data = array('type'         => $this->input->post('project_type'),
@@ -135,7 +128,7 @@ class Propertymodel extends CI_Model
                         $fileData = $this->upload->data();
                         $uploadData[$i]['file_name'] = $fileData['file_name']; 
                                 
-                       $data = array(  'property_id'      => $property_id,
+                        $data = array(  'property_id'      => $property_id,
                                         'banner_img'      =>  $fileData['file_name'],                                       
                                      );
                         $this->db->insert('property_banner',$data);      
@@ -178,15 +171,47 @@ class Propertymodel extends CI_Model
                         $temp['floor_img'] = json_encode($total_images);
                         array_push($tower_det_array, $temp);
                     }
-                    $this->db->insert_batch('property_floorplan',$tower_det_array);                   
-                   
+                    $this->db->insert_batch('property_floorplan',$tower_det_array);                
+                //step 5 current status
+                $count = count($_FILES['current_img']['name']); 
+                
+                    for($i = 0; $i < $count; $i++) 
+                    {
+
+                        $_FILES['file']['name']     = $_FILES['current_img']['name'][$i]; 
+                        $_FILES['file']['type']     = $_FILES['current_img']['type'][$i]; 
+                        $_FILES['file']['tmp_name'] = $_FILES['current_img']['tmp_name'][$i]; 
+                        $_FILES['file']['error']    = $_FILES['current_img']['error'][$i]; 
+                        $_FILES['file']['size']     = $_FILES['current_img']['size'][$i];                             
+
+                        $config2['upload_path'] = './assets/admin/uploads/current_status';   
+                        $config2['allowed_types'] = '*';  
+                        $config2['max_size'] = '30720';   
+                        $config2['encrypt_name'] = TRUE;   
+
+                        $this->load->library('upload', $config2); 
+                        $this->upload->initialize($config2);
+                        $this->upload->do_upload('file');                               
+                        $fileData = $this->upload->data();
+                        $uploadData[$i]['file_name'] = $fileData['file_name']; 
+                                
+                        $data = array(  'property_id'     =>  $property_id,
+                                        'status_date'     =>  $this->input->post('status_date'), 
+                                        'img_url'         =>  $fileData['file_name']                                     
+                                     );
+                        
+                        $this->db->insert('property_current_status',$data);      
+                            
+                    }
+    
+
                     return true;
 
                 }           
 
                 else{
                         return false;
-                    }   
+                    }  
         
     }
     public function get_property_details()
@@ -208,13 +233,22 @@ class Propertymodel extends CI_Model
         return $query->result();
         
     }
+    public function insert_feature()
+    {   
+        $now = date('Y-m-d H:i:s');  
+        $data = array(  'feature_name'   => $this->input->post('features') ,
+                        'created_at'     =>  $now                                       
+                                     );
+        $this->db->insert('features',$data);
+        return true;      
+    }
 
     public function property_banner_update_by()
     {
         
         $id = $this->input->post('banner_id[]');       
 
-       if( (!empty($_FILES['banner_img_new']['name'])) && (($this->input->post('banner_img')) != null) && ($_FILES['banner_img_new']['size'] == 0 ))
+        if( (!empty($_FILES['banner_img_new']['name'])) && (($this->input->post('banner_img')) != null) && ($_FILES['banner_img_new']['size'] == 0 ))
             {
                 $count = count($_FILES['banner_img_new']['name']); 
                 for($i = 0; $i < $count; $i++) 
@@ -347,18 +381,21 @@ class Propertymodel extends CI_Model
        
         $tab_count = $this->input->post('tab-count');
         $property_id = $this->input->post('property_id');
-        $tower_det_array = array();                 
+        $tower_det_array = array(); 
+        $tower_new_array = array();                 
         for($i = 0; $i < $tab_count; $i++) 
         {
             $temp = array();
-            $temp['floor_name'] = $this->input->post('tower_name'.$i)[0];
+            $temp['floor_name']  = $this->input->post('tower_name'.$i)[0];
             $temp['floor_title'] = $this->input->post('tower_title'.$i)[0];
-            $temp['property_id']      = $property_id;
+            $temp['property_id'] = $property_id;
+           
             $floor_id = $this->input->post('floor_id'.$i)[0];
+           
             $img_count = count($_FILES['floor_banner_img'.$i]['tmp_name']);
-            //echo 'floor_banner_img'.$i."<----->".$img_count; 
-            $total_images = array();
-            if($img_count >= 1){
+           // echo 'floor_banner_img'.$i."<----->".$img_count; 
+            $total_images = array();           
+                        
                 for ($j=0; $j < $img_count; $j++) 
                 { 
                     if(!empty($_FILES['floor_banner_img'.$i]['name'][$j][0])){
@@ -383,17 +420,25 @@ class Propertymodel extends CI_Model
                     }
                     
                 }
-            }
-            if(!empty($total_images)){
-                $temp['floor_img'] = json_encode($total_images);
-            }
-            array_push($tower_det_array, $temp);
-            $update = $this->db->where('floor_id', $floor_id)->update('property_floorplan', $temp);
-            if($update){
-               
-            }else{
-                return false;
-            }
+           
+                if(!empty($total_images)){
+                    $temp['floor_img'] = json_encode($total_images);
+                }
+                if(isset($floor_id) && ($img_count >= 1)){  
+                    array_push($tower_det_array, $temp);
+                    $update = $this->db->where('floor_id', $floor_id)->update('property_floorplan', $temp);
+
+                }         
+                else{
+                    array_push($tower_new_array, $temp);                   
+                    $insert =  $this->db->insert_batch('property_floorplan',$tower_new_array);
+                    if($insert){
+                        return true;
+                    }
+                    else{
+                        return false;
+                    }
+                }           
         }
       
         return true;

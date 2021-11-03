@@ -1,6 +1,32 @@
 
 <?php $this->load->view('layout/header_css1'); ?>
 <link rel="stylesheet" href="<?php echo base_url('assets/web/css/projects-details-page.css')?>">
+<style type="text/css">
+  .filter-location{
+    position: relative;
+    top: -45px;
+    border: none;
+    background-color: #f5f6f7;
+  }
+  .form-control:focus {
+    color: #212529;
+    background-color: #f5f6f7;
+    border-color: #86b7fe;
+    outline: 0;
+    box-shadow: none;
+}
+select option {
+    margin: 40px;
+    background-color: #f5f6f7;
+     border: 1px solid transparent; 
+    border-color: transparent;
+    outline: none;    
+}
+select #xyz {
+   border: 0 px;
+   outline: 0 px;
+}
+</style>
 <?php $this->load->view('layout/header-menu'); ?>
   
    
@@ -18,17 +44,28 @@
             <li class="nav-item tabnav">
               <a class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">Completed</a>
             </li>
+            <li class="nav-item tabnav">
+              <img src="<?php echo base_url('assets/web/images/location@2x.webp')?>">
+                <select name="location"  class="form-control filter-location" tabindex="-98"  id="filter_location">
+                    <option>--Select Location--</option>
+                    <option value="Chennai">Chennai</option>
+                    <option value="Coimbatore">Coimbatore</option>
+                </select> 
+            </li>
           </ul>
+          
         </div>
+          
+
         <div class="tab-content" id="myTabContent">
 
           <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-            <div class="row">
+            <div class="row" id="display">
                 <div class="col-xxl-12 col-xl-12 col-lg-12 col-sm-12 col-xs-12">
-                <h2 class="text-left pb20">Residential</h2>
-                <h5 class="text-left pb20">Residential</h5>
-                </div>
-
+                  <h2 class="text-left pb20">Residential</h2>
+                  <h5 class="text-left pb20">Residential</h5>
+                </div>             
+                  
                   <?php 
                     foreach($property as $details){
                       if($details->property_status == 'Ready-to-Move'){
@@ -62,13 +99,13 @@
                     </div>
                 </div>
                   <?php } } ?>
-                  
+                
 
             </div> 
           </div>
 
           <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab"> 
-            <div class="row">
+            <div class="row" >
                 <div class="col-xxl-12 col-xl-12 col-lg-12 col-sm-12 col-xs-12">
                 <h2 class="text-left pb20">Residential</h2>
                 <h5 class="text-left pb20">Residential</h5>
@@ -166,5 +203,10 @@
 <button class="scrollup"><i class="fas fa-angle-up"></i></button>-->
 <!-- Javascript Files -->
 <?php $this->load->view('layout/footer-home-js'); ?>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.js"></script>
+ <script src="<?php echo base_url('assets/web/js/custom.js')?>"></script>
+ <script type="text/javascript">
+        var baseURL= "<?php echo base_url();?>";
+   </script>
 </body>
 </html>

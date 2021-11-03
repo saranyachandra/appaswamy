@@ -102,10 +102,30 @@ class Admin extends CI_Controller {
 		$this->load->view('admin/create_property',$result);		
 	}
 
+	
 	public function insert_property()
 	{		
 		$response = array();
-           if($this->Propertymodel->property())
+           if($this->Propertymodel->insert_property())
+            {
+            	$response['status'] = 'success';            	
+            }
+            else
+            {
+            	$response['status'] = 'failed';
+            }
+        	
+        echo json_encode($response);
+	}
+	public function create_feature()
+	{		
+		$result['activeTab'] = "forms";		
+		$this->load->view('admin/create_feature',$result);
+	}
+	public function insert_feature()
+	{		
+		$response = array();
+           if($this->Propertymodel->insert_feature())
             {
             	$response['status'] = 'success';            	
             }
@@ -140,6 +160,9 @@ class Admin extends CI_Controller {
 
         $property_feat = "select feature_name FROM features WHERE Active = 1 ";
         $result['features']  = $this->db->query($property_feat)->result();
+
+        $currentstatus_query = "select * FROM property_current_status WHERE property_id = '$id' ";
+		$data['currentstatus_details']  = $this->db->query($currentstatus_query)->result();
 
 		$this->load->view('admin/edit_property_details',$result);
 	}

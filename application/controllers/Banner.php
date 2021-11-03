@@ -59,11 +59,23 @@ class Banner extends CI_Controller {
 				}
 		echo json_encode($response); 
 	}
-
-	public function create_mobile_banner()
+	
+	public function delete_banner()
 	{
-		$result['activeTab'] = "dashboard";
-		$this->load->view('admin/mobile_banner',$result);
+	   $response = array();
+	   $id = $_POST['id'];  
+	   $sql= $this->db->query("delete from main_banner where banner_id='".$id."'");
+	    if($sql == true)
+            {
+            	$response['status'] = 'success';            	
+            }
+            else
+            {
+            	$response['status'] = 'failed';
+            }
+        	
+		echo json_encode($response);
 	}
+
 
 }

@@ -100,7 +100,7 @@
                                             	<div class="row">                                                        
                                                     <div class="col-lg-6 col-md-6 ">
                                                         <label class="text-label">Property Name </label>
-                                                        <input type="text"  name="name[]" class="form-control"  >
+                                                        <input type="text"  name="name[]" class="form-control" style="text-transform: capitalize;">
                                                     </div>  
                                                     <div class="col-lg-6 col-md-6 ">
                                                         <label class="text-label">Location </label>

@@ -14,64 +14,62 @@
 <section>
     <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-indicators">
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            <?php foreach ($banner_img as $k => $img) {
+                if($k == 0 ){
+            ?> 
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="<?=$k?>" class="active" aria-current="true" aria-label="Slide <?=$k?>"></button>
+           <?php } else{ ?>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="<?=$k?>" aria-label="Slide <?=$k?>"></button>
+            <?php } } ?>
         </div>
         <div class="carousel-inner">
+            <?php foreach ($banner_img as $k => $img) {
+                if($k == 0 ){
+            ?>
             <div class="carousel-item active">
                 <div class=" container" >
                     <div class="caption-top">
                         <div class="row">
                           <div class="col-lg-4 col-4">
-                            <img src="<?php echo base_url('assets/web/images/cliver-logo.jpg')?>" class="img-fluid" />
+                            <img src="<?php echo base_url('assets/web/images/banner_project_logo/'.$img->property_name.".jpg")?>" class="img-fluid" />
                           </div>
                           <div class="col-lg-8 col-8">
-                            <h2>Clover</h2>
-                            <p> <img src="<?php echo base_url('assets/web/images/location@2x.webp')?>" /> &nbsp; Kotturpuram, Chennai</p>
+                            <h2><?= $img->property_name; ?></h2>
+                            <p> <img src="<?php echo base_url('assets/web/images/location@2x.webp')?>" /> &nbsp;<?= $img->location; ?></p>
                           </div>
                         </div>
                     </div>
+                    <div class="caption-top1">
+                        <p><?= $img->title; ?></p>
+                    </div>
                 </div>
-                <img src="<?php echo base_url('assets/admin/uploads/main_banner/'.$banner_img->banner_img1)?>"  class="d-block w-100 d-none d-sm-block" alt="...">
-                <img src="<?php echo base_url('assets/web/images/banner1m.jpg')?>"  class="d-block w-100 d-block d-sm-none" alt="...">
+                <img src="<?php echo base_url('assets/admin/uploads/main_banner/web/'.$img->desk_banner);?>"  class="d-block w-100 d-none d-sm-block" alt="...">
+                <img src="<?php echo base_url('assets/admin/uploads/main_banner/mobile/'.$img->mobile_banner);?>"  class="d-block w-100 d-block d-sm-none" alt="...">
             </div>
-
+            <?php } else{ ?>
             <div class="carousel-item">
-                <div class=" container" >
+                <div class="container" >
                     <div class="caption-top">
                         <div class="row">
                           <div class="col-lg-4 col-4">
-                            <img src="<?php echo base_url('assets/web/images/azure-logo.jpg')?>" class="img-fluid" />
+                            <img src="<?php echo base_url('assets/web/images/banner_project_logo/'.$img->property_name.".jpg")?>" class="img-fluid" />
                           </div>
                           <div class="col-lg-8 col-8">
-                            <h2>Azure The Oceanic</h2>
-                            <p> <img src="<?php echo base_url('assets/web/images/location@2x.webp')?>" /> &nbsp; Santhome High Road R A Puram</p>
+                            <h2><?= $img->property_name; ?></h2>
+                            <p> <img src="<?php echo base_url('assets/web/images/location@2x.webp')?>" /> <?= $img->location; ?></p>
                           </div>
                         </div>
                     </div>
-                </div>
-                <img src="<?php echo base_url('assets/admin/uploads/main_banner/'.$banner_img->banner_img2)?>"  class="d-block w-100 d-none d-sm-block" alt="...">
-                <img src="<?php echo base_url('assets/web/images/banner2m.jpg')?>"  class="d-block w-100 d-block d-sm-none" alt="...">
-            </div>
-
-            <div class="carousel-item">
-                <div class=" container" >
-                    <div class="caption-top">
-                        <div class="row">
-                            <div class="col-lg-4 col-4">
-                                <img src="<?php echo base_url('assets/web/images/altezza-logo.jpg')?>" class="img-fluid" />
-                            </div>
-                            <div class="col-lg-8 col-8">
-                                <h2>Altezza</h2>
-                                <p> <img src="<?php echo base_url('assets/web/images/location@2x.webp')?>" /> &nbsp;Kottivakkam, Chennai</p>
-                            </div>
-                        </div>
+                     <div class="caption-top1">
+                        <p><?= $img->title; ?></p>
                     </div>
+                    
                 </div>
-                 <img src="<?php echo base_url('assets/admin/uploads/main_banner/'.$banner_img->banner_img3)?>"  class="d-block w-100 d-none d-sm-block" alt="...">
-                 <img src="<?php echo base_url('assets/web/images/banner3m.jpg')?>"  class="d-block w-100 d-block d-sm-none" alt="...">
+                <img src="<?php echo base_url('assets/admin/uploads/main_banner/web/'.$img->desk_banner)?>"  class="d-block w-100 d-none d-sm-block" alt="...">
+                <img src="<?php echo base_url('assets/admin/uploads/main_banner/mobile/'.$img->mobile_banner)?>"  class="d-block w-100 d-block d-sm-none" alt="...">
             </div>
+            <?php } } ?>
+           
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>

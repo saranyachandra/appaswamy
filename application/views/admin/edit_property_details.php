@@ -13,6 +13,11 @@ $this->load->view('layout/admin/admin_css'); ?>
 #fieldGroupTemplate {
   display: none;
 }
+[contenteditable] {
+  border: solid 1px lightgreen;
+  padding: 10px;
+  border-radius: 3px;
+}
 </style>
 <body>
 
@@ -103,6 +108,7 @@ $this->load->view('layout/admin/admin_css'); ?>
                                                                 <a href="#Floor-Plan" data-toggle="pill" class="nav-link">Floor Plan</a>
                                                                 <a href="#faq" data-toggle="pill" class="nav-link">FAQ</a>
                                                                 <a href="#banner" data-toggle="pill" class="nav-link">Banner</a>
+                                                                <a href="#current-status" data-toggle="pill" class="nav-link">Current Status</a>
                                                             </div>
                                                         </div>
                                                     <div class="col-xl-10">
@@ -241,11 +247,12 @@ $this->load->view('layout/admin/admin_css'); ?>
                                                                 <a href="javascript:void(0)" class="btn btn-success addMore">+</a>
                                                             </div>
                                                                 <?php
-                                                                    if(!empty($spec)){
+                                                                    if(isset($spec) && (!empty($spec))){
                                                                     foreach($spec as $k=>$det)
                                                                         { 
                                                                           $x = (array)$det;  
                                                                           $y = (array)$x['spec'.$k];
+
                                                                 ?>
                                                             <div class="col-md-12  ">
                                                                 <div class="form-group">
@@ -286,381 +293,44 @@ $this->load->view('layout/admin/admin_css'); ?>
                                                 </div>
                                                 <!-- feature tab start here -->
                                                 <div id="Features" class="tab-pane fade">
-                                                    <div class="row">
-                                                            <div class="col-lg-12 mb-2">
-                                                                <div class="form-check form-check-inline">
-                                                                    <label class="form-check-label">
-                                                                        <input type="checkbox" id="select-all" class="form-check-input">Select all 
-                                                                    </label>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-lg-3 mb-2">
-                                                                <div class="form-check form-check-inline">
-                                                                    <label class="form-check-label">
-                                                                        <input type="checkbox" name="features[]" class="form-check-input" value="Water-Treatment" <?php if(preg_match("/Water-Treatment/", $details['feature'])) { echo 'checked';} else {echo "";} ?>  >Water Treatment Plant </label> 
-                                                                </div>
-                                                            </div>
-                                                            <?php 
-                                                                    foreach($features as $fe){
-                                                                        $test = array($fe);
-                                                                        print_r( $test->feature_name);
-                                                                    }
-                                                                   
-                                                            ?>
-                                                                    
-                                                             
-                                                    </div>
-                                                </div>
-                                              <!--  <div id="Features" class="tab-pane fade">
                                                     <form id="features_edit_form" method="POST" action="">
                                                         <input type="hidden" name="id" value="<?=$details['property_id']?>">
-                                                        <div class="row">
-                                                            <div class="col-lg-12 mb-2">
-                                                                <div class="form-check form-check-inline">
-                                                                    <label class="form-check-label">
-                                                                        <input type="checkbox" id="select-all" class="form-check-input">Select all 
-                                                                    </label>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-lg-3 mb-2">
-                                                                <div class="form-check form-check-inline">
-                                                                    <label class="form-check-label">
-                                                                        <input type="checkbox" name="features[]" class="form-check-input" value="Water-Treatment" <?php if(preg_match("/Water-Treatment/", $details['feature'])) { echo 'checked';} else {echo "";} ?>  >Water Treatment Plant </label> 
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-lg-3 mb-2">
-                                                                <div class="form-check form-check-inline">
-                                                                    <span>  <input type="checkbox" name="features[]" class="form-check-input" value="100-Power-Back-up" <?php if(preg_match("/100-Power-Back-up/", $details['feature'])) { echo 'checked';} else {echo "";} ?>></span>
-                                                                    <span> 100% Power Back up for common areas & apartments </span>
-                                                                </div>
-                                                            </div>  
-                                                            <div class="col-lg-3 mb-2">
-                                                                <div class="form-check form-check-inline">
-                                                                    <label class="form-check-label">
-                                                                        <input type="checkbox" name="features[]" class="form-check-input" value="Regulator-Gas" <?php if(preg_match("/Regulator-Gas/", $details['feature'])) { echo 'checked';} else {echo "";} ?> >Reticulated Gas</label>
-                                                                </div>
-                                                            </div>  
-                                                            <div class="col-lg-3 mb-2">
-                                                                <div class="form-check form-check-inline">
-                                                                    <label class="form-check-label">
-                                                                        <input type="checkbox" name="features[]" class="form-check-input" value="Rain-water-Harvesting" <?php if(preg_match("/Rain-water-Harvesting/", $details['feature'])) { echo 'checked';} else {echo "";} ?>>Rain water Harvesting
-                                                                    </label>
-                                                                </div>
-                                                            </div>  
-                                                            <div class="col-lg-3 mb-2">
-                                                                <div class="form-check form-check-inline">
-                                                                    <label class="form-check-label">
-                                                                        <input type="checkbox" name="features[]" class="form-check-input" value="Mini-Theatre" <?php if(preg_match("/Mini-Theatre/", $details['feature'])) { echo 'checked';} else {echo "";} ?>>Mini Theatre</label>
-                                                                </div>
-                                                            </div> 
-                                                            <div class="col-lg-3 mb-2">
-                                                                <div class="form-check form-check-inline">
-                                                                    <label class="form-check-label">
-                                                                    <input type="checkbox" name="features[]" class="form-check-input" value="Swimming-Pool" <?php if(preg_match("/Swimming-Pool/", $details['feature'])) { echo 'checked';} else {echo "";} ?>> Swimming Pool</label>
-                                                                </div>
-                                                            </div>  
-                                                            <div class="col-lg-3 mb-2">
-                                                                <div class="form-check form-check-inline">
-                                                                    <label class="form-check-label">
-                                                                        <input type="checkbox" name="features[]" class="form-check-input" value="Fire-Alarm" <?php if(preg_match("/Fire-Alarm/", $details['feature'])) { echo 'checked';} else {echo "";} ?>> Fire Alarm & Wet riser system</label>
-                                                                </div>
-                                                            </div>  
-                                                            <div class="col-lg-3 mb-2">
-                                                                <div class="form-check form-check-inline">
-                                                                    <span>
-                                                                        <input type="checkbox" name="features[]" class="form-check-input" value="Landscaped-garden" <?php if(preg_match("/Landscaped-garden/", $details['feature'])) { echo 'checked';} else {echo "";} ?>> </span>
-                                                                    <span>    Landscaped garden with Water bodies</span>
-                                                                                           
-                                                                </div>
-                                                            </div>  
-                                                            <div class="col-lg-3 mb-2">
-                                                                <div class="form-check form-check-inline">
-                                                                    <label class="form-check-label">
-                                                                        <input type="checkbox" name="features[]" class="form-check-input" value="Association-Room" <?php if(preg_match("/Association-Room/", $details['feature'])) { echo 'checked';} else {echo "";} ?>> Association Room
-                                                                    </label>
-                                                                </div>
-                                                            </div>  
-                                                            <div class="col-lg-3 mb-2">
-                                                                <div class="form-check form-check-inline">
-                                                                    <label class="form-check-label">
-                                                                        <input type="checkbox" name="features[]" class="form-check-input" value="Color-video-Door-Phone" <?php if(preg_match("/Color-video-Door-Phone/", $details['feature'])) { echo 'checked';} else {echo "";} ?>> Color video Door Phone
-                                                                    </label>
-                                                                </div>
-                                                            </div>  
-                                                            <div class="col-lg-3 mb-2">
-                                                                <div class="form-check form-check-inline">
-                                                                    <label class="form-check-label">
-                                                                        <input type="checkbox" name="features[]" class="form-check-input" value="Garbage" <?php if(preg_match("/Garbage/", $details['feature'])) { echo 'checked';} else {echo "";} ?>> Garbage collection room
-                                                                    </label>
-                                                                </div>
-                                                            </div>  
-                                                            <div class="col-lg-3 mb-2">
-                                                                 <div class="form-check form-check-inline">
-                                                                    <span>
-                                                                         <input type="checkbox" name="features[]" class="form-check-input" value="club-house" <?php if(preg_match("/club-house/", $details['feature'])) { echo 'checked';} else {echo "";} ?>></span> <span>Motion Sensor Lighting system in club house</span>
-                                                                                            
-                                                                </div>
-                                                            </div>  
-                                                            <div class="col-lg-3 mb-2">
-                                                                <div class="form-check form-check-inline">
-                                                                    <label class="form-check-label">
-                                                                        <input type="checkbox" name="features[]" class="form-check-input" value="CCTV" <?php if(preg_match("/CCTV/", $details['feature'])) { echo 'checked';} else {echo "";} ?>>CCTV Surveillance
-                                                                    </label>
-                                                                </div>
-                                                            </div>  
-                                                            <div class="col-lg-3 mb-2">
-                                                                <div class="form-check form-check-inline">
-                                                                    <span>
-                                                                        <input type="checkbox" name="features[]" class="form-check-input" value="solar-lights" <?php if(preg_match("/solar-lights/", $details['feature'])) { echo 'checked';} else {echo "";} ?>></span><span>Solar Powered LED Lights in coomon area</span>
-                                                                </div>
-                                                            </div>  
-                                                            <div class="col-lg-3 mb-2">
-                                                                <div class="form-check form-check-inline">
-                                                                    <label class="form-check-label">
-                                                                        <input type="checkbox" name="features[]" class="form-check-input" value="Clubhouse" <?php if(preg_match("/Clubhouse/", $details['feature'])) { echo 'checked';} else {echo "";} ?> >Clubhouse 
-                                                                    </label>
-                                                                </div>
-                                                            </div>  
-                                                            <div class="col-lg-3 mb-2">
-                                                                <div class="form-check form-check-inline">
-                                                                    <label class="form-check-label">
-                                                                    <input type="checkbox" name="features[]" class="form-check-input" value="security-cabin" <?php if(preg_match("/security-cabin/", $details['feature'])) { echo 'checked';} else {echo "";} ?>>Security Chain
-                                                                    </label>
-                                                                </div>
-                                                             </div>  
-                                                            <div class="col-lg-3 mb-2">
-                                                                <div class="form-check form-check-inline">
-                                                                    <label class="form-check-label">
-                                                                         <input type="checkbox" name="features[]" class="form-check-input" value="fitness-center" <?php if(preg_match("/fitness-center/", $details['feature'])) { echo 'checked';} else {echo "";} ?>>Fitness Centre
-                                                                    </label>
-                                                                 </div>
-                                                            </div>  
-                                                            <div class="col-lg-3 mb-2">
-                                                                <div class="form-check form-check-inline">
-                                                                    <label class="form-check-label">
-                                                                        <input type="checkbox" name="features[]" class="form-check-input" value="party-hall" <?php if(preg_match("/party-hall/", $details['feature'])) { echo 'checked';} else {echo "";} ?>>Party Hall
-                                                                    </label>
-                                                                </div>
-                                                            </div>  
-                                                            <div class="col-lg-3 mb-2">
-                                                                <div class="form-check form-check-inline">
-                                                                    <span>
-                                                                        <input type="checkbox" name="features[]" class="form-check-input" value="parking-barrier" <?php if(preg_match("/parking-barrier/", $details['feature'])) { echo 'checked';} else {echo "";} ?>></span>
-                                                                        <span>Access Controlled Barrier for Car Park Entry</span>
-                                                                </div>
-                                                            </div>  
-                                                            <div class="col-lg-3 mb-2">
-                                                                <div class="form-check form-check-inline">
-                                                                    <label class="form-check-label">
-                                                                        <input type="checkbox" name="features[]" class="form-check-input" value="lifts-V3F" <?php if(preg_match("/lifts-V3F/", $details['feature'])) { echo 'checked';} else {echo "";} ?>>Lifts with V3F & ARD
-                                                                    </label>
-                                                                </div>
-                                                            </div>  
-                                                            <div class="col-lg-3 mb-2">
-                                                                <div class="form-check form-check-inline">
-                                                                    <span>
-                                                                        <input type="checkbox" name="features[]" class="form-check-input" value="water-meter" <?php if(preg_match("/water-meter/", $details['feature'])) { echo 'checked';} else {echo "";} ?>></span>
-                                                                    <span>Water meters for all apartments (Digital)</span>
-                                                                </div>
-                                                            </div>  
-                                                            <div class="col-lg-3 mb-2">
-                                                                <div class="form-check form-check-inline">
-                                                                    <label class="form-check-label">
-                                                                        <input type="checkbox" name="features[]" class="form-check-input" value="toilet-driver" <?php if(preg_match("/toilet-driver/", $details['feature'])) { echo 'checked';} else {echo "";} ?>>Toilets for drivers & domestic help
-                                                                    </label>
-                                                                </div>
-                                                            </div>  
-                                                            <div class="col-lg-3 mb-2">
-                                                                <div class="form-check form-check-inline">
-                                                                     <label class="form-check-label">
-                                                                        <input type="checkbox" name="features[]" class="form-check-input" value="fire-flight" <?php if(preg_match("/fire-flight/", $details['feature'])) { echo 'checked';} else {echo "";} ?>>Fire fighting sprinkler system
-                                                                    </label>
-                                                                </div>
-                                                            </div>  
-                                                            <div class="col-lg-3 mb-2">
-                                                                <div class="form-check form-check-inline">
-                                                                    <label class="form-check-label">
-                                                                        <input type="checkbox" name="features[]" class="form-check-input" value="hydro-pnuematic" <?php if(preg_match("/hydro-pnuematic/", $details['feature'])) { echo 'checked';} else {echo "";} ?>>Hydro Pnuematic System
-                                                                    </label>
-                                                                </div>
-                                                            </div>  
-                                                            <div class="col-lg-3 mb-2">
-                                                                <div class="form-check form-check-inline">
-                                                                    <label class="form-check-label">
-                                                                         <input type="checkbox" name="features[]" class="form-check-input" value="access-controlled" <?php if(preg_match("/access-controlled/", $details['feature'])) { echo 'checked';} else {echo "";} ?>>Access Controlled Doors
-                                                                    </label>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-lg-3 mb-2">
-                                                                <div class="form-check form-check-inline">
-                                                                    <label class="form-check-label">
-                                                                        <input type="checkbox" name="features[]" class="form-check-input" value="sewage-treatment" <?php if(preg_match("/sewage-treatment/", $details['feature'])) { echo 'checked';} else {echo "";} ?>>Sewage Treatment Plant
-                                                                    </label>
-                                                                 </div>
-                                                            </div>
-                                                            <div class="col-lg-3 mb-2">
-                                                                <div class="form-check form-check-inline">
-                                                                    <label class="form-check-label">
-                                                                         <input type="checkbox" name="features[]" class="form-check-input" value="indoor-games" <?php if(preg_match("/indoor-games/", $details['feature'])) { echo 'checked';} else {echo "";} ?>>Indoor Games
-                                                                     </label>
-                                                                </div>
-                                                            </div>  
-                                                            <div class="col-lg-3 mb-2">
-                                                                <div class="form-check form-check-inline">
-                                                                    <label class="form-check-label">
-                                                                        <input type="checkbox" name="features[]" class="form-check-input" value="video-intercom" <?php if(preg_match("/video-intercom/", $details['feature'])) { echo 'checked';} else {echo "";} ?>>Video Security Phone and Intercom
-                                                                    </label>
-                                                                </div>
-                                                            </div>  
-                                                            <div class="col-lg-3 mb-2">
-                                                                <div class="form-check form-check-inline">
-                                                                     <label class="form-check-label">
-                                                                        <input type="checkbox" name="features[]" class="form-check-input" value="DTH" <?php if(preg_match("/DTH/", $details['feature'])) { echo 'checked';} else {echo "";} ?>>DTH Provision
-                                                                    </label>
-                                                                </div>
-                                                            </div>  
-                                                            <div class="col-lg-3 mb-2">
-                                                                <div class="form-check form-check-inline">
-                                                                    <span>
-                                                                        <input type="checkbox" name="features[]" class="form-check-input" value="power-backup" <?php if(preg_match("/power-backup/", $details['feature'])) { echo 'checked';} else {echo "";} ?>></span>
-                                                                        <span>1000 Watts Power Back up for each unit</span>
-                                                                </div>
-                                                            </div>  
-                                                            <div class="col-lg-3 mb-2">
-                                                                <div class="form-check form-check-inline">
-                                                                    <label class="form-check-label">
-                                                                        <input type="checkbox" name="features[]" class="form-check-input" value="childerns-play" <?php if(preg_match("/childerns-play/", $details['feature'])) { echo 'checked';} else {echo "";} ?>>Children's Play Area
-                                                                    </label>
-                                                                </div>
-                                                            </div>  
-                                                            <div class="col-lg-3 mb-2">
-                                                                <div class="form-check form-check-inline">
-                                                                    <label class="form-check-label">
-                                                                        <input type="checkbox" name="features[]" class="form-check-input" value="guest-rooms" <?php if(preg_match("/guest-rooms/", $details['feature'])) { echo 'checked';} else {echo "";} ?>>Guest Rooms
-                                                                    </label>
-                                                                </div>
-                                                            </div> 
-                                                            <div class="col-lg-3 mb-2">
-                                                                <div class="form-check form-check-inline">
-                                                                    <span>
-                                                                        <input type="checkbox" name="features[]" class="form-check-input" value="waste-management" <?php if(preg_match("/waste-management/", $details['feature'])) { echo 'checked';} else {echo "";} ?>></span>
-                                                                     <span>Comprehensive Waste management system</span>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-lg-3 mb-2">
-                                                                <div class="form-check form-check-inline">
-                                                                    <label class="form-check-label">
-                                                                        <input type="checkbox" name="features[]" class="form-check-input" value="drivers-waiting-room" <?php if(preg_match("/drivers-waiting-room/", $details['feature'])) { echo 'checked';} else {echo "";} ?>>Drivers Waiting room with fittings
-                                                                    </label>
-                                                                </div>
-                                                            </div> 
-                                                            <div class="col-lg-3 mb-2">
-                                                                <div class="form-check form-check-inline">
-                                                                    <label class="form-check-label">
-                                                                        <input type="checkbox" name="features[]" class="form-check-input" value="elevators" <?php if(preg_match("/elevators/", $details['feature'])) { echo 'checked';} else {echo "";} ?>>Elevators in each block
-                                                                    </label>
-                                                                </div>
-                                                            </div>       
-                                                            <div class="col-lg-3 mb-2">
-                                                                <div class="form-check form-check-inline">
-                                                                    <span>
-                                                                        <input type="checkbox" name="features[]" class="form-check-input" value="access-doors" <?php if(preg_match("/access-doors/", $details['feature'])) { echo 'checked';} else {echo "";} ?>></span>
-                                                                        <span>Access Controlled doors with CCTV cameras coverage @ vantage point</span>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-lg-3 mb-2">
-                                                                <div class="form-check form-check-inline">
-                                                                    <label class="form-check-label">
-                                                                        <input type="checkbox" name="features[]" class="form-check-input" value="water-softening-plant" <?php if(preg_match("/water-softening-plant/", $details['feature'])) { echo 'checked';} else {echo "";} ?>>Water Softening plant
-                                                                     </label>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-lg-3 mb-2">
-                                                                <div class="form-check form-check-inline">
-                                                                <span>
-                                                                    <input type="checkbox" name="features[]" class="form-check-input" value="500-watt" <?php if(preg_match("/500-watt/", $details['feature'])) { echo 'checked';} else {echo "";} ?>></span>
-                                                                    <span>500 watt standby power supply for EWS Block</span>
-                                                                </div>
-                                                            </div>  
-                                                            <div class="col-lg-3 mb-2">
-                                                                <div class="form-check form-check-inline">
+                                                    <div class="row">
+                                                        <div class="col-lg-12 mb-2">
+                                                            <div class="form-check form-check-inline">
                                                                 <label class="form-check-label">
-                                                                    <input type="checkbox" name="features[]" class="form-check-input" value="Wifi-connectivity" <?php if(preg_match("/Wifi-connectivity/", $details['feature'])) { echo 'checked';} else {echo "";} ?>>Wifi Connectivity in club house
+                                                                    <input type="checkbox" id="select-all" class="form-check-input">Select all 
                                                                 </label>
-                                                                </div>
-                                                            </div>  
-                                                            <div class="col-lg-3 mb-2">
-                                                                <div class="form-check form-check-inline">
-                                                                <span>
-                                                                    <input type="checkbox" name="features[]" class="form-check-input" value="ac-outdoor" <?php if(preg_match("/ac-outdoor/", $details['feature'])) { echo 'checked';} else {echo "";} ?>></span><span>Provision for AC Outdoor Unit Placement</span>
-                                                                </div>
-                                                            </div>  
-                                                            <div class="col-lg-3 mb-2">
-                                                                <div class="form-check form-check-inline">
-                                                                     <label class="form-check-label">
-                                                                        <input type="checkbox" name="features[]" class="form-check-input" value="servant-quarters" <?php if(preg_match("/servant-quarters/", $details['feature'])) { echo 'checked';} else {echo "";} ?>>Servant Quarters
-                                                                    </label>
-                                                                </div>
-                                                            </div>  
-                                                            <div class="col-lg-3 mb-2">
-                                                                <div class="form-check form-check-inline">
-                                                                    <label class="form-check-label">
-                                                                        <input type="checkbox" name="features[]" class="form-check-input" value="intercom" <?php if(preg_match("/intercom/", $details['feature'])) { echo 'checked';} else {echo "";} ?>>Intercom
-                                                                    </label>
-                                                                </div>
-                                                            </div>  
-                                                            <div class="col-lg-3 mb-2">
-                                                                <div class="form-check form-check-inline">
-                                                                    <span>
-                                                                        <input type="checkbox" name="features[]" class="form-check-input" value="boundary-line" <?php if(preg_match("/boundary-line/", $details['feature'])) { echo 'checked';} else {echo "";} ?>></span>
-                                                                    <span> Boundary Line Landscaping & Sprawling Lawn</span>
-                                                                                            
-                                                                </div>
-                                                            </div>          
-                                                            <div class="col-lg-3 mb-2">
-                                                                 <div class="form-check form-check-inline">
-                                                                    <span>
-                                                                        <input type="checkbox" name="features[]" class="form-check-input" value="wifi-multiplesystem" <?php if(preg_match("/wifi-multiplesystem/", $details['feature'])) { echo 'checked';} else {echo "";} ?>></span>
-                                                                    <span> Wifi and Multiplesystem Service provider Television Enablement</span>
-                                                                </div>
-                                                            </div>    
-                                                            <div class="col-lg-3 mb-2">
-                                                                <div class="form-check form-check-inline">
-                                                                    <span>
-                                                                    <input type="checkbox" name="features[]" class="form-check-input" value="air-conditioning" <?php if(preg_match("/air-conditioning/", $details['feature'])) { echo 'checked';} else {echo "";} ?>></span>
-                                                                    <span>Placement Provision for Air-Conditioning Outdoor Units</span>
-                                                                </div>  
-                                                           </div>  
-                                                            <div class="col-lg-3 mb-2">
-                                                                <div class="form-check form-check-inline">
-                                                                    <span>
-                                                                        <input type="checkbox" name="features[]" class="form-check-input" value="private-clothes" <?php if(preg_match("/private-clothes/", $details['feature'])) { echo 'checked';} else {echo "";} ?>></span>
-                                                                    <span>    Private Clothes Drying areas for each apartment</span>
-                                                                </div>
-                                                            </div>  
-                                                            <div class="col-lg-3 mb-2">
-                                                                <div class="form-check form-check-inline">
-                                                                    <span>
-                                                                    <input type="checkbox" name="features[]" class="form-check-input" value="kids-play" <?php if(preg_match("/kids-play/", $details['feature'])) { echo 'checked';} else {echo "";} ?>></span>
-                                                                    <span>   Kids Play area(Children Under-8)</span>
-                                                                </div>
-                                                            </div>  
-                                                        </div>
-                                                        <div class="col-lg-12 text-center mb-2">
-                                                            <div class="form-group"> 
-                                                                <button type="reset" class="btn btn-secondary waves-effect m-l-5">Cancel</button>   
-                                                                <button type="submit" class="btn btn-primary waves-effect waves-light">Submit </button>  
                                                             </div>
                                                         </div>
-                                                    </form>                                                                            
-                                                </div>-->
+                                                        <?php foreach($features as $fe){ $match = $fe->feature_name; ?>
+                                                        <div class="col-lg-3 mb-2">
+                                                            <div class="form-check form-check-inline">
+                                                                <label class="form-check-label">
+                                                                    <input type="checkbox" name="features[]" class="form-check-input" value="<?=$fe->feature_name;?>" <?php if(preg_match("/$match/i", $details['feature'])) { echo 'checked';} else {echo "";} ?> > <?=$fe->feature_name;?> </label> 
+                                                            </div>
+                                                            </div>
+                                                        <?php  } ?>
+                                                    </div>
+                                                    <div class="col-lg-12 text-center mb-2">
+                                                        <div class="form-group"> 
+                                                            <button type="reset" class="btn btn-secondary waves-effect m-l-5">Cancel</button>   
+                                                            <button type="submit" class="btn btn-primary waves-effect waves-light">Submit </button>  
+                                                        </div>
+                                                    </div>
+                                                    </form>
+                                                </div>
+                                            
                                             <!-- feature tab end here -->
                                             <!-- floor plan tab starts here -->
                                             <div id="Floor-Plan" class="tab-pane fade">
                                                 <form method="POST" action="" id="floor_edit_form" enctype="multipart/form-data">
                                                     <label>Select Floor Blocks</label>
-                                                    <input type="number" id="btn-add-tab" name="tab-count" min="1" value="<?=$floor_plan_count?>">    
-                                                    <input type="hidden" id="btn-add-tab" name="property_id" value="<?=$floor_plan[0]->property_id?>">    
+                                                    <input type="number" id="tab-count" name="tab-count" min="1" value="<?=$floor_plan_count?>">    
+                                                    <input type="hidden" id="btn-add-tab1" name="property_id" value="<?=$floor_plan[0]->property_id?>">
+                                                    <p>
+                                                        <button id="btn-add-tab" type="button" class="btn btn-primary pull-right">Add Tab</button>
+                                                    </p>    
                                                     <div class="default-tab">
                                                         <ul class="nav nav-tabs" role="tablist" id="tab-list">
                                                            <?php
@@ -668,11 +338,11 @@ $this->load->view('layout/admin/admin_css'); ?>
                                                                     if($k == 0){
                                                             ?>
                                                             <li class="nav-item">
-                                                                <a class="nav-link active" data-toggle="tab" href="#home<?=$k?>"> <?=$v->floor_name?></a>
+                                                                <a class="nav-link active" data-toggle="tab" href="#home<?=$k?>"><span> <?=$v->floor_name?></span><span class="fa fa-pencil text-muted edit"></span></a>
                                                             </li>
                                                             <?php } else{?>
                                                             <li class="nav-item">
-                                                                <a class="nav-link" data-toggle="tab" href="#home<?=$k?>"> <?=$v->floor_name?></a>
+                                                                <a class="nav-link" data-toggle="tab" href="#home<?=$k?>"><span> <?=$v->floor_name?></span><span class="fa fa-pencil text-muted edit"></span></a>
                                                             </li>
                                                             <?php } } ?>  
                                                         </ul>
@@ -687,7 +357,7 @@ $this->load->view('layout/admin/admin_css'); ?>
                                                                 </div>
                                                                 <div class="col-lg-6 mb-2">
                                                                     <div class="form-group">
-                                                                         <input type="hidden" id="btn-add-tab" name="floor_id<?=$k?>[]" value="<?=$val->floor_id?>"> 
+                                                                         <input type="hidden"  name="floor_id<?=$k?>[]" value="<?=$val->floor_id?>"> 
                                                                         <label class="text-label">Tower Name </label>
                                                                          <input type="text" name="tower_name<?=$k?>[]" class="form-control" value="<?=$val->floor_name?>">
                                                                     </div>
@@ -697,7 +367,7 @@ $this->load->view('layout/admin/admin_css'); ?>
                                                                     </div>
                                                                     <div class="form-group">
                                                                         <label class="text-label">Floor Plan Upload </label>
-                                                                         <input type="file" name="floor_banner_img<?=$k?>[][]" class="form-control"  accept=".jpg, .jpeg, .png, .webp   " multiple>
+                                                                         <input type="file" name="floor_banner_img<?=$k?>[][]" class="form-control"  accept=".jpg, .jpeg, .png, .webp " multiple>
                                                                     </div> 
                                                                 </div>       
                                                                 <div class="col-lg-12 mb-2">         
@@ -706,7 +376,6 @@ $this->load->view('layout/admin/admin_css'); ?>
                                                                     ?>
                                                                     <img src="<?php echo base_url('assets/admin/uploads/floor_plan/').$v->img ?>" height="100" width="200" class="img-thumbnail">
                                                                     <?php } ?>   
-                                                                    
                                                                 </div> 
                                                             </div>
                                                             <?php } else{ ?>
@@ -716,7 +385,7 @@ $this->load->view('layout/admin/admin_css'); ?>
                                                                 </div>
                                                                 <div class="col-lg-6 mb-2">
                                                                     <div class="form-group">
-                                                                         <input type="hidden" id="btn-add-tab" name="floor_id<?=$k?>[]" value="<?=$val->floor_id?>">     
+                                                                         <input type="hidden"  name="floor_id<?=$k?>[]" value="<?=$val->floor_id?>">     
                                                                         <label class="text-label">Tower Name </label>
                                                                        <input type="text" name="tower_name<?=$k?>[]" class="form-control" value="<?=$val->floor_name?>">
                                                                     </div>
@@ -738,14 +407,15 @@ $this->load->view('layout/admin/admin_css'); ?>
                                                                 </div> 
                                                             </div>  
                                                             <?php } } ?>   
-                                                            <div class="col-lg-12 text-center mb-2">
+                                                           
+                                                        </div>
+                                                         <div class="col-lg-12 text-center mb-2">
                                                                 <div class="form-group"> 
                                                                     <button type="reset" class="btn btn-secondary waves-effect m-l-5">
                                                                                                     Cancel</button>
                                                                     <button type="submit" class="btn btn-primary waves-effect waves-light"> Submit </button>    
                                                                 </div>
                                                             </div>
-                                                        </div>
                                                     </div>
                                                 </form>
                                             </div>
@@ -814,7 +484,7 @@ $this->load->view('layout/admin/admin_css'); ?>
                                                                 <div class="col-lg-6 col-md-6 mb-2">
                                                                     <img id="output_image1"/>
                                                                     <img  id="img1" style="width:300px;height: 150px;" src="<?php echo base_url('assets/admin/uploads/property_banner/'.$banners->banner_img)?>" />
-                                                                    <button type="button" name="delete_banner" id="<?php echo $banners->banner_id ?>" data-id="<?php echo $banners->banner_id ?>"  data-proid ="<?php echo $banners->property_id ?>" class="btn btn-danger banner_remove">X</button>
+                                                                    <button type="button" name="delete_banner" id="<?php echo $banners->banner_id ?>" data-id="<?php echo $banners->banner_id ?>"  data-proid ="<?php echo $banners->property_id ?>" class="btn btn-danger property_banner_remove">X</button>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -840,6 +510,60 @@ $this->load->view('layout/admin/admin_css'); ?>
                                             </div>
                                             <!-- banner tab end here -->
 
+                                            <!-- current status tab start here -->
+                                            <div id="current-status" class="tab-pane fade ">
+                                                <div class="card-body">
+                                                    <div class="alert alert-success" id="success_msg" role="alert" style="display:none;" >Successfully updated
+                                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="alert alert-danger" id="error_msg" role="alert" style="display:none;" >Something went wrong please try again
+                                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <form id="property_currentstatus_update" action="<?php echo base_url('admin/property_banner_update');?>"  enctype="multipart/form-data" method="POST">
+                                                            <?php 
+                                                                foreach($currentstatus_details as $detail){
+                                                            ?>
+                                                        <div class="col-lg-12 col-md-12">
+                                                            <div class="row ">
+                                                                <div class="col-lg-6 col-md-6 ">
+                                                                    <label class="text-label">Banner Img Upload </label>
+                                                                    <input type="file"  name="banner_img_new[]" class="form-control"  accept=".jpg, .jpeg, .png" onchange="preview_image_1(event)" multiple="">
+                                                                    <input type="hidden"  name="banner_img[]" value="<?php echo $banners->banner_img ?>"  >
+                                                                    <input type="hidden" name="banner_id[]" value="<?php echo $detail->status_id ?>" >
+                                                                    <input type="hidden" name="property_id" value="<?php echo $detail->property_id ?>"  >
+                                                                </div>
+                                                                <div class="col-lg-6 col-md-6 mb-2">
+                                                                    <img id="output_image1"/>
+                                                                    <img id="img1" style="width:300px;height: 150px;" src="<?php echo base_url('assets/admin/uploads/current_status/'.$detail->img_url)?>" />
+                                                                    <button type="button" name="delete_banner" id="<?php echo $banners->banner_id ?>" data-id="<?php echo $banners->banner_id ?>"  data-proid ="<?php echo $banners->property_id ?>" class="btn btn-danger property_banner_remove">X</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                            <?php } ?>
+                                                        <div class="col-lg-12 col-md-12">    
+                                                        <div class="row ">    
+                                                            <div class="col-lg-6 col-md-6 ">
+                                                                <label class="text-label">Banner Img Upload </label>
+                                                                <input type="file"  name="banner_img_new1[]" class="form-control"  accept=".jpg, .jpeg, .png"  multiple>
+                                                            </div> 
+                                                        </div></div><br>  
+                                                        <div class="col-lg-12 text-center mb-2">
+                                                            <div class="form-group"> 
+                                                                <button type="reset" class="btn btn-secondary waves-effect m-l-5">
+                                                                    Cancel</button>                                            
+                                                                <button type="submit" class="btn btn-primary waves-effect waves-light">
+                                                                    Submit
+                                                                </button>                                            
+                                                            </div>
+                                                        </div>
+                                                    </form>                                        
+                                                </div>
+                                            </div>
+                                            <!-- current status tab end here -->
                                         </div>
                                     </div>
                                                                 
@@ -887,7 +611,50 @@ $this->load->view('layout/admin/admin_css'); ?>
  <script src="<?php echo base_url('assets/admin/js/bootbox.js')?>"></script>
 
 <script type='text/javascript'>
-    var baseURL= "<?php echo base_url();?>";
+var baseURL= "<?php echo base_url();?>";
+
+var button='<button class="close" type="button" title="Remove this page">×</button>';
+
+$(document).ready(function() {
+   
+    $('#btn-add-tab').click(function() {
+        var value = parseInt(document.getElementById('tab-count').value, 10);
+        value++;
+        document.getElementById('tab-count').value = value;  
+        var tabID = value-1;
+        
+        $('#tab-list').append($('<li class="nav-item"><a class="nav-link " href="#tab' + tabID + '" role="tab" data-toggle="tab"><span>Tower ' + tabID + ' </span><span class="fa fa-pencil text-muted edit"></span> <button class="close" type="button" title="Remove this page">×</button></a></li>'));
+        $('#tab-content').append($('<div class=" tab-pane fade tab_' + tabID + '" id="tab' + tabID + '">   <div id="day_' +tabID+' "> <div class="form-group col-sm-12" id="day1_dynamicadd_1"> <div class="col-lg-12 mb-2"> <div class="form-group"> <label class="text-label">Name </label> <input type="text" name="tower_name'+tabID+'[]" class="form-control"></div> </div> <div class="col-lg-12 mb-2"> <div class="form-group"> <label class="text-label">Title </label>    <input type="text" name="tower_title'+tabID+'[]" class="form-control" ></div> </div> <div class="col-lg-12 mb-2"> <div class="form-group"> <label class="text-label">Floor Images Upload </label> <input type="file" name="floor_banner_img'+tabID+'[][]" class="form-control"  accept=".jpg, .jpeg, .png, .webp" multiple>  </div> </div>   </div> </div>'));
+        $(".edit").click(editHandler);
+         tabID++;
+    });
+    
+    $('#tab-list').on('click', '.close', function() {
+        var tabID = $(this).parents('a').attr('href');
+        $(this).parents('li').remove();
+        $(tabID).remove();
+
+        //display first tab
+        var tabFirst = $('#tab-list a:first');
+       
+        tabFirst.tab('show');
+    });
+
+    var list = document.getElementById("tab-list");
+});
+
+var editHandler = function() {
+  var t = $(this);
+  t.css("visibility", "hidden");
+  $(this).prev().attr("contenteditable", "true").focusout(function() {
+    $(this).removeAttr("contenteditable").off("focusout");
+    t.css("visibility", "visible");
+  });
+};
+
+$(".edit").click(editHandler);
+
+
 //add faq dynamic
 $(document).ready(function(){  
       var i=1;  
@@ -937,70 +704,6 @@ $(document).ready(function(){
      
 });  
  
-$(document).on('click', '.banner_remove', function(){  
-           var pro_id = $(this).attr("data-proid");
-           var id = $(this).attr("data-id"); 
-           if(id == null){
-            $('#row'+button_id+'').remove(); 
-           }
-               
-        else{
-            bootbox.confirm("Are you sure you want to delete?", function(result) {
-            if(result)
-               {
-                    $.ajax({
-                            url : baseURL + 'admin/delete_property_banner',                          
-                            method: 'POST', 
-                            data: {id:id},
-                            dataType:'JSON',                          
-                            error: function(xhr,status,error)
-                            {   
-                               alert(xhr.responseText);
-                            },           
-                            success: function(response)
-                            {
-                               if(response.status == 'success')
-                               {
-                                     window.location.href = baseURL+'Admin/edit_property/'+pro_id+'#banner';
-                                     console.log('location.hash', window.location.hash) 
-                                }else 
-                                 {                    
-                                    alert('Something went wrong..');
-                                 }
-                            },
-                           
-                    });
-                }
-            });
-       }
-          
-    });  
-//add dynamic tab 
-$(document).ready(function(){  
- $('#btn-add-tab').on('change',function()
-     {
-        var i = 0;
-         var selectedValue = $(this).val();  
-          $('#tab-list').html('');        //clear tab data before select option
-          $('#tab-content').html('');     
-          $('#no_of_days').val(selectedValue);
-
-          var tabID = 1;
-
-    for(i=0;i<selectedValue;i++)
-    {    
-         
-        $('#tab-list').append($('<li class="nav-item"><a class="nav-link " href="#tab' + tabID + '" role="tab" data-toggle="tab"> Tower ' + tabID + ' <br> <span id="' + tabID + '"> </span></a></li>'));  //class name - in active hide  
-
-        $('#tab-content').append($('<div class=" tab-pane fade tab_' + tabID + '" id="tab' + tabID + '">   <div id="day_' +tabID+' "> <div class="form-group col-sm-12" id="day1_dynamicadd_1"> <div class="col-lg-12 mb-2"> <div class="form-group"> <label class="text-label">Name </label> <input type="text" name="tower_name'+tabID+'[]" class="form-control"></div> </div> <div class="col-lg-12 mb-2"> <div class="form-group"> <label class="text-label">Title </label>    <input type="text" name="tower_title'+tabID+'[]" class="form-control" ></div> </div> <div class="col-lg-12 mb-2"> <div class="form-group"> <label class="text-label">Floor Images Upload </label> <input type="file" name="floor_banner_img'+tabID+'[][]" class="form-control"  accept=".jpg, .jpeg, .png, .webp" multiple> </div> </div>   </div> </div>'));
-         
-        tabID++;
-    }
-
-       i++;     
-
-     });
-});
 
 //ckeditor dynamic
  var editor = CKEDITOR.replace( 'ckfinder' );

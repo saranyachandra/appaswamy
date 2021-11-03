@@ -23,13 +23,43 @@ class Home extends CI_Controller {
 		$this->load->view('web/index',$data);		
 	}
 
+	public function index_demo()
+	{		
+		$data['title'] = 'Properties in Chennai demo ';
+		$data['banner_img'] = $this->Webmodel->get_banner_img();
+		$data['press'] = $this->Webmodel->get_press_details_home();
+		$data['blog'] = $this->Webmodel->get_blog_details_home();
+		$data['property'] = $this->Webmodel->get_property_details_home();
+		$this->load->view('web/index-demo',$data);		
+	} 
 	public function property()	
 	{		
 		$data['title'] = 'Property - Appaswamy Real Estates';
 		$data['property'] = $this->Webmodel->get_property_details();
 						
-		$this->load->view('web/property',$data);
+		$this->load->view('web/residential',$data);
 	}
+	public function location_filter()	
+	{		
+		
+		$response = array();	
+		$data['title'] = 'Property - Appaswamy Real Estates';
+		$data['property'] = $this->Webmodel->get_location_filter();
+		
+		if($this->Webmodel->get_location_filter())
+            {
+            	$response['status'] = 'success';
+            	$response['msg'] = $data['property'];            	
+            }
+            else
+            {
+            	$response['status'] = 'failed';
+            }
+        	
+        echo json_encode($response);
+
+	}
+
 	public function commercial_property()	
 	{		
 		$data['title'] = 'Property - Appaswamy Real Estates';
@@ -52,8 +82,13 @@ class Home extends CI_Controller {
 			$floorplan_query = "select * FROM property_floorplan WHERE property_id = '$id' ";
 			$data['floorplan_details']  = $this->db->query($floorplan_query)->result();
            
-            //print_r($data['floorplan_details']);
+           	$currentstatus_query = "select * FROM property_current_status WHERE property_id = '$id' ";
+			$data['currentstatus_details']  = $this->db->query($currentstatus_query)->result();
+           
             $data['property'] = $this->Webmodel->get_property_details_home();
+
+            $property_feat = "select feature_name FROM features WHERE Active = 1 ";
+        	$data['features']  = $this->db->query($property_feat)->result();
 
 			$this->load->view('web/property_details',$data);
 	}

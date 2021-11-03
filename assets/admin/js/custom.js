@@ -115,7 +115,8 @@
                         {
                            if(response.status == 'success')
                            {                             
-                                $('#success_msg').show();                                                          
+                                $('#success_msg').show(); 
+                                $('#banner_form').trigger("reset");                                                         
                             }   
                             else 
                             {                            
@@ -162,6 +163,41 @@
           
 
  });
+//delete main banner
+$(document).on('click', '.banner_remove', function(){  
+           
+           var id = $(this).attr("data-id"); 
+           
+        bootbox.confirm("Are you sure you want to delete?", function(result) {
+            if(result)
+               {
+                    $.ajax({
+                            url : baseURL + 'banner/delete_banner',                          
+                            method: 'POST', 
+                            data: {id:id},
+                            dataType:'JSON',                          
+                            error: function(xhr,status,error)
+                            {   
+                               alert(xhr.responseText);
+                            },           
+                            success: function(response)
+                            {
+                               if(response.status == 'success')
+                               {
+                                   window.location.href = baseURL+'banner/banner_details';  
+                                    
+                                }else 
+                                 {                    
+                                    alert('Something went wrong..');
+                                 }
+                            },
+                           
+                    });
+                }
+        });
+       
+          
+    });      
 //property  banner updated form 
     $(document).on("submit", "#property_banner_update", function(e){
         e.preventDefault();        
@@ -675,6 +711,45 @@ $(document).ready(function(){
     }); 
    
 });
+$(document).on('click', '.property_banner_remove', function(){  
+           var pro_id = $(this).attr("data-proid");
+           var id = $(this).attr("data-id"); 
+           if(id == null){
+            $('#row'+button_id+'').remove(); 
+           }
+               
+        else{
+            bootbox.confirm("Are you sure you want to delete?", function(result) {
+            if(result)
+               {
+                    $.ajax({
+                            url : baseURL + 'admin/delete_property_banner',                          
+                            method: 'POST', 
+                            data: {id:id},
+                            dataType:'JSON',                          
+                            error: function(xhr,status,error)
+                            {   
+                               alert(xhr.responseText);
+                            },           
+                            success: function(response)
+                            {
+                               if(response.status == 'success')
+                               {
+                                     window.location.href = baseURL+'Admin/edit_property/'+pro_id+'#banner';
+                                     console.log('location.hash', window.location.hash) 
+                                }else 
+                                 {                    
+                                    alert('Something went wrong..');
+                                 }
+                            },
+                           
+                    });
+                }
+            });
+       }
+          
+    });  
+
 
 //insert press
 
@@ -737,29 +812,25 @@ $(document).ready(function(){
 
  });
 
-// press edit form     
+// features form     
  $(document).on("submit", "#features_add_form", function(e){
         e.preventDefault();
-         $(this).validate({ 
-                          rules: {                           
+        $(this).validate({ 
+                        rules: {                           
                                     features: "required",
-                                   
-                                 },
-
-                          messages: {                           
-                                  features: {
+                                },
+                        messages: {                           
+                                features: {
                                       required: "Required ", 
-                                  },
-                                  
+                                },
                             },
-
-                           }); 
+                        }); 
     if($(this).valid())
         {     
                 var url = $(this).attr('action');
                 var formdata = new FormData(this);              
                 $.ajax({
-                        url :baseURL+'Feature/insert_feature',
+                        url :baseURL+'admin/insert_feature',
                         method: 'POST',
                         data: formdata,
                         processData: false,

@@ -11,10 +11,9 @@ class Webmodel extends CI_Model
     public function get_banner_img()
     {       
         $this->db->select('*');
-        $this->db->from('banner');   
+        $this->db->from('main_banner');   
         $query = $this->db->get();
-        return $query->row();
-
+        return $query->result();
 
     }
     public function get_press_details()
@@ -59,9 +58,22 @@ class Webmodel extends CI_Model
     {       
         $this->db->select('*');
         $this->db->from('property');  
-        $this->db->join('property_banner', 'property_banner.property_id = property.property_id');  
+        $this->db->join('property_banner', 'property_banner.property_id = property.property_id'); 
+        $this->db->join('property_current_status', 'property_current_status.property_id = property.property_id');  
         $this->db->group_by('property_banner.property_id');
         $this->db->where('type', 'Residential');         
+        $this->db->where('status = 1');       
+        return $this->db->get()->result();
+    }
+    public function get_location_filter()
+    {   
+        $name = $this->input->post('name');  
+
+        $this->db->select('*');
+        $this->db->from('property');  
+        $this->db->join('property_banner', 'property_banner.property_id = property.property_id');  
+        $this->db->group_by('property_banner.property_id');
+        $this->db->where('location', $name);         
         $this->db->where('status = 1');       
         return $this->db->get()->result();
     }

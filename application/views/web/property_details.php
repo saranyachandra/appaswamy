@@ -76,7 +76,7 @@
             <div class="col-xxl-6 col-xl-7 col-lg-7 col-sm-12 col-xs-12  col-12">
               <div class="row d-xxl-none">
                 <div class="col-xxl-2 col-xl-2 col-lg-2 col-sm-2 col-xs-2  col-2">
-                  <img src="<?php echo base_url('assets/web/images/project-logo/'.$property_details->name);?>" class="img-fluid" />
+                  <img src="<?php echo base_url('assets/web/images/project-logo/'.$property_details->name.".jpg");?>" class="img-fluid" />
                 </div>
                 <div class="col-xxl-10 col-xl-10 col-lg-2 col-sm-2 col-xs-2 col-10">
                   <h2><?php echo $property_details->name; ?> </h2>
@@ -192,15 +192,16 @@
           <?php
           $spec = json_decode($property_details->specification);
           $arr=explode(',',$property_details->specification);
+          if(isset($spec)){          
           foreach($spec as $k=>$det)
-            { 
+            {
               $x = (array)$det;  
               $y = (array)$x['spec'.$k];
           ?>
           <div class="col-xxl-4 col-xl-4 col-lg-4 col-sm-12 col-xs-12">
                <?php echo(html_entity_decode($y[0])); ?>
           </div>              
-          <?php } ?>   
+          <?php } } ?>   
         </div>        
       </div>
     </section>
@@ -217,198 +218,198 @@
           <div class="row">
             <div class="col-xxl-12 col-xl-12 col-lg-12 col-sm-12 col-xs-12">
               <ul>                  
-                  <?php 
-                    
-                    if(preg_match("/Water-Treatment/", "$property_details->feature")) 
+                <?php
+              
+                    if(preg_match("/Water Treatment Plant/i", "$property_details->feature")) 
                     {
                       echo '<li><span class="icon-water-treatment-plant fa-4x"></span><p>Water Treatment Plant</p></li>';
                     } 
-                    if(preg_match("/100-Power-Back-up/", "$property_details->feature")) 
+                    if(preg_match("/100% Power Back up for common areas & apartments/i", "$property_details->feature")) 
                     {
                       echo '<li><span class="icon-power-backup fa-4x"></span><p>100% Power Back up for common areas & apartments </p></li>';
                     }  
-                    if(preg_match("/Regulator-Gas/", "$property_details->feature")) 
+                    if(preg_match("/Regulator Gas/i", "$property_details->feature")) 
                     {
                       echo '<li><span class="icon-regulator-gas fa-4x"></span><p>Regulator Gas</p></li>';
                     } 
-                    if(preg_match("/Rain-water-Harvesting/", "$property_details->feature")) 
+                    if(preg_match("/Rain-water-Harvesting/i", "$property_details->feature")) 
                     {
                       echo '<li><span class="icon-rain-water-harvesting fa-4x"></span><p>Rain water Harvesting</p></li>';
                     } 
-                    if(preg_match("/Mini-Theatre/", "$property_details->feature")) 
+                    if(preg_match("/Mini Theatre/i", "$property_details->feature")) 
                     {
                       echo '<li><span class="icon-mini-thestre fa-4x"></span><p>Mini Theatre</p></li>';
                     }   
-                    if(preg_match("/Swimming-Pool/", "$property_details->feature")) 
+                    if(preg_match("/Swimming Pool/i", "$property_details->feature")) 
                     {
                       echo '<li><span class="icon-swimming-pool fa-4x"></span><p>Swimming Pool</p></li>';
                     } 
-                    if (preg_match("/Fire-Alarm/", "$property_details->feature")) 
+                    if (preg_match("/Fire Alarm & Wet riser system/i", "$property_details->feature")) 
                     {
                       echo '<li><span class="icon-fire-alarm fa-4x"></span><p>Fire Alarm & Wet riser system</p></li>';
                     } 
-                    if (preg_match("/Landscaped-garden/", "$property_details->feature")) 
+                    if (preg_match("/Landscaped garden with Water bodies/i", "$property_details->feature")) 
                     {
                       echo '<li><span class="icon-landscaped-garden fa-4x"></span><p>Landscaped garden with Water bodies</p></li>';
                     } 
-                    if (preg_match("/Association-Room/", "$property_details->feature")) 
+                    if (preg_match("/Association Room/i", "$property_details->feature")) 
                     {
                       echo '<li><span class="icon-association-room fa-4x"></span><p>Association Room</p></li>';
                     } 
-                    if (preg_match("/Color-video-Door-Phone/", "$property_details->feature")) 
+                    if (preg_match("/Color video Door Phone/i", "$property_details->feature")) 
                     {
                       echo '<li><span class="icon-video-security-phone-intercom fa-4x"></span><p>Color video Door Phone </p></li>';
                     } 
-                    if (preg_match("/Garbage/", "$property_details->feature")) 
+                    if (preg_match("/Garbage collection room/i", "$property_details->feature")) 
                     {
                       echo '<li><span class="icon-garbage-collection-room fa-4x"></span><p> Garbage collection room</p></li>';
                     } 
-                    if (preg_match("/club-house/", "$property_details->feature")) 
+                    if (preg_match("/Minor Sensor Lighting system in club house/i", "$property_details->feature")) 
                     {
                       echo '<li><span class="icon-clubhouse fa-4x"></span><p>Minor Sensor Lighting system in club house</p></li>';
                     } 
-                    if (preg_match("/CCTV/", "$property_details->feature")) 
+                    if (preg_match("/CCTV Surveillance/i", "$property_details->feature")) 
                     {
                       echo '<li><span class="icon-CCTV-surveillance fa-4x"></span><p>CCTV Surveillance</p></li>';
                     } 
-                    if (preg_match("/solar-lights/", "$property_details->feature")) 
+                    if (preg_match("/Solar Powered LED Lights in coomon area/i", "$property_details->feature")) 
                     {
                       echo '<li><span class="icon-solor-powered-led-lights fa-4x"></span><p>Solar Powered LED Lights in coomon area</p></li>';
                     } 
-                    if (preg_match("/Clubhouse/", "$property_details->feature")) 
+                    if (preg_match("/Clubhouse/i", "$property_details->feature")) 
                     {
                       echo '<li><span class="icon-clubhouse fa-4x"></span><p>Clubhouse</p></li>';
                     } 
-                    if (preg_match("/security-chain/", "$property_details->feature")) 
+                    if (preg_match("/Security Cabin/i", "$property_details->feature")) 
                     {
                       echo '<li><span class="icon-security-cabin fa-4x"></span><p>Security Cabin</p></li>';
                     } 
-                    if (preg_match("/fitness-center/", "$property_details->feature")) 
+                    if (preg_match("/Fitness Center/i", "$property_details->feature")) 
                     {
                       echo '<li><span class="icon-fitness-center fa-4x"></span><p>Fitness Center</p></li>';
                     } 
-                    if (preg_match("/party-hall/", "$property_details->feature")) 
+                    if (preg_match("/Party Hall/i", "$property_details->feature")) 
                     {
                       echo '<li><span class="icon-party-hall fa-4x"></span><p>Party Hall</p></li>';
                     } 
-                    if (preg_match("/parking-barrier/", "$property_details->feature")) 
+                    if (preg_match("/Access Controlled Barrier for Car Park Entry/i", "$property_details->feature")) 
                     {
                       echo '<li><span class="icon-parking-barrier fa-4x"></span><p>Access Controlled Barrier for Car Park Entry</p></li>';
-                    } if (preg_match("/lifts-V3F/", "$property_details->feature")) 
+                    } if (preg_match("/Lifts with V3F & ARD/i", "$property_details->feature")) 
                     {
                       echo '<li><span class="icon-Elevator fa-4x"></span><p>Lifts with V3F & ARD</p></li>';
                     } 
-                    if (preg_match("/water-meter/", "$property_details->feature")) 
+                    if (preg_match("/Water meters for all apartments (Digital)/i", "$property_details->feature")) 
                     {
                       echo '<li><span class="icon-water-meter fa-4x"></span><p>Water meters for all apartments (Digital)</p></li>';
                     } 
-                    if (preg_match("/toilet-driver/", "$property_details->feature")) 
+                    if (preg_match("/Toilets for drivers & domestic help/i", "$property_details->feature")) 
                     {
                       echo '<li><span class="icon-toilet-for-drivers fa-4x"></span><p>Toilets for drivers & domestic help</p></li>';
                     } 
-                    if (preg_match("/fire-flight/", "$property_details->feature")) 
+                    if (preg_match("/Fire fighting sprinkler system/i", "$property_details->feature")) 
                     {
                       echo '<li><span class="icon-fire-flight-sprinker-system fa-4x"></span><p>Fire fighting sprinkler system</p></li>';
                     } 
-                    if (preg_match("/hydro-pnuematic/", "$property_details->feature")) 
+                    if (preg_match("/Hydro Pnuematic System/i", "$property_details->feature")) 
                     {
                       echo '<li><span class="icon-water-softening-plant fa-4x"></span><p>Hydro Pnuematic System</p></li>';
                     } 
-                    if (preg_match("/access-controlled/", "$property_details->feature")) 
+                    if (preg_match("/Access Controlled Doors/i", "$property_details->feature")) 
                     {
                       echo '<li><span class="icon-access-controlled-doors fa-4x"></span><p>Access Controlled Doors</p></li>';
                     } 
-                    if (preg_match("/sewage-treatment/", "$property_details->feature")) 
+                    if (preg_match("/Sewage Treatment Plant/i", "$property_details->feature")) 
                     {
                       echo '<li><span class="icon-water-treatment-plant fa-4x"></span><p>Sewage Treatment Plant</p></li>';
                     } 
-                    if (preg_match("/indoor-games/", "$property_details->feature")) 
+                    if (preg_match("/Indoor Games/i", "$property_details->feature")) 
                     {
                       echo '<li><span class="icon-indoor-games fa-4x"></span><p>Indoor Games</p></li>';
                     } 
-                    if (preg_match("/video-intercom/", "$property_details->feature")) 
+                    if (preg_match("/Video Security Phone and Intercom/i", "$property_details->feature")) 
                     {
                       echo '<li><span class="icon-regulator-gas fa-4x"></span><p>Video Security Phone and Intercom</p></li>';
                     } 
-                    if (preg_match("/DTH/", "$property_details->feature")) 
+                    if (preg_match("/DTH Provision/i", "$property_details->feature")) 
                     {
                       echo '<li><span class="icon-DTH-provision fa-4x"></span><p>DTH Provision</p></li>';
                     } 
-                    if (preg_match("/power-backup/", "$property_details->feature")) 
+                    if (preg_match("/1000 Watts Power Back up for each unit/i", "$property_details->feature")) 
                     {
                       echo '<li><span class="icon-power-backup fa-4x"></span><p>1000 Watts Power Back up for each unit</p></li>';
                     } 
-                    if (preg_match("/childerns-play/", "$property_details->feature")) 
+                    if (preg_match("/Childrens Play Area/i", "$property_details->feature")) 
                     {
                       echo '<li><span class="icon-childerns-play-area fa-4x"></span><p>Childrens Play Area</p></li>';
                     } 
-                    if (preg_match("/guest-rooms/", "$property_details->feature")) 
+                    if (preg_match("/Guest Rooms/i", "$property_details->feature")) 
                     {
                       echo '<li><span class="icon-guest-room fa-4x"></span><p>Guest Rooms</p></li>';
                     } 
-                    if (preg_match("/waste-management/", "$property_details->feature")) 
+                    if (preg_match("/Comprehensive Waste management system/i", "$property_details->feature")) 
                     {
                       echo '<li><span class="icon-waster-management fa-4x"></span><p>Comprehensive Waste management system</p></li>';
                     } 
-                    if (preg_match("/drivers-waiting-room/", "$property_details->feature")) 
+                    if (preg_match("/Drivers Waiting room with fittings/i", "$property_details->feature")) 
                     {
                       echo '<li><span class="icon-drivers-waiting-room fa-4x"></span><p>Drivers Waiting room with fittings</p></li>';
                     } 
-                    if (preg_match("/elevators/", "$property_details->feature")) 
+                    if (preg_match("/Elevators in each block/i", "$property_details->feature")) 
                     {
                       echo '<li><span class="icon-Elevator fa-4x"></span><p>Elevators in each block</p></li>';
                     } 
-                    if (preg_match("/access-doors/", "$property_details->feature")) 
+                    if (preg_match("/Access Controlled doors with CCTV cameras coverage @ vantage point/i", "$property_details->feature")) 
                     {
                       echo '<li><span class="icon-access-controlled-doors fa-4x"></span><p>Access Controlled doors with CCTV cameras coverage @ vantage point</p></li>';
                     } 
-                    if (preg_match("/water-softening-plant/", "$property_details->feature")) 
+                    if (preg_match("/Water Softening plant/i", "$property_details->feature")) 
                     {
                       echo '<li><span class="icon-water-softening-plant fa-4x"></span><p>Water Softening plant</p></li>';
                     } 
-                    if (preg_match("/500-watt/", "$property_details->feature")) 
+                    if (preg_match("/500 watt standby power supply for EWS Block/i", "$property_details->feature")) 
                     {
                       echo '<li><span class="icon-power-backup fa-4x"></span><p>500 watt standby power supply for EWS Block</p></li>';
                     } 
-                    if (preg_match("/Wifi-connectivity/", "$property_details->feature")) 
+                    if (preg_match("/Wifi Connectivity in club house/i", "$property_details->feature")) 
                     {
                       echo '<li><span class="icon-wifi fa-4x"></span><p>Wifi Connectivity in club house</p></li>';
                     } 
-                    if (preg_match("/ac-outdoor/", "$property_details->feature")) 
+                    if (preg_match("/Provision for AC Outdoor Unit Placement/i", "$property_details->feature")) 
                     {
                       echo '<li><span class="icon-ac-outdoor-units fa-4x"></span><p>Provision for AC Outdoor Unit Placement</p></li>';
                     } 
-                    if (preg_match("/servant-quarters/", "$property_details->feature")) 
+                    if (preg_match("/Servant Quarters/i", "$property_details->feature")) 
                     {
                       echo '<li><span class="icon-servant-quarters fa-4x"></span><p>Servant Quarters</p></li>';
                     } 
-                    if (preg_match("/intercom/", "$property_details->feature")) 
+                    if (preg_match("/Intercom/i", "$property_details->feature")) 
                     {
                       echo '<li><span class="icon-intercom fa-4x"></span><p>Intercom</p></li>';
                     } 
-                    if (preg_match("/boundary-line/", "$property_details->feature")) 
+                    if (preg_match("/Boundary Line Landscaping & Sprawling Lawn/i", "$property_details->feature")) 
                     {
                       echo '<li><span class="icon-regulator-gas fa-4x"></span><p>Boundary Line Landscaping & Sprawling Lawn</p></li>';
                     } 
-                    if (preg_match("/wifi-multiplesystem/", "$property_details->feature")) 
+                    if (preg_match("/Wifi and Multiplesystem Service provider Television Enablement/i", "$property_details->feature")) 
                     {
                       echo '<li><span class="icon-wifi-multiplesystem fa-4x"></span><p>Wifi and Multiplesystem Service provider Television Enablement</p></li>';
                     } 
-                    if (preg_match("/air-conditioning/", "$property_details->feature")) 
+                    if (preg_match("/Placement Provision for Air-Conditioning Outdoor Units/i", "$property_details->feature")) 
                     {
                       echo '<li><span class="icon-ac-outdoor-units fa-4x"></span><p>Placement Provision for Air-Conditioning Outdoor Units</p></li>';
                     } 
-                    if (preg_match("/private-clothes/", "$property_details->feature")) 
+                    if (preg_match("/Private Clothes Drying areas for each apartment/i", "$property_details->feature")) 
                     {
                       echo '<li><span class="icon-private-clothes-drying fa-4x"></span><p>Private Clothes Drying areas for each apartment</p></li>';
                     } 
-                    if (preg_match("/kids-play/", "$property_details->feature")) 
+                    if (preg_match("/Kids Play area(Children Under-8)/i", "$property_details->feature")) 
                     {
                       echo '<li><span class="icon-kids-play-area fa-4x"></span><p>Kids Play area(Children Under-8)</p></li>';
                     } 
-                             
-                  ?>
-                                
+                 ?>            
+                
+                              
                 
               </ul>
             </div>
@@ -475,16 +476,11 @@
                       </div>
                       <div id="carousel_<?=$k?>" data-id="<?=$k?>" class="flexslider">
                         <ul class="slides">
-                          <?php
-                          foreach($floor_images as $k=>$val){
-                            
-                            ?>
+                          <?php foreach($floor_images as $k=>$val){ ?>
                             <li>
                             <img src="<?php echo base_url('assets/admin/uploads/floor_plan/'.$val->img)?>" />
                           </li>
-                            <?php
-                          }
-                          ?>                                          
+                          <?php } ?>  
                         </ul>
                       </div>
                     </section>      
@@ -538,6 +534,52 @@
     </section>
 
 <!-- floor plan end here -->
+
+<!-- current status start here -->
+
+    <section id="current-status" class="floor ptb66">
+      <div class="container">
+        <div class="row">
+          <div class="col-xxl-12 col-xl-12 col-lg-12 col-sm-12 col-xs-12">
+            <h2 class="text-center">Current Status</h2>
+            <h3 class="text-center">World class amenities to matching global standards in living</h3>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xxl-6 col-xl-6 col-lg-6 col-sm-12 col-xs-12 offset-3 slider">
+              <?php if(isset($currentstatus_details)){ ?>             
+                <center>  
+                  <div>
+                    <section class="">
+                      <div id="slider_cs"  class="flexslider">
+                        <ul class="slides">
+                          <?php foreach($currentstatus_details as $k=>$detail){ ?>
+                            <li>
+                              <img src="<?php echo base_url('assets/admin/uploads/current_status/'.$detail->img_url)?>" />
+                            </li>
+                          <?php } ?>  
+                        </ul>
+                      </div>
+                      <div id="carousel_cs" class="flexslider">
+                        <ul class="slides">
+                          <?php foreach($currentstatus_details as $k=>$detail){ ?>
+                          <li>
+                            <img src="<?php echo base_url('assets/admin/uploads/current_status/'.$detail->img_url)?>" />
+                          </li>
+                          <?php } ?>  
+                        </ul>
+                      </div>
+                    </section>      
+                  </div> 
+                </center>
+              <?php } ?>
+           
+          </div>
+        </div>
+      </div>
+    </section>
+
+<!-- current status end here -->
 
 <!-- Location Map -->
   <section class="model-flat ptb56" id="virtual-tour">
@@ -698,23 +740,46 @@
 <!-- FlexSlider -->
 
 <script type="text/javascript">
-        $(window).scroll(function(){  if ($(window).scrollTop() >= 300) {  $('nav').addClass('fixed-header');  $('nav').addClass('project-menus1');  }  else {  $('nav').removeClass('fixed-header');  $('nav').removeClass('project-menus1');  } });
+//header menu 
+  $(window).scroll(function(){  if ($(window).scrollTop() >= 300) {  $('nav').addClass('fixed-header');  $('nav').addClass('project-menus1');  }  else {  $('nav').removeClass('fixed-header');  $('nav').removeClass('project-menus1');  } });
 
-  
-//flex slider 
-
+//flex slider
     $(window).load(function(){
-      $('[id^="carousel"]').flexslider({
+      $('#carousel_cs').flexslider({       
         animation: "slide",
         controlNav: false,
         animationLoop: false,
         slideshow: false,
         itemWidth: 115,
         itemMargin: 5,
-        asNavFor: '#slider',
+        asNavFor: '#slider_cs',
       });
 
-      $('[id^="slider"]').flexslider({
+      $('#slider_cs').flexslider({        
+        animation: "slide",
+        controlNav: false,
+        animationLoop: false,
+        slideshow: false,
+        sync: "#carousel_cs",
+        start: function(slider){
+          $('body').removeClass('loading');
+        }
+      });
+    });
+      
+//flex slider
+   $(window).load(function(){
+      $('[id^="carousel"]').flexslider({       
+        animation: "slide",
+        controlNav: false,
+        animationLoop: false,
+        slideshow: false,
+        itemWidth: 115,
+        itemMargin: 5,
+        asNavFor: '[id^="slider"]',
+      });
+
+      $('[id^="slider"]').flexslider({        
         animation: "slide",
         controlNav: false,
         animationLoop: false,
@@ -726,7 +791,7 @@
       });
     });
 
-   
+
 </script>
 </body>
 </html>
